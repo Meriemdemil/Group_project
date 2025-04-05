@@ -9,49 +9,56 @@ embedder = SentenceTransformer('all-MiniLM-L6-v2', device='cpu')
 class EfficientDocumentSearch:
     def __init__(self):
         try:
-            self.vector_store = FAISS.load_local(
-                "vector_db/vector_db/DM_vector_store",
-                embedder,
-                allow_dangerous_deserialization=True
-            )
-            print(f"Loaded {self.vector_store.index.ntotal} documents")
+            # Load multiple vector stores separately
+            self.vector_stores = [
+                FAISS.load_local("vector_db/vector_db/DM_vector_store", embedder, allow_dangerous_deserialization=True),
+                FAISS.load_local("vector_db/OR_vector_store", embedder, allow_dangerous_deserialization=True)
+            ]
+            total_docs = sum(store.index.ntotal for store in self.vector_stores)
+            print(f"Loaded {total_docs} documents from multiple vector stores")
         except Exception as e:
             print("Vector store load failed:", e)
             exit()
 
     def search(self, query, min_score=0.85, top_k=3):
-        """Optimized search with cleaned and formatted results."""
+        """Search across all vector stores and return the top_k most relevant results."""
         if not query.strip():
-            return ["Query can not be empty please enter a valid one"]
+            return ["Query cannot be empty. Please enter a valid one."]
+        
         query_vec = embedder.encode(query, normalize_embeddings=True)
-        
-        # Perform similarity search
-        docs = self.vector_store.similarity_search_with_score_by_vector(
-            query_vec,
-            k=top_k
-        )
-        
-        # Normalize scores to be between 0 and 1
-        scores = np.array([score for _, score in docs])
-        scores = (scores - scores.min()) / (scores.max() - scores.min())
-        passed = scores >= min_score
-        
-        if not passed.any():
-            return ["No matches above confidence threshold"]
-        
-        # Filter and format results
+        all_results = []
+
+        # Gather results from all vector stores
+        for i, vector_store in enumerate(self.vector_stores):
+            try:
+                docs = vector_store.similarity_search_with_score_by_vector(query_vec, k=top_k)
+                for doc, score in docs:
+                    all_results.append((i, doc, score))
+            except Exception as e:
+                print(f"Error searching in store {i}:", e)
+
+        if not all_results:
+            return ["No matches found in any vector store."]
+
+        # Sort all results by score (ascending = more relevant in FAISS)
+        all_results.sort(key=lambda x: x[2])
+
+        # Filter top_k results across all stores
+        selected_results = all_results[:top_k]
+
         results = []
-        for (doc, score), valid in zip(docs, passed):
-            if valid:
-                # Clean the document content
+        for store_index, doc, score in selected_results:
+            if score > (1 - min_score):  # since cosine distance is (1 - similarity)
                 cleaned_content = re.sub(r"[•●○◦▶■♦◇✓✦]", "", doc.page_content)
                 cleaned_content = re.sub(r"\s+", " ", cleaned_content).strip()
-                
-                # Add the result to the list
-                results.append(f"[Score: {score:.3f}]\n{cleaned_content}\n")
-        
+                results.append(f"[Store: {store_index}, Score: {1 - score:.3f}]\n{cleaned_content}\n")
+
+        if not results:
+            return ["No matches above confidence threshold."]
+
         return results
 
+    
 searcher = EfficientDocumentSearch()
 
 print("\nEfficient Document Search (type 'quit' to exit)")
