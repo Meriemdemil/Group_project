@@ -10,7 +10,7 @@ class EfficientDocumentSearch:
     def __init__(self):
         try:
             self.vector_store = FAISS.load_local(
-                "vector_db/faiss_index",
+                "vector_db/vector_db/DM_vector_store",
                 embedder,
                 allow_dangerous_deserialization=True
             )
