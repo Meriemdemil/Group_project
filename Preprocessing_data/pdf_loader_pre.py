@@ -83,40 +83,46 @@ class CustomPDFLoader:
                 logging.error(f"Error extracting images from PDF: {e}")
                 return []
 
+    
+
     def clean_text(self, text):
         """
-        Remove page numbers, teacher names, headers, footers, and table of contents.
-    
-        Args:
-            text (str): Raw text to clean.
-    
-        Returns:
-            str: Cleaned text.
+        Clean raw text from PDF by removing artifacts like page numbers,
+        headers, footers, bullet points, and fixing spacing and punctuation issues.
         """
         try:
-            # Remove page numbers
-            text = re.sub(r"\bPage\s*\d+\b", "", text)
-    
-            # Remove slide numbers
-            text = re.sub(r"Slide\s*\d+", "", text)
-    
-            # Remove lecture numbers
-            text = re.sub(r"Lecture\s*\d+", "", text)
-    
-            # Remove table of contents patterns (e.g., "1. Data", "2. Data preprocessing")
+            # Remove common structural noise
+            text = re.sub(r"\b(Page|Slide|Lecture)\s*\d+\b", "", text, flags=re.IGNORECASE)
+
+            # Remove table of contents-like lines (e.g., "1. Data Preprocessing")
             text = re.sub(r"^\d+\.\s+[A-Za-z\s]+$", "", text, flags=re.MULTILINE)
-    
-            # Remove headers/footers (e.g., recurring patterns like "Data Mining Data : Part 1")
-            text = re.sub(r"(Data Mining Data\s*:\s*Part\s*\d+)", "", text, flags=re.IGNORECASE)
-    
-            # Remove extra spaces and newlines
+
+            # Remove headers and footers (customize if needed)
+            text = re.sub(r"Data\s*Mining\s*Data\s*:\s*Part\s*\d+", "", text, flags=re.IGNORECASE)
+
+            # Remove unwanted bullets and stray formatting characters
+            text = re.sub(r"[•●▪○◦▶■♦◇✓✦]", " ", text)
+            text = re.sub(r"\b[eo]\b", "", text)  # Stray letters like 'e' or 'o' used as bullets
+
+            # Fix issues where words are jammed together (e.g., "DataPreprocessing" → "Data. Preprocessing")
+            text = re.sub(r"([a-z])([A-Z])", r"\1. \2", text)
+
+            # Remove multiple spaces, newlines, and clean whitespace
             text = re.sub(r"\s{2,}", " ", text)
             text = re.sub(r"\n{2,}", "\n", text)
-    
+            text = re.sub(r"\s+\n", "\n", text)
+            text = re.sub(r"\n\s+", "\n", text)
+            text = re.sub(r"\s+", " ", text)
+
+            # Strip trailing/leading non-text characters on each line
+            text = "\n".join(re.sub(r"^\W+|\W+$", "", line) for line in text.splitlines())
+
             return text.strip()
+
         except Exception as e:
             logging.error(f"Error cleaning text: {e}")
             return text
+
 
     def remove_names(self, text):
         """
