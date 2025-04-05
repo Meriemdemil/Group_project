@@ -6,10 +6,8 @@ import spacy
 from langchain.schema import Document
 import logging
 
-# Initialize logging
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 
-# Load SpaCy model
 nlp = spacy.load("en_core_web_trf")
 
 class CustomPDFLoader:
@@ -103,6 +101,12 @@ class CustomPDFLoader:
             # Remove unwanted bullets and stray formatting characters
             text = re.sub(r"[•●▪○◦▶■♦◇✓✦]", " ", text)
             text = re.sub(r"\b[eo]\b", "", text)  # Stray letters like 'e' or 'o' used as bullets
+            # Remove common structural noise
+            text = re.sub(r"\b(Page|Slide|Lecture)\s*\d+\b", "", text, flags=re.IGNORECASE)
+            text = re.sub(r"[•●○◦▶■♦◇✓✦]", " ", text)  # Remove bullet points
+            text = re.sub(r"\s+", " ", text).strip()  # Remove extra spaces
+            text = re.sub(r"\n+", "\n", text)  # Remove excessive newlines
+
 
             # Fix issues where words are jammed together (e.g., "DataPreprocessing" → "Data. Preprocessing")
             text = re.sub(r"([a-z])([A-Z])", r"\1. \2", text)
