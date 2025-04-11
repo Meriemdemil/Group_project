@@ -5,12 +5,8 @@ from langchain_community.vectorstores import FAISS
 import re
 
 app = Flask(__name__)
-CORS(app, resources={
-    r"/query": {
-        "origins": ["http://localhost:3000","http://192.168.56.1:3000", "http://localhost:5000"],
-        "methods": ["POST"]
-    }
-})
+CORS(app)  # Enable CORS
+
 embedder = SentenceTransformer('all-MiniLM-L6-v2', device='cpu')
 
 class EfficientDocumentSearch:
