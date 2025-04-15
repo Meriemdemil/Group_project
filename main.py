@@ -1,58 +1,44 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-from sentence_transformers import SentenceTransformer
-from langchain_community.vectorstores import FAISS
+from rag_core import rag_pipeline
 import re
 
 app = Flask(__name__)
 CORS(app, resources={
     r"/query": {
-        "origins": ["http://localhost:3000","http://192.168.56.1:3000", "http://localhost:5000"],
+        "origins": ["http://localhost:3000", "http://192.168.56.1:3000", "http://localhost:5000"],
         "methods": ["POST"]
     }
 })
-embedder = SentenceTransformer('all-MiniLM-L6-v2', device='cpu')
-
-class EfficientDocumentSearch:
-    def __init__(self):
-        self.vector_stores = [
-            FAISS.load_local("vector_db/vector_db/DM_vector_store", embedder, allow_dangerous_deserialization=True),
-            FAISS.load_local("vector_db/OR_vector_store", embedder, allow_dangerous_deserialization=True)
-        ]
-
-    def search(self, query, min_score=0.85, top_k=3):
-        if not query.strip():
-            return ["Query cannot be empty."]
-
-        query_vec = embedder.encode(query, normalize_embeddings=True)
-        all_results = []
-        for i, vector_store in enumerate(self.vector_stores):
-            try:
-                docs = vector_store.similarity_search_with_score_by_vector(query_vec, k=top_k)
-                for doc, score in docs:
-                    all_results.append((i, doc, score))
-            except:
-                continue
-
-        all_results.sort(key=lambda x: x[2])
-        selected_results = all_results[:top_k]
-        results = []
-
-        for store_index, doc, score in selected_results:
-            if score > (1 - min_score):
-                content = re.sub(r"\s+", " ", doc.page_content).strip()
-                results.append(content)
-
-        return results or ["No matches above confidence threshold."]
-
-searcher = EfficientDocumentSearch()
 
 @app.route("/query", methods=["POST"])
-def query():
-    data = request.get_json()
-    query = data.get("question") or data.get("query", "")
-    results = searcher.search(query)
-    return jsonify({"answers": results})
+def handle_query():
+    try:
+        data = request.get_json()
+        query = data.get("question") or data.get("query", "").strip()
+        
+        if not query:
+            return jsonify({"error": "Query cannot be empty", "answers": []}), 400
+        
+        # Get RAG response
+        answer = rag_pipeline(query)
+        
+        # Clean up the answer if needed
+        cleaned_answer = re.sub(r"\s+", " ", answer).strip()
+        
+        # Return in the format your frontend expects
+        return jsonify({
+            "answers": [cleaned_answer],  # Note: Wrapping in array to match frontend expectation
+            "status": "success"
+        })
+        
+    except Exception as e:
+        return jsonify({
+            "error": str(e),
+            "answers": ["Something went wrong. Please try again."],
+            "status": "error"
+        }), 500
 
 if __name__ == "__main__":
-    app.run(port=5000)
+    print("\nEfficient Document RAG Search API (running on port 5000)")
+    app.run(port=5000, debug=True)  # Added debug=True for better error reporting
