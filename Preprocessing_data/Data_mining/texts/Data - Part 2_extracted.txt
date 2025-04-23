@@ -1,0 +1,284 @@
+Exploratory Data Analysis ( EDA ) 
+
+ & 
+
+ Exploratory Data Analysis ( EDA ) 
+
+ LJ EDA is a set of statistical and visualization techniques . 
+ L ) _ Used for seeing what the data can tell us before the preprocessing and modeling : 
+ _ ) Understand the data and summarize its keys properties . 
+
+ Discover noisy data and outliers . 
+ Comprehend the distribution of the data . 
+ The method is either univariate or multivariate ( Usually just bivariate ) . 
+ Exploratory Data Analysis ( EDA ) 
+
+ 1 . Statics of Data 
+
+ 2 . 
+ Asample is an unbiased subset that best 
+
+ represents the entire population . 
+ Measuring the Central Tendency : ( 1 ) Mean 
+
+ O Mean ( algebraic measure ) ( sample vs. population ): 
+
+ nN 
+ nis sample size and N is population size . 
+ X 
+ X X ; _ — 
+ WM j= 
+ Weighted arithmeticmean : y= — = ! 
+
+ OQ 
+ Trimmed mean : Chopping extreme values ( e.g. , olympics gymnastics score computation ) 
+ Median is the middle value in a data set when values are ordered . 
+ How to calculate 
+
+ Q 
+ Sort data in ascending order . 
+ Repeat values according to their frequency . 
+ Ifthere 's an odd number of data points , the median is the middle value . 
+ Useful for skewed distributions . 
+ Median is in the position ceil(13/2 ) = 7 
+ OQ 
+ The median bin is the value 10 - 20 
+
+ How to find the median value ? 
+
+
+ Median calculation for grouped data 
+
+ : : ( n/2)—B 
+ Estimated Median = L + — ~ — 
+ L : the lower class boundary of the median bin . 
+
+ n : the total number of values . 
+
+ B : cumulative frequency of the bins before the median 
+ bin . 
+
+ G : the frequency of the median bin . 
+ Measuring the Central Tendency : ( 3 ) Mode 
+
+ QO Mode : Value that occurs most frequently in the data 
+
+ Q Unimodal 
+ Q 
+ QO Positive Covariance : both variables move together . 
+ O Negative Covariance : variables move in opposite directions . 
+ QO Zero Covariance : bo clear pattern in variable movements . 
+ Understanding relationships between variables . 
+ Covariance is useful but sensitive to scale , while correlation 
+ addresses this issue by standardizing the measurement . 
+ ye OXi2 ~~ fiz ) 
+
+ n is the number of tuples , , and p , are the respective means of X , and X , , 
+
+ oO , and O , are the respective standard deviation of X , and X , 
+ If p , , > 0 : A and B are positively correlated ( X , ’s values increase as X , ’s ) 
+ If p , , = 0 : independent ( under the same assumption as discussed in co - variance ) 
+ If p , , < 0 : negatively correlated 
+
+ Correlation Matrix ( Correlation Heatmap ) 
+
+ QO 
+ Visualizing Changes of Correlation Coefficient 
+
+ -1.00 
+
+ -0.90 
+ Data visualization 
+
+ 2- Data Visualization 
+
+ Boxplot 
+
+ Histogram and Bar chart 
+ Quantile plot 
+ Quantile - quantile ( Q - Q ) plot 
+ Scatter plot 
+ Tokyo 
+
+ Chicago New York Boston Atlanta 
+
+ Categories 
+
+ Q Histogram : Tabulated frequencies represented by bars . 
+
+ Q Bar chart : Categorical data with bars proportional to the values they represent . 
+ Histogram Chart 
+
+ 50 4 
+
+ 40 + 
+
+ 30 + 
+
+ Frequency 
+ count 
+ 20 ~ 
+
+ 20 40 60 80 100 
+
+ Numeric ranges 
+
+ 28 
+
+ QO 
+ Bars can be reordered in bar charts , but not in histograms us : 
+
+ QO 
+ In histograms , it is the area of the bar that denotes the — « = 
+
+ Differences between Histograms and Bar charts : 
+
+ 407 
+ 35 
+
+ QO 
+ Histograms show distributions of variables , while bar 
+
+ charts compare variables 
+
+ QO 
+ But they have rather different data distributions 
+ Histogram Analysis 
+
+ QO 
+ Divide data into buckets and store average ( sum ) for each bucket . 
+ QO Partitioning rules : 
+
+ OQ 
+ Equal - width : equal bucket range 
+
+ 4 Equal - frequency ( or equal - depth ) 
+
+ Equal Width Binning Equal frequency binning 
+
+ 5 6 
+ 4 
+ 3 
+
+ 2 
+ 0 
+ [ 10 , 21 ] [ 22 , 33 ] ( 34 , 45 ] [ 46 , 55 ] [ 10 , 16 ] [ 17 , 30 } [ 31 , 48 ] [ 49 , 55 
+ ] 
+
+ Count of AGE_bins Count of AGE_bins 
+
+
+ Quantile Plot 
+
+ O Purpose : Visualizes all quantile information for a specific attribute 
+
+ O Benefits 
+
+ — _ 
+ wS 
+ fo ) 
+
+ _ } Provides a comprehensive view of the 
+ attribute 's distribution . 
+ 120 
+
+ — _ 
+ oo 
+ oo 
+
+ _ ) Helps identify both general trends and 
+ outliers . 
+
+ Unit price ( $ ) 
+ on 
+ S 
+
+ LJ Construction 
+
+ . 
+ 0.500 0.750 1.000 
+ L ) Fora data { X1 , X2 , ... , XN } sorted in 
+
+ f - value 
+
+ increasing order . 
+
+ 4 f , indicates that approximately f of the data 
+ point have values S$ x. 
+
+ Data Mining : Concepts and Techniques 
+
+ Quantile - Quantile ( Q - Q ) Plot 
+
+ OQ Purpose 
+
+ QC 
+ Assess the distributional similarity between an attribute and 
+
+ Norma ! data quantiles 
+
+ either another attribute or a theoretical distribution . 
+ : , | 
+ 4 ~= — Deviations from the line indicate differences in distribution . 
+ -—3 = 2 1 0 1 2 3 
+ Norma ! 
+ theoretical quantiles 
+ Items sold 
+
+ Scatter plot 
+ Each pair of values is treated as a pair of coordinates and plotted as points in the plane . 
+ Unit price ( $ ) 
+
+ Life Expectancy 
+
+ 70 
+
+ 60 
+
+ 30 
+
+ " oe ? 
+ ° “ e 
+ ° iret ee 2 
+ 9,2 % ow ° ~ * 
+ a Se eee 
+ . : % . ° ° , @uwee 
+ ° e ° “ a ” 505 ef ° 3 
+ ° e 
+ hal 2 ee . 
+ ‘ Cd os e e - 
+ e oe ” e 
+ 1000 2 5 10k 2 5 100k 
+
+ GDP per Capita 
+
+ Positively and Negatively Correlated Data 
+ QO Aline chart displays information as a series of data points called ‘ markers ’ . 
+ Parallel Coordinates Plots of Iris Data 
+ A parallel coordinate plot maps each row in the data table as a line , or profile . 
+ Each attribute of a row is represented by a point on the line . 
+ ~~Setosa 
+ ~—Versicolor 8- 
+ ~-~Virginica — ~~Setosa 
+ 7/ — — Versicolor 
+ ~~Virginica 
+
+ e = 
+
+ 2 5 
+
+ 2 o5 + ¥ 
+
+ = ELLZ 
+
+ [ = , - “ Wy 
+
+ 8 8 Ce 
+
+ ® ‘ N O21 
+
+ Ss 2 
+ SERS = 
+ 1 1 = . 0 1 1 ay . 
+
+ eapel length sepal width petal length petal width — sepal width sepal length petal length petal width

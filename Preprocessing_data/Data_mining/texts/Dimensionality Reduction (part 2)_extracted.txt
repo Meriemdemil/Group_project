@@ -1,0 +1,624 @@
+Dimensionality Reduction 
+ What is Feature Subset Selection ( FSS ) ? 
+ Why doing Feature Subset Selection ? 
+ Taxonomy of Feature Selection methods 
+ o 
+ Unsupervised Feature Selection 
+ o Supervised Feature Selection 
+ = Filter methods for FSS 
+ = Wrapper methods for FSS 
+
+ e 
+ Comparison of Feature Selection methods 
+
+ What is Feature Subset Selection ( FSS ) ? 
+ Feature Selection ( FSS ) is the process of selecting a subset of 
+
+ features from a given feature set . 
+ o ---X 
+
+ The goal is to optimize an objective function for the chosen 
+ features . 
+ e FSS can be seen as a form of feature extraction . 
+ However , the methods and goals differ significantly . 
+ e Feature extraction : 
+ o Transforming the existing features into a lower dimensional space . 
+ e 
+ Feature selection : 
+
+ o Selecting a subset of the existing features without a transformation . 
+ What is Feature Subset Selection ( FSS ) ? 
+ Feature Set : 
+
+ A = { a,;|7=1, ... ,m } 
+ Objective : 
+ Find a subset : 
+
+ Yn = 45 % , , % , , .. -- 0 . 2 TH < H 
+ that optimizes the objective function J(Y ; , . ) 
+ Optimization : 
+
+ Y = arg max J(Y , , ) 
+
+ M , tm 
+
+
+ Why doing Feature Subset Selection ? 
+ Why not stick to feature extraction , as it essentially accomplishes the same 
+ task of dimensionality reduction ? 
+ Why doing Feature Subset Selection ? 
+ Features may be expensive to obtain 
+
+ o 
+ Evaluate a large number of features ( Sensors ) in the test bed and select a few for the final implementation 
+ You may want to extract meaningful rules from your classifier 
+
+ o 
+ When you transform or project , the measurement units ( length , weight , etc . ) of your features are lost . 
+ Features may not be numeric 
+
+ o 
+ Atypical situation in the data mining . 
+ Fewer features means fewer parameters for pattern recognition 
+
+ o 
+ Improved the generalization capabilities and avoid overfitting . 
+ Reduced complexity and run - time . 
+ Why Feature selection is challenging ? 
+ Number of features = 3 
+ O { A1 , A2 , A3 } 
+
+ @ 
+ How many features subsets ? 
+ O { A1 } , { A2 } , { A3 } 
+ O { A1 , A2 } , { A1 , A3 } , { A2 , A3 } 
+ O { A1 , A2 , A3 } 
+
+ Why Feature selection is challenging ? 
+ e Number of features = n 
+ O { A1 , A2 , A3 , ... , An } 
+
+ @ How many features subsets ? 
+ O { A1 } , { A2 } , { A3 } ..... 
+ O { A1 , A2 } , { A1 , A3 } , { A2 , A3 } .... 
+ O { A1 , A2 , A3 } .... 
+
+ e For n=100 
+ 1 267 650 600 228 229 401 496 703 205 376 
+
+ Taxonomy of Feature Selection methods 
+
+ Feature 
+ selection 
+
+ methods 
+
+ 1 
+
+ Ea 
+ Correlation Information Chi - squared Forward Backward Genetic 
+ gain test selection elimination algorithms 
+
+ Mutual 
+ information 
+
+
+ Unsupervised Feature Selection 
+
+ Unsupervised feature selection typically uses statistical measures to evaluate features . 
+
+ The most common statistical measures include : 
+
+ e Variance : Features with high variance are more likely to be informative and useful 
+
+ for prediction . 
+
+ e Correlation : Features that are highly correlated with each other are likely to contain 
+ redundant information . 
+
+ e 
+ Features with high mutual information are more likely to be predictive of each other . 
+ correlated filters 
+ po | 
+ poo | 
+ po | 8 
+ poo | 6 
+ poo | 
+ poo 
+
+ e 
+ Taxonomy of Feature Selection methods 
+
+ Feature 
+ selection 
+
+ methods 
+
+ 1 
+ Mutual i ) 
+ Parrchatiwn Information Chi - squared Forward Backward Genetic 
+ gain test selection elimination algorithms 
+
+ r 
+ Unsupervised 
+ Variance Correlation 
+
+
+ Filter methods for FSS 
+
+ Filter methods evaluate features independently and select the most important 
+ features based on statistical measures , such as : 
+ correlation with the target variable , information gain , or chi - squared test . 
+ Choose a filter metric ( correlation , information gain , or chi - squared test ) . 
+ Select the features with the highest filter metric scores . 
+ Filter methods : Correlation 
+
+ e Correlation is a widely used filter method in feature selection . 
+ e It measures how well a feature relates to the target variable . 
+ e High correlation with the target : 
+ Features strongly correlated with the target variable are often good candidates for predictive models 
+ Low inter - feature correlation : 
+
+ o 
+ It 's also essential to consider inter - feature correlations to avoid redundancy in the feature set 
+
+ The correlation does not consider the non - linear correlation with the target and the 
+ interaction between features 
+
+ e 
+ Cool colors . 
+ for negative . 
+ e Neutral for no correlation . 
+ Helps in visualizing the 
+ correlation between attributes 
+
+
+ Filter methods : 
+ Information Gain 
+
+ Information gain is a measure of how much information is gained about the 
+ target categorical variable when a dataset is split on 
+ a given categorical feature . 
+ It is calculated as the difference between the entropy of the target variable 
+ before and after the split . 
+ What is entropy ? 
+ What is entropy ? 
+ It measures the level of uncertainty , randomness , or disorder in a system or dataset . 
+ In the context of data , entropy quantifies the impurity of a set . 
+ What is entropy ? 
+ It measures the level of uncertainty , randomness , or disorder in a system or dataset . 
+ In the context of data , entropy quantifies the impurity of a set . 
+ H(8 ) = — ) ° p(x ) logs p(2i ) 
+
+ i=1 
+
+ S= { x1,x2 .... xn } , which is the set of elements . 
+ What is entropy ? 
+
+ H(S ) = — p(2 ;) log , p(x ) 
+
+ i=1 
+
+ e p(red ) = 6/12=0.5 
+ e p(green ) = 6/12=0.5 
+ e H(S ) = -(0.5*log(0.5)+0.5*log(0.5 ) ) = -(-0.5 - 0.5 ) 
+
+ H(S ) = 1 
+
+ Very Impure 
+
+ What is entropy ? 
+
+ H(S ) = — p(2 ;) log , p(x ) 
+
+ i=1 
+
+ e p(red ) = 3/12 
+ e p(green ) = 9/12 
+ e H(S ) = -((3/12)*log(3/12)+9/12*log(9/12 ) ) 
+
+ H(S ) = 0.811278 
+
+ Less Impure 
+
+ What is entropy ? 
+
+ H(S ) = — ) _ 
+ i=1 
+
+ e p(red ) = 0 
+ e p(green ) = 1 
+ e H(S ) = -(0 + 1*log(1 ) ) 
+
+ H(S ) = 0 
+
+ Minimum Impurity 
+
+ Filter methods : Information Gain 
+
+ Information gain is a measure of how much information is gained about the 
+ target categorical variable when a dataset is split on 
+ a given categorical feature . 
+ It is calculated as the difference between the entropy of the target variable 
+ before and after the split . 
+ Example : Information gain for Road Tested 
+
+ Mileage Road Tested Buy 
+ Pure set 
+ Pure set 
+ Filter methods for FSS 
+
+ Advantages 
+ e Computational Efficiency 
+
+ Filter methods are computationally efficient 
+ and scalable to large datasets and high 
+ dimensionality as no machine learning 
+ model is trained . 
+ e Algorithm Independence 
+
+ Independent of any machine learning 
+ algorithm , making them unbiased toward 
+ any particular algorithm . 
+
+ Disadvantages 
+ e Suboptimal Selection 
+
+ May not always identify the best feature 
+ subset for a specific machine learning 
+ algorithm because it does not consider the 
+ model performance . 
+
+ e 
+ Complex Relationships 
+
+ May not be able to handle complex 
+ relationships and interactions between 
+ features . 
+ How to use filter methods for FSS 
+
+ e Filter Methods as an initial step 
+
+ o 
+ Filter methods serve as an excellent initial step in the feature selection process . 
+ o Particularly valuable when dealing with large datasets . 
+ e Hybridization is key 
+ o 
+ It 's advisable to combine filter methods with other feature selection techniques . 
+ o Wrapper methods and embedded methods complement filter methods effectively . 
+ 27 
+
+ Taxonomy of Feature Selection methods 
+
+ Feature 
+ selection 
+
+ methods 
+
+ i 
+
+ Variance Correlation ! Mutual 
+ information 
+
+ Correlation 
+
+ Information 
+ gain 
+
+ rt 
+ Backward 
+ elimination 
+
+ Chi - squared 
+ test 
+
+ Forward 
+ selection 
+
+ Genetic 
+ algorithms 
+ 28 
+
+ Wrapper methods for FSS 
+
+ Wrapper methods are feature selection methods that evaluate features by using a machine 
+ learning model as a black box . 
+ The model is trained on different subsets of features , and the subset that produces the best 
+ performance is selected . 
+ How to use filter methods for FSS 
+
+ Feature Subset Generation : 
+ The search algorithm generates various feature subsets for evaluation 
+ Model Evaluation : 
+ Each subset is input to the model and its performance is evaluated via model performance 
+ Selection Criterion : 
+ A selection criterion ( e.g. accuracy ) guides the choice of the best - performing feature subset 
+
+ Iteration : 
+ The process is repeated with different subsets until an optimal set is found 
+ 29 
+
+ Complete 
+ feature set 
+
+ s , 7ou " 
+
+ Wrapper Feature 
+ Selector 
+
+ Classification model 
+
+ Optimal 
+ feature set 
+
+ Classification model 
+
+ 30 
+
+ Search strategy and objective function 
+
+ Complete feature set 
+
+ Feature Subset Selection : 
+
+ e 
+ Search Strategy : A strategy to select candidate subsets 
+ o 
+ Exhaustive evaluation of all subsets is impossible . 
+ Feature Subset Selection 
+
+ Feature 
+ subset 
+ Objective 
+ function 
+
+ Final feature subset 
+
+ PR 
+ algorithm 
+
+ o 
+ Asearch strategy navigates the vast feature subset space efficiently 
+ “ Goodness ” 
+
+ e Objective Function : Function to evaluate these candidates 
+
+ o 
+ Evaluates candidate feature subsets 
+
+ o 
+ Quantitative measure of the " goodness " or quality of a subset 
+ o 
+ Feedback from the objective function to guide the search strategy 
+
+ 31 
+ Search strategy and objective functions 
+
+ e 
+ Forward selection 
+ Add features step by step , choosing the one that improve the model the most at 
+ each iteration . 
+ e Backward elimination 
+ Remove features step by step , choosing the one that does not improve the model 
+ the at each iteration . 
+ e Genetic Algorithm ( GA ) 
+ o 
+ An optimization technique , inspired by natural selection , used to evolve feature 
+ subsets for improved model performance . 
+ 32 
+
+ Forward Selection 
+ Performance threshold . 
+ Elbow methods . 
+ o < J 
+
+
+ Genetic Algorithm ( GA ) for Feature Selection 
+
+ — 
+ Fitness Population 
+
+ Evaluation at 
+
+ py ty 4 8 eR 
+ What is a genetic algorithm ? 
+ Ss 
+ snail oe Recombination 
+ 35 
+
+ Genetic Algorithm ( GA ) for Feature Selection 
+
+ e Crossover 
+ o 
+ Produce good children 
+ e Mutation 
+ o Random change 
+ o Exploration 
+
+ e Selection 
+ o 
+ Select the best 
+ o Survival of fittest 
+ In feature selection and GA , we can encode the selected feature using 1 's and the discarded one by O 's 
+
+ crossover 
+
+ | [ 1011101010 
+
+ Guemaeamer 
+
+ | 1100101010 } — — s > | MMIGIOIlo 1010 
+ 1011101110 NE 
+
+ 0011011001 
+
+ 1100110001 
+
+ encoding 
+
+ nut fatto ton — 
+
+ 0101181011 
+ — — 
+
+ selection evaluation _ 
+ ere cai ( — offspring 
+ new 110010 1110| 
+ aimee 101110 10101 
+
+ 00110 01001 
+ v decoding 
+
+ = 
+ | 
+ \ fitness 
+
+ computation 
+
+ roulette wheel 
+
+ 36 
+
+ Wrapper methods for FSS 
+
+ Advantages 
+ e Optimal Subset Selection 
+
+ Can detect the ideal feature subset for a 
+ given machine learning algorithm . 
+
+ e 
+ Managing Complex Relationships 
+ They are effective in handling 
+ relationships between features by 
+ evaluating a subset , not a feature . 
+ Disadvantages 
+ e Computational Intensity 
+
+ Tend to be computationally demanding , 
+ particularly with large datasets . 
+ e Algorithm Bias 
+
+ They may exhibit bias towards the 
+ machine learning algorithm used for 
+ feature evaluation . 
+ 37 
+
+ Comparison of Feature Selection methods 
+
+ e 
+ Unsupervised methods 
+ o Advantages : Simple , fast , no need for labels 
+ o Disadvantages : May miss complex relationships , does n't optimize for prediction 
+ e 
+ Filter methods 
+ o Advantages : Fast , scalable , algorithm independent 
+ Disadvantages : May miss complex relationships , suboptimal for specific algorithms 
+ e 
+ Wrapper methods 
+ o Advantages : Finds optimal subset for algorithm , handles complex relationships 
+ Disadvantages : Slow , algorithm bias 
+ e 
+ Forward selection 
+ o Advantages : Starts with no features , adds features incrementally 
+ Disadvantages : suboptimal and does not consider feature interaction . 
+ Backward elimination 
+ o Advantages : Starts with all features , removes features incrementally 
+ Disadvantages : Can be slow for high dimensional data 
+ e 
+ Genetic algorithms 
+ o Advantages : Searches and optimizes feature sets through evolution 
+ o 
+ Disadvantages : Computationally intensive but thorough search 
+ 38 
+
+ Comparison of Feature Selection methods 
+
+ Unsupervised methods 
+
+ Filter methods 
+
+ Wrapper methods 
+
+ Forward selection 
+ Backward elimination 
+
+ Genetic algorithms 
+
+ Simple & Fast 
+
+ No need for labels 
+
+ Fast 
+
+ Scalable 
+
+ algorithm independent 
+
+ Finds optimal subset for algorithm 
+ Handles complex relationships 
+
+ Fast and simple 
+
+ Can be optimal for high dimensional 
+ data 
+
+ Thorough search 
+
+ May miss complex relationships 
+ Does n't optimize for prediction 
+
+ May miss complex relationships 
+
+ Suboptimal for specific algorithms 
+
+ Slow 
+ algorithm bias 
+
+ Can be suboptimal for high- 
+ dimensional data 
+
+ Can be slow 
+
+ Computationally intensive 
+
+ 39 
+ How to choose a Feature Selection method ? 
+ Size of dataset e 
+ Domain knowledge 
+
+ o Filter methods work well for large datasets o 
+ Unsupervised methods do not use labels 
+ Wrapper methods work well for small datasets o 
+ Supervised methods use domain labels 
+ Computational budget e Algorithm fit 
+
+ o Filter methods are fast o 
+ Wrapper methods tailor to specific ML algorithm 
+ o Wrapper methods are slow o 
+ Filter methods are independent of any algorithm 
+ Need for interpretability e 
+ Feature interactions 
+ o Filter methods allow inspection of feature importance o 
+ Wrapper methods handle feature interactions 
+ Wrapper methods act as black box o 
+ Filter methods assess features independently 
+ The goal is to select an optimal subset of features 
+
+ Main approaches : 
+ o Unsupervised : Evaluate features independently using statistical measures 
+ o 
+ Supervised Filter : Fast evaluation of features using metrics like correlation 
+ o Supervised Wrapper : Use model performance to search feature subsets , slow but thorough 
+ Considerations : 
+
+ Dataset size and dimensionality 
+ Computational budget and time constraints 
+ Need for interpretability vs performance 
+ Domain knowledge of features 
+ Relationships between features 
+
+ O00 0 0 
+ No one - size - fits - all method - choose based on goals , data , and constraints 
+ Hybrid approaches combine strengths of different techniques 
+ Feature selection critical step for ML pipelines , balances model performance and efficiengy

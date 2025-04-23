@@ -1,0 +1,433 @@
+Dimensionality Reduction 
+ Dimensionality Reduction 
+ Dimensionality reduction is a technique in data analysis that simplifies the data by 
+ reducing the number of variables or dimensions . 
+ Dimensionality Reduction should ensure the following : 
+
+ e Preserving Relevance 
+
+ o 
+ It retains the most crucial information from high - dimensional spaces . 
+ e Eliminating Redundancy 
+
+ o 
+ Dimensionality reduction efficiently removes redundant and irrelevant attributes for the analysis . 
+ Transformation into a lower - dimensional space 
+
+ o 
+ it transforms data into a lower - dimensional space , making it more manageable for analysis and 
+ visualization . 
+ Motivations for Dimensionality Reduction 
+
+ e Improve model 
+ o Improved Model Performance 
+ o Reduce Overfitting 
+ e Efficiency and Resource Management 
+ o Computational Efficiency 
+ o Memory and Storage Efficiency 
+ e Interpretability and Understanding 
+ o Data Visualization 
+ o Enhanced Interpretability 
+ e 
+ Data quality enhancement 
+ o Removal of Redundant Information 
+ o Noise Reduction 
+ Volume of the hypersphere 
+
+
+ The Curse of Dimensionality 
+
+ Sparsity : when points are uniformly generated within a high - dimensional 
+ hypercube , most points are much farther from the center than expected . 
+ The Curse of Dimensionality 
+
+ e 
+ Traditional Distance Metrics 
+ In high dimensions , traditional distance metrics like Euclidean distance lose their effectiveness . 
+ Points become dispersed , posing challenges for distance - based analysis . 
+ The curse of dimensionality impacts diverse data analysis tasks ( nearest - neighbor 
+ algorithms , classification , and clustering in high - dimensional spaces ... ) . 
+ Taxonomy of Dimensionality Reduction Methods 
+
+ e 
+ Feature extraction : transforms the original attributes into new ones . 
+ Linear methods ( PCA ): Transform the original attributes into a new set of linear attributes . 
+ Non - linear methods ( t - SNE ): Transform the original attributes into a new set of non - linear attributes . 
+ Feature selection : selects a subset of original attributes . 
+ Filter methods : Select attributes based on their statistical properties . 
+ o Wrapper methods : Use the performance of a machine learning model to evaluate the goodness of 
+ selected attributes . 
+ Outline 
+
+ e Principal Component Analysis ( PCA ) 
+
+ O 
+
+ e ) 
+ e ) 
+ e ) 
+
+ What is PCA ? 
+ How to perform PCA ? 
+ Applications of PCA 
+
+ Motivation example : oscillating spring 
+
+ . . . . 
+ e Tracking motion of a ball on an oscillating 
+ spring at regular intervals . 
+ | camera C 
+ e 3cameras record ( x , y ) position from different 
+ Motivation example : oscillating spring 
+
+ . 
+ camera B 
+ e Tracking motion of a ball on an oscillating 
+ spring at regular intervals . 
+ | camera C 
+
+ e 3cameras record ( x , y ) position from different 
+ e Each sample is 6D vector : 
+ X = [ xA , yA , xB , yB , xC , yC ] 
+
+ cameraA camera B camera C 
+
+ Physically , we know the underlying motion is 
+ 1D , along the spring . 
+ TAL . 
+
+
+ Motivation example : oscillating spring 
+
+ . 
+ camera B 
+ e Tracking motion of a ball on an oscillating 
+ spring at regular intervals . 
+ | camera C 
+
+ e 3cameras record ( x , y ) position from different 
+ angles 
+
+ camera A 
+
+ e Each sample is 6D vector : 
+ X = [ xA , yA , xB , yB , xC , yC ] 
+
+ cameraA camera B camera C 
+
+ How do we extract this underlying 1D 
+ dynamic hidden in 6D recordings ? 
+
+ TAL . 
+ Correlations is common in Real Data ( to be finished ) 
+ Correlation is a common characteristic of real - world datasets , often reflecting complex 
+ relationships . 
+
+ Examples 
+
+ e Weight and height correlation in individuals . 
+ Spatial pixel correlations in images . 
+ e Study hours and test score relationships . 
+ Data Redundancy 
+
+ e Correlations can indicate redundancy in the data . 
+ e Reducing redundancy can enhance the performance of data mining algorithms . 
+ Recognizing and addressing correlations is essential for effective data analysis and 
+ machine learning applications . 
+ What is Principal Components Analysis ( PCA ) ? 
+ PCA 's goal 
+
+ e Transform the original data into new variables that follow 
+ the variation in the data . 
+ Principal Components 
+
+ e 
+ After rotation , new axes , called principal components , are 
+ formed . 
+ PCA 's goal PE 
+
+ e Transform the original data into new variables that follow 
+ the variation in the data . 
+ Principal Components 
+
+ e 
+ After rotation , new axes , called principal components , are 
+ formed . 
+ Transform the original data into new variables that follow 
+ the variation in the data . 
+ PCA ' Attribute 2 
+
+ Using PC1 , we reduce the data 's 
+
+ dimensionality while retaining most of 
+ its variation . 
+
+ Princ 
+
+ e 
+ After rotation , new axes , called principal components , are 
+ formed . 
+ PCA 's goal PC1 
+
+ e Transform the original data into new variables that follow 
+ the variation in the data . 
+
+ PCA ’ Attribute 2 
+
+ Using PC1 , we reduce the data 's 
+
+ dimensionality while retaining most of 
+ its variation . 
+
+ Princ 
+ e After rotation , new axes , called principal components , are 
+ formed . 
+ PCA 's goal 
+
+ e 
+ Transform the original data into new variables that follow 
+ the variation in the data . 
+ PCA ’ 
+
+ Using PC1 , we reduce the data 's 
+
+ dimensionality while retaining most of 
+ its variation . 
+ After rotation , new axes , called principal components , are 
+ formed . 
+ What is Principal Components Analysis ( PCA ) ? 
+ PCA identifies the directions , called principal 
+
+ components , along which the data varies the most . 
+ Subsequent components are orthogonal ( uncorrelated ) to 
+ the preceding ones . 
+ x2 
+
+ Retaining only the most important components 
+ reduces the data 's dimensionality . 
+ ° 
+
+ PCA is widely used in 
+
+ o 
+ Subsequent principal components express the 
+ remaining variation . 
+ Successive components should also minimize 
+ projection errors . 
+ oS 
+ x 
+ Os r ge 
+ Nad 
+ \ 
+
+ Objectives of PCA - A Mathematical Perspective 
+
+ datapoint 
+
+ D= D+ D , 
+
+ initial — remaining + lost 
+ variance variance variance 
+
+ 2 2 
+ la = |lwell+|la — welf 
+
+ this is maximize or minimize 
+ constant this this 
+
+ e D1 is the remaining variance expressed in the component . 
+ e D2 is the projection error or the lost variance . 
+ e D3 is the original fixed variance independent to the component . 
+ Subtract the mean from each attribute ( column ) to center the data . 
+ Scale attributes if their scales differ . 
+ Calculate the covariance matrix , denoted as sigma . 
+ Compute the eigenvalues and eigenvectors of the covariance matrix to find principal components . 
+ Choose k < m eigenvectors as principal components . 
+ Reduce data by projecting it onto the k principal components 
+
+ The input of the algorithm 
+ xX = eS X5 ... x | 
+ nxm 
+
+ n : is the number of objects ( rows ) . 
+ m : is the number of attributes ( columns ) . 
+ Covariance Matrix calculation 
+
+ Wee — X)(¥ ; -Y ) 
+ Cov(X , Y ) = = — 
+
+ Subtracting the mean from each attribute centers the data around zero , which 
+ makes the covariance formula easier to calculate : 
+
+ nm 
+ ¥ , 44 % ; 
+
+ Covariance Matrix calculation ( Matrix notation ) 
+
+ Cov ( Xm , X1 ) Cov ( Xm , X2 ) ... Var ( Xm ) 
+ This produce a symmetric covariance matrix : 
+
+ x?x 
+
+ Eigenvalues and Eigenvectors 
+
+ Diagonalization in PCA 
+
+ e 
+ A fundamental concept in PCA for simplifying the variance matrix . 
+ = = PDP ’ 
+ e Diagonal matrix ( D ) consists of eigenvalues ( A ) . 
+ e Eigenvectors are arranged in the matrix P enable data projection and 
+ dimensionality reduction . 
+ e Spectral theorem ensures eigenvectors ’ orthogonality . 
+ e Singular value decomposition ( SVD ) can be used to do this 
+ decomposition . 
+
+ y= USv ! 
+ Choosing k ( number of principal components ) 
+
+ Select k < n eigenvectors to make them components 
+
+ | | | | 
+ aan ; | 
+ UF = ) apf2 ) © lA ) | gl ) Ee Rm 
+ | | | | 
+ | | | | 
+
+ Select k components 
+
+ Choosing k ( number of principal components ) 
+
+ e Average squared projeenon error 
+
+ = Ly > fe - EO ) cx 
+
+ i= ] 
+
+ kl 
+ if i = l 
+ Choose k to be smallest value so that 
+ 1 2 
+ ~ Ah 1 le " = on 
+
+ “ 99 % of variance is retained ” 
+
+ e 
+ Total variation in the data 
+
+ < 0.01 
+
+
+ Choosing k ( number of principal components ) 
+
+ e Average squared projeenon error 
+
+ = a } je Dex 
+
+ i= ] 
+
+ 1 Le { 2 
+ nt i=1 
+
+ Choose k to be smallest value so that 
+
+ e Total variation in the data 
+
+ k 
+ eae Si ; Duin ii a > 0.99 
+ dint Si dain Si 
+
+ “ 99 % of variance is retained ” 
+
+ Choosing k ( number of principal components ) 
+
+ Scree Plot 
+
+ e Scree Plot 
+ o Tool aids in deciding how many 
+ principal components to retain(k ) . 
+ How to choose k 
+ o Elbow point in the plot indicates a 
+ significant drop in eigenvalues , 
+ suggesting an optimal number of Component Number 
+ components . 
+ Determining Coordinates in Principal Components 
+
+ T= XU 
+
+ e TT : 
+ Coordinates matrix of data points in PCA components . 
+ e X : Data matrix ( variables as columns , data points as rows ) . 
+ e P : Eigenvectors matrix of the covariance matrix . 
+ The matrix is approximation of the centred data . 
+ e To reconstruct the original data , the mean should be added to each columns . 
+ PCA applications : Denoising with PCA 
+
+ Purpose 
+
+ e 
+ Reduce noise in data or images . 
+ How It Works 
+ Data is represented as a matrix . 
+ e PCA identifies principal components . 
+ e High - variance components retain signal ; 
+ e low - variance components capture noise . 
+ Use Cases : 
+
+ e 
+ Image denoising . 
+ e Enhancing data quality in various fields . 
+ PCA applications : Face Recognition with PCA 
+
+ Purpose 
+
+ e 
+ Identify and authenticate individuals from 
+ facial images 
+ How It Works 
+
+ e 
+ Eigenfaces : Eigenvalue and eigenvector 
+ decomposition of face images . 
+ e Reduced - dimension representation . 
+ e Compare face features for recognition . 
+ Use Cases 
+
+ e 
+ Security systems . 
+ e Biometric authentication . 
+ e Video surveillance . 
+ PCA applications : Data Visualization with PCA 
+
+ Purpose 
+
+ Transform high - dimensional data into a 
+ lower - dimensional space for visualization . 
+ How It Works 
+
+ original data space 
+ PCAreduces data dimensions while 
+ preserving data variance . 
+ e Data points are projected onto a 
+ lower - dimensional ( 2D,3D ) subspace . 
+ e Exploratory data analysis . 
+ e Cluster analysis . 
+ PCA applications : Other 
+
+ Versatility 
+
+ e PCAis used in various fields and 
+ applications . 
+ Examples 
+
+ e Anomaly Detection : Identifying 
+ unusual data patterns . 
+ e Data Compression : Reducing data 
+ dimensionality . 
+ e Recommendation Systems : 
+ Extracting user preferences . 
+ e Genomic Data Analysis : Identifying 
+ gene expression patterns . 
+ Original points 
+ O New points 
+ @ Reconstruction

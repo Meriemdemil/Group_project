@@ -1,0 +1,361 @@
+Outline 
+
+ Characteristics of Decision Trees 
+ Model Overfitting 
+
+ Model Evaluation and selection 
+
+ Uuwuww gg 
+
+ Conclusion 
+
+ Characteristics of Decision Tree - Applicability 
+
+ Nonparametric Approach 
+ No prior assumptions on data 's probability distribution . 
+ Wide Applicability 
+
+ o 
+ Suitable for categorical and continuous datasets . 
+ No Data Transformation 
+
+ o 
+ Attributes can be used without binarization , normalization , or standardization . 
+ Multiclass Problem Handling 
+
+ o 
+ Handel multiclass without reducing them to binary tasks . 
+ interpretability 
+
+ o 
+ Trained trees are easy to understand ( particularly shorter ones ) . 
+ Competitive Accuracy 
+
+ o 
+ The result are comparable with other techniques for many simple data sets . 
+ Characteristics of Decision Tree -Expressiveness 
+
+ e Universal Representation 
+ o 
+ Tree can encode any function of discrete - valued attributes . 
+ e Efficient Encoding 
+
+ o 
+ Discrete - valued function can be represented as an assignment table . 
+ o Decision tree can represent the assignment table efficiently . 
+ o Decision tree can group a combinations of attributes as leaf nodes . 
+ e Limitations 
+
+ o 
+ Some functions , like the parity function , require a full decision tree for 
+
+ accurate modeling . 
+ Example of Compact Representation 
+
+ Boolean function ( AAB)V(CAD ) using a simpler tree with fewer leaf nodes , 
+ instead of a fully - grown tree . 
+ e Simplifies complex multidimensional data into understandable segments . 
+ e Effective in handling both categorical and continuous variables . 
+ Characteristics of Decision Tree - Rectilinear Splits 
+
+ What are the disadvantages of rectilinear splits ? 
+ Characteristics of Decision Tree - Rectilinear Splits 
+
+ Disadvantages of rectilinear splits 
+
+ e Struggle with Non - linear Boundaries : 
+ o Ineffective in capturing complex , non - linear 
+ relationships in data . 
+
+ e Limited Flexibility : 
+ o Restricts decision boundaries to orthogonal 
+ lines , limiting flexibility . 
+ e Oversimplification Risks : 
+ o Can lead to oversimplified models that fail to 
+ capture the true nature of the data . 
+
+
+ Outline 
+
+ Characteristics of Decision Trees 
+ Model Overfitting 
+
+ Model Evaluation and selection 
+
+ Uu gg Uw 
+
+ Conclusion 
+
+ Model Overfitting 
+
+ Overfitting occurs when a model fits 
+ training data too closely , leading to 
+
+ poor generalization . 
+ A overfitted model may perform well on 
+
+ training data but poorly on test data . 
+
+ Training vs Test Error : 
+ As tree size 
+ increases , training error may decrease , 
+
+ but test error eventually increases . 
+
+ 09 
+ 0.85 
+ 08 
+
+ 0.75 
+
+ < 
+
+ 0.65 
+
+ 0.6 
+
+ 0.55 
+
+ 05 
+
+ On training data — — 
+ On test data --~~ 
+
+ 30 40 50 60 70 80 
+ Size of tree ( number of nodes ) 
+ Causes of Overfitting 
+
+ e Limited Training Size : 
+ o 
+ Asmall training set may not represent 
+ true patterns , leading to overfitting . 
+ e High Model Complexity : 
+ Overly complex models can capture 
+ training - specific patterns , reducing 
+
+ . . 
+ Appropriate - fitting Over - fitting 
+ generalizability . 
+ ( too simple to ( forcefitting -- too 
+
+ explain the variance ) good to be true ) HG 
+ e Spurious Patterns Recognition : 
+ Models may learn irrelevant patterns 
+ present in training data ( Ex . noise ) , which 
+ do n't generalize to new data . 
+ Overfitting vs Underfitting 
+
+ Underfitting : 
+ Simple models may fail to capture essential patterns . 
+ Data scientist challenge 
+
+ Find a model that does not overfit or underfit 
+ Under - fitting Appropriate - fitting Over - fitting 
+ ( too simple to ( forcefitting -- too 
+ explain the variance ) good to be true ) HG 
+
+
+ Dealing with overfitting - Pruning 
+
+ Pruning : cutting away branches that may be based on noisy 
+ or misleading data to prevent overfitting . 
+
+ e 
+ Occurs during tree construction . 
+ o Limits tree growth by limiting the maximum depth or 
+ minimum leaf size . 
+ o Prevents overfitting by avoiding overly complex models . 
+ e Post pruning : Applied after the tree is fully grown . 
+ o Removes branches that contribute little to classification 
+ accuracy . 
+ o Reduces model complexity , enhancing generalization to 
+ new data . 
+
+ Pruning 
+ = 
+ Fane aay ? 
+ Ensure robust model evaluation . 
+ Labeled Test Set 
+ Utilize a separate test set , not involved in model 
+ building , for unbiased evaluation . 
+ Holdout Method 
+
+ e ) 
+ e ) 
+
+ Randomly split data into training and test sets . 
+ Use the test set to estimate generalization error . 
+ Cross - Validation Method 
+
+ O 
+
+ Divide data into multiple subsets ; train and test the 
+ model on different subsets for a comprehensive 
+ performance estimate . 
+ GOOD ? 
+ MODEL PQ 
+ = 
+ Evaluation 
+
+ BAD ? 
+ Holdout Method 
+
+ Basic technique to partition data into training 
+ ( D.train ) and testing ( D.test ) sets . 
+ Error Estimation 
+
+ DATASET 
+ Calculate error rate on D.test ( errtest ) as a measure of 
+
+ generalization error . 
+ Data Proportion 
+
+ o 
+ Analysts decide the split ratio . 
+ J 
+
+ Trade - offs Train Model Evaluate Model 
+ o 
+ Balancing D.train size for model learning and D.test size for 
+ reliable error estimation . 
+ Repeated Holdout Method 
+
+ o Enhances reliability by repeating the process and averaging 
+ error rates . 
+ Model selection and validation set 
+ Achieve an optimal balance between 
+ model complexity and performance . 
+ Complexity Measurement 
+
+ O 
+
+ Complexity can be measured by the ratio of leaf 
+ nodes to training instances . 
+ Limitation of Training Error : 
+
+ O 
+
+ Training error rate is insufficient for effective 
+ model selection . 
+ Validation Set : 
+
+ O 
+
+ Essential for assessing generalization error . 
+ Model Selection Strategy : 
+
+ O 
+
+ Combine complexity with validation set 
+ performance to select the most effective model . 
+ ‘ -s = - — 
+ Single Dataset 
+ B ising ) verceton Tea 
+ Single Dataset 
+
+ 20 
+
+ Cross validation 
+
+ e Cross validation helps to avoid the split baise . 
+ Divide data into k equal folds . 
+ e Each instance is used exactly once for error . 
+ calculation . 
+ Hi Test Set 
+ e The error is calculated based on : ? | | training se 
+ i= 
+ N 
+
+ e 
+ What if some classes do n't appear in some 
+ folds ? 
+ Cross validation 
+
+ Stratified Sampling 
+ Ensures equal representation of classes in 
+ each partition . 
+ Leave - One - Out Approach 
+
+ O 
+
+ O 
+
+ A special case where each instance is 
+ used once as a test set . 
+ K = N 
+ Estimating Error Variance 
+ Repeating cross - validation with different 
+ partitions provides robust error estimates . 
+ Stratified K - fold 
+ [ _ ] Training Data 
+ [ ) Validation Data 
+
+ 23 
+
+ Classification evaluation metrics 
+
+ e Accuracy 
+
+ o Proportion of correctly predicted instances to total instances . 
+ Predicted 
+
+ 0 
+
+ Predicted 
+
+ e Precision 
+
+ o Ratio of true positives to total predicted positives . 
+
+ e Recall ( Sensitivity ) 
+
+ o 
+ Ratio of true positives to actual positives . 
+ o Harmonic mean of precision and recall 
+ e Confusion Matrix 
+
+ o Visual tool categorizing true and false positives and 
+ negatives . 
+ Classification evaluation metrics 
+
+ Predicted Class 
+
+ ws False Negative ( FN ) Sensitivity 
+ True Positive ( TP ) - - _ aR 
+ ype Il Error ETT 
+
+ Actual Class 
+
+ s False Positive ( FP ) Specificity 
+ Negative 1 IE True Negative ( TN ) TN 
+ ype I Error FRE 
+
+ Negative Predictive Accuracy 
+
+ Precision 
+ Value TP + TN 
+
+ TP 
+ ( TP + FP ) 
+
+ ( TN + FN ) 
+
+ TN ( TP + TN + FP + FN ) 
+
+ 25 
+ Outline 
+
+ Characteristics of Decision Trees 
+ Model Overfitting 
+
+ Model Evaluation and selection 
+
+ mw coo 
+
+ Conclusion 
+
+ 26 
+ Conclusion 
+ Remember , the journey in data science is a continuous battle 
+ against overfitting and underfitting . 
+ Stay vigilant !

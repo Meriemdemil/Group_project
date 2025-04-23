@@ -1,0 +1,144 @@
+Clustering 
+ Outline 
+
+ L } Overview of Clustering 
+
+ LJ Major Clustering Approaches 
+ LJ K - means Clustering 
+ LJ Hierarchical Clustering 
+ Li DBSCAN Clustering 
+
+ LJ Cluster Evaluation 
+
+ Density - based Clustering 
+ e Density - based methods use density to discover clusters of any shape . 
+ e Density means the concentration of data points in a given region . 
+ e Clusters are regions of high density separated by regions of low density . 
+ e Major features : 
+ = Discover clusters of arbitrary shape 
+
+ = Handle noise 
+
+ m 
+ = No need to define the number of clusters in advance 
+
+ DBSCAN Clustering 
+
+ e DBSCAN : Density - Based Spatial Clustering of Applications with Noise 
+ e lt defines a cluster as a maximal set of density - connected points . 
+ Density is the number of data points within a certain radius . 
+ The parameters of this algorithm are : 
+ » € the maximum radius of the neighborhood 
+
+ s » 
+ the minimal number of point in a dense neighborhood 
+ € -neighborhood 
+
+ e 
+ The neighborhood within a radius € of a given object is called 
+
+ the € -neighborhood of the object . 
+
+
+ Core objects 
+ If the ¢-neighborhood of an object contains at least a minimum 
+
+ number of objects MinPts , then the object is called a core object . 
+ Core , Border , and Noise Points 
+ Acore point has at least a specified number of points ( MinPts ) within € 
+ Aborder point is not a core point , but is in the neighborhood of a core point 
+
+ e 
+ Given a set of objects D , we say that an object p is directly 
+
+ density - reachable from an object q if : 
+
+ “ p is within the € -neighborhood of g , and q is a core object . 
+ Given a set of objects D , an object p is density - reachable from an 
+
+ object q with respect to € and MinPts if : 
+
+ “ There is a chain of objects p , , ... , p , , where p , = q and p , = p such 
+ that p. , , is directly density - reachable from p , with respect to € and 
+
+ MinPts , for 1SiSn and p,€ D. ” 
+
+ MinPts= 5 
+
+ Density Connectivity 
+
+ e 
+ Given a set of objects D , an object p is density - connected to 
+
+ an object q with respect to € and MinPts if : 
+ “ There is an object o € D such that both p and q are 
+
+ density - reachable from o with respect to ¢ and MinPts ” 
+ MinPts = 5 
+
+ Density - based Clusters 
+ e Adensity - based cluster is a set of density - connected points 
+
+ that is maximal with respect to density - reachability . 
+ Every object not contained in any cluster is considered noise . 
+ e e 
+ ie ee * . 
+ > eo Pe 
+
+ SA 
+ ‘ iad Pa * 
+
+ Sore 
+
+ 4 
+
+
+ DBSCAN Algorithm : Intuition 
+ “ By recursively exploring the neighborhood of core points 
+ within the ¢-distance threshold and incorporating reachable 
+ points into clusters , the DBSCAN algorithm identifies dense 
+
+ regions in the dataset while also detecting outliers ( noise 
+
+ points ) that do not fit within these dense regions . ” 
+
+ - 2 N 
+
+ DBSCAN Algorithm 
+
+ Choose € ( a positive number ) and MinPoints ( a natural number ) . 
+ Select an arbitrary point P from the dataset . 
+ Check if point P is a core point . 
+ If yes , form a cluster including P. 
+ Recursively add core points within the € -neighborhood of the already added 
+ points to the cluster . 
+ Noise Identification : Label points that are neither core points nor border 
+ points as noise . 
+ Determining MinPts 
+ General guidelines for setting MinPts : 
+ e Larger datasets require a larger MinPts value . 
+ In noisier datasets , choose a larger MinPts value . 
+ Domain knowledge is crucial to select an appropriate MinPts value . 
+ 16 
+
+ DBSCAN : Determining € using K - Distance Plot 
+ Plot these K - distances in ascending order . 
+ e The ' knee ' in the plot represents a threshold where a sharp change in 
+
+ distance occurs . 
+ This point is indicative of the optimal € value . 
+ Helps to distinguish between core , border , and noise points in the data 
+ 17 
+ DBSCAN : Determining € and MinPts 
+
+ e Idea : for points in a cluster , their Ath nearest neighbors are at close distance 
+ e 
+ Noise points have the Ath nearest neighbor at farther distance 
+
+ e 
+ Advantages 
+ Disadvantages 
+ e Advantages : 
+ m Can handle clusters of different shapes and sizes 
+ = Resistant to noise and outliers 
+ = Does n't require predefined number of clusters .

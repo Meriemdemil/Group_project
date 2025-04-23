@@ -1,0 +1,389 @@
+Classification ( Part1 ) } 
+
+ & 
+ Chapter Overview 
+
+ W introduction to Classification 
+
+ _ J Decision Tree Induction 
+ LJ Introduction to Decision tree 
+ LJ Attribute Test Conditions 
+ J Impurity Measures and Splitting Strategies 
+ LJ Gain Ratio 
+
+ What is classification ? 
+
+ Input Output 
+ Attribute set = » a — » 
+ Class label 
+ ( x ) ( y ) 
+
+ e Data Instances 
+
+ — Attributes : Descriptive features of instances ( x ) . 
+ — Class Labels : Categorical labels representing the class of an instance ( Y ) . 
+
+ e Classification 
+
+ — Assigning class labels to instances based on attributes . 
+
+ ° 
+ Classifier 
+ — A function f(x ) used to classify unseen data x by assigning a class label y. 
+
+ Classification example 
+
+ os 
+ E ky 
+
+ Assistant Prot Tenured ? 
+ Merlisa |Associate Prof 
+
+ /|Assistant Prof eS 
+ Attributes Class labels 
+ Applications of classification 
+
+ Health 
+ ~ Medical diagnosis 
+ — ~ Patient risk categorization 
+
+ Computer Security 
+ ~ Spam filtering 
+ ~ Malware classification 
+
+ Banking and Finance 
+ ~ Loan default prediction 
+ ~ Credit card fraud detection 
+
+ Retail and E - commerce 
+ ~ Customer purchase pattern classification 
+ ~ Sentiment analysis from customer reviews 
+
+ Transportation and Logistics 
+ — Cargo classification for customs 
+ — Driver behavior classification for insurance 
+
+ Role of Classification Models 
+
+ ¢ Predictive Models 
+
+ — Used to predict class labels for new , unseen data . 
+ — Learn patterns from historical data to make predictions . 
+
+ e Descriptive Models 
+
+ — Help understand distinguishing features of different classes . 
+ — Analyzes the data to find common characteristics and 
+ patterns . 
+ Role of Classification Models 
+
+ ¢ Predictive Models 
+
+ — Example : Classifying email messages as ‘ urgent ’ or 
+ ‘ non - urgent ’ based on their content . 
+
+ e 
+ Descriptive Models 
+
+ — Example : \dentifying key factors that differentiate 
+ high - risk patients in healthcare . 
+
+
+ General Framework for Classification 
+
+ e Induction ( Training ) 
+
+ Training Set 
+
+ Learming 
+ Algorithm 
+
+ — Learning a model from a labeled training 
+ dataset . 
+
+ — Use learning algorithm to build models . 
+ ¢ Deduction ( Testing ) 
+
+ oy 
+ o 
+
+ — Applying the learned model to new 
+ instances ( unseen ) to predict class 
+ labels . 
+
+ — Assessing the model 's performance to 
+ measure its generalization capability . 
+ The feedback from testing is often used to 
+ refine and improve the training process . 
+ Chapter Overview 
+
+ LJ Introduction to Classification 
+
+ LJ Decision Tree Induction 
+ Mi Introduction to Decision Tree 
+ LJ Attribute Test Conditions 
+ _ J Impurity Measures and Splitting Strategies 
+ LJ Gain Ratio 
+
+ Decision Tree 
+
+ Bod 
+ * Root Node ae ” _ _ Root 
+ — Initial point of decision - making . 
+ node 
+
+ Internal Warm Cold 
+ node 
+
+ ¢ Internal Nodes ™ 
+ — Question based on a single attribute ( ome 
+ — Attribute test . 
+ Non- | 
+
+ Han | 
+
+ e Leaf Nodes 
+ — The final classification outcome . 
+
+ mammals 
+
+ Mammal classification tree 
+
+ 10 
+
+ Deduction in Decision Trees 
+
+ e Start at Root Node 
+
+ ae , Unlabeled Rete tempenstoen:_| |i ) Cheon | 
+
+ — Apply initial attribute test . 
+ [= 
+ — Follow Test Outcome . 
+ a | zs 
+ Temperature mamma 
+ Visit next node 
+
+ — Follow Test Outcome . 
+ ¢ Reach Leaf Node 
+
+ — Determine final classification . 
+ Mammal classification tree 
+ 11 
+
+ Hunt ’s Algorithm for decision tree building 
+
+ ¢ Initial Node 
+ — Start with a root node containing all instances . 
+ All instances 
+
+ 12 
+
+ Hunt ’s Algorithm for decision tree building 
+
+ ¢ Initial Node 
+ — Start with a root node containing all instances . 
+ All instances 
+
+ ¢ Expansion and Child Nodes Formation 
+
+ — - Expand nodes with mixed class instances . 
+ - Select the attribute test based on a splitting Attribute 1 ? 
+ criterion . 
+ yes No 
+ 0 % yes , 100 % No 40 % yes , 60 % No 
+ Class = No Class = No 
+
+ — Create child nodes for each test outcome 
+ - Distribute instances accordingly . 
+
+ 13 
+
+ Hunt ’s Algorithm for decision tree building 
+
+ ¢ Initial Node 
+ — Start with a root node containing all instances . 
+ Attribute 1 ? 
+ V1 V2 
+
+ Defaulted = No 
+
+ ¢ Expansion and Child Nodes Formation 
+ — - Expand nodes with mixed class instances . 
+ - Select the attribute test based on a splitting 
+ criterion . 
+ - Create child nodes for each test outcome 
+ - 
+ Distribute instances accordingly . 
+ Attribute 2 ? 
+
+ ¢ Recursive Process 
+ — Continue expansion for nodes with mixed 
+ class instances . 
+
+ 100 % yes , 0 % No 
+ Class = Yes 
+
+ 0 % yes , 100 % No 
+ Class = No 
+
+
+ Hunt ’s Algorithm for decision tree building 
+
+ ¢ Initial Node 
+ — Start with a root node containing all instances . 
+ Attribute 1 ? 
+ V1 V2 
+
+ Defaulted = No 
+
+ ¢ Expansion and Child Nodes Formation 
+ — - Expand nodes with mixed class instances . 
+ - Select the attribute test based on a splitting 
+ criterion . 
+ - Create child nodes for each test outcome 
+ - Distribute instances accordingly . 
+ No [ Divorced J95 K [ Yes 
+ Defaulted = No Defaulted = Yes 
+ Decision tree algorithm questions 
+
+ How to handle an empty test outcome ? 
+ All attributes values are identical BUT different class labels ? 
+ How to determine the best attribute test ? 
+
+ What are the stopping criteria for the algorithm ? 
+
+ How to handle an empty test outcome ? 
+ When Does This Occur ? 
+ ¢ No training instances with specific attribute values . 
+ ¢ These attribute values can happen in testing instances . 
+ Approach 
+
+ Assign the most common class label from parent node to 
+ empty nodes . 
+ All attributes values are identical BUT 
+ different class labels ? 
+ When Does This Occur ? 
+ ¢ Expansion is impossible . 
+ ¢ We ca n’t build leaves contains the same class . 
+ Approach 
+
+ Declare it a leaf node and assign it the most common class 
+ label in the training instances associated with this node . 
+ 23 
+
+ Chapter Overview 
+
+ LJ Introduction to Classification 
+
+ LJ Decision Tree Induction 
+ LJ Introduction to Decision Tree 
+ MM Attribute Test Conditions 
+ _ J Impurity Measures and Splitting Strategies 
+
+ _ J Gain Ratio 
+
+ 24 
+ How to select the optimal grouping ? 
+ 38 
+
+ Attribute Test Conditions & Attribute type 
+
+ — Binary or multiway splits { Small , { Large , { Small } { Medium , Large , 
+ . . . Medium } Extra Large } Extra Large } 
+ ( like nominal attributes ) . 
+ — Binary split : grouping should ' 
+ not violate the order . 
+ How many possible grouping ? 
+ ¢ Ordinal Attributes 
+
+ { Small , { Medium , 
+ Large } Extra Large } 
+
+ > 
+
+ 29 
+
+
+ Attribute Test Conditions & Attribute type 
+
+ Continuous Attributes 
+
+ e Binary Split 
+
+ O 
+
+ O 
+
+ O 
+
+ Annual 
+ Income 
+ Comparison test ( A < V ) . 
+ Discretization to convert to ordinal attribute . 
+ Test condition defined like ordinal attribute . 
+ — Pure nodes helps to stop expanding nodes . 
+ — Impure nodes need more expansions , deepening the tree . 
+ e Concerns with Larger Trees 
+ — Susceptible to overfitting . 
+ — Harder to interpret . 
+ — Longer training and testing times . 
+ What is pure nodes ? 
+ Pure set VS Impure set 
+
+ ¢ Pure node 
+ — Contains the same class label . 
+ — Maximum impurity occurs when class 
+
+ labels are equally probable . 
+ Maximum impurity for equally 
+ distributed classes . 
+ 37 
+
+ GClass = I 
+ Splits a node with N instances into k children { v1 , v2 , ... , vk } . 
+
+ ° N(v ;) : Number of instances in child node vj . 
+ ° I(v ;) : Impurity value of node vj . 
+
+ Collective impurity of child nodes : 
+ Weighted sum of node children impurities . 
+
+ AQ 
+
+ Which split is better ? 
+ / Marital 
+ \ Status _ / 
+
+ 41 
+
+ Which split is better ? 
+
+ / 
+ I(Home Owner = yes ) = 0 ie QO 3 ik 3 5 I(Marital Status = Single ) = 
+ Identifying the best attribute test condition 
+
+ Compare parent node impurity ( I(parent ) ) before splitting with after splitting . 
+ A = I(parent)-I(children ) 
+
+ Large ( A ) = > better attribute test condition . 
+ A_info : information gain when entropy is used . 
+
+ I(parent)2I(children ): Gain is always non - negative . 
+ Decision trees select conditions with maximum gain for splitting . 
+ Maximizing gain is equivalent to minimizing weighted child impurity . 
+ The complexity of finding the best binary split is O(n ) . 
+ Synthesis of Attribute test selection 
+
+ Selecting the best Attribute Test for Node Expansion : 
+
+ 1 . Identify the best split ( if more than one split ) for each attribute 
+ using A = I(parent)-I(children ) . 
+
+ 2 . Select the best attribute by comparing A = I(parent)-I(children ) 
+ across all the attributes . 
+ Limitation of the impurity measure A 
+
+ What is the A(ID ) ? 
+
+ 50

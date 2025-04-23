@@ -1,0 +1,201 @@
+Outline 
+
+ Mi Clustering evaluation 
+
+ 1 Why cluster evaluation ? 
+
+ 1 Types of cluster evaluation measures 
+ LJ Unsupervised evaluation 
+
+ LJ Cohesion vs Separation 
+ LI Silhouette Coefficient 
+
+ LJ Supervised evaluation 
+
+ LJ Entropy 
+
+ LJ Precision , Recall , F - measure 
+
+ Why cluster evaluation ? 
+
+ e Generate a random data points . 
+ Data without any structure 
+
+ Question : 
+
+ What is the result of applying K - Means with 
+ K=3 ? 
+ The following link can be used : K - Means Animation 
+
+
+ Why cluster evaluation ? 
+
+ e Generate a random data points . 
+ Data without any structure 
+
+ Clusters found in Random Data ! ! 
+ The following link can be used : 
+ K - Means Animation 
+
+
+ Why cluster evaluation ? 
+ e To avoid Detecting clusters in random Structure 
+
+ o Uncovering whether non - random structure exists in the data . 
+ e 
+ To evaluate Clustering Results 
+
+ o Assessing how well the clustering aligns with the data without external reference . 
+ e To compare with external known patterns 
+
+ o 
+ Comparing clustering results to externally known information , e.g. , class labels . 
+ e To compare different Clusterings and algorithms 
+
+ o 
+ Evaluating and comparing different sets of clusters for quality . 
+ “ The validation of clustering structures is the most 
+ difficult and frustrating part of cluster analysis . 
+ Without a strong effort in this direction , cluster analysis 
+ will remain a black art accessible only to those true 
+ believers who have experience and great courage . 
+ Algorithms for Clustering Data , Jain and Dubes 
+
+ Types of cluster evaluation measures 
+
+ e 
+ Unsupervised ( Internal ): measure the goodness of a clustering structure 
+ without respect to external information . 
+ The ground truth is not available . 
+ o Examples : Cohesion , separation , SSE , Silhouette Coefficient . 
+ e Supervised ( External ) : measure the extent to which cluster labels match 
+
+ externally supplied class labels . 
+ The ground truth is available . 
+ o Examples : Entropy , Precision , Recall , F - measure . 
+ Outline 
+
+ LJ 
+ Clustering evaluation 
+ 1 Why cluster evaluation ? 
+
+ 1 Types of cluster evaluation measures 
+ M@ Unsupervised evaluation 
+
+ LJ Cohesion vs Separation 
+ LI Silhouette Coefficient 
+
+ LJ Supervised evaluation 
+
+ LJ Entropy 
+
+ LJ Precision , Recall , F - measure 
+
+ Cohesion vs Separation 
+
+ Cluster cohesion ( Compactness ) 
+
+ e 
+ Measure how closely related object in a 
+ cluster . 
+ Cluster Separation 
+ Measure how distinct or well- separated 
+ a cluster is from other clusters . 
+ Graph - Based View 
+
+ Weighted graph where the weights are the distances 
+ between data points . 
+
+ Cohesion : Sum of proximities in a cluster . 
+ e Cohesion : Sum of proximities to the cluster centroid . 
+ cohesion(C ;) = > , proximity(x , c ;) 
+ e Separation : Sum of proximites between centroids . 
+ Between a cluster centroid and the global centroid 
+
+ separation(C ;) = proximity(ci , c ) 
+
+
+ Prototype - Based View 
+
+ Represent a clusters using their centroids . 
+
+ Cohesion : Sum of proximities to the cluster centroid . 
+
+ cohesion(C ;) = > , proximity(x , c ;) 
+
+ o 
+ Between a cluster centroid and the global centroid 
+
+ separation(Ci ;) = proximity(ci , c ) 
+
+ Silhouette Coefficient 
+
+ Silhouette coefficient combines cohesion and 
+
+ separation . 
+
+ Lo , as a = av 
+ For an individual point / 9 
+ Oo a = average distance of / to the points in its cluster an 
+
+ o b = min ( average distance of / to points in another cluster ) C. 
+ Outline 
+
+ LJ Clustering evaluation 
+
+ 1 Why cluster evaluation ? 
+
+ 1 Types of cluster evaluation measures 
+ LJ Unsupervised evaluation 
+
+ LJ Cohesion vs Separation 
+ LI Silhouette Coefficient 
+
+ HM Supervised evaluation 
+
+ LJ Entropy 
+
+ LJ Precision , Recall , F - measure 
+
+ Entropy 
+ Entropy measures the extent to which the clustering structure 
+ matches external class labels . 
+ e Pure cluster is cluster that contain only one class label . 
+ e We measure the purity of a cluster using the entropy . 
+ e How to Use Entropy for Evaluation : 
+ o Calculate entropy for each cluster . 
+ o Sum the entropies to get an overall measure . 
+ Lower values indicate better alignment with external class labels . 
+ K a 
+ Uk 
+ So = ) W SLk * Sik = ) 
+ DPLk logs Plk 
+ 1 1 
+
+ Pure cluster 
+
+ Impure cluster 
+
+ z= WwnNneR * 
+
+ wnre 
+
+ a - 
+ 0 1 0 ) S _ = 0 
+ 0 0 1 ) 
+ Sik 
+ 4/8 2/8 2/8 15 
+ ; 7 7 " S , = 0.971 
+ 2/6 0 4/6 0.918 
+ Sik 
+ 2/6 2/6 2/6 1.585 
+ 2/6 2/6 « 2/6 ~=—-1.585 S- = 1.585 
+ K Ny L 
+ S.= > 
+ W Suk Si = > Pu log , Pix 
+
+
+ Precision , Recall , F - measure 
+
+ e Precision : The fraction of a cluster / that consists of objects of a specified class . 
+ Recall : The extent to which a cluster contains all objects of a specified class .

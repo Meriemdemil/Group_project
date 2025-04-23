@@ -1,0 +1,627 @@
+Data Mining 
+ Status Income Cheat 
+ o Examples : eye color of a person , temperature , etc . 
+ Attribute is also known as _ variable , field , 
+
+ characteristic , dimension , or feature 
+
+ Single 
+ Married 
+ Single 
+ Married 
+
+ Divorced 
+
+ Objects 
+
+ Married 
+
+ e Object : collection of attributes 
+ e 
+ Object is also known as record , point , case , 
+ sample , entity , or instance 
+
+ Divorced 
+
+ Single 
+
+ oO ON OO a BKB WN = 
+ Types of Attributes 
+ e Nominal ( Categories ) 
+
+ o Examples : ID numbers , eye color , zip codes 
+
+ e Ordinal ( Ordered Categories ) 
+ Examples : Zip codes , counts , or words in documents . 
+ Discrete 
+ Represented as integers . 
+ Note : Binary attributes are a special case of 
+ discrete attributes . 
+ © 
+ oe 
+ e Continuous Attribute : 
+ Values are real numbers . 
+ Discrete v / s 
+
+ o Examples : Temperature , height , weight . 
+ Real values , practically measured with finite digits 
+ Represented as floating - point variables . 
+ Asymmetric Attributes 
+
+ e 
+ Inasymmetric attributes , only the presence ( non - zero value ) matters . 
+ o Examples : Words present in documents : Focus on words that appear . 
+ o Items present in customer transactions : Emphasize purchased items . 
+ e Real - Life Scenario : 
+
+ In a grocery store encounter , would we say : 
+
+ “ Our purchases are similar because we did n't buy most of the same products ? ” 
+
+ Important Characteristics of Data 
+
+ e Dimensionality ( Number of Attributes ) 
+ o 
+ High - dimensional data presents unique challenges . 
+ e Sparsity 
+ o Emphasizes the importance of presence over absence . 
+
+ e 
+ Resolution 
+ o Patterns can vary based on the scale of measurement . 
+ e Size 
+ o The type of analysis often depends on the data 's size . 
+ e Distribution 
+ o Considers centrality and dispersion in the data . 
+ Types of Data Sets 
+
+ e Record Data : records with fixed attributes Person : 
+
+ o 
+ Relational records 
+ o Data matrix ... po | Miler Paul | bondon _ | 
+ > Transaction Data norelation 
+
+ | 4 | | | Rom _ _ 
+ Car : 
+
+ 10 1973 
+ 103 
+ ice 
+
+ 3 
+ Types of Data Sets 
+
+ e Record Data : records with fixed attributes 
+ o 
+ Relational records 
+ Data matrix ... 
+ o Transaction Data 
+
+ e Graphs and Networks 
+ o Transportation network 
+ o 
+ information networks ... 
+ o Molecular Structures 
+ Types of Data Sets 
+
+ e Record Data : records with fixed attributes 
+ o ~~ Relational records 
+ o = > Data matrix ... 
+ o Transaction Data 
+
+ e Graphs and Networks 
+ o Transportation network 
+ o Social or information networks ... 
+ o 
+ Molecular Structures 
+
+ e Ordered ( Sequence ) Data 
+ o Video : sequence of image 
+ o Genetic Sequence Data 
+ o Temporal sequence ... 
+
+
+ Types of Data Sets 
+
+ e Record Data 
+ o ~—- Relational records 
+ o ~)>0 Data matrix ... 
+
+ o Transaction Data Political/ 
+ Aoministrative 
+ ouncgarnes 
+ e Graphs and Networks 
+ o Transportation network - Streets 
+ o Social or information networks ... 
+ Vector 
+ o Molecular Structures p 
+ arcels 
+ e Ordered ( Sequence ) Data 
+ o Video : sequence of image ; Land Usage 
+ o Genetic Sequence Data < 
+ o Temporal sequence ... 
+ Elevation 
+
+ e Spatial Data 
+ o RGB Images 
+ o = Satellite images 
+
+ Real World 
+
+
+ 2- Data preprocessing 
+
+ What is Data Preprocessing ? — Major Tasks 
+
+ Data cleaning 
+ e Handle missing data , smooth noisy data , identify / remove outliers , and resolve inconsistencies 
+ Data integration 
+ e Integration of multiple databases , data cubes , or files 
+ Data transformation and data discretization 
+ e 
+ Normalization 
+ e Discretization 
+ e Sampling 
+ Data reduction ( covered in the next chapter ) 
+ e 
+ Dimensionality reduction 
+ e Data compression 
+ sf Quality 
+ Poor Data Quality adversely affects data processing efforts . 
+ Example : Poor data can result in wrong loan decisions . 
+ — Some credit - worthy candidates are denied loans 
+ — More loans are given to individuals that default 
+
+ e 
+ What types of data quality issues exist ? and how can we identify them ? 
+ e What can we do about these problems ? 
+ Examples of data quality problems : 
+ — Noise and outliers 
+ — Wrong data 
+ — Fake data 
+ — Missing values 
+ — Duplicate data 
+ Noise 
+
+ e Noise in Objects : Extraneous 
+ elements affecting data integrity . 
+
+ e Noise in Attributes : Modification of 
+ original attribute values . 
+
+ e Examples : 
+ o Distorted voice on a poor phone line . 
+ o 
+ " Snow " on a television screen . 
+ o Erroneous entries caused by data entry 
+
+ errors or system glitches . 
+ Outliers 
+
+ e 
+ Data objects with characteristics significantly different 
+ from the majority in the dataset . 
+ o Outliers can be noise that disrupts data analysis . 
+ o Incertain scenarios , outliers are the primary focus of analys 
+ o 
+ Credit card fraud detection 
+ o Intrusion detection . 
+ e Determining Causes : 
+ o Explore the reasons behind the presence of outliers . 
+ How to Handle Noisy Data ? 
+ Binning : Sort data into bins , enabling smoothing using means , medians , 
+ or boundaries . 
+
+ e 
+ Regression : Smooth data through regression functions . 
+ o 
+ Use other attributes to predict the noisy attributes 
+
+ e 
+ Clustering : Identify and eliminate outliers . 
+ Semi - supervised : Combine automated and human inspection to identify 
+
+ noise and outliers . 
+ Missing values 
+ Missing Values 
+
+ Age SidSp Parch # icket 
+
+ 22 1 0 A / S 21171 
+
+ 1 PC 17599 
+ L ) STON / O2 . 3101282 
+ 1 113803 53.1 
+ 373450 8.05 
+
+ Reasons for missing values 3s 
+ Eliminate data objects or variables 
+ o Estimate missing values 
+ = Example : time series of temperature 
+ = Example : census results 
+ o 
+ Ignore the missing value during analysis 
+
+ Duplicate Data 
+ Occurrence of identical or nearly identical data objects . 
+ e Common when merging data from diverse sources . 
+ o Example : Identical individuals with multiple email addresses . 
+ How to handle duplicate data 
+
+ \ 
+
+ e Remove duplicate data objects . 
+ H 
+
+ e Keep Duplicate Data : When and Why ? 
+ Smitha relly ? 
+ o Customers with multiple accounts may unintentionally 
+
+ accumulate points separately . 
+ o Keeping duplicate data ensures they receive all earned benefits . 
+ e Discretization : Converting continuous data into discrete categories . 
+ e Sampling : Selecting a subset to represent a larger population . 
+ Normalization 
+
+ e Normalization ensures that variables are on a consistent scale . 
+ e Normalization is crucial for many data mining algorithms . 
+ e Improved Algorithm Convergence . 
+
+ Min - max normalization : to [ new_min , , new_max , ] 
+
+ _ v — min : 
+ v ' = — — _ — — — _ ( new _ max:—new _ min)+new _ min : 
+ Max : — Min : 
+
+ Z - score normalization ( yu : mean , o : standard deviation ): 
+ _ ATB 
+ Oo 
+
+ rh 
+
+ Min - max normalization VS Z - score normalization 
+
+ Un - normalized Houses 
+
+ € & 
+ Min - max normalization : 
+ o Guarantees all attributes willhave the — € 
+ exact same scale . 
+ = ie 75 
+ o Does not handle outliers well . 
+ Years old 
+
+ Z - score normalization : 
+ o Handles outliers . 
+ o Does not produce normalized data 
+ with the exact same scale . 
+ Normalized Houses using min - max normalizatio 
+
+ 0.0 0.2 0.4 0.6 0.8 1.0 
+ Years old ( normalized ) 
+
+ Number of rooms ( normalized ) 
+
+ Min - max normalization VS Z - score normalization 
+
+ Min - max normalization : 
+
+ O 
+
+ O 
+
+ Guarantees all attributes will have the 
+ exact same scale . 
+ Does not handle outliers well . 
+
+ Z - score normalization : 
+
+ O 
+
+ O 
+
+ Handles outliers . 
+ Does not produce normalized data 
+ with the exact same scale . 
+
+ Un 
+ normalized 
+ Converting a continuous attribute into an ordinal attribute . 
+ A potentially infinite number of values are mapped to a small number of categories . 
+ e Discretization is used in both unsupervised and supervised settings . 
+ Discretization 
+
+ e 
+ Unsupervised 
+
+ o 
+ Binning : Top - down split 
+
+ o 
+ Histogram analysis : Top - down split 
+
+ o 
+ Clustering analysis : top - down split or bottom - up merge 
+ Supervised 
+
+ o 
+ Decision - tree analysis : top - down split 
+
+ o 
+ Correlation analysis : bottom - up merge 
+ Note : All the methods can be applied recursively 
+
+ Sampling 
+ Sampling is selecting a subset of data from a larger dataset to make it more 
+ manageable for analysis while maintaining its representativeness . 
+ e Weuse sampling because obtaining the entire dataset of interest is : 
+ o Expensive : Collecting , storing , and processing vast amounts of data can be cost - prohibitive . 
+ o   Time - consuming : Analyzing the complete dataset can be impractical due to time constraints . 
+ e Challenges : 
+ o Ensuring the sample is representative of the population . 
+ o Addressing potential bias in the sampling process . 
+ Sampling is an essential tool in data analysis , achieving a crucial equilibrium 
+ between resource efficiency and the ability to derive meaningful insights . 
+
+ Sample size 
+
+ h and 
+
+ | decision in researc 
+
+ + , 
+ oe 
+ we 
+ 3 
+
+ * 
+ a 
+
+ . 
+
+ Pa 
+
+ fuse * , hi atts 
+
+ Ize IS a Critica 
+
+ analysis . 
+ , UPSET SAR oF 
+
+ “ ten AAG BRR Cats 
+ 5 
+
+ late sample s 
+
+ ing an appropria 
+
+ Select 
+
+
+ Random sampling 
+ with replacement 
+
+ Sampling methods 
+
+ Random sampling 
+ without replacement 
+
+ Simple random sampling 
+ i Cluster sampling 
+
+ Origian ! 
+
+ data 
+
+ e 
+ Equal probability of selecting any particular item 
+ Sampling without replacement cial wires 
+ Once an object is selected , it is removed from the population 
+ Sampling with replacement 
+ Aselected object is not removed from the population 
+
+ Stratified sampling 
+ Partition ( or cluster ) the data set , and draw samples from each partition ( proportionally , i.e. , 
+
+ approximately the same percentage of the data ) 
+
+ 3- Similarity and Dissimilarity Measures 
+
+ Similarity and Dissimilarity Measures 
+
+ e 
+ Similarity Measure : 
+ o Quantifies data object likeness . 
+ Higher values indicate greater similarity . 
+ o Lower values indicate greater similarity . 
+ o Often starts at O and varies in the upper limit . 
+ a ” 
+
+ Similar Not Similar 
+
+ e Proximity : 
+ o Refers to either similarity or dissimilarity . 
+ Similarity reveal valuable data relationships for 
+ pattern recognition , clustering , and classification . 
+ Properties of a Distance 
+
+ e 
+ Distance t is a metric if it satisfies these properties : 
+
+ o 
+ Non - Negativity : 
+ Symmetry : 
+ m d(x , y ) = d(y , x ) for all x and y. 
+
+ o Triangle Inequality : 
+ , z ) < d(x , y ) + d(y , Z ) 
+ for all x , y , and z. 
+ Metrics ensure that distances align with real - world geometric properties 
+
+ Metrics guarantee meaningful and reliable distance measurements in data 
+ analysis . 
+ Note : This property may not always hold , e.g. , cosine similarity . 
+ Symmetry : 
+ Oo ( xX , y ) = S(y , X ) for all x and y. 
+ o 
+ Symmetry ensures that the order of comparison does not affect the similarity score . 
+ Understanding these properties helps ensure the reliability and consistency 
+ of similarity measures in data analysis . 
+ Similarity and dissimilarity matrix 
+
+ e Distance Matrix 
+
+ O 
+
+ O 
+
+ O 
+
+ Distances between all data objects in a dataset . 
+ Useful for clustering and nearest neighbor algorithms . 
+ Symmetric , with values reflecting dissimilarities . 
+ e Similarity Matrix 
+
+ O 
+
+ O 
+
+ O 
+
+ Similarities between data objects . 
+ Valuable for clustering , recommendation systems , ... 
+ Often symmetric , with higher values indicating 
+ stronger similarities . 
+ lersthialll titel 
+
+
+ Distances and similarity examples 
+ e Proximity measures for numerical vectors 
+ o Euclidean Distance 
+ o Minkowski Distance 
+ o Cosine Similarity 
+ o Linear correlation 
+
+ e Proximity measures for binary vectors 
+ o 
+ Simple Matching Coefficient ( SMC ) 
+ o Jaccard Coefficient 
+
+ Euclidean Distance ( applicable to numerical vectors ) 
+
+ d(x , y ) — 
+
+ e ‘ 7 : number of attributes . 
+ e Lk , YK : kth attributes for objects x 
+ and y , respectively . 
+
+ - _ — 
+ cad 
+ tw 
+ - 
+ — 
+
+ - 
+ | 
+ - 
+ = 
+
+ Standardization is necessary , if 
+ scales differ . 
+ Example : Euclidean Distance matrix 
+
+ 7 
+
+ bet es 
+
+ oes a1 } ol anal 162 ] — sv 
+
+ 7 . 
+ 2ersf of data 3.162 
+
+ . 3 3 
+
+ _ _ pt | 5099 ) 36x ) 2 ) 
+ 0 2 3 5 6 
+
+ Minkowski Distance ( applicable to numerical vectors ) 
+
+ n lyr 
+ d(x , y)= { > — |xn — ye ” 
+ el 
+
+ Generalization of Euclidean Distance . 
+ r : parameter 
+ n : number of attributes 
+ . 
+ th . . 
+ x , and y , are , respectively , the k ™ attributes or objects x and y. 
+ The hyperparameters r Allows to adapt the distance to the characteristics of data . 
+ Also known as Manhattan , taxicab , or L1 norm distance . 
+ Ideal for measuring distances in grid - like paths . 
+ Binary vector example : Hamming distance counts differing bits . 
+ The most commonly used distance metric . 
+ Measures the straight - line distance in Euclidean space . 
+ e Supremum Distance ( r — ~ ): 
+ o 
+ Also called Lmax norm or L » norm distance . 
+ Calculates the maximum difference between any component of vectors . 
+ Appropriate when movement is unrestricted in any direction . 
+ Also known as Manhattan , taxicab , or L1 norm distance . 
+ Ideal for measuring distances in grid - like paths . 
+ Binary vector example : Hamming distance counts differing bits . 
+ The most commonly used distance metric . 
+ Measures the straight - line distance in Euclidean space . 
+ e Supremum Distance ( r — ~ ): 
+ o 
+ Also called Lmax norm or L » norm distance . 
+ Calculates the maximum difference between any component of vectors . 
+ Appropriate when movement is unrestricted in any direction . 
+ Also known as Manhattan , taxicab , or L1 norm distance . 
+ Ideal for measuring distances in grid - like paths . 
+ Binary vector example : Hamming distance counts differing bits . 
+ The most commonly used distance metric . 
+ Measures the straight - line distance in Euclidean space . 
+ e Supremum Distance ( r — ~ ): 
+ o 
+ Also called Lmax norm , L~ or chebyshev distance . 
+ Calculates the maximum difference between any component of vectors . 
+ Appropriate when movement is unrestricted in any direction . 
+ o Omeans orthogonal ( no linear relationship ) . 
+ Perfect negative 
+ correlation 
+
+ e 
+ Commonly used in statistical analysis and data exploration . 
+ e tunable to capture nonlinear associations . 
+ Distances and similarity examples 
+
+ e 
+ Proximity measures for numerical vectors 
+ o Euclidean Distance 
+ o Minkowski Distance 
+ o Cosine Similarity 
+ o Linear correlation 
+
+ e Proximity measures for binary vectors 
+ o Simple Matching Coefficient ( SMC ) 
+ o Jaccard Coefficient 
+
+ Similarity Between Binary Vectors 
+
+ e Simple Matching Coefficient ( SMC ): the number of matches divided by 
+ the 
+ total number of attributes 
+ SMC = ( fF , + Soo ) ! 
+ Sto F Soo * Fi ) 
+ Choice of the right proximity measure depends on the domain 
+
+ e 
+ Comparing Documents Using Word presence 
+ o Proximity Measure : Jaccard Coefficient 
+ o 
+ Similarity : 
+ Documents are considered similar if they use high number of common words . 
+ Similarity : 
+ Similarity :

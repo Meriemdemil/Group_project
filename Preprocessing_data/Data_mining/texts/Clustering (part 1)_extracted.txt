@@ -1,0 +1,258 @@
+Clustering 
+ Hierarchical Clustering 
+ LJ DBSCAN Clustering 
+
+ LJ Cluster Evaluation 
+ What is Clustering ? 
+ = Given a set of objects , place them in groups such that : 
+
+ The objects in a group are similar ( or related ) to one another and different 
+ from ( or unrelated to ) the objects in other groups 
+
+
+ Think of some practical applications of clustering ? 
+ Applications of Clustering 
+
+ Marketing : Discover customer segments for targeted marketing 
+ Information retrieval : Document clustering 
+
+ Land use : Identifying similar land use areas in an Earth database 
+ Biology : Taxonomy levels ( kingdom to species ) 
+
+ City planning : Grouping houses by type , value , and location 
+ Earthquake studies : Clustering observed epicenters along fault lines 
+ Climate : Analyzing atmospheric and ocean patterns 
+
+ Economic science : Market research 
+
+ Clustering as Preprocessing tool 
+
+ = Summarization : 
+ . Preprocessing for classification , regression , PCA , and association analysis 
+ . 
+ Compression : 
+ . 
+ Image processing using vector quantization 
+ . 
+ Finding K - nearest Neighbors 
+ . 
+ Outlier detection 
+
+ . 
+ Outliers are often viewed as those “ far away ” from any cluster 
+
+ What is a good clustering and what are the factors 
+ that contribute to it ? 
+
+ What is a Good Clustering ? 
+ high intra - class similarity : cohesive within clusters 
+ . 
+ low inter - class similarity : distinctive between clusters 
+ : The quality of a clustering method depends on : 
+ . 
+ the similarity measure used by the method 
+ . 
+ the implementation of the clustering method 
+
+ . 
+ the ability to discover some or all of the hidden patterns 
+
+ What is a Good Clustering ? 
+ Similarity is expressed in terms of a distance function d(i , j ) 
+
+ : 
+ — The definitions of distance functions depend on the attribute type : 
+
+ boolean , categorical , interval - scaled , ordinal ratio , and vector variables 
+
+ : | Weights should be associated with different attributes based on the 
+
+ domain application and data semantics 
+ = Quality of clustering 
+ . 
+ There is a “ quality ” function that measures the “ goodness ” of a cluster 
+
+ . 
+ Distance - based ( e.g. , Euclidean , road network , vector ) 
+
+ « Connectivity - based ( e.g. , density or contiguity ) 
+ Clustering space 
+
+ . 
+ Full space ( often when low dimensional ) 
+
+ = Subspaces ( often in high - dimensional clustering ) 
+
+ 11 
+
+ Notion of a Cluster can be Ambiguous 
+ How many clusters ? 
+ Notion of a Cluster can be Ambiguous 
+
+ * S e + 
+ * ® O 
+ ee ° eee ” vv ° oo 
+ & ee V o9¢ 
+ How many clusters ? 
+ Requirements and Challenges 
+
+ Interpretability 
+ « = Explain and use the different clusters 
+ Scalability 
+ . 
+ Clustering all the data instead of samples 
+ Deal with different types of attributes 
+ « = Numerical , binary , categorical , ordinal , linked , and a mixture of these 
+ Constraint - based clustering 
+ . 
+ User may give inputs on constraints 
+ « Use domain knowledge to determine input parameters 
+ Others 
+ : Ability to deal with noisy data and outliers 
+
+ . 
+ Ability to detect clusters of any shape 
+
+ 14 
+
+ Outline 
+
+ LJ Overview of Clustering 
+
+ LJ Major Clustering Approaches 
+ LJ K - means Clustering 
+ LI Hierarchical Clustering 
+ LJ DBSCAN Clustering 
+
+ LJ Cluster Evaluation 
+
+ Major Clustering Approaches 
+
+ Agglomerative 
+
+ Divisi Distance Model 
+ siesta Based Based 
+
+ Density 
+ Based 
+
+ Probabilistic 
+
+ 16 
+
+ Partitional vs Hierarchical Clustering 
+
+ Hierarchical Clusterina Partitional Clusterina 
+
+ Nested clusters Non - nested clusters 
+
+
+ Major Clustering Approaches 
+
+ Partitioning approach : 
+ . 
+ Construct various partitions and then evaluate them by some criterion 
+ . 
+ lypical methods : K - means , K - medoids , CLARANS 
+ Hierarchical approach : 
+ . 
+ Create a hierarchical decomposition of the set of data using some criterion 
+ . 
+ Typical methods : Diana , Agnes , BIRCH , CAMELEON 
+ Density - based approach : 
+ . 
+ Based on connectivity and density functions ( detect regions where points are concentrated ) 
+ « lypical methods : DBSCAN , OPTICS , DenClue 
+ Model - based : 
+ - Amodel is hypothesized for each of the clusters and tries to find the best fit 
+
+ . 
+ Jypical methods : EM , SOM , COBWEB 
+
+ 18 
+
+ Outline 
+
+ LJ Overview of Clustering 
+
+ LJ Major Clustering Approaches 
+
+ L } 
+ Clustering 
+ LI Hierarchical Clustering 
+
+ LJ DBSCAN Clustering 
+
+ LJ Cluster Evaluation 
+
+ Partitional Algorithms 
+ « Objective : Partitioning a database D of n objects into a set of K clusters . 
+ « » 
+ K - Means algorithm is an example of a partitional clustering algorithm . 
+ = Example of clustering data points with K=3 : 
+
+ After clustering 
+
+ 20 
+ Which objective function should be used ? 
+ Objective Function 
+ A common objective function is minimize the Sum of Squared Distances ( SSE ) 
+ SSE is used with the Euclidean distance measure 
+ K 
+ SSE = > > dist ’ ( m , , x ) 
+ i = l xeC ; 
+ . 
+ Xis a data point in cluster C , and m , is the centroid or medoid for cluster C , 
+ - For each point x , the error is the distance to the nearest cluster center m , 
+ . 
+ 1oget SSE , we square these errors and sum them . 
+
+ = 
+ SSE improves in each iteration until it reaches a local or global minima . 
+ Recompute the centroid of each cluster . 
+
+ 5 : until The centroids do n’t change 
+
+ 23 
+ Often terminates at a local optimal 
+
+ . 
+ Sensitive to noisy data and outliers 
+
+ . 
+ Not suitable to discover clusters with non - convex shapes 
+
+ 26 
+ How to improve the K - Means algorithm ? 
+ Variations of the K - Means Algorithm 
+
+ = 
+ Most of the variants of the k - means differ in : 
+ = Selection of the initial kK means 
+ = 
+ Dissimilarity calculations 
+ : Strategies to calculate cluster means 
+
+ « = Handling categorical data with k - modes : 
+ Replacing means of clusters with modes 
+ . 
+ Using new dissimilarity measures to deal with categorical objects 
+ . 
+ Using a frequency - based method to update modes of clusters 
+
+ = Amixture of categorical and numerical data : k - prototype method 
+
+ 28 
+
+ Outline 
+
+ L } Overview of Clustering 
+
+ L } Major Clustering Approaches 
+ Li } K - means Clustering 
+ 1 Hierarchical Clustering 
+ Li DBSCAN Clustering 
+
+ LJ Cluster Evaluation 
+
+ 29

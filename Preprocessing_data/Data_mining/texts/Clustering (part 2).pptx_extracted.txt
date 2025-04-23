@@ -1,0 +1,205 @@
+Clustering 
+ Outline 
+
+ Li Overview of Clustering 
+
+ L } Major Clustering Approaches 
+ Li K - means Clustering 
+ LJ Hierarchical Clustering 
+ Li DBSCAN Clustering 
+
+ LJ Cluster Evaluation 
+
+ Hierarchical Clustering 
+
+ Hierarchical Clustering produce a set of nested - clusters . 
+ It does not have to assume any particular number of clusters . 
+ It may correspond to meaningful taxonomies ( e.g. , biological 
+ taxonomy , animal kingdom , phylogeny reconstruction , ... ) . 
+
+ Nested clusters 
+
+ Hierarchical Clustering 
+
+ distance 
+ The set of nested clusters can be organized as a hierarchical tree . 
+ The hierarchical tree of clusters is called a dendrogram , which records the 
+ sequences of merges or splits 
+
+ Different clustering of the data can be obtained by cutting the dendrogram at 
+ the desired level , then each connected component forms a cluster 
+ Agglomerative : 
+ Start with the points as individual clusters 
+
+ . 
+ Divisive : 
+ . 
+ At each step , split the least cohesive clusters until each cluster 
+ contains an individual point ( or there are k clusters ) 
+
+ . 
+ Popular algorithm : DIANA ( Divisive Analysis ) 
+ Key Idea : Successively merge the closest clusters 
+ n 
+ Different approaches to defining the distance between 
+ clusters distinguish the different algorithms ( Min , Max , etc . ) 
+ How to Define Inter - Cluster Distance 
+
+ Distance ? 
+ < > 
+ MIN 
+ MAX ‘ Proximity Matrix 
+ Group Average 
+
+ Distance Between Centroids 
+
+ How to Define Inter - Cluster Distance 
+
+ MIN 
+ MAX ‘ Proximity Matrix 
+ Group Average 
+
+ Distance Between Centroids 
+
+ 10 
+ How to Define Inter - Cluster Distance 
+
+ MIN 
+ MAX ‘ Proximity Matrix 
+ Group Average 
+
+ Distance Between Centroids 
+
+ 11 
+ How to Define Inter - Cluster Distance 
+
+ MIN 
+ MAX ' Proximity Matrix 
+ Group Average > proximity(p,,p , ) 
+
+ p,¢Cluster , 
+ pj¢Cluster , 
+
+ proximity(Cluster , , Cluster , ) = 
+
+ Distance Between Centroids | Cluster ; | x ] Cluster ; | 
+
+ 12 
+ Now , the question is “ how do we update the proximity matrix ? ” 
+ - 
+ | 
+ | 
+ | 
+
+ p3 p4 p9 p10 p11 p12 
+ Answer : we update the proximity matrix 
+ using the different approaches to defining the 
+ distance between clusters ( Min , Max , etc . ) 
+ Note : to compute the distance between an individual data point 
+ and a cluster , we consider that data point itself as a cluster 
+
+ Hierarchical Clustering : MIN 
+
+ Nested Clusters Dendrogram 
+
+ Strength of MIN 
+
+ TUE al 
+ It detects clusters of any shape by focusing only on the nearest points 
+ between clusters , ignoring overall shape . 
+ o Captures irregularly shaped clusters effectively without assuming specific 
+ geometrical forms like elliptical shapes . 
+
+ 22 
+
+ Limitations of MIN 
+
+ ® oe " . ; nes 2 3@ 
+ “ eo & ae of 
+
+ ° 
+ Be 
+
+ of combined clusters . 
+ ° . ge 
+ 3 ° ofe 
+
+ Noise sensitivity : 
+ A single point can alter oy 
+ the cluster 's shape . 
+ Hierarchical Clustering : MAX 
+
+ 0.47 
+
+ 0.357 
+ 0.3 ; 
+ 0.257 
+
+ 0.27 
+ 0.157 
+
+ 0.17 
+ 0.05¢ 
+
+ Nested Clusters Dendrogram 
+
+ Strength of MAX 
+
+ wo a2 ? 
+ Less affected by noise because it looks at the 
+ be influenced by outliers . 
+ Limitations of MAX 
+
+ Two Clusters 
+
+ Original Points 
+
+ Tends to break large clusters into smaller , more distinct ones . 
+ O 
+
+ Biased towards globular clusters 
+
+ O 
+
+ 26 
+
+ Hierarchical Clustering : Group Average 
+
+ Nested Clusters Dendrogram 
+
+ Hierarchical Clustering : Group Average 
+
+ Compromise between Single and Complete Link 
+
+ Strengths 
+
+ Averaging reduces the influence of noisy data points 
+
+ Limitations 
+
+ Biased towards globular clusters because the average 
+
+ distance favors clusters with compact , closely located points 
+
+ Hierarchical Clustering : Space and Time Complexity 
+
+ « = Nis the number of data points or objects . 
+ = Space : O(N ’ ) 
+ m O(N ’ ) because the proximity matrix has N ? entries for distances 
+
+ between N points . 
+ = Time : O(N ’ ) 
+ a Find the min distance of the matrix O(N ’ ) * N iterations > 
+ * ) 
+ = Complexity can be reduced to O(N ? log(N ) ) 
+
+ = Accelerate finding the minimum using a heap .... 
+
+ Strength of Hierarchical Clustering 
+ = Donothave to assume any particular number of clusters . 
+ Any desired number of clusters can be obtained by ‘ cutting ’ 
+
+ the dendrogram at the proper level . 
+ They may correspond to meaningful taxonomies 
+
+ .
