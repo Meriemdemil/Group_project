@@ -6,7 +6,7 @@ import re
 app = Flask(__name__)
 CORS(app, resources={
     r"/query": {
-        "origins": ["http://localhost:3000", "http://192.168.56.1:3000", "http://localhost:5000"],
+        "origins": ["http://localhost:3000", "http://localhost:3001", "http://localhost:3002", "http://localhost:5000"],
         "methods": ["POST"]
     }
 })

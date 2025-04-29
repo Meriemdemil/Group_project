@@ -2,6 +2,7 @@ from langchain_community.vectorstores import FAISS
 from sentence_transformers import SentenceTransformer
 from together import Together
 import os
+import re
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -50,41 +51,74 @@ class EfficientDocumentSearch:
 
 
 
+# ------------------------
+# 🚀 Conversation Memory
+# ------------------------
+last_response = ""
 
 # ------------------------
 # ✅ LLM Response using Together API
 # ------------------------
-def generate_answer(context, question):
+def generate_answer(context: str, question: str) -> str:
+    global last_response
+    # If user asks to elaborate, prepend previous AI answer as part of context
+    follow_up_phrases = ["explain more", "elaborate", "tell me more", "explain further"]
+    if question.strip().lower() in follow_up_phrases and last_response:
+        context = (context + "\n\n" + "Previous Answer:" + "\n" + last_response)
+        question = "Please elaborate on the above answer."
+
     system_prompt = (
-        "You are a helpful assistant. "
-        "Only answer using the information provided in the context. "
-        "If the answer is not found in the context, say 'I don't know based on the provided information.' "
-        "Do not make up information."
-    )
+    "You are a helpful assistant. "
+    "Only answer using the information provided in the context. "
+    "If the answer is not found in the context, say 'I don't know based on the provided information.' "
+    "Do not make up information. "
+    "Format the answer clearly using Markdown. Use '##' for titles, '-' for bullet points, and add line breaks for better readability. "
+    "Make sure the final answer is easy to read and well-organized."
+)
+
     
     messages = [
         {"role": "system", "content": system_prompt},
         {"role": "user", "content": f"Context:\n{context}\n\nQuestion: {question}\nAnswer:"}
     ]
-    
     try:
         response = client.chat.completions.create(
             model="meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8",
             messages=messages,
             max_tokens=512,
-            temperature=0.3  # Lower temp for more focused answers
+            temperature=0.3
         )
-        return response.choices[0].message.content.strip()
+        text = response.choices[0].message.content.strip()
+        # Post-process: line breaks
+        text = re.sub(r"## ", r"\n\n## ", text)
+        text = re.sub(r"- ", r"\n- ", text)
+        last_response = text
+        return text
     except Exception as e:
         return f"❌ Error generating response: {e}"
-
 
 
 # ------------------------
 # ✅ Final RAG pipeline
 # ------------------------
 searcher = EfficientDocumentSearch()
+# at module‐top
+last_response = ""
 
-def rag_pipeline(question):
+def rag_pipeline(question: str) -> str:
+    global last_response
+
     context = searcher.get_context(question)
-    return generate_answer(context, question)
+
+    follow_up_phrases = ["explain more", "elaborate", "tell me more", "explain further"]
+    if question.strip().lower() in follow_up_phrases and last_response:
+        context = f"{context}\n\nPrevious Answer:\n{last_response}"
+        question = "Please elaborate on the above answer."
+
+    if not context.strip():
+        return "I don't know based on the provided information."
+
+    answer = generate_answer(context, question)
+
+    last_response = answer
+    return answer
