@@ -16,28 +16,28 @@ def handle_query():
     try:
         data = request.get_json()
         query = data.get("question") or data.get("query", "").strip()
-        
+        history = data.get("history", [])
+
         if not query:
             return jsonify({"error": "Query cannot be empty", "answers": []}), 400
-        
-        # Get RAG response
-        answer = rag_pipeline(query)
-        
-        # Clean up the answer if needed
-        cleaned_answer = re.sub(r"\s+", " ", answer).strip()
-        
-        # Return in the format your frontend expects
+
+        result = rag_pipeline(question=query, chat_history=history)
+
+        cleaned_answer = re.sub(r"\s+", " ", result["answer"]).strip()
+
         return jsonify({
-            "answers": [cleaned_answer],  # Note: Wrapping in array to match frontend expectation
-            "status": "success"
+            "answer": cleaned_answer,  # ✅ single field, not array
+            "status": "success",
+            "conversation_id": result.get("conversation_id", "")
         })
-        
+
     except Exception as e:
         return jsonify({
             "error": str(e),
             "answers": ["Something went wrong. Please try again."],
             "status": "error"
         }), 500
+
 
 if __name__ == "__main__":
     print("\nEfficient Document RAG Search API (running on port 5000)")

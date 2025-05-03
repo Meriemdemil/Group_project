@@ -119,3 +119,36 @@
   .user-name {
     font-size: 14px;
   }
+
+  .conversation-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 10px;
+  background-color: #f3f6fb;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  font-size: 0.92rem;
+  color: #333;
+  transition: background 0.2s ease;
+}
+
+.conversation-item:hover {
+  background-color: #e4ebf5;
+}
+
+.delete-button {
+  background: none;
+  border: none;
+  color: #888; /* Default icon color */
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  transition: color 0.2s ease;
+}
+
+.conversation-item:hover .delete-button {
+  color: #e53935; /* Bright red on hover */
+}
+

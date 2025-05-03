@@ -1,18 +1,17 @@
+// ChatMessage.jsx
 import React from "react";
-import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import remarkBreaks from "remark-breaks";
+import ReactMarkdown from "react-markdown";
+
 import "./ChatMessage.css";
 
 const ChatMessage = ({ message }) => {
   const { role, content, time } = message;
 
-  // Coerce content into a plain string
-  const markdown =
-    typeof content === "string"
-      ? content
-      : typeof content === "object"
-      ? JSON.stringify(content, null, 2)
-      : String(content);
+  // If it's an object, serialize it; otherwise just render the string
+  const text =
+    typeof content === "string" ? content : JSON.stringify(content, null, 2);
 
   return (
     <div
@@ -21,9 +20,14 @@ const ChatMessage = ({ message }) => {
       <div className="message-header">
         {role === "user" ? "You" : "AI Assistant"}
       </div>
-      <div className="message-content">
-        <ReactMarkdown remarkPlugins={[remarkGfm]}>{markdown}</ReactMarkdown>
+
+      <div className="message-content markdown-body">
+        <ReactMarkdown
+          children={message.content}
+          remarkPlugins={[remarkGfm, remarkBreaks]}
+        />
       </div>
+
       <div className="message-time">{time}</div>
     </div>
   );
