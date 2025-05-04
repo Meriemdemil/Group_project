@@ -22,10 +22,12 @@ const ChatMessage = ({ message }) => {
       </div>
 
       <div className="message-content markdown-body">
-        <ReactMarkdown
-          children={message.content}
-          remarkPlugins={[remarkGfm, remarkBreaks]}
-        />
+        <div className="markdown-body">
+          <ReactMarkdown
+            children={message.content}
+            remarkPlugins={[remarkGfm, remarkBreaks]}
+          />
+        </div>
       </div>
 
       <div className="message-time">{time}</div>

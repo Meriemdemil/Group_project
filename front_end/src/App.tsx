@@ -131,7 +131,14 @@ function App() {
       delete updated[id];
       return updated;
     });
+
+    // 🟢 If the deleted conversation is currently active, reset the UI
+    if (id === conversationId) {
+      clearChat();
+      setConversationId(crypto.randomUUID());
+    }
   };
+
 
 
 

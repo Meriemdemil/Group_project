@@ -41,6 +41,9 @@ You're LLaMA, a smart, conversational assistant who helps students only with wha
 You're deeply aware of tone. If the student says "hi", "yo", "hey", or anything casual like that, respond with a short, warm greeting like:  
 **Hi! How can I help you with your studies today?**
 
+You are a helpful AI tutor. Only use the provided documents to answer questions. Do not make up examples, definitions, or explanations unless they are present in the retrieved content. If the user asks for an explanation or example that is not in the retrieved documents, respond clearly that more information is needed.
+
+
 Respond to emotional or mood-based messages with empathy and brevity.
 If the student sounds bored, tired, stuck, or emotional, respond casually — don't be overly formal. You're not here to lecture.
 
@@ -49,13 +52,55 @@ If the student asks something that isn’t covered in the documents, say:
 
 Do **not** use internet sources unless allowed.
 
-Use **Markdown**, and always separate headings, lists, and paragraphs with **two newlines (`\n\n`)**.
+Always respond using clear Markdown formatting. Use `##` for main sections, `###` for sub-sections, and `*` for bullet points.
+
+Always insert two line breaks (`\n\n`) after every word.
+
+Example:
+
+## Section Title
+
+Some text describing this section.
+
+### Subsection
+
+* Bullet 1
+* Bullet 2
+
 """
+
+def ensure_newlines(md: str) -> str:
+    # Add line breaks before bullets
+    md = re.sub(r'(?<!\n)\* ', r'\n* ', md)
+    # Add line breaks before headers
+    md = re.sub(r'(?<!\n)(#{2,} )', r'\n\1', md)
+    return md.strip()
+
+def ensure_markdown_structure(md: str) -> str:
+    # Newlines before and after headers
+    md = re.sub(r'\s*(#{2,})\s*', r'\n\n\1 ', md)
+
+    # Newlines before bullets (ensure every bullet starts on a new line)
+    md = re.sub(r'\s*\* ', r'\n* ', md)
+
+    # Extra spacing between bullet items
+    md = re.sub(r'(\* [^\n]+)', r'\1\n', md)
+
+    # Remove triple or more line breaks
+    md = re.sub(r'\n{3,}', r'\n\n', md)
+
+    return md.strip()
 
 # ----------------------------
 # Main Pipeline
 # ----------------------------
 def rag_pipeline(question: str, chat_history: list, conversation_id: Optional[str] = None) -> dict:
+    # Step 0: Rephrase vague follow-up
+    if chat_history:
+        last_user_question = next((m["content"] for m in reversed(chat_history) if m["role"] == "user"), None)
+        if last_user_question and question.strip().lower() in ["explain more", "what do you mean", "give example", "more details"]:
+            question = f"{last_user_question.strip()}\n{question.strip()}"
+
     # Step 1: Retrieve context from FAISS
     query_vec = embedder.encode(question, normalize_embeddings=True)
     docs = searcher.similarity_search_with_score_by_vector(query_vec, k=3)
@@ -71,7 +116,7 @@ def rag_pipeline(question: str, chat_history: list, conversation_id: Optional[st
                 "conversation_id": conversation_id or ""
             }
     else:
-        context = "\n\n".join(context_chunks)
+        context = "\n\n".join(f"### Source {i+1}\n{chunk}" for i, chunk in enumerate(context_chunks))
 
     # Step 2: Build message history with context
     messages = [{"role": "system", "content": system_prompt}]
@@ -81,16 +126,24 @@ def rag_pipeline(question: str, chat_history: list, conversation_id: Optional[st
         "content": f"Context:\n{context}\n\nQuestion: {question}\nAnswer:"
     })
 
-    # Step 3: Call LLaMA model
+    # Step 3: Generate response
     response = client.chat.completions.create(
         model="meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8",
         messages=messages,
-        max_tokens=512,
+        max_tokens=2048,
         temperature=0.3
     )
 
+    raw_answer = response.choices[0].message.content.strip()
+    final_answer = ensure_markdown_structure(raw_answer)
+
+    # DEBUGGING
+    print("======== RAW =========\n", raw_answer)
+    print("======== FORMATTED =========\n", final_answer)
+
     return {
-        "answer": response.choices[0].message.content.strip(),
+        "answer": final_answer,
         "conversation_id": conversation_id or ""
     }
+
 
