@@ -22,14 +22,11 @@ def handle_query():
             return jsonify({"error": "Query cannot be empty", "answers": []}), 400
 
         result = rag_pipeline(question=query, chat_history=history)
-
-        cleaned_answer = re.sub(r"\s+", " ", result["answer"]).strip()
-
         return jsonify({
-            "answer": cleaned_answer,  # ✅ single field, not array
-            "status": "success",
-            "conversation_id": result.get("conversation_id", "")
-        })
+        "answer": result["answer"],
+        "status": "success",
+        "conversation_id": result.get("conversation_id", "")})
+
 
     except Exception as e:
         return jsonify({
@@ -37,8 +34,7 @@ def handle_query():
             "answers": ["Something went wrong. Please try again."],
             "status": "error"
         }), 500
-
-
+    
 if __name__ == "__main__":
     print("\nEfficient Document RAG Search API (running on port 5000)")
     app.run(port=5000, debug=True)  # Added debug=True for better error reporting
