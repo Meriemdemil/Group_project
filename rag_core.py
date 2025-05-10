@@ -53,15 +53,11 @@ If the student asks something that isn’t covered in the documents, say:
 Do **not** use internet sources unless allowed.
 
 Always respond using clear Markdown formatting. Use `##` for main sections, `###` for sub-sections, and `*` for bullet points.
-
-Always insert two line breaks (`\n\n`) after every word.
+Do not leave space between bullet points and paragraph leave just space when you are moving to a new section
 
 Example:
-
 ## Section Title
-
 Some text describing this section.
-
 ### Subsection
 
 * Bullet 1
@@ -77,16 +73,16 @@ def ensure_newlines(md: str) -> str:
     return md.strip()
 
 def ensure_markdown_structure(md: str) -> str:
-    # Newlines before and after headers
-    md = re.sub(r'\s*(#{2,})\s*', r'\n\n\1 ', md)
+    # Normalize line endings
+    md = md.replace('\r\n', '\n')
 
-    # Newlines before bullets (ensure every bullet starts on a new line)
-    md = re.sub(r'\s*\* ', r'\n* ', md)
+    # Add a newline before headers (if not already there)
+    md = re.sub(r'(?<!\n)(#{2,} )', r'\n\1', md)
 
-    # Extra spacing between bullet items
-    md = re.sub(r'(\* [^\n]+)', r'\1\n', md)
+    # Add a newline before list items (if not already there)
+    md = re.sub(r'(?<!\n)\* ', r'\n* ', md)
 
-    # Remove triple or more line breaks
+    # Collapse multiple newlines into a maximum of two
     md = re.sub(r'\n{3,}', r'\n\n', md)
 
     return md.strip()

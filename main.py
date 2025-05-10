@@ -6,7 +6,7 @@ import re
 app = Flask(__name__)
 CORS(app, resources={
     r"/query": {
-        "origins": ["http://localhost:3000", "http://localhost:3001", "http://localhost:3002", "http://localhost:5000"],
+        "origins": ["http://localhost:5173", "http://localhost:3000", "http://localhost:3001", "http://localhost:3002", "http://localhost:5000"],
         "methods": ["POST"]
     }
 })
@@ -17,16 +17,18 @@ def handle_query():
         data = request.get_json()
         query = data.get("question") or data.get("query", "").strip()
         history = data.get("history", [])
+        conversation_id = data.get("conversation_id")
+
+
 
         if not query:
             return jsonify({"error": "Query cannot be empty", "answers": []}), 400
 
         result = rag_pipeline(question=query, chat_history=history)
 
-        cleaned_answer = re.sub(r"\s+", " ", result["answer"]).strip()
 
         return jsonify({
-            "answer": cleaned_answer,  # ✅ single field, not array
+            "answer": result["answer"],
             "status": "success",
             "conversation_id": result.get("conversation_id", "")
         })
@@ -41,4 +43,4 @@ def handle_query():
 
 if __name__ == "__main__":
     print("\nEfficient Document RAG Search API (running on port 5000)")
-    app.run(port=5000, debug=True)  # Added debug=True for better error reporting
+    app.run(port=5000, debug=True) 

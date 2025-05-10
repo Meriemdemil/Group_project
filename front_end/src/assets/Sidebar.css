@@ -152,3 +152,6 @@
   color: #e53935; /* Bright red on hover */
 }
 
+.sidebar {
+  height: 100vh; /* full height of the screen */
+}
