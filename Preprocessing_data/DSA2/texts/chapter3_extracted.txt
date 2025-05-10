@@ -1,0 +1,186 @@
+• ADT : set of objects together with a set of operations 
+ • Mathematical abstraction ; no mention in ADT of 
+ how the set of operations is implemented 
+ • Examples : Objects such as lists , sets , and graphs , 
+ along with their operations , can be viewed as ADTs 
+ • 
+ The C++ class allows for the implementation of 
+ ADTs , with appropriate hiding of implementation 
+ details 
+ • 
+ Any implementation changes should not affect the 
+ use of the ADT ( completely transparent to the rest of 
+ the programme ) 
+ Usual Data Types 
+ Integer , Double , Boolean 
+ Implementation details of these are not known 
+ Some operations on these can be defined : add , 
+ multiply , read , write 
+ The programmer just uses these operations 
+ without knowing their implementation . 
+ The List ADT 
+ A List can be implemented as an array 
+ • Need to know the maximum number of 
+ elements in the list at the start of the program 
+ ( The C++ vector class is different ) 
+ • Adding / Deleting an element at / from a specific 
+ position can take O(n ) operations if the list 
+ has n elements . 
+ of the list 
+ A Linked List consists of a sequence of nodes 
+ • 
+ In last element , the pointer is a null pointer nullptr 
+ Disadvantages of Singly 
+ LLs 
+ • 
+ • Since the elements in memory are stored 
+ randomly , the elements are accessed 
+ sequentially ; no direct access is allowed . 
+ Doubly Linked Lists 
+ A node contains pointers to previous and next 
+ element 
+ One can move in both directions 
+ Complexities 
+ Head 
+ NULL 3 5 2 
+ 10 NULL 
+ Tail 
+ Advantages Of DLLs 
+ • Reversing the doubly linked list is very easy . 
+ • It can allocate or reallocate memory easily during its 
+ execution . 
+ • As with a singly linked list , it is the easiest data 
+ structure to implement ( not considering arrays ) . 
+ • The traversal of this doubly linked list is bidirectional 
+ which is not possible in a singly linked list . 
+ • Deletion of nodes is easy as compared to a Singly 
+ Linked List . 
+ A singly linked list deletion requires a 
+ pointer to the node and previous node to be deleted but 
+ in the doubly linked list , it only requires the pointer 
+ which is to be deleted . 
+ Disadvantages of DLLs 
+ • It uses extra memory when compared to the 
+ array and singly linked list . 
+ • 
+ Since the elements in memory are stored 
+ randomly , the elements are accessed 
+ sequentially ; no direct access is allowed . 
+ Uses of DLLs 
+ • Used by the browser to implement backward and forward 
+ navigation of visited web pages ( back and forward buttons ) 
+ • Used by various applications to implement undo and redo 
+ functionality . 
+ • 
+ Also in many operating systems , the thread scheduler ( the 
+ code that chooses what process needs to run at which time ) 
+ maintains a doubly - linked list of all processes running at 
+ that time . 
+ • Other data structures like stacks , Hash Tables , Binary 
+ trees can also be constructed or programmed using a doubly- 
+ linked list . 
+ • Used in the navigation systems where front and back 
+ navigation are required . 
+ ( See also Search in AI ) 
+ We just need to stop when we visit the 
+ same node again . 
+ On Operating Systems : Multiple running 
+ applications can be placed in a CLL so the OS 
+ keeps on iterating over these applications giving 
+ them time slices . 
+ ( Round Robin Scheduling ) 
+ • Music or media player : the use of CLLs allows 
+ for a continuous playback of the playlist 
+ Stacks 
+ All of these operations take constant time . 
+ o Deletion is called “ pop ’’ 
+ o Addition is called “ push ’’ 
+ • 
+ You can also test whether the stack is empty but 
+ nothing else . 
+ • When a subroutine calls another subroutine 
+ ( including itself ) the system must first store its 
+ register contents . 
+ • So , the system pushes the register contents onto 
+ a stack . 
+ • The new function uses the registers . 
+ • When the program returns to the old function , 
+ the system pops the stack . 
+ • Nested Functions and Stack Overflow ! 
+ Stack Implementation using an 
+ Array 
+ • Need to know the maximum number of 
+ elements 
+ Push the beginning symbols you wish to match , 
+ ignore the rest . 
+ Push brace , parentheses , brackets , ignore the 
+ Whenever you encounter a right symbol , pop an element 
+ from the stack . 
+ If stack is empty , then error . 
+ Otherwise , if the popped element is the corresponding 
+ left symbol , then fine ; else there is an error . 
+ What is the complexity of the operation ? 
+ O(n ) 
+ EXAMPLE 
+ Check braces , brackets , parentheses matching 
+ [ a+b{1 * 2]9 * 1}+(2 - 1 ) 
+ Push [ , Push { , Pop , Pop , Push ( , Pop 
+ { 
+ [ 
+ [ 
+ Push { 
+ Push [ 
+ Oops ! Something 
+ Get { wrong , was expecting [ 
+ [ 
+ Pop Expecting [ 
+ EXAMPLE 
+ Check brace , bracket parentheses matching 
+ [ a+b{1 * 2}9 * 1]+(2 - 1 ) 
+ Push [ , Push { , Pop , Pop , Push ( , Pop 
+ Get { 
+ { 
+ [ 
+ [ [ 
+ Push { Pop 
+ Push [ 
+ Perfect ! 
+ Expect { 
+ Get ( 
+ Get [ 
+ ( 
+ Pop Expect [ 
+ Push ( Pop Expect ( 
+ Evaluation of arithmetic expressions 
+ A*B + C 
+ A*(B + C ) 
+ A+B+C*D 
+ A*D+B+C*E 
+ To do the correct operation , the calculator needs 
+ to know the priorities of the operators 
+ We do n’t need any priority nor parentheses if the 
+ operation is expressed in postfix or reverse 
+ polish notation . 
+ Postfix Notation 
+ Infix notation Postfix notation 
+ A*B + C AB*C+ 
+ A*(B + C ) 
+ ABC+ * 
+ A+B+C*D AB+CD*+ 
+ A*D+B+C*E AD*B+CE*+ 
+ Suppose the expression is in postfix , how do we 
+ compute the value ? 
+ ( N.B. : Postfix notation already 
+ takes into account operators priorities . ) 
+ Computation of a Postfix Expression 
+ Whenever you see a number push it in the stack . 
+ Think which data structure you could 
+ use to implement the evaluation of an expression 
+ written in polish ( prefix ) notation . 
+ And how would 
+ you do it ? 
+ Acknowledgement : 
+ This course PowerPoints make substantial ( non - exclusive ) use of 
+ the PPT chapters prepared by Prof. from the University of Pennsylvania , 
+ USA , themselves developed on the basis of the course textbook . Other references , if any , 
+ will be mentioned wherever applicable .

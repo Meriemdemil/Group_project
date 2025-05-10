@@ -1,0 +1,419 @@
+Fundamental Concepts of 
+ Modularity 
+ In a program , you may often find that a particular sequence of actions is 
+  
+ repeated multiple times . 
+ In such cases , it 's wise to write this sequence only 
+ once and reuse it as needed . 
+ Furthermore , you may notice that certain groups of actions relate to 
+  
+ different tasks . 
+ It 's advisable to represent each of these tasks separately in 
+ a subroutine , improving the clarity and readability of the program ( or 
+ algorithm ) . 
+ As a result , a program can be seen as a main program along 
+ with a collection of subroutines , enhancing organization and 
+ efficiency . 
+ Fundamental Concepts of 
+ Modularity 
+ Modularity , the cornerstone of structured programming , is simply 
+ the act of breaking down a problem into a set of reusable 
+ modules . 
+ Decomposing Complexity : It transforms a complex problem into " n " 
+  
+ simpler problems that can be resolved independently . 
+ Solution Reusability : 
+ The idea is to find a solution for a problem just 
+  
+ once . 
+ Once a module , designed for a specific task , is constructed , 
+ tested , and documented , it becomes a reusable asset . 
+ Fundamental Concepts of 
+ Modularity 
+ We assign a NAME to this module , and 
+ subsequently , we can " call " it whenever needed , simply by 
+ referencing its name . 
+ There 's no need to reconstruct it . 
+ The advantages of modularity make it not just interesting but 
+ highly recommended to systematically employ modular design 
+ in constructing our solutions . 
+ We treat them 
+ as if they were independent problems . 
+ As mentioned earlier , 
+ these modules may even be assigned to different developers . 
+ Fundamental Concepts of 
+ Modularity 
+ When using a module , we no longer need to 
+  
+ know how it is constructed but only what it does . 
+ The role you assign to each module is crucial , 
+  
+ because if it is inadequately defined , ambiguous , 
+ or incomplete , your module becomes entirely 
+ unusable and , as a result , USELESS . 
+ Fundamental Concepts of 
+ Modularity 
+ Advantages 
+ Improved readability 
+  
+ Reduced risk of errors 
+  
+ Selective testing possibilities 
+  
+ Reuse of existing modules 
+  
+ Ease of modification 
+  
+ Promote collaborative work 
+  
+ … .. 
+  
+ Fundamental Concepts of 
+ Modularity 
+ Algorithm Algo_1 
+ Algorithm Algo_1 
+ Modules A , B , C 
+ BEGIN MODULE A BEGIN 
+ Bloc A 
+ Call Module A 
+ Bloc B MODULE B 
+ Call Module B 
+ Bloc C Call Module C 
+ MODULE C 
+ Call Module A 
+ Bloc A 
+ Call Module B 
+ Bloc B 
+ Call Module C 
+ Bloc C 
+ END 
+ END 
+ Fundamental Concepts of 
+ Modularity ( calling a module ) 
+ When a module call is 
+ Algorithm Algo_1 Module A 
+ Variables … 
+ Variables … encountered , the 
+ Module A 
+ BEGIN 
+ execution of the calling 
+ BEGIN 
+ - 
+ module is suspended 
+ - 
+ - - until the called module 
+ is entirely executed , 
+ - 
+ END 
+ and then the execution 
+ Call Module A 
+ of the calling module 
+ - resumes 
+ immediately 
+ after the call 
+ - 
+ END 
+ Fundamental Concepts of 
+ Modularity ( calling a module ) 
+ A module is considered as a 
+ black box that performs a specific 
+ Module Type 
+ task . 
+ From a syntax perspective , a Inputs ( 0 , N ) Outputs ( 0 , N ) 
+ Module 
+ module follows the same structure Name 
+ as an algorithm . 
+ It is defined by its 
+ Module Role 
+ name , its role , its type , and its 
+ interfaces which means the data 
+ it receives as input and the data it 
+ returns to the caller . 
+ Fundamental Concepts of 
+ Modularity ( calling a module ) 
+ The interface consists of the inputs / outputs of the module ; it is what allows 
+ establishing the link between the module and its environment . 
+ Function 
+ Integer N 
+ NbDigits Integer 
+ Integer Function NbDigits ( Integer N ) 
+ Variable Integer i 
+ Role : return the # digits in N 
+ BEGIN 
+ i = 0 
+ Algorithm Example_1 
+ Variable Integer N , NbD WHILE ( N > 0 ) DO 
+ Integer Function NbDigits ( Integer N ) i = i + 1 
+ The body of NbDigits function … 
+ N = N DIV 10 
+ BEGIN 
+ END WHILE 
+ READ(N ) 
+ NbDigits = i 
+ NbD = NbDigits(N ) 
+ END 
+ WRITE ( NbD ) 
+ END 
+ Modular Approach and Formalism 
+ How to proceed ? 
+ Some modules are evident and 
+  
+ can be quickly detected , while others may not be apparent at 
+ first . 
+ Do n't waste your time and energy trying to list all the necessary 
+  
+ modules . 
+ Start with the obvious modules and expand your division as you 
+  
+ see fit . 
+ Sometimes the division is implicit , meaning that a careful reading 
+  
+ of the problem will help you identify the modules to build , while in 
+ other cases , it may require analysis and creativity . 
+ Modular Approach and Formalism 
+ Module Quality 
+ Reusability : 
+ Always aim to make your modules as general as 
+  
+ possible for later reuse . 
+ Independence : Avoid using read or write operations in a module , 
+  
+ and the use of global variables . 
+ ( best way to prevent side 
+ effects ) 
+ Simplicity : A module should have a SINGLE clear task to perform . 
+  
+ Modular Approach and Formalism 
+ FUNCTION 
+ 0 or N Inputs 
+ Module 1 output 
+ Name 
+ Module Role 
+ Modular Approach and Formalism 
+ • The result must always be transmitted in the name of the function , 
+ and this assignment is typically the final action of the function . 
+ • The list of formal parameters describes the objects provided to the 
+ function , including their types and their passing mode ( this concept 
+ is discussed later ) . 
+ " 
+ Modular Approach and Formalism 
+ FUNCTION Call 
+ The call to a function is made by referencing its name to the right of the 
+ assignment symbol in a condition or in a procedure or function call . 
+ Boolean Function PRIME ( Integer N ) 
+ Algorithm Example_Prime 
+ Variable Integer N Variable Integer i 
+ Boolean Res 
+ All variables declared in function definitions are local variables 
+ • Parameters 
+ • 
+ Local variables passed to function when called 
+ • Provide outside information 
+ Modular Approach and Formalism 
+ Functions in C++ 
+ • 
+ Function prototype 
+ • Tells compiler argument type and return type of function 
+ • 
+ ; 
+ • Function takes an int and returns an int 
+ • Explained in more detail later 
+ • 
+ Calling / invoking a function 
+ • square(x ) ; 
+ • Parentheses an operator used to call function 
+ • Pass argument x 
+ • 
+ Function gets its own copy of arguments 
+ • 
+ After finished , passes back result 
+ Modular Approach and Formalism 
+ Functions in C++ 
+ • 
+ Format for function definition 
+ return - value - type function - name ( parameter - list ) 
+ { 
+ declarations and statements 
+ } 
+ • Parameter list 
+ • Comma separated list of arguments 
+ • 
+ Data type needed for each argument 
+ • 
+ If no arguments , use void or leave blank 
+ • 
+ Return - value - type 
+ • 
+ Data type of result returned ( use void if nothing returned ) 
+ Modular Approach and Formalism 
+ Functions in C++ 
+ • 
+ Example function 
+ int square ( int y ) 
+ { 
+ return y * y ; 
+ } 
+ • return keyword 
+ Returns data , and control goes to function ’s caller 
+ • If no data to return , use return ; 
+ • Function ends when reaches right brace 
+ • 
+ Control goes to caller 
+ • 
+ if ( z > max ) // if z is larger , 
+ 39 max = z ; // assign z to max 
+  
+ The order of actual parameters must match the order of formal parameters . 
+  
+ There must be type compatibility between formal and actual parameters . 
+  
+ Integer FUNCTION LeastCommonMultiple ( Integer A , B ) 
+ READ ( i , j ) // i , j and Res must be of type Integer 
+ Res = LeastCommonMultiple(i , j ) 
+ WRITE ( ' The LCM of ' i ' and ' , j , ' is : ‘ , Res ) 
+ PROCEDURE 
+ Modular Approach and Formalism 
+ PROCEDURE STRUCTURE 
+ Procedure Procedure_name ( Input / output formal parameters ) 
+ Procedure Head 
+ Declarations 
+ Environment 
+ BEGIN 
+ - 
+ Function - 
+ Body - 
+ - 
+ - 
+ END 
+ Modular Approach and Formalism 
+ PROCEDURE STRUCTURE 
+ • 
+ The body of the procedure can contain all the declarations and 
+ algorithmic structures . 
+ • The list of formal parameters describes the input and output 
+ parameters including their types and their passing mode 
+ • 
+ The parameter passing is identical to that of functions , but ALL output 
+ parameters must be defined with a pass - by - variable method . 
+ Modular Approach and Formalism 
+ PROCEDURE Call 
+ Calling a procedure is done by stating its name followed by the list of 
+ actual parameters , just like an instruction . 
+ The calling of a procedure is , in fact , a primitive action , consisting of the procedure 
+ name followed by the list of actual input and output parameters enclosed in 
+ parentheses , separated by commas . 
+ Just like with functions , the number , order , and type of actual parameters must match 
+ those of the formal parameters . 
+ What is the next element ? 
+ You 've found it ! 
+ Now , let 's build an analysis to obtain an element from the previous one . 
+ Justification : 
+ We observe that each element is derived from the previous one . 
+ Modular Decomposition : 
+ Example 
+ ANALYSIS 
+ Let N be an integer representing an element of the sequence . 
+ Display N2 . 
+  
+ Additional instructions may be required . 
+ In this context , Np represents the number of positions in N2 that determine how many zeros need to 
+ be added to N1 for concatenation . 
+ When a parameter is provided to a module , and we want the 
+  
+ module to return the same value that the parameter had at the 
+ input , we will perform a value passing of parameters . 
+ But when a parameter is modified during the execution of a module , 
+  
+ and we want to have the modified content of the parameter at the 
+ output of the module , we will perform a variable ( or reference ) 
+ passing . 
+ In this case , the formal parameter must be preceded by the 
+ word " VAR . " 
+ Parameter Passing 
+ In general 
+ It is necessary to use : 
+ Variable passing for ALL output parameters of a procedure- 
+  
+ type module . 
+ Value passing for input parameters of a function . 
+  
+ Parameter Passing 
+ PROCEDURE EQU2D(Real A , B , C ; Var Integer N ; Var Real X1 , X2 ) 
+ The absence of " VAR " indicates 
+ that the parameter passing " VAR " indicates that the 
+ mode is a value passing mode . 
+ parameter passing mode is 
+ 6 Formal parameters 
+ a variable passing mode . 
+ Changes affect original 
+ Parameter Passing 
+ in C++ 
+ • 
+ Reference parameter 
+ • 
+ Function call with omitted parameters 
+ • 
+ Alias for argument in function call 
+ • 
+ If not enough parameters , rightmost go to 
+ • 
+ In a program , blocks can be nested within each 
+ other . 
+ This structure , known as the block structure , defines 
+ levels of blocks : 
+  
+ The level number is referred to as the depth 
+  
+ of the level . 
+ The region of a program where an object can be 
+ used is called the object 's scope . 
+ Local and Global Objects 
+ Scope of an object 
+ An object is known and usable : 
+ An object is local to a block if it is declared in the 
+  
+ declarative part of the block . 
+ An object is global to a block if it is declared 
+  
+ outside the block , and the block is within the scope 
+ of that identifier . 
+ SIDE EFFECT 
+ Side Effects 
+ A side effect is when a function relies on , or modifies , 
+ something outside its parameters to do something . 
+ For example , a function which reads or writes from a 
+ variable outside its own arguments , a database , a file , 
+ or the console can be described as having side effects . 
+ Side Effects 
+ Algorithm Side_Effect 
+ Caller Module 
+ Variable Integer A , B , E 
+ Integer Function Test(Integer C ) 
+ A B E 
+ BEGIN 
+ A = A * B 
+ Callee Module 
+ 1 5 
+ B = A – C 
+ Test = A + B 
+ C Test 
+ 5 4 
+ END 
+ 1 
+ BEGIN 1 9 
+ 20 19 
+ A = 1 
+ B = 5 1 39 
+ 380 379 
+ E = 1 
+ WRITE ( Test(E ) ) 1 759 
+ WRITE ( Test(E ) ) 
+ WRITE ( Test(E ) ) 
+ END 
+ Side Effects 
+ To avoid side effects , simply follow the following rule : 
+ Whenever possible , do not use global variables 
+  
+ within a module . 
+ Otherwise , only modify local 
+ objects .

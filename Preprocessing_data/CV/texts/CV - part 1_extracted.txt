@@ -1,0 +1,199 @@
+Pretience Hall . 
+ Computer Vision Algorithms and Applications 
+ D. Forsyth , . 
+ • Computer vision is the enterprise of building machines that can see . 
+ • 
+ Computer vision is an enterprise that uses statistical methods to 
+ disentangle data using models constructed with the aid of geometry , 
+ physics , and learning theory . 
+ Introduction 
+ • Computer vision as a field is an intellectual frontier : Exciting and 
+ disorganized . 
+ • Many useful ideas have no theoritical grounding 
+ • Some theories are useless in practice . 
+  Difficult to give a concise definition since the area spans multiple 
+ different problems 
+ 6 
+ Introduction 
+ • How we will consider compter vision in this course : 
+ “ A set of computational techniques aiming at estimating or 
+ making explicit the geometric and dynamic properties of the 3D 
+ world from digital images . ” 
+  We will prioritize a practical approach while introducing the 
+ fundamental principles and concepts . 
+ 7 
+ Computer vision – different levels 
+ 1 . Low ( Image processing ) 
+ image image 
+ • Image restoration 
+ • Contrast enhancement 
+ • Noise reduction 
+ Features / attributes/ 
+ 2 . Medium image 
+ descriptors 
+ • Image segmentation 
+ • Shape recognition 
+ 3 . High image Concepts 
+ • Scene understanding 
+ 8 
+ Introduction 
+ • A human has no problem interpreting the 
+ subtle variations in translucency and shading 
+ in this photo and to perfectly segmenting 
+ the object from its background . 
+ 9 
+ Introduction 
+ 10 
+ Introduction 
+ • A human has no problem analyzing the photo , counting the number of 
+ people , classifying them ( female / male ) , estimating the ages of people , 
+ recognizing people they know … 
+ 11 
+ Introduction 
+ • But for machines , it is another story ! 
+ • These basic tasks are very challenging . 
+ 12 
+ Introduction : Human vision 
+ 13 
+ • Researchers or scientists are able to create optical illusions to study and 
+ analyze some aspects of how the brain processes visual information . 
+ Introduction – Optical illusions 
+ • « Optical illusions do n’t “ trick the eye ” , nor “ fool the brain ” , nor reveal that “ our 
+ brain sucks ” , … but are fascinating ! 
+ They also teach us about our visual 
+ perception and its limitations . 
+ 
+ https://michaelbach.de/ot/ 
+ The visual system needs to determine the color of objects in the 
+ world . 
+ In this case the problem is to determine the gray shade 
+ https://michaelbach.de/ot/lum- of the checks on the floor . 
+ Just measuring the light coming from 
+ a surface ( the luminance ) is not enough : a cast shadow will dim 
+ adelsonCheckShadow / index.html 
+ a surface , so that a white surface in shadow may be reflecting 
+ less light than a black surface in full light . 
+ This happens effortlessly and without the need to actively search for them . 
+ The pop - out effect can be explained by the way the brain processes visual information , particularly 
+ through mechanisms in the visual cortex and attentional systems . 
+ The pop - out effect occurs because the brain is equipped with specialized neurons , parallel 
+ processing , and attentional mechanisms that prioritize unique or salient visual features . 
+ This 
+ automatic , efficient system helps us navigate and respond to our surroundings with minimal effort . 
+ Researchers study how the human visual system works . 
+ • Why is vision so difficult ? 
+ • Mainly because is an inverse problem . 
+ • We seek to recover some unknowns given insufficient information to fully specify the solution . 
+ Introduction – Definitions 
+ • Computer vision is difficult because it often 
+ involves solving an inverse problem : 
+ • The goal is to infer the real - world properties of a 
+ scene ( e.g. , objects , depth , lighting ) from a 2D 
+ image or set of images . 
+ • 
+ The challenge arises because a 2D image contains 
+ limited and ambiguous information , making it 
+ impossible to uniquely determine the exact 3D 
+ world that created it without additional 
+ assumptions . 
+ CV vs. Computer Graphics 
+ 25 
+ CV – Applications 
+ CV – Applications 
+ • 
+ Optical Character Recognition ( OCR ) 
+ 27 
+ CV – Applications 
+ • Video OCR 
+ سنوت تلخد له 
+ ؟ ةيسايسلا تلاايتغلاا لسلسم يف 
+ Overview of the ALIF Dataset 
+ S. Yousfi , , . 
+ Arabic text detection in videos using neural and boosting - based approaches : Application to video indexing . 
+ Boosting - based approaches for Arabic text detection in news videos . 
+ A Dataset for Arabic Embedded Text Recognition in TV Broadcast . 
+ , , C. 
+ . 
+ Deep Learning and Recurrent Connectionist - based Approaches for Arabic Text Recognition in Videos . 
+ Contribution of recurrent connectionist Language Models in Improving LSTM - Based Arabic Text Recognition in 
+ Videos . 
+ Soft biometrics : Apparent age estimation from face images 
+ ChaLearnLAP and FotWChallenge and Workshop @ CVPR2016 
+ DIAG a diagnostic web application 
+ based on lung CT Scan images and deep learning . 
+ • , , , , , , , , , . 
+ Deep Learning - based Covid- 
+ 19 Diagnosis : A Thorough Assessment with a Focus on Generalization Capabilities . 
+ Eurasip Journal on IVP 2024 . 35 
+ CV – Applications 
+ • 
+ Surface Damage Identification for Heritage Site Protection : A solution for the 
+ Kasbah of Algiers 
+ A world heritage city 
+ + six centuries old 
+ , , , . 
+ Surface Damage Identification for Heritage Site Protection : A Mobile Crowd- 
+ 36 
+ sensing Solution Based on Deep Learning . 
+ 37 
+ CV – Applications 
+ La quantité de requêtes 
+ • Image / video copy La forme des requêtes 
+ Flux 
+ Vidéos à 
+ detection : Fingerprinting 
+ analyser 
+ Les transformations 
+ Copie de Copie de 
+ La quantité de vidéos 
+ Vidéo de référence 
+ de référence 
+ Base de 
+ 38 
+ vidéos de 
+ réf . 
+ CV – Applications 
+ • 
+ Image / video copy 5 
+ Autres participants 
+ detection : Fingerprinting Orange Labs 
+ 4 
+ 3 
+ Publications : R 
+ T 
+ A 
+ F 
+ N. Gengembre , S.-A. Berrani . 
+ The Orange Labs Real Time Video 2 
+ Copy Detection System -- TrecVid 2008 Results . 
+ 39 
+ CV – Applications 
+ • Image / video copy detection : Fingerprinting 
+ Copies 
+ Originales 
+ 40 
+ CV – Applications 
+ • 
+ Video stream macro - segmentation and structuring 
+ Flux 
+ A Non - Supervised Approach for Repeated Sequence Detection in TV Broadcast Streams . 
+ Consumer - level applications : 
+ • Stitching 
+ • Image enhancement 
+ • Morphing 
+ • Face - based authentication 
+ • … 
+ 42 
+ CV – Applications 
+ • Image Stitching 
+ 43 
+ Computer Vision : A Brief History 
+ • 
+ What started distinguishing computer vision from image processing were early attempts 
+ to infer 3D structure from images : 
+ Lines extraction and labelling , stereo correspondences , optical flow , structure from motion 
+ 44 
+ Computer Vision : A Brief History 
+ While a lot of the previously mentioned topics continued to be explored , 
+ a few of them became significantly more active : projective invariants , multiview 
+ stereo , image segmentation …

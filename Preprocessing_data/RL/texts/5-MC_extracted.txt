@@ -1,0 +1,798 @@
+UnivGustaveEiffel - Cosys / Grettia 
+ Reinforcement Learning and Optimal Control - Master 2 SIA 
+ MonteCarloMethods 
+ Nadir Farhi 
+ chargéderecherche , UGE - Ifsttar / Cosys / Grettia 
+ nadir.farhi@univ-eiffel.fr 
+ UniEiffel-14october2024 
+ • fromactualorsimulatedinteractionwithanenvironment . 
+ • Wedonotassumecompleteknowledgeoftheenvironment . 
+ • Amodelisrequiredbutonlytogeneratesampletransitions(noneedofthe 
+ completeprobabilitydistributionsasinDP ) . 
+ • WedefinehereMonteCarlomethodsonlyforepisodictasks . 
+ • Onlyonthecompletionofanepisodearevalueestimatesandpolicieschanged . 
+ • MonteCarlomethodscanthusbeincrementalinanepisode - by - episodesense , 
+ butnotinastep - by - step(online)sense . 
+ • HerewelearnvaluefunctionsfromsamplereturnswiththeMDP . 
+ • AsinDP , wewillseePolicyevaluation , policyimprovement , andthenPolicy 
+ iterationsandGPI . 
+ Monte Carlo methods 
+ • MonteCarlomethodsrequireonlyexperience , i.e.samplesequencesofstates , 
+ actions , andrewards , 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-14october2024 2/24 
+ • Wedonotassumecompleteknowledgeoftheenvironment . 
+ • Amodelisrequiredbutonlytogeneratesampletransitions(noneedofthe 
+ completeprobabilitydistributionsasinDP ) . 
+ • WedefinehereMonteCarlomethodsonlyforepisodictasks . 
+ • Onlyonthecompletionofanepisodearevalueestimatesandpolicieschanged . 
+ • MonteCarlomethodscanthusbeincrementalinanepisode - by - episodesense , 
+ butnotinastep - by - step(online)sense . 
+ • HerewelearnvaluefunctionsfromsamplereturnswiththeMDP . 
+ • AsinDP , wewillseePolicyevaluation , policyimprovement , andthenPolicy 
+ iterationsandGPI . 
+ Monte Carlo methods 
+ • MonteCarlomethodsrequireonlyexperience , i.e.samplesequencesofstates , 
+ actions , andrewards , 
+ • fromactualorsimulatedinteractionwithanenvironment . 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-14october2024 2/24 
+ • Amodelisrequiredbutonlytogeneratesampletransitions(noneedofthe 
+ completeprobabilitydistributionsasinDP ) . 
+ • WedefinehereMonteCarlomethodsonlyforepisodictasks . 
+ • Onlyonthecompletionofanepisodearevalueestimatesandpolicieschanged . 
+ • MonteCarlomethodscanthusbeincrementalinanepisode - by - episodesense , 
+ butnotinastep - by - step(online)sense . 
+ • HerewelearnvaluefunctionsfromsamplereturnswiththeMDP . 
+ • AsinDP , wewillseePolicyevaluation , policyimprovement , andthenPolicy 
+ iterationsandGPI . 
+ Monte Carlo methods 
+ • MonteCarlomethodsrequireonlyexperience , i.e.samplesequencesofstates , 
+ actions , andrewards , 
+ • fromactualorsimulatedinteractionwithanenvironment . 
+ • Wedonotassumecompleteknowledgeoftheenvironment . 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-14october2024 2/24 
+ • WedefinehereMonteCarlomethodsonlyforepisodictasks . 
+ • Onlyonthecompletionofanepisodearevalueestimatesandpolicieschanged . 
+ • MonteCarlomethodscanthusbeincrementalinanepisode - by - episodesense , 
+ butnotinastep - by - step(online)sense . 
+ • HerewelearnvaluefunctionsfromsamplereturnswiththeMDP . 
+ • AsinDP , wewillseePolicyevaluation , policyimprovement , andthenPolicy 
+ iterationsandGPI . 
+ Monte Carlo methods 
+ • MonteCarlomethodsrequireonlyexperience , i.e.samplesequencesofstates , 
+ actions , andrewards , 
+ • fromactualorsimulatedinteractionwithanenvironment . 
+ • Wedonotassumecompleteknowledgeoftheenvironment . 
+ • Amodelisrequiredbutonlytogeneratesampletransitions(noneedofthe 
+ completeprobabilitydistributionsasinDP ) . 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-14october2024 2/24 
+ • Onlyonthecompletionofanepisodearevalueestimatesandpolicieschanged . 
+ • MonteCarlomethodscanthusbeincrementalinanepisode - by - episodesense , 
+ butnotinastep - by - step(online)sense . 
+ • HerewelearnvaluefunctionsfromsamplereturnswiththeMDP . 
+ • AsinDP , wewillseePolicyevaluation , policyimprovement , andthenPolicy 
+ iterationsandGPI . 
+ Monte Carlo methods 
+ • MonteCarlomethodsrequireonlyexperience , i.e.samplesequencesofstates , 
+ actions , andrewards , 
+ • fromactualorsimulatedinteractionwithanenvironment . 
+ • Wedonotassumecompleteknowledgeoftheenvironment . 
+ • Amodelisrequiredbutonlytogeneratesampletransitions(noneedofthe 
+ completeprobabilitydistributionsasinDP ) . 
+ • WedefinehereMonteCarlomethodsonlyforepisodictasks . 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-14october2024 2/24 
+ • MonteCarlomethodscanthusbeincrementalinanepisode - by - episodesense , 
+ butnotinastep - by - step(online)sense . 
+ • HerewelearnvaluefunctionsfromsamplereturnswiththeMDP . 
+ • AsinDP , wewillseePolicyevaluation , policyimprovement , andthenPolicy 
+ iterationsandGPI . 
+ Monte Carlo methods 
+ • MonteCarlomethodsrequireonlyexperience , i.e.samplesequencesofstates , 
+ actions , andrewards , 
+ • fromactualorsimulatedinteractionwithanenvironment . 
+ • Wedonotassumecompleteknowledgeoftheenvironment . 
+ • Amodelisrequiredbutonlytogeneratesampletransitions(noneedofthe 
+ completeprobabilitydistributionsasinDP ) . 
+ • WedefinehereMonteCarlomethodsonlyforepisodictasks . 
+ • Onlyonthecompletionofanepisodearevalueestimatesandpolicieschanged . 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-14october2024 2/24 
+ • HerewelearnvaluefunctionsfromsamplereturnswiththeMDP . 
+ • AsinDP , wewillseePolicyevaluation , policyimprovement , andthenPolicy 
+ iterationsandGPI . 
+ Monte Carlo methods 
+ • MonteCarlomethodsrequireonlyexperience , i.e.samplesequencesofstates , 
+ actions , andrewards , 
+ • fromactualorsimulatedinteractionwithanenvironment . 
+ • Wedonotassumecompleteknowledgeoftheenvironment . 
+ • Amodelisrequiredbutonlytogeneratesampletransitions(noneedofthe 
+ completeprobabilitydistributionsasinDP ) . 
+ • WedefinehereMonteCarlomethodsonlyforepisodictasks . 
+ • Onlyonthecompletionofanepisodearevalueestimatesandpolicieschanged . 
+ • MonteCarlomethodscanthusbeincrementalinanepisode - by - episodesense , 
+ butnotinastep - by - step(online)sense . 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-14october2024 2/24 
+ • AsinDP , wewillseePolicyevaluation , policyimprovement , andthenPolicy 
+ iterationsandGPI . 
+ Monte Carlo methods 
+ • MonteCarlomethodsrequireonlyexperience , i.e.samplesequencesofstates , 
+ actions , andrewards , 
+ • fromactualorsimulatedinteractionwithanenvironment . 
+ • Wedonotassumecompleteknowledgeoftheenvironment . 
+ • Amodelisrequiredbutonlytogeneratesampletransitions(noneedofthe 
+ completeprobabilitydistributionsasinDP ) . 
+ • WedefinehereMonteCarlomethodsonlyforepisodictasks . 
+ • Onlyonthecompletionofanepisodearevalueestimatesandpolicieschanged . 
+ • MonteCarlomethodscanthusbeincrementalinanepisode - by - episodesense , 
+ butnotinastep - by - step(online)sense . 
+ • HerewelearnvaluefunctionsfromsamplereturnswiththeMDP . 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-14october2024 2/24 
+ Monte Carlo methods 
+ • MonteCarlomethodsrequireonlyexperience , i.e.samplesequencesofstates , 
+ actions , andrewards , 
+ • fromactualorsimulatedinteractionwithanenvironment . 
+ • Wedonotassumecompleteknowledgeoftheenvironment . 
+ • Amodelisrequiredbutonlytogeneratesampletransitions(noneedofthe 
+ completeprobabilitydistributionsasinDP ) . 
+ • WedefinehereMonteCarlomethodsonlyforepisodictasks . 
+ • Onlyonthecompletionofanepisodearevalueestimatesandpolicieschanged . 
+ • MonteCarlomethodscanthusbeincrementalinanepisode - by - episodesense , 
+ butnotinastep - by - step(online)sense . 
+ • HerewelearnvaluefunctionsfromsamplereturnswiththeMDP . 
+ • AsinDP , wewillseePolicyevaluation , policyimprovement , andthenPolicy 
+ iterationsandGPI . 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-14october2024 2/24 
+ • Recall : thevalueofastateistheexpectedreturnstartingfromthatstate . 
+ • Onewaytoestimatethestate - valuefunctionofastatefromexperience : 
+ Averagethereturnsobservedaftervisitstothatstate . 
+ • Theaverageshouldconvergetotheexpectedvalue . 
+ • First - visitMCmethod : estimatesv ( s)astheaverageofthereturnsfollowing 
+ π 
+ firstvisitstos . 
+ • Every - visitMCmethod : averagesthereturnsfollowingallvisitstos . 
+ Monte Carlo Prediction ( policy evaluation ) 
+ • 
+ Welearnthestate - valuefunctionforagivenpolicy . 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-14october2024 3/24 
+ • Onewaytoestimatethestate - valuefunctionofastatefromexperience : 
+ Averagethereturnsobservedaftervisitstothatstate . 
+ • Theaverageshouldconvergetotheexpectedvalue . 
+ • 
+ First - visitMCmethod : estimatesv ( s)astheaverageofthereturnsfollowing 
+ π 
+ firstvisitstos . 
+ • Every - visitMCmethod : averagesthereturnsfollowingallvisitstos . 
+ Monte Carlo Prediction ( policy evaluation ) 
+ • 
+ Welearnthestate - valuefunctionforagivenpolicy . 
+ Welearnthestate - valuefunctionforagivenpolicy . 
+ • Recall : thevalueofastateistheexpectedreturnstartingfromthatstate . 
+ • Onewaytoestimatethestate - valuefunctionofastatefromexperience : 
+ Averagethereturnsobservedaftervisitstothatstate . 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-14october2024 3/24 
+ • First - visitMCmethod : estimatesv ( s)astheaverageofthereturnsfollowing 
+ π 
+ firstvisitstos . 
+ • Every - visitMCmethod : averagesthereturnsfollowingallvisitstos . 
+ Monte Carlo Prediction ( policy evaluation ) 
+ • Welearnthestate - valuefunctionforagivenpolicy . 
+ • Recall : thevalueofastateistheexpectedreturnstartingfromthatstate . 
+ • Onewaytoestimatethestate - valuefunctionofastatefromexperience : 
+ Averagethereturnsobservedaftervisitstothatstate . 
+ • Theaverageshouldconvergetotheexpectedvalue . 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-14october2024 3/24 
+ • 
+ Every - visitMCmethod : averagesthereturnsfollowingallvisitstos . 
+ Monte Carlo Prediction ( policy evaluation ) 
+ • Welearnthestate - valuefunctionforagivenpolicy . 
+ estimatesv ( s)astheaverageofthereturnsfollowing 
+ π 
+ firstvisitstos . 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-14october2024 3/24 
+ Prediction ( policy evaluation ) 
+ • 
+ Welearnthestate - valuefunctionforagivenpolicy . 
+ • Recall : thevalueofastateistheexpectedreturnstartingfromthatstate . 
+ • Onewaytoestimatethestate - valuefunctionofastatefromexperience : 
+ Averagethereturnsobservedaftervisitstothatstate . 
+ • Theaverageshouldconvergetotheexpectedvalue . 
+ • First - visitMCmethod : 
+ estimatesv 
+ s)astheaverageofthereturnsfollowing 
+ π 
+ firstvisitstos . 
+ Every - visitMCmethod : averagesthereturnsfollowingallvisitstos . 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-14october2024 3/24 
+ • Suchcomputationsareoftencomplexanderror - prone . 
+ • UnlikeDP , inMonteCarlomethods , theestimatesforeachstateare 
+ independent , i.e.theestimateforonestatedoesnotbuildupontheestimateof 
+ anyotherstate . 
+ • Thecomputationalexpenseofestimatingthevalueofasinglestateis 
+ independentofthenumberofstates . 
+ • ThiscanmakeMonteCarlomethodsparticularlyattractivewhenonerequires 
+ thevalueofonlyoneorasubsetofstates 
+ • Soevenwhenonehascompleteknowledgeoftheenvironment’sdynamics , the 
+ abilityofMonteCarlomethodstoworkwithsampleepisodesalonecanbea 
+ significantadvantage . 
+ • UnlikeDP , inMonteCarlomethods , theestimatesforeachstateare 
+ independent , i.e.theestimateforonestatedoesnotbuildupontheestimateof 
+ anyotherstate . 
+ • Thecomputationalexpenseofestimatingthevalueofasinglestateis 
+ independentofthenumberofstates . 
+ • ThiscanmakeMonteCarlomethodsparticularlyattractivewhenonerequires 
+ thevalueofonlyoneorasubsetofstates . 
+ • Suchcomputationsareoftencomplexanderror - prone . 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-14october2024 5/24 
+ • Soevenwhenonehascompleteknowledgeoftheenvironment’sdynamics , the 
+ abilityofMonteCarlomethodstoworkwithsampleepisodesalonecanbea 
+ significantadvantage . 
+ • UnlikeDP , inMonteCarlomethods , theestimatesforeachstateare 
+ independent , i.e.theestimateforonestatedoesnotbuildupontheestimateof 
+ anyotherstate . 
+ • Thecomputationalexpenseofestimatingthevalueofasinglestateis 
+ independentofthenumberofstates . 
+ • ThiscanmakeMonteCarlomethodsparticularlyattractivewhenonerequires 
+ thevalueofonlyoneorasubsetofstates 
+ • UnlikeDP , inMonteCarlomethods , theestimatesforeachstateare 
+ independent , i.e.theestimateforonestatedoesnotbuildupontheestimateof 
+ anyotherstate . 
+ • Thecomputationalexpenseofestimatingthevalueofasinglestateis 
+ independentofthenumberofstates . 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-14october2024 5/24 
+ • Thecomputationalexpenseofestimatingthevalueofasinglestateis 
+ independentofthenumberofstates . 
+ • ThiscanmakeMonteCarlomethodsparticularlyattractivewhenonerequires 
+ thevalueofonlyoneorasubsetofstates . 
+ • Suchcomputationsareoftencomplexanderror - prone . 
+ • UnlikeDP , inMonteCarlomethods , theestimatesforeachstateare 
+ independent , i.e.theestimateforonestatedoesnotbuildupontheestimateof 
+ anyotherstate . 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-14october2024 5/24 
+ • ThiscanmakeMonteCarlomethodsparticularlyattractivewhenonerequires 
+ thevalueofonlyoneorasubsetofstates . 
+ • Suchcomputationsareoftencomplexanderror - prone . 
+ • Soevenwhenonehascompleteknowledgeoftheenvironment’sdynamics , the 
+ abilityofMonteCarlomethodstoworkwithsampleepisodesalonecanbea 
+ significantadvantage . 
+ • UnlikeDP , inMonteCarlomethods , theestimatesforeachstateare 
+ independent , i.e.theestimateforonestatedoesnotbuildupontheestimateof 
+ anyotherstate . 
+ • Thecomputationalexpenseofestimatingthevalueofasinglestateis 
+ independentofthenumberofstates . 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-14october2024 5/24 
+ • Suchcomputationsareoftencomplexanderror - prone . 
+ • UnlikeDP , inMonteCarlomethods , theestimatesforeachstateare 
+ independent , i.e.theestimateforonestatedoesnotbuildupontheestimateof 
+ anyotherstate . 
+ • Thecomputationalexpenseofestimatingthevalueofasinglestateis 
+ independentofthenumberofstates . 
+ • ThiscanmakeMonteCarlomethodsparticularlyattractivewhenonerequires 
+ thevalueofonlyoneorasubsetofstates . 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-14october2024 5/24 
+ Monte Carlo Estimation of Action Values 
+ • Weconsiderthepolicyevaluationproblemforactionvalues(estiamtionof 
+ q ( s , a ) . 
+ π 
+ • Weareinterestedhereinvisitstoastate - actionpairratherthantoastate . 
+ • Astate - actionpair(s , a)issaidtobevisitedinanepisodeifeverthestatesis 
+ visitedandactionaistakeninit . 
+ • Weassumethattheepisodesstartinastate - actionpair , andthateverypairhas 
+ anonzeroprobabilityofbeingselectedasthestart . 
+ • Thisguaranteesthatallstate - actionpairswillbevisitedaninfinitenumberof 
+ timesinthelimitofaninfinitenumberofepisodes . 
+ • Thisiscalledtheassumptionofexploringstarts . 
+ Monte Carlo Estimation of Action Values 
+ • Weconsiderthepolicyevaluationproblemforactionvalues(estiamtionof 
+ q ( s , a ) . 
+ π 
+ • Weareinterestedhereinvisitstoastate - actionpairratherthantoastate . 
+ • Astate - actionpair(s , a)issaidtobevisitedinanepisodeifeverthestatesis 
+ visitedandactionaistakeninit . 
+ • Weassumethattheepisodesstartinastate - actionpair , andthateverypairhas 
+ anonzeroprobabilityofbeingselectedasthestart . 
+ • Thisguaranteesthatallstate - actionpairswillbevisitedaninfinitenumberof 
+ timesinthelimitofaninfinitenumberofepisodes . 
+ • Thisiscalledtheassumptionofexploringstarts . 
+ • Weareinterestedhereinvisitstoastate - actionpairratherthantoastate . 
+ • Astate - actionpair(s , a)issaidtobevisitedinanepisodeifeverthestatesis 
+ visitedandactionaistakeninit . 
+ • Weassumethattheepisodesstartinastate - actionpair , andthateverypairhas 
+ anonzeroprobabilityofbeingselectedasthestart . 
+ • Thisguaranteesthatallstate - actionpairswillbevisitedaninfinitenumberof 
+ timesinthelimitofaninfinitenumberofepisodes . 
+ • Thisiscalledtheassumptionofexploringstarts . 
+ • Themostcommonalternativeapproachtoassuringthatallstate - actionpairsare 
+ encounteredistoconsideronlypoliciesthatarestochasticwithanonzero 
+ probabilityofselectingallactionsineachstate . 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-14october2024 6/24 
+ Estimation of Action Values 
+ • Weconsiderthepolicyevaluationproblemforactionvalues(estiamtionof 
+ q ( s , a ) . 
+ π 
+ • Weareinterestedhereinvisitstoastate - actionpairratherthantoastate . 
+ • Astate - actionpair(s , a)issaidtobevisitedinanepisodeifeverthestatesis 
+ visitedandactionaistakeninit . 
+ • Weassumethattheepisodesstartinastate - actionpair , andthateverypairhas 
+ anonzeroprobabilityofbeingselectedasthestart . 
+ Thisguaranteesthatallstate 
+ -actionpairswillbevisitedaninfinitenumberof 
+ timesinthelimitofaninfinitenumberofepisodes . 
+ • Thisiscalledtheassumptionofexploringstarts . 
+ NadirFarhi 
+ ReinforcementLearningandOptimalControl 
+ UniEiffel-14october2024 
+ • WefollowtheideaoftheGPI , alternationpolicyevaluationandpolicy 
+ improvement . 
+ • Westartwithanarbitrarypolicyπ andendingwiththeoptimalpolicyand 
+ 0 
+ optimalaction - valuefunction . 
+ • Policyevaluationisdoneasdescriobedabove : manyepisodesareexperienced , 
+ withtheapproximateaction - valuefunctionapproachingthetruefunction 
+ asymptotically . 
+ • Policyimprovementisdonebymakingthepolicygreedywithrespecttothe 
+ currentvaluefunction . 
+ Monte Carlo Control 
+ • WeconsiderherehowMonteCarloestimationcanbeusedincontrol , thatis , to 
+ approximateoptimalpolicies . 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-14october2024 7/24 
+ • Westartwithanarbitrarypolicyπ andendingwiththeoptimalpolicyand 
+ 0 
+ optimalaction - valuefunction . 
+ • Policyevaluationisdoneasdescriobedabove : manyepisodesareexperienced , 
+ withtheapproximateaction - valuefunctionapproachingthetruefunction 
+ asymptotically . 
+ • Policyimprovementisdonebymakingthepolicygreedywithrespecttothe 
+ currentvaluefunction . 
+ Monte Carlo Control 
+ • WeconsiderherehowMonteCarloestimationcanbeusedincontrol , thatis , to 
+ approximateoptimalpolicies . 
+ • WefollowtheideaoftheGPI , alternationpolicyevaluationandpolicy 
+ improvement . 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-14october2024 7/24 
+ • Policyevaluationisdoneasdescriobedabove : manyepisodesareexperienced , 
+ withtheapproximateaction - valuefunctionapproachingthetruefunction 
+ asymptotically . 
+ • Policyimprovementisdonebymakingthepolicygreedywithrespecttothe 
+ currentvaluefunction . 
+ Monte Carlo Control 
+ • WeconsiderherehowMonteCarloestimationcanbeusedincontrol , thatis , to 
+ approximateoptimalpolicies . 
+ • WefollowtheideaoftheGPI , alternationpolicyevaluationandpolicy 
+ improvement . 
+ • Westartwithanarbitrarypolicyπ andendingwiththeoptimalpolicyand 
+ 0 
+ optimalaction - valuefunction . 
+ Monte Carlo Control 
+ • WeconsiderherehowMonteCarloestimationcanbeusedincontrol , thatis , to 
+ approximateoptimalpolicies . 
+ • WefollowtheideaoftheGPI , alternationpolicyevaluationandpolicy 
+ improvement . 
+ • Westartwithanarbitrarypolicyπ andendingwiththeoptimalpolicyand 
+ 0 
+ optimalaction - valuefunction . 
+ • Policyevaluationisdoneasdescriobedabove : manyepisodesareexperienced , 
+ withtheapproximateaction - valuefunctionapproachingthetruefunction 
+ asymptotically . 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-14october2024 7/24 
+ Control 
+ • WeconsiderherehowMonteCarloestimationcanbeusedincontrol , thatis , to 
+ approximateoptimalpolicies . 
+ • WefollowtheideaoftheGPI , alternationpolicyevaluationandpolicy 
+ improvement . 
+ • Westartwithanarbitrarypolicyπ andendingwiththeoptimalpolicyand 
+ 0 
+ optimalaction - valuefunction . 
+ • Policyevaluationisdoneasdescriobedabove : manyepisodesareexperienced , 
+ withtheapproximateaction - valuefunctionapproachingthetruefunction 
+ asymptotically . 
+ • Policyimprovementisdonebymakingthepolicygreedywithrespecttothe 
+ currentvaluefunction . 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-14october2024 7/24 
+ Exploring Starts 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-14october2024 8/24 
+ • Amongε - softpolicies , ε - greedypoliciesareinsomesensethosethatareclosest 
+ togreedy . 
+ • Indeed , withaε - greedypolicy : 
+ • allnongreedyactionsaregiventheminimalprobabilityofselection , ε , 
+ |A(s)| 
+ • thegreedyactionisgiventheremainingprobability,1−ε+ ε . 
+ |A(s)| 
+ • GPIdoesnotrequirethatthepolicybetakenallthewaytoagreedypolicy , only 
+ thatitbemovedtowardagreedypolicy . 
+ • Weproposeherethatthepolicywillbemovedonlytoanε - greedy . 
+ • Weknowthatforanyε - softpolicy , π , anyε - greedypolicywithrespecttoq is 
+ π 
+ guaranteedtobebetterthanorequaltoπ(proofbelow ) . 
+ Monte Carlo Control without Exploring Starts 
+ • ε - softpolicy : π(a|s)≥ ε , ∀s,∀a . 
+ |A(s)| 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-14october2024 9/24 
+ • GPIdoesnotrequirethatthepolicybetakenallthewaytoagreedypolicy , only 
+ thatitbemovedtowardagreedypolicy . 
+ • Weproposeherethatthepolicywillbemovedonlytoanε - greedy . 
+ • Weknowthatforanyε - softpolicy , π , anyε - greedypolicywithrespecttoq is 
+ π 
+ guaranteedtobebetterthanorequaltoπ(proofbelow ) . 
+ Monte Carlo Control without Exploring Starts 
+ • ε - softpolicy : π(a|s)≥ ε , ∀s,∀a . 
+ |A(s)| 
+ • Amongε - softpolicies , ε - greedypoliciesareinsomesensethosethatareclosest 
+ togreedy . 
+ • Indeed , withaε - greedypolicy : 
+ • allnongreedyactionsaregiventheminimalprobabilityofselection , ε , 
+ |A(s)| 
+ • thegreedyactionisgiventheremainingprobability,1−ε+ ε . 
+ |A(s)| 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-14october2024 9/24 
+ • Weproposeherethatthepolicywillbemovedonlytoanε - greedy . 
+ • Weknowthatforanyε - softpolicy , π , anyε - greedypolicywithrespecttoq is 
+ π 
+ guaranteedtobebetterthanorequaltoπ(proofbelow ) . 
+ Monte Carlo Control without Exploring Starts 
+ • ε - softpolicy : π(a|s)≥ ε , ∀s,∀a . 
+ |A(s)| 
+ • Amongε - softpolicies , ε - greedypoliciesareinsomesensethosethatareclosest 
+ togreedy . 
+ • Indeed , withaε - greedypolicy : 
+ • allnongreedyactionsaregiventheminimalprobabilityofselection , ε , 
+ |A(s)| 
+ • thegreedyactionisgiventheremainingprobability,1−ε+ ε . 
+ |A(s)| 
+ • GPIdoesnotrequirethatthepolicybetakenallthewaytoagreedypolicy , only 
+ thatitbemovedtowardagreedypolicy . 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-14october2024 9/24 
+ • Weknowthatforanyε - softpolicy , π , anyε - greedypolicywithrespecttoq is 
+ π 
+ guaranteedtobebetterthanorequaltoπ(proofbelow ) . 
+ Monte Carlo Control without Exploring Starts 
+ • ε - softpolicy : π(a|s)≥ ε , ∀s,∀a . 
+ |A(s)| 
+ • Amongε - softpolicies , ε - greedypoliciesareinsomesensethosethatareclosest 
+ togreedy . 
+ • 
+ Indeed , withaε - greedypolicy : 
+ • allnongreedyactionsaregiventheminimalprobabilityofselection , ε , 
+ |A(s)| 
+ • thegreedyactionisgiventheremainingprobability,1−ε+ ε . 
+ |A(s)| 
+ • GPIdoesnotrequirethatthepolicybetakenallthewaytoagreedypolicy , only 
+ thatitbemovedtowardagreedypolicy . 
+ • Weproposeherethatthepolicywillbemovedonlytoanε - greedy . 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-14october2024 9/24 
+ Monte Carlo Control without Exploring Starts 
+ • ε - softpolicy : π(a|s)≥ ε , ∀s,∀a . 
+ |A(s)| 
+ • Amongε - softpolicies , ε - greedypoliciesareinsomesensethosethatareclosest 
+ togreedy . 
+ • Indeed , withaε - greedypolicy : 
+ • allnongreedyactionsaregiventheminimalprobabilityofselection , ε , 
+ |A(s)| 
+ • thegreedyactionisgiventheremainingprobability,1−ε+ ε . 
+ |A(s)| 
+ • GPIdoesnotrequirethatthepolicybetakenallthewaytoagreedypolicy , only 
+ thatitbemovedtowardagreedypolicy . 
+ • Weproposeherethatthepolicywillbemovedonlytoanε - greedy . 
+ • Weknowthatforanyε - softpolicy , π , anyε - greedypolicywithrespecttoq is 
+ π 
+ guaranteedtobebetterthanorequaltoπ(proofbelow ) . 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-14october2024 9/24 
+ Indeed , weknowalsothatequalitycanholdonlywhenbothπandπ′areoptimal 
+ amongtheε - softpolicies . 
+ Monte Carlo Control without Exploring Starts 
+ Foranyε - softpolicy , π , anyε - greedypolicywithrespecttoq isguaranteedtobe 
+ π 
+ betterthanorequaltoπ : 
+ Thereforeπ′ ≥π , i.e.∀s∈S , v π′(s)≥v 
+ π 
+ ( s ) . 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-14october2024 10/24 
+ Monte Carlo Control without Exploring Starts 
+ Foranyε - softpolicy , π , anyε - greedypolicywithrespecttoq isguaranteedtobe 
+ π 
+ betterthanorequaltoπ : 
+ Thereforeπ′ ≥π , i.e.∀s∈S , v π′(s)≥v 
+ π 
+ ( s ) . 
+ Indeed , weknowalsothatequalitycanholdonlywhenbothπandπ′areoptimal 
+ amongtheε - softpolicies . 
+ 10/24 
+ Monte Carlo Control without Exploring Starts 
+ Nowweachievethebestpolicyamongtheε - softpolicies , butwehaveeliminatedthe 
+ assumptionofexploringstarts . 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-14october2024 11/24 
+ On - policylearningconsidersonlyonepolicyusedtogeneratebeahiviorandis 
+ learnedandbecomestheoptimalpilicy . 
+ Withoff - policymethods , becausethedataisnotduetothetargetpolicy , wehave 
+ greatervariance , andslowconvergence . 
+ On - policy and off - policy learning 
+ Off - policylearningconsiderstwopolicies : 
+ • Targetpolicy : theonebeinglearnedandbecomestheoptimalpolicy . 
+ • Behaviorpolicy : whichismoreexploratoryandusedtogeneratebehavior . 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-14october2024 12/24 
+ Withoff - policymethods , becausethedataisnotduetothetargetpolicy , wehave 
+ greatervariance , andslowconvergence . 
+ On - policy and off - policy learning 
+ Off - policylearningconsiderstwopolicies : 
+ • Targetpolicy : theonebeinglearnedandbecomestheoptimalpolicy . 
+ • Behaviorpolicy : whichismoreexploratoryandusedtogeneratebehavior . 
+ On - policylearningconsidersonlyonepolicyusedtogeneratebeahiviorandis 
+ learnedandbecomestheoptimalpilicy . 
+ NadirFarhi 
+ ReinforcementLearningandOptimalControl 
+ UniEiffel-14october2024 
+ On - policy and off - policy learning 
+ Off - policylearningconsiderstwopolicies : 
+ • Targetpolicy : theonebeinglearnedandbecomestheoptimalpolicy . 
+ • Behaviorpolicy : whichismoreexploratoryandusedtogeneratebehavior . 
+ On - policylearningconsidersonlyonepolicyusedtogeneratebeahiviorandis 
+ learnedandbecomestheoptimalpilicy . 
+ Withoff - policymethods , becausethedataisnotduetothetargetpolicy , wehave 
+ greatervariance , andslowconvergence . 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-14october2024 12/24 
+ • butweonlyhaveepisodesfollowingagivenbehaviorpolicyb , b̸=π . 
+ • Assuptionofcoverage : Inordertouseepisodesfrombtoestimatevaluesforπ , 
+ werequirethateveryactiontakenunderπisalsotaken , atleastoccasionally , 
+ underb . 
+ • Assuptionofcoverage : π(a|s)>0⇒b(a|s)>0 . 
+ • ImportanceSampling : ageneraltechniqueforestimatingexpectedvaluesunder 
+ onedistributiongivensamplesfromanother . 
+ • importance - samplingratio : Weweightreturnsaccordingtotherelative 
+ probabilityoftheirtrajectoriesoccurringunderthetargetandbehaviorpolicies . 
+ Off - policy Prediction via Importance Sampling 
+ • Supposeweliketoestimatev orq foragiventargetpolicyπ , 
+ π π 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-14october2024 13/24 
+ • Assuptionofcoverage : Inordertouseepisodesfrombtoestimatevaluesforπ , 
+ werequirethateveryactiontakenunderπisalsotaken , atleastoccasionally , 
+ underb . 
+ • Assuptionofcoverage : π(a|s)>0⇒b(a|s)>0 . 
+ • ImportanceSampling : ageneraltechniqueforestimatingexpectedvaluesunder 
+ onedistributiongivensamplesfromanother . 
+ • importance - samplingratio : Weweightreturnsaccordingtotherelative 
+ probabilityoftheirtrajectoriesoccurringunderthetargetandbehaviorpolicies . 
+ Off - policy Prediction via Importance Sampling 
+ • Supposeweliketoestimatev orq foragiventargetpolicyπ , 
+ π π 
+ • butweonlyhaveepisodesfollowingagivenbehaviorpolicyb , b̸=π . 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-14october2024 13/24 
+ • Assuptionofcoverage : π(a|s)>0⇒b(a|s)>0 . 
+ • ImportanceSampling : ageneraltechniqueforestimatingexpectedvaluesunder 
+ onedistributiongivensamplesfromanother . 
+ • importance - samplingratio : Weweightreturnsaccordingtotherelative 
+ probabilityoftheirtrajectoriesoccurringunderthetargetandbehaviorpolicies . 
+ Off - policy Prediction via Importance Sampling 
+ • Supposeweliketoestimatev orq foragiventargetpolicyπ , 
+ π π 
+ • butweonlyhaveepisodesfollowingagivenbehaviorpolicyb , b̸=π . 
+ • Assuptionofcoverage : Inordertouseepisodesfrombtoestimatevaluesforπ , 
+ werequirethateveryactiontakenunderπisalsotaken , atleastoccasionally , 
+ underb . 
+ NadirFarhi 
+ ReinforcementLearningandOptimalControl 
+ UniEiffel-14october2024 
+ • ImportanceSampling : ageneraltechniqueforestimatingexpectedvaluesunder 
+ onedistributiongivensamplesfromanother . 
+ • importance - samplingratio : Weweightreturnsaccordingtotherelative 
+ probabilityoftheirtrajectoriesoccurringunderthetargetandbehaviorpolicies . 
+ Off - policy Prediction via Importance Sampling 
+ • Supposeweliketoestimatev orq foragiventargetpolicyπ , 
+ π π 
+ • butweonlyhaveepisodesfollowingagivenbehaviorpolicyb , b̸=π . 
+ • Assuptionofcoverage : Inordertouseepisodesfrombtoestimatevaluesforπ , 
+ werequirethateveryactiontakenunderπisalsotaken , atleastoccasionally , 
+ underb . 
+ • Assuptionofcoverage : π(a|s)>0⇒b(a|s)>0 . 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-14october2024 13/24 
+ • importance - samplingratio : Weweightreturnsaccordingtotherelative 
+ probabilityoftheirtrajectoriesoccurringunderthetargetandbehaviorpolicies . 
+ Off - policy Prediction via Importance Sampling 
+ • Supposeweliketoestimatev orq foragiventargetpolicyπ , 
+ π π 
+ • butweonlyhaveepisodesfollowingagivenbehaviorpolicyb , b̸=π . 
+ • Assuptionofcoverage : Inordertouseepisodesfrombtoestimatevaluesforπ , 
+ werequirethateveryactiontakenunderπisalsotaken , atleastoccasionally , 
+ underb . 
+ • Assuptionofcoverage : π(a|s)>0⇒b(a|s)>0 . 
+ • ImportanceSampling : ageneraltechniqueforestimatingexpectedvaluesunder 
+ onedistributiongivensamplesfromanother . 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-14october2024 13/24 
+ Off - policy Prediction via Importance Sampling 
+ Supposeweliketoestimatev 
+ foragiventargetpolicyπ , 
+ π π 
+ • butweonlyhaveepisodesfollowingagivenbehaviorpolicyb , b̸=π . 
+ • Assuptionofcoverage : Inordertouseepisodesfrombtoestimatevaluesforπ , 
+ werequirethateveryactiontakenunderπisalsotaken , atleastoccasionally , 
+ underb . 
+ • Assuptionofcoverage : π(a|s)>0⇒b(a|s)>0 . 
+ • ImportanceSampling : ageneraltechniqueforestimatingexpectedvaluesunder 
+ onedistributiongivensamplesfromanother . 
+ • importance - samplingratio : Weweightreturnsaccordingtotherelative 
+ probabilityoftheirtrajectoriesoccurringunderthetargetandbehaviorpolicies . 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-14october2024 13/24 
+ • 
+ Theimportancesamplingrationis 
+ whichdependsonlyonthetwopoliciesandthesequence , notontheMDP . 
+ • Theexpectedreturnsunderπare : 
+ Off - policy Prediction via Importance Sampling 
+ • FromastartingstateS : 
+ t 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-14october2024 14/24 
+ • Theexpectedreturnsunderπare : 
+ Off - policy Prediction via Importance Sampling 
+ • FromastartingstateS : 
+ t 
+ • Theimportancesamplingrationis : 
+ whichdependsonlyonthetwopoliciesandthesequence , notontheMDP . 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-14october2024 14/24 
+ Off - policy Prediction via Importance Sampling 
+ • FromastartingstateS : 
+ t 
+ • Theimportancesamplingrationis : 
+ whichdependsonlyonthetwopoliciesandthesequence , notontheMDP . 
+ • Theexpectedreturnsunderπare : 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-14october2024 14/24 
+ • Ordinaryimportancesampling : 
+ ( unbiasedwithunboundedvariance ) 
+ • Weightedimportancesampling : 
+ ( biasedwithboundedvariance ) 
+ Off - policy Prediction via Importance Sampling 
+ • T(s):includestimestepsthatwerefirstvisitstoswithintheirepisodes . 
+ • T(t):thefirsttimeofterminationfollowingtimet . 
+ • G : thereturnaftertupthroughT(t ) . 
+ t 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-14october2024 15/24 
+ • Weightedimportancesampling : 
+ ( biasedwithboundedvariance ) 
+ Off - policy Prediction via Importance Sampling 
+ • T(s):includestimestepsthatwerefirstvisitstoswithintheirepisodes . 
+ • T(t):thefirsttimeofterminationfollowingtimet . 
+ • G : thereturnaftertupthroughT(t ) . 
+ t 
+ • Ordinaryimportancesampling : 
+ ( unbiasedwithunboundedvariance ) 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-14october2024 15/24 
+ Off - policy Prediction via Importance Sampling 
+ • T(s):includestimestepsthatwerefirstvisitstoswithintheirepisodes . 
+ • T(t):thefirsttimeofterminationfollowingtimet . 
+ • G : thereturnaftertupthroughT(t ) . 
+ t 
+ • Ordinaryimportancesampling : 
+ ( unbiasedwithunboundedvariance ) 
+ • Weightedimportancesampling : 
+ ( biasedwithboundedvariance ) 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-14october2024 15/24 
+ • withcorrespondingrandomweightW = ρ . 
+ i ti : T(ti)−1 
+ • Weliketoestimateiteratively : 
+ • WedenotebyC thecumulativesumofweights . 
+ n 
+ • andassumethatV isarbitraryandgiven . 
+ 1 
+ • Thentheupdateruleis : 
+ Incremental Implementation of MC Policy Evaluation 
+ • GivenasequanceofreturnsG , G , ... , G allstartinginthesamestate . 
+ 1 2 n−1 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-14october2024 16/24 
+ • Weliketoestimateiteratively : 
+ • WedenotebyC thecumulativesumofweights . 
+ n 
+ • 
+ andassumethatV 
+ isarbitraryandgiven 
+ • Thentheupdateruleis : 
+ Incremental Implementation of MC Policy Evaluation 
+ • GivenasequanceofreturnsG , G , ... , G allstartinginthesamestate . 
+ 1 2 n−1 
+ • withcorrespondingrandomweightW = ρ . 
+ i ti : 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-14october2024 16/24 
+ • WedenotebyC thecumulativesumofweights . 
+ n 
+ • andassumethatV isarbitraryandgiven . 
+ 1 
+ • Thentheupdateruleis : 
+ Incremental Implementation of MC Policy Evaluation 
+ • GivenasequanceofreturnsG , G , ... , G allstartinginthesamestate . 
+ 1 2 n−1 
+ • withcorrespondingrandomweightW = ρ . 
+ i ti : T(ti)−1 
+ • Weliketoestimateiteratively : 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-14october2024 16/24 
+ • andassumethatV isarbitraryandgiven . 
+ 1 
+ • Thentheupdateruleis : 
+ Incremental Implementation of MC Policy Evaluation 
+ • GivenasequanceofreturnsG , G , ... , G allstartinginthesamestate . 
+ 1 2 n−1 
+ • withcorrespondingrandomweightW = ρ . 
+ i ti : T(ti)−1 
+ • Weliketoestimateiteratively : 
+ • WedenotebyC thecumulativesumofweights . 
+ n 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-14october2024 16/24 
+ • Thentheupdateruleis : 
+ Incremental Implementation of MC Policy Evaluation 
+ • GivenasequanceofreturnsG , G , ... , G allstartinginthesamestate . 
+ 1 2 n−1 
+ • withcorrespondingrandomweightW = ρ . 
+ i ti : 
+ • Weliketoestimateiteratively : 
+ • WedenotebyC thecumulativesumofweights . 
+ n 
+ • andassumethatV isarbitraryandgiven . 
+ 1 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-14october2024 16/24 
+ Incremental Implementation of MC Policy Evaluation 
+ • GivenasequanceofreturnsG , G , ... , G allstartinginthesamestate . 
+ 1 2 n−1 
+ • withcorrespondingrandomweightW = ρ . 
+ i ti : 
+ • Weliketoestimateiteratively : 
+ • WedenotebyC thecumulativesumofweights . 
+ n 
+ • andassumethatV isarbitraryandgiven . 
+ 1 
+ • Thentheupdateruleis : 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-14october2024 16/24 
+ Incremental Implementation of MC Policy Evaluation 
+ • GivenasequanceofreturnsG , G , ... , G allstartinginthesamestate . 
+ 1 2 n−1 
+ • withcorrespondingrandomweightW = ρ . 
+ i ti : 
+ • Weliketoestimateiteratively : 
+ • WedenotebyC thecumulativesumofweights . 
+ n 
+ • andassumethatV isarbitraryandgiven . 
+ 1 
+ • Thentheupdateruleis : 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-14october2024 16/24 
+ Off - policy 
+ Evaluation 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-14october2024 17/24 
+ • Inoffpolicymethods , wefollowthebehaviorpolicywhilelearningaboutand 
+ improvingthetargetpolicy . 
+ • Itisrequiredthatthebehaviorpolicyhasanonzeroprobabilityofselectingall 
+ actionsthatmightbeselectedbythetargetpolicy(assumptionofcoverage ) . 
+ • Toexploreallpossibilities , werequirethatthebehaviorpolicybesoft(i.e . ,thatit 
+ selectallactionsinallstateswithnonzeroprobability ) . 
+ Off - policy Monte Carlo Control 
+ • Advanatage : thetargetpolicymaybedeterministic(e.g . ,greedy),whilethe 
+ behaviorpolicycancontinuetosampleallpossibleactions . 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-14october2024 18/24 
+ • Itisrequiredthatthebehaviorpolicyhasanonzeroprobabilityofselectingall 
+ actionsthatmightbeselectedbythetargetpolicy(assumptionofcoverage ) . 
+ • Toexploreallpossibilities , werequirethatthebehaviorpolicybesoft(i.e . ,thatit 
+ selectallactionsinallstateswithnonzeroprobability ) . 
+ Off - policy 
+ Monte Carlo Control 
+ • Advanatage : thetargetpolicymaybedeterministic(e.g . ,greedy),whilethe 
+ behaviorpolicycancontinuetosampleallpossibleactions . 
+ • Inoffpolicymethods , wefollowthebehaviorpolicywhilelearningaboutand 
+ improvingthetargetpolicy . 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-14october2024 18/24 
+ • Toexploreallpossibilities , werequirethatthebehaviorpolicybesoft(i.e . ,thatit 
+ selectallactionsinallstateswithnonzeroprobability ) . 
+ Off - policy Monte Carlo Control 
+ • Advanatage : thetargetpolicymaybedeterministic(e.g . ,greedy),whilethe 
+ behaviorpolicycancontinuetosampleallpossibleactions . 
+ • Inoffpolicymethods , wefollowthebehaviorpolicywhilelearningaboutand 
+ improvingthetargetpolicy . 
+ • Itisrequiredthatthebehaviorpolicyhasanonzeroprobabilityofselectingall 
+ actionsthatmightbeselectedbythetargetpolicy(assumptionofcoverage ) . 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-14october2024 18/24 
+ Off - policy Monte Carlo Control 
+ • Advanatage : thetargetpolicymaybedeterministic(e.g . ,greedy),whilethe 
+ behaviorpolicycancontinuetosampleallpossibleactions . 
+ • Inoffpolicymethods , wefollowthebehaviorpolicywhilelearningaboutand 
+ improvingthetargetpolicy . 
+ • Itisrequiredthatthebehaviorpolicyhasanonzeroprobabilityofselectingall 
+ actionsthatmightbeselectedbythetargetpolicy(assumptionofcoverage ) . 
+ • Toexploreallpossibilities , werequirethatthebehaviorpolicybesoft(i.e . ,thatit 
+ selectallactionsinallstateswithnonzeroprobability ) . 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-14october2024 18/24 
+ Off - policy Monte Carlo Control 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-14october2024 19/24 
+ Racetrack exercise 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-14october2024 20/24 
+ Racetrack exercise 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-14october2024 21/24 
+ Thank you !

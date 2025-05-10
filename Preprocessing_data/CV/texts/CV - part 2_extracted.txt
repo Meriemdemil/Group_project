@@ -1,0 +1,246 @@
+Course 
+ « Computer Vision » 
+ Sid - Ahmed Berrani 
+ 2024 - 2025 
+ 1 
+ Images formation 
+ • Almost all the computer vision topics requires the concept of “ image ” 
+ • 
+ In other terms , to apply computer vision techniques , we need images 
+ 2 
+ Images formation : 
+ All starts with light ... 
+ • To being able to see any 3D scene , our eyes or a digital camera needs to 
+ capture the light radiation reflected from scene surfaces 
+ • 
+ 3 
+ Images Formation : 
+ The nature of light 
+ Light has a dual nature : 
+ 1 . Can behave like a particle ( photon ) 
+ • Travels in a straight line 
+ • Light can reflect off a mirror and cast shadows 
+ • Consists of tiny bits of energy behaving like discrete packets 
+ A photon is an elementary particle that represents a quantum of light or other electromagnetic 
+ radiation . 
+ It has no mass , always moves at the speed of light in a vacuum , and carries energy and 
+ momentum . 
+ An example is how a straw appears bent when placed in a glass of 
+ water . 
+ Formation : 
+ The nature of light 
+ Light 
+ has a dual nature : 
+ 6 
+ Images Formation : 
+ The nature of light 
+ Light has a dual nature : 
+ Images Formation : Visible light is part of 
+ electromagnetic spectrum 
+ The electromagnetic spectrum can be expressed in terms of wavelength ( 𝛌 ) or frequency ( 𝛎 ) 
+ 8 
+ Images Formation : Light and Perception 
+ • The colors that humans perceive in an object are determined by the nature of 
+ the light reflected from the object : 
+ • A white object reflects light uniformly among visible wavelengths 
+ • Green objects reflect light primarily in the 500 - 570 nm range . 
+ • Quantities that are usually used to describe a light source : 
+ • Radiance 
+ • Luminance 
+ • Brightness 
+ 9 
+ Images Formation : Light and Perception 
+ • 
+ Quantities 
+ are usually used to describe a light source 
+ • Radiance 
+ • Luminance 
+ • Brightness 
+ 10 
+ Images Formation : Light and Perception 
+ • Quantities that are usually used to describe a light source : 
+ • Radiance 
+ • Luminance 
+ • Brightness 
+ Brightness is a subjective descriptor of light “ intensity ” and is one of the key factors 
+ in describing color sensation . 
+ Luminance of the inner square is exactly the same . 
+ Perceived brightness is different . 
+ 11 
+ Images Formation : The BRDF model 
+ • When light hits a surface it is scattered and reflected . 
+ The most general 
+ way to model this interaction is through a 5 - dimensional function called 
+ BRDF ( Bidirectional Reflectance Distribution Function ) . 
+ 12 
+ Images formation : Cameras 
+ • Image are captured using cameras 
+ • 
+ • Camera obscura ( dark chamber ) does not have lenses - It has a pinhole . 
+ 13 
+ Images formation : The Pinhole Camera Model 
+ • 
+ Imaging device : Let ’s try to build a simple image device 
+ We are unable to get a reasonable image . 
+ 14 
+ Images formation : The Pinhole Camera Model 
+ • 
+ Camera obscura : 
+ Key idea : Put a barrier with a small hole ( aperture ) between the object and the sensor 
+ Blurring is reduced ! 
+ But the aperture should be as small as possible . 
+ This is also known as pinhole camera . 
+ 15 
+ Images formation : The Pinhole Camera Model 
+ • 
+ Camera obscura : 
+ Images formation : The Pinhole Camera Model 
+ • Camera Obscura : 
+ If the facade of a building , or a place , or a landscape is illuminated by the 
+ sun and a small hole is drilled in the wall of a room in a building facing 
+ this , which is not directly lighted by the sun , then all objects illuminated 
+ by the sun will send their images through this aperture and will appear , 
+ upside down , on the wall facing the hole . 
+ You will catch these pictures on 
+ a piece of white paper , which placed vertically in the room not far from 
+ that opening , and you will see all the above - mentioned objects on this 
+ paper in their natural shapes or colors , but they will appear smaller and 
+ upside down , on account of crossing of the rays at that aperture . 
+ If 
+ these pictures originate from a place which is illuminated by the sun 
+ , 
+ they will appear colored on the paper exactly as they are . 
+ The paper 
+ should be very thin and must be viewed from the back . 
+ 17 
+ Images formation : The Pinhole Camera Model 
+ • 
+ Camera obscura : How small must be the pinhole ? 
+ Large pinhole : 
+ Rays are mixed up - > Blurring ! 
+ Small pinhole : 
+ We gain focus , but 
+ • Less light passes through ( long exposure time ) 
+ • Diffraction effect ( we lost focus again ! ) 
+ 18 
+ Images formation : The Pinhole Camera Model 
+ • 
+ Camera obscura : How small must be the pinhole ? 
+ Images Formation : Digital image sensing 
+ • Incoming light radiation reflected from a 3D scene is transformed to a voltage by 
+ an imaging sensor that is sensible to a specific type of energy ( wavelength ) . 
+ • 
+ Usually , sensors are arranged in linear or 2D arrays 
+ 20 
+ Images Formation : Digital image sensing 
+ • 
+ Light falling on an imaging sensor is usually picked up by an active sensing area , 
+ integrating for the duration of the exposure , and then passed to a set of sense 
+ amplifiers . 
+ • 
+ CMOS is in general better but CCD is faster and works better in low light . 
+ • Today , CMOS is used in most digital cameras 
+ 22 
+ Images Formation Process 
+ • 
+ The sensor array , coincident with the focal plane of the lens , produces outputs 
+ proportional to the integral of the light received at each sensor for a certain 
+ amount of time . 
+ Images Formation : Image Function 
+ An image can be modelled as a function : 
+ 2 
+ 𝐼 ∶ Ω ⊂ ℝ ⟶ ℝ 
+ The domain is a ( usually rectangular ) subset of the real image plane . 
+ 𝐼 𝑥 , 𝑦 
+ is proportional to the amount of light energy that is collected at the 
+ image plane at coordinates x , y. 
+ The amount of energy is called intensity . 
+ Images Formation : Sampling and Quantization 
+ A continuous real image is converted into a digital one through a process of 
+ sampling and quantization . 
+ • Sampling : Reduces the image domain to a finite set of spatial coordinates . 
+ ℝ2 ⟶ 𝑀 × 𝑁 
+ • Quantization : Reduces the sensor response ( function codomain ) to a finite set 
+ of values . 
+ To sampling the continuous image domain into a finite set of values we usually 
+ consider an equi - spaced grid of values in a given area ( matrix ) . 
+ • This reflect the regular arrangement of cells in a CMOS or CCD sensor . 
+ • Each sample is called a pixel . 
+ 26 
+ Images Formation : Quantization 
+ • The intensity ( output ) of the function must also be discretized ( quantized ) in a 
+ finite set of values to be digitized and used in a computer . 
+ • 
+ Image codomain is divided into a set of values and each f(x , y ) is rounded to the 
+ closest one . 
+ Images Formation : Sampling and Quantization 
+ Digital Images 
+ Digital Images 
+ • Intensity and Matrix representation are the most common to be used in practice . 
+ • M , N are related to the spatial resolution of an image . 
+ • L is related to the intensity resolution . 
+ Digital Images : Spatial Resolution 
+ • Spatial resolution is a measure of the smallest discernible detail in an image . 
+ • Usually defined as dots ( pixels ) per unit distance . 
+ • To be meaningful , measures of spatial resolution must be stated with respect to 
+ spatial units . 
+ • A 1024x1024 pixel image is not meaningful without stating the spatial dimensions 
+ encompassed by the image ( the size of each pixel in the 3D world ) . 
+ 31 
+ Digital Images : Spatial Resolution 
+ • 
+ The number of pixels of an image directly affect spatial resolution only with 
+ comparable lenses and if the subjects are taken at the same distance . 
+ Digital Images : Spatial Resolution 
+ 33 
+ Digital Images : 
+ Intensity resolution 
+ • Intensity resolution refers to the smallest discernible change in intensity level . 
+ Digital Images : Few Definitions 
+ • Dynamic range of an imaging system : 
+ The ratio of the maximum measurable intensity to the minimum detectable intensity level . 
+ Depends by the number of bits we use and establish the lowest and highest intensity levels 
+ that a system can represent . 
+ • A high dynamic range ( HDR ) image preserves details in both the shadows and highlights . 
+ • A low dynamic range ( LDR ) image loses details in either the dark or bright areas . 
+ Digital Images : Few Definitions 
+ • Contrast : 
+ The difference between the highest and the lowest intensity levels of an 
+ image . 
+ • 
+ Even if we use techniques to acquire images at high dynamic range , we will 
+ probably will not be able to display it on a computer screen ... 
+ • Compromises have to be done in the acquisition process to either discard dark 
+ details or saturate heavily illuminated areas . 
+ 36 
+ Dynamic range vs. Intensity resolution 
+ Dynamic range and intensity resolution in a digital image both relate to how brightness levels are 
+ represented , but they refer to different aspects of image quality : 
+ • Dynamic Range refers to the ratio between the brightest and darkest intensities that a system ( such as 
+ a camera or a display ) can capture or reproduce . 
+ A higher dynamic range means better detail in both very bright and very dark areas of the image . 
+ Example : HDR ( High Dynamic Range ) imaging captures a wider range of light intensities compared 
+ to standard images . 
+ • Intensity Resolution ( Bit Depth ) refers to the number of discrete levels used to represent pixel 
+ intensities in a digital image . 
+ A higher intensity resolution allows for smoother transitions between brightness levels and 
+ reduces banding artifacts . 
+ 37 
+ Dynamic range 
+ • Left ( High Dynamic Range - HDR ): 
+ Preserves details in both the shadows 
+ and highlights , making the scene appear 
+ more natural and well - balanced . 
+ • Right ( Low Dynamic Range - LDR ): 
+ Shadows are too dark , and highlights are 
+ overexposed , leading to a loss of details 
+ in the brightest and darkest areas . 
+ 38 
+ Dynamic range 
+ 39 
+ Dynamic range 
+ high_dynamic_range [ 0 , 255 ] low dynamic range by clipping intensities [ 75 , 175 ] 
+ low dynamic range by clipping intensities [ 100 , 150 ] low dynamic range by clipping intensities [ 120 , 130 ] 
+ 40 
+ Intensity resolution 
+ 41

@@ -1,0 +1,67 @@
+Objectives 
+ The National Higher School of 
+ Table 
+ database model 
+ – Structural and data independence 
+ • Why indexing is important – Resembles a file conceptually 
+ • 
+ Logical view of relational database is based on 
+ Relation thought of as a table 
+ • 
+ Each row in a table must be uniquely 
+ identifiable 
+ • 
+ Key ’s role is based on determination 
+ • 
+ If you know the value of attribute A , you can 
+ determine the value of attribute B 
+ – Functional dependence 
+ • 
+ Composite key 
+ – Composed of more than one attribute 
+ • 
+ Key attribute 
+ – Any attribute that is part of a key 
+ • Superkey 
+ – Any key that uniquely identifies each row 
+ • 
+ Types of Keys ( cont’d . ) 
+ • 
+ Entity integrity – Can represent : 
+ – Each row ( entity instance ) in the table has its • An unknown attribute value 
+ own unique identity • 
+ A known , but missing , attribute value 
+ Inner join 
+ – Links tables by selecting rows with common – Only returns matched records from the tables 
+ values in common attributes ( join columns ) that are being joined 
+ • 
+ Equijoin • 
+ Outer join 
+ – Links tables on the basis of an equality condition – Matched pairs are retained , and any unmatched 
+ that compares specified columns values in other table are left null 
+ • 
+ Left outer join 
+ – Yields all of the rows in the CUSTOMER table 
+ – Including those that do not have a matching 
+ value in the AGENT table 
+ • 
+ Data redundancy leads to data anomalies 
+ – Can destroy the effectiveness of the database 
+ • 
+ Index key 
+ – Index ’s reference point 
+ – Points to data location identified by the key 
+ • 
+ Products marketed as “ relational ” that did not 
+ meet minimum relational standards 
+ • 
+ Each table row must have a primary key that 
+ • Tables are basic building blocks of a relational 
+ uniquely identifies all attributes 
+ database 
+ • 
+ Keys are central to the use of relational tables • 
+ Tables are linked by common attributes 
+ • 
+ Keys define functional dependencies • 
+ The relational model supports relational algebra

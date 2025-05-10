@@ -1,0 +1,69 @@
+CPLEX IBM solver 
+ 
+ CPLEX Toolkit 
+ • CPLEX allows one to work in several ways . 
+ • An IDE that uses the OPL modeling language 
+ • An interactive command - line optimizer 
+ • A callable library in several languages 
+ • Java 
+ • Python 
+ • C 
+ • C++ ( Concert Technology ) 
+ • ... 
+ CPLEX & Optimization Programming Language ( OPL ) 
+ • Math - like Modelling Language 
+ • Clean separation between model and data 
+ • CPLEX solver for mathematical models 
+ • Solve linear , quadratic , and quadratically 
+ constrained programs 
+ Why do we use CPLEX ? 
+ • 
+ CPLEX is a state - of - the - art commercial solver 
+ • It is in active development and is continuously improved 
+ • 
+ It is widely used in both academia and industry 
+ CPLEX Optimization studio 
+ CPLEX interactive command - line 
+ Describing an optimization problem 
+ • 
+ OPL is a domain - specific language , created for describing optimization 
+ problems . 
+ • What must we define ? 
+ • Constants / parameters used in the problem . 
+ • Decision variables used in the problem . 
+ • Objective function : linear objective function . 
+ • Constraints : linear inequalities defining the feasible region . 
+ Configuration file : 
+ • Specifies the solver and other settings for the 
+ OPL project . 
+ Data file(s ): 
+ • Data input for the OPL model . 
+ • It includes parameters , decision variables , and 
+ constraints . 
+ Settings file : 
+ • Additional settings and options for the OPL 
+ project . 
+ Representing a problem 
+ • OPL separates the model and its instance . 
+ • Model : .mod extension , describes the structure of a problem . 
+ • Instance : .dat extension ( or can be baked into .mod ) , describes the data in a 
+ problem . 
+ • Any linear program has the same structure . 
+ Only the data changes ! 
+ • Products : Ammoniac gas ( NH3 ) and ammonium chloride ( NH4Cl ) 
+ • 
+ Dual price 
+ Example 
+ Maximize 
+ End 
+ Enter the problem 
+ Optimize 
+ Display Details 
+ Conclusion 
+ • CPLEX / OPL is a powerful framework for optimization problems . 
+ • It promotes code organization and data separation for efficient problem 
+ management . 
+ • CPLEX / OPL can be applied to a diverse range of applications . 
+ • It is particularly useful for solving large - scale optimization problems . 
+ • With its robust capabilities , CPLEX / OPL is a valuable tool for tackling complex 
+ optimization tasks .

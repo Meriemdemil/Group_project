@@ -1,0 +1,136 @@
+Graph coloring 
+ Mohammed Brahimi 
+ Module distribution concerns raised by students 
+ • Issues 
+ • Multiple difficult modules scheduled in the same term 
+ • Unbalanced distribution of workload between terms 
+ • Goal 
+ • Achieving a balanced load distribution between terms 
+ • Approach : 
+ • Represent modules as vertices 
+ • High - load modules are linked by edges 
+ • Assign colors to terms 
+ • Ensure that difficult and high - load modules are not scheduled in the same term . 
+ Find optimal module - term assignment to minimize load imbalance 
+ and avoid clustering high - load modules . 
+ How to avoid challenging modules in the same term ? 
+ How to avoid challenging modules in the same term ? 
+ 7 
+ 1 8 
+ 3 5 4 
+ 6 2 
+ How to avoid challenging modules in the same term ? 
+ How to avoid challenging modules in the same term ? 
+ Term 1 
+ 1 6 8 2 
+ 3 7 5 4 
+ Term 2 
+ How to avoid challenging modules in the same term ? 
+ Create a well - structured time table that considers teacher availability , 
+ room constraints , and avoids conflicts between modules . 
+ What is graph coloring ? 
+ • In the context of a simple graph G , a k - coloring refers to the assignment of 
+ at most k colors to its vertices . 
+ • k - coloring should color the adjacent vertices in G by different colors . 
+ • If G has a valid k - coloring , we say G is k - colorable . 
+ • The chromatic number of G , denoted by 𝜒(𝐺 ) , is the smallest number k for 
+ which G is k - colorable . 
+ • Reason for restricting coloring to simple graphs : 
+ • Vertex with loop can not be assigned a different color from itself . 
+ • 
+ Subgraphs and the Chromatic Number 
+ • 
+ Subgraphs play a crucial role in understanding the chromatic number of a 
+ graph . 
+ • If a subgraph 𝐻 of 𝐺 has a chromatic number 𝜒(H ) , then 𝜒(G ) must also be 
+ at least that value . 
+ • The presence of complete subgraphs ( cliques ) can increase the chromatic 
+ number of a graph . 
+ The subgraphs with the highest chromatic numbers can provide insights 
+ into the chromatic number of the entire graph . 
+ Graph is bipartite . 
+ What is the chromatic number ? 
+ If the maximum vertex degree of a graph is low , we can determine a tight 
+ upper bound for the chromatic number . 
+ • However , for graphs with a high maximum degree , this theorem becomes less 
+ effective or loses its usefulness . 
+ By 
+ our assumption , we have 𝜒(𝐻 ) ≤ 𝑑 + 1 . 
+ • By assigning an unassigned color to 𝒗 , we can create a ( 𝑑+1)-coloring 
+ of 𝐺. 
+ Chromatic Number 𝜒(𝐺 ) and Bounds 
+ • We color 𝑣 with this unsaigned color . 
+ • Intuition : 
+ • 
+ For planar graphs , it is possible to color them using only 5 colors or fewer 
+ • It demonstrates the inherent simplicity within complex spatial configurations . 
+ A vertex coloring of G has been obtained . 
+ THEORME 6 
+ For any graph G , there is a labelling of the vertices for which the greedy 
+ algorithm yields a vertex colouring with 𝜒(𝐺 ) colours . 
+ • As a result , only 𝜒(𝐺 ) colors are needed for this labeling . 
+ Coloring Problems : Storing Chemicals 
+ • Certain chemicals react violently when they are 
+ in contact . 
+ • 
+ The manufacturer plans to divide the 
+ warehouse into regions to separate dangerous 
+ chemical pairs . 
+ • The dangerous pairs of chemicals are marked 
+ with an asterisk in a table . 
+ The objective is to find the minimum number of 
+ areas required to safely store the chemicals . 
+ Coloring Problems 
+ • To determine the minimum number of areas required for safe chemical 
+ storage , a graph was created . 
+ • Each vertex represent chemical . 
+ • Vertices are adjacent when the corresponding chemicals need to be separated . 
+ Assigning chemicals to areas is a vertex coloring problem , with colors 
+ corresponding to the areas . 
+ • A vertex coloring leads to a vertex decomposition of the graph , where no 
+ adjacent vertices are in the same subset . 
+ • The minimum number of subsets required for this problem is the 
+ chromatic number 𝜒(𝐺 ) of this graph . 
+ Coloring Problems : Map Colouring 
+ • 
+ • Mathematicians , including , , and , studied the 
+ problem . 
+ Coloring Problems : Map Colouring 
+ • Objective : 
+ • Assign colors to countries on a map , 
+ ensuring adjacent countries have different 
+ colors . 
+ • Representation : 
+ • Use the geometrical dual to represent 
+ countries as vertices in a graph , with 
+ edges connecting adjacent countries . 
+ Determine the minimum number of colors 
+ needed to avoid adjacent countries sharing 
+ the same color . 
+ Coloring Problems : Map Colouring 
+ A map is planar graph 
+ Register allocation 
+ • Register allocation can be seen as a graph 
+ coloring problem . 
+ • Nodes in the graph represent the live ranges of 
+ variables . 
+ • The objective is to assign colors to nodes such 
+ that adjacent nodes have different colors . 
+ The chromatic number represents the minimum 
+ number of registers required . 
+ Let 's play Sudoku 
+ • Objective : 
+ • Complete a 9x9 matrix . 
+ Can we model this as coloring 
+ problem ? ! 
+ Conclusion 
+ • Graph coloring is a fundamental concept in graph theory with diverse applications . 
+ • It enables the assignment of colors to vertices by representing entities as vertices and their 
+ relationships as edges . 
+ • The goal is to ensure adjacent vertices have different colors , minimizing conflicts . 
+ • Efficient graph coloring algorithms are crucial for optimizing resource allocation and improving 
+ system performance . 
+ • Understanding graph coloring techniques helps solve complex optimization problems in various 
+ domains . 
+ • Graph coloring has applications beyond computer science , contributing to advancements in 
+ diverse fields .

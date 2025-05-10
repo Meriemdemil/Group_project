@@ -1,0 +1,78 @@
+Proof By Counter Example 
+ • Want to prove something is not true ! 
+ • Give an example to show that it does not 
+ hold ! 
+ Proof By Contradiction 
+ • 
+ Suppose you want to prove something . 
+ • Assume that what you want to prove does not 
+ hold . 
+ • Then show that you arrive at an impossibility . 
+ • Example : The number of prime numbers is not 
+ finite ! 
+ However , none of the primes P , P , … , P divide 
+ 1 2 k 
+ N exactly . 
+ So N is not a product of primes . 
+ ( contradiction ) 
+ 15 
+ Recursion 
+ • A subroutine which calls itself , with different 
+ parameters . 
+ • Need to evaluate factorial(n ) 
+ factorial(n ) = n.(n-1) … 2.1 
+ = n  factorial(n-1 ) 
+ • Suppose routine factorial(p ) can find factorial of 
+ p for all p < m. Then factorial(m+1 ) can be 
+ calculated as follows : 
+ factorial(m+1 ) = ( m+1 )  factorial(m ) 
+ Anything missing ? 
+ 16 
+ Factorial(m 
+ Basic rules of Recursion : 
+ • There should be a base case for which the subroutine 
+ does not call itself . 
+ • 
+ For the general case : the subroutine does some 
+ operations , calls itself , gets result and does some 
+ operations with the result 
+ • The subroutine should progressively move towards the 
+ base case . 
+ Printing numbers digit by digit 
+ • We wish to print out a positive integer , n. 
+ Our routine 
+ will have the heading printOut(n ) . 
+ Assume that the 
+ only I / O routine available printDigit(m ) will take a 
+ single - digit number and outputs it . 
+ Towers of Hanoi 
+ • Source peg ( A ) , Destination peg ( C ) , Auxiliary 
+ peg ( B ) 
+ • 
+ At the start , k disks are on the source peg . 
+ • Need to move all k disks to the destination peg 
+ using the auxiliary peg , without ever keeping a 
+ bigger disk on a smaller disk . 
+ • We know how to solve this for k=1 
+ • Suppose we know how to solve this for k-1 
+ disks . 
+ • 
+ • Will move the bottom one from the source to 
+ the destination . 
+ • Will move the k-1 disks from auxiliary to 
+ destination using source . 
+ 22 
+ towerOfHanoi(k , source , auxiliary , destination ) 
+ { 
+ If k=1 move disk from source to destination ; ( base 
+ case ) 
+ else 
+ { 
+ towerOfHanoi(top k-1 , source , destination , 
+ auxiliary ) ; 
+ Move the kth disk from source to destination ; 
+ towerOfHanoi(k-1 , auxiliary , source , 
+ destination ) ; 
+ } 
+ } 
+ 23

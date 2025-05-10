@@ -1,0 +1,485 @@
+April28,2024 5/45 
+ GENERALIZED INTEGRALS 
+ Example 
+ The following integrals are improper integrals . 
+ Let f be a function defined on the interval [ a , b [ , where 
+ −∞ < a < b ≤ + ∞. If b is infinite or if f is unbounded as x approaches 
+ b , we say that the integral has a singularity at b , denoted by 
+ ( cid:90 ) ∗b 
+ f(x)dx . 
+ a 
+ Definition 
+ Let f be a function defined on [ a , b [ . 
+ We say that f is locally integrable on 
+ [ a , b [ if it is integrable over every closed and bounded interval 
+ [ α , β ] ⊂ [ a , b [ . 
+ April28,2024 8/45 
+ Integral with a Single Singularity 
+ This is denoted by 
+ f ∈ R ( [ a , b [ ) , 
+ loc 
+ indicating that f is locally Riemann - integrable on [ a , b [ . 
+ For the rest of this section , we consider only locally integrable functions . 
+ April28,2024 9/45 
+ Convergent Integrals 
+ Let f ∈ R ( [ a , b [ ) , and let 
+ loc 
+ ( cid:90 ) t 
+ F(t ) = f(x)dx . 
+ The function F is well - defined on [ a , b [ because f is locally integrable on 
+ [ a , b [ . 
+ Definition 
+ If the limit lim F(t ) exists and is finite , we say that the improper 
+ t→b− 
+ integral 
+ ( cid:90 ) ∗b 
+ f(x)dx 
+ a 
+ is convergent . Moreover , 
+ ( cid:90 ) ∗b ( cid:90 ) t 
+ f(x)dx = lim F(t ) = lim f(x)dx . 
+ a t→b− t→b− a 
+ If the integral is not convergent , we say it is divergent . 
+ April28,2024 10/45 
+ Convergent Integrals 
+ Example 
+ Study of the integral 
+ ( cid:82)+∞ 
+ 1 dx : 
+ 1 1+x2 
+ 1 . 
+ exists and is finite . 
+ Therefore , the integral 
+ ( cid:82)+∞ 
+ 1 dx is convergent , and 
+ 1 1+x2 
+ ( cid:82)+∞ 
+ 1 dx = π . 
+ 1 1+x2 4 
+ 2 . 
+ Study of the integral ( cid:82)1 1 dx : 
+ 0 x 
+ Let F(t ) = ( cid:82)1 1 dx = −ln(t ) . 
+ The limit lim F(t ) = + ∞ 
+ , so the 
+ t x t→0 + 
+ integral ( cid:82)1 1 dx is divergent . 
+ 0 x 
+ April28,2024 11/45 
+ Convergent Integrals 
+ Example 
+ 3 . 
+ the following Riemann integral : 
+ Study of the Riemann integral : 
+ ( cid:90 ) 1 1 
+ J = dx 
+ α xα 
+ 0 
+ April28,2024 12/45 
+ Convergent Integrals 
+ Example 
+ For the Riemann integral : 
+ ( cid:90 ) 1 1 
+ J = dx 
+ In the case of 
+ α 
+ convergence , we have J = 1 . 
+ α 1−α 
+ April28,2024 13/45 
+ Properties : 
+ Theorem 
+ ( cid:82)∗b 
+ 1 . 
+ If the integral f(x)dx is convergent , then for any c ∈]a , b [ , the 
+ a 
+ ( cid:82)∗b 
+ integral f(x)dx is convergent , and we have : 
+ c 
+ ( cid:90 ) ∗b ( cid:90 ) c ( cid:90 ) ∗b 
+ f(x)dx = f(x)dx + f(x)dx 
+ a a c 
+ ( cid:82)∗b 
+ 2 . 
+ If there exists c ∈]a , b [ such that the integral f(x)dx is 
+ c 
+ ( cid:82)∗b 
+ convergent , then the integral f(x)dx is convergent . 
+ Moreover , 
+ a 
+ ( cid:90 ) ∗b ( cid:90 ) c ( cid:90 ) ∗b 
+ f(x)dx = f(x)dx + f(x)dx 
+ a a c 
+ April28,2024 14/45 
+ Properties : 
+ Theorem 
+ ( cid:82)∗b ( cid:82)∗b 
+ Let f , g ∈ R ( [ a , b [ ) . 
+ If the integrals f(x)dx and g(x)dx are 
+ loc a a 
+ convergent , then for any α , β ∈ R , the integral 
+ ( cid:90 ) ∗b 
+ [ αf(x)+βg(x)]dx 
+ a 
+ is convergent , and we have : 
+ ( cid:90 ) ∗b ( cid:90 ) ∗b ( cid:90 ) ∗b 
+ [ αf(x)+βg(x)]dx = α f(x)dx + β g(x)dx 
+ a a a 
+ April28,2024 15/45 
+ Positive Functions 
+ It is said that the set of convergent integrals forms a vector space . 
+ If we 
+ ( cid:82)t 
+ can calculate the ” partial ” integral f(x)dx for all t ∈]a , b [ , then we 
+ a 
+ ( cid:82)(cid:63)b 
+ can study the convergence of the integral f(x)dx by taking the limit . 
+ a 
+ ( cid:82)t 
+ However , in many cases , calculating f(x)dx directly might not be 
+ a 
+ feasible . 
+ Therefore , we need convergence criteria that do not rely on the 
+ ( cid:82)t 
+ calculation of the ” partial ” integral f(x)dx . 
+ Moreover , there are criteria 
+ a 
+ that are particularly useful for functions with a constant sign in the vicinity 
+ of a singularity . 
+ For simplicity , let ’s assume these functions are positive . 
+ According to the theorem above , it is sufficient for the function f to be 
+ positive in the vicinity of the singularity . 
+ However , for ease of exposition , 
+ let ’s assume that f is positive on [ a , b [ . 
+ Theorem 
+ Let F be the function that is the primitive of f vanishing at a , defined by : 
+ ( cid:90 ) t 
+ F(t ) = f(x)dx 
+ a 
+ We then have : 
+ Let f ∈ R ( [ a , b [ ) be a positive function on ] a , b [ . 
+ The improper integral 
+ loc 
+ ( cid:82)(cid:63)b 
+ f(x)dx is convergent if , and only if , the function F , is upper bounded 
+ a 
+ on ] a , b [ . 
+ April28,2024 17/45 
+ Positive Functions 
+ The following theorem is known as the comparison theorem and is 
+ fundamental in the study of integrals of positive functions . 
+ Theorem 
+ Let f and g ∈ R ( [ a , b [ ) . Suppose 0 ≤ f(x ) ≤ g(x ) for all x ∈ [ a , b [ . 
+ loc 
+ Then we have the implication : 
+ ( cid:90 ) ( cid:63)b ( cid:90 ) ( cid:63)b 
+ g(x)dx is convergent ⇒ f(x)dx is convergent 
+ a a 
+ April28,2024 18/45 
+ Positive Functions 
+ Example 
+ Study of the Integral 
+ Consider the integral 
+ ( cid:90 ) ∞ 1 
+ dx . 
+ Consequently , by the comparison theorem , we deduce that the 
+ integral 
+ ( cid:82)∞ 
+ 1 dx is also convergent . 
+ 1 x3+x2 
+ April28,2024 19/45 
+ Positive Functions 
+ The following theorem uses the comparison of f in the vicinity of the 
+ singularity with a function whose nature is known . 
+ Positive Functions 
+ Theorem 
+ 2 . 
+ If l = 0 , then 
+ ( cid:90 ) ( cid:63)b ( cid:90 ) ( cid:63)b 
+ g(x)dx is convergent ⇒ f(x)dx is convergent . 
+ If l = + ∞ , then 
+ ( cid:90 ) ( cid:63)b ( cid:90 ) ( cid:63)b 
+ g(x)dx is divergent ⇒ f(x)dx is divergent . 
+ Example 
+ ( cid:90 ) ∞ 
+ x3e−x dx . 
+ 1 
+ We know that 
+ ( cid:82)∞ 
+ e−x dx is convergent because 
+ 1 
+ ( cid:90 ) t April28,2024 23/45 
+ lim e−x dx = lim ( e−1−e−t ) = e−1 . 
+ t→+∞ 
+ 1 
+ t→+∞ 
+ However , as 
+ x3e−x 
+ lim = lim x3 = + ∞ , 
+ x→+∞ e−x x→+∞ 
+ we can not apply the previous theorem directly . 
+ But knowing that the 
+ function 
+ f(x ) = x3e−x 
+ is positive on ] 1,+∞ [ , we can compare this function with g(x ) = e−x , for 
+ which we already know that the integral 
+ ( cid:82)∞ 
+ e−x dx is convergent . 
+ Indeed , 
+ 1 
+ the comparison holds true , and according to the comparison theorem , if 
+ ( cid:82)∞ 
+ e−x dx is convergent , then 
+ ( cid:82)∞ 
+ x3e−x dx is also convergent . 
+ 1 1 
+ Positive Functions 
+ Example 
+ The function x ( cid:55)→ e−x dominates , as x goes to infinity , any polynomial . 
+ Knowing that the integral 
+ ( cid:90 ) ∞ 1 
+ dx 
+ x2 
+ 1 
+ is a convergent Riemann integral , then our integral is also convergent . 
+ Functions of Any Sign 
+ In this section , we can not use the theorems mentioned previously , but we 
+ still have some results that we can apply . 
+ The integral f(x)dx is convergent if , and only 
+ loc a 
+ if , the following Cauchy condition is satisfied : 
+ ( cid:12)(cid:90 ) x(cid:48)(cid:48 ) ( cid:12 ) 
+ ∀ε > 0,∃c ∈]a , b[;∀x(cid:48),x(cid:48)(cid:48),x(cid:48),x(cid:48)(cid:48 ) ∈]c , b[⇒ ( cid:12 ) ( cid:12 ) f(x)dx ( cid:12 ) ( cid:12 ) < ε . 
+ ( cid:12 ) x(cid:48 ) ( cid:12 ) 
+ In order to use the comparison theorems , we study the integral of the 
+ absolute value of f to reduce it to the case of an integral of a positive 
+ function . Therefore , we study : 
+ ( cid:90 ) ( cid:63)b 
+ |f(x)|dx 
+ a 
+ and we give the following definition : 
+ April28,2024 25/45 
+ Functions of Any Sign 
+ Definition 
+ If the integral 
+ ( cid:90 ) ( cid:63)b 
+ |f(x)|dx 
+ a 
+ ( cid:82)(cid:63)b 
+ is convergent , we say that the integral f(x)dx is absolutely 
+ a 
+ convergent . 
+ April28,2024 26/45 
+ Functions of Any Sign 
+ The integral 
+ ( cid:90 ) ∞ sinx 
+ dx 
+ x2 
+ 1 
+ is absolutely convergent . 
+ Indeed , 
+ ( cid:12 ) ( cid:12 ) 
+ ( cid:12)sinx(cid:12 ) 1 
+ ( cid:12 ) ( cid:12 ) ≤ , 
+ ( cid:12 ) x2 ( cid:12 ) x2 
+ and the Riemann integral 
+ ( cid:82)∞ 
+ 1 dx is convergent . 
+ 1 x2 
+ April28,2024 27/45 
+ Functions of Any Sign 
+ Theorem 
+ ( cid:82)(cid:63)b 
+ If the integral f(x)dx is absolutely convergent , then it is convergent . 
+ a 
+ We write 
+ ( cid:90 ) ( cid:63)b ( cid:90 ) ( cid:63)b 
+ |f(x)|dx is convergent ⇒ f(x)dx is convergent . 
+ April28,2024 28/45 
+ Functions of Any Sign 
+ The following theorem provides sufficient conditions for the convergence of 
+ the integral of a function of any sign . 
+ Let f , g ∈ R ( [ a , b [ ) satisfying : 
+ loc 
+ - The function f is monotonic on ] a , b [ , and lim f(x ) = 0 . 
+ x→b 
+ ( cid:82)t 
+ - There exists M > 0 such that g(x)dx ≤ M for all t ∈]a , b [ . 
+ Then , 
+ a 
+ the integral 
+ ( cid:90 ) b 
+ f(x)g(x)dx 
+ a 
+ is convergent . 
+ Functions of Any Sign 
+ Example 
+ Study the integral 
+ ( cid:90 ) ∞ cos(3x ) 
+ I = √ dx . 
+ x 
+ 1 
+ 1 ) Let ’s show that this integral is convergent . 
+ Therefore , according to the criterion , this integral is convergent . 
+ 2 ) Let ’s show that it is not absolutely convergent . 
+ Functions of Any Sign 
+ Example 
+ ( cid:90 ) ∞ cos(6x ) 
+ √ dx 
+ 2 x 
+ 1 
+ is convergent by ’s criterion . 
+ Therefore , the integral 
+ ( cid:90 ) ∞ cos(3x ) 
+ | √ |dx 
+ x 
+ 1 
+ is divergent . 
+ This integral is an example of semi - convergent integrals . 
+ For 
+ example , in case ( a ) , the interval ] −∞,2 [ is unbounded , so the integral 
+ has a singularity at v(−∞ ) , and the function is unbounded at v(2 ) , so the 
+ integral has a singularity at v(2 ) . 
+ April28,2024 34/45 
+ Integrals with Two Singularities at the Boundaries 
+ Definition 
+ Let f ∈ R ( ] a , b [ ) . 
+ If there exists c ∈]a , b [ such that both integrals 
+ loc 0 
+ ( cid:90 ) c0 ( cid:90 ) ( cid:63)b 
+ f(x)dx and f(x)dx 
+ ( cid:63)a c0 
+ are convergent , then the integral 
+ ( cid:90 ) ( cid:63)b 
+ f(x)dx 
+ ( cid:63)a 
+ is convergent . 
+ * * Remark * * 
+ In fact , the specific choice of c is irrelevant and can be replaced by any 
+ 0 
+ other number c ∈]a , b [ , as confirmed by the following proposition . 
+ Integrals with Two Singularities at the Boundaries 
+ Theorem 
+ ( cid:82)(cid:63)b 
+ Let f ∈ R ( ] a , b [ ) . 
+ The integral f(x)dx is convergent if , and only if , 
+ loc ( cid:63)a 
+ for every c ∈]a , b [ , each of the integrals 
+ ( cid:90 ) c ( cid:90 ) ( cid:63)b 
+ f(x)dx and f(x)dx 
+ ( cid:63)a c 
+ is convergent . 
+ Now , let ’s examine the integrals given as examples . 
+ April28,2024 36/45 
+ Integrals with Two Singularities at the Boundaries 
+ Example 
+ a ) 
+ ( cid:90 ) 2 1 
+ dx . 
+ −∞ x −2 
+ We know from the previous discussion that the integral 
+ ( cid:90 ) 0 1 
+ dx 
+ −∞ x −2 
+ is divergent . 
+ Therefore , it is sufficient to conclude that the integral 
+ ( cid:90 ) 2 1 
+ dx 
+ −∞ x −2 
+ is also divergent . 
+ April28,2024 37/45 
+ Integrals with Two Singularities at the Boundaries 
+ Example 
+ b ) 
+ ( cid:90 ) 3 1 
+ dx . 
+ ( cid:112 ) 
+ −1 ( x +1)(3−x ) 
+ Both integrals ( verify ) 
+ ( cid:90 ) 0 1 
+ dx 
+ ( cid:112 ) 
+ −1 ( x +1)(3−x ) 
+ and 
+ ( cid:90 ) 3 1 
+ dx 
+ ( cid:112 ) 
+ 0 ( x +1)(3−x ) 
+ are convergent . 
+ April28,2024 38/45 
+ Singularities within the Interval 
+ Definition 
+ Let [ a , b ] be a closed and bounded interval , and c ∈]a , b [ . We say that a 
+ 0 
+ function f is locally integrable on [ a , b ] \(c if it is integrable on every 
+ 0 
+ closed and bounded interval of [ a , c [ and on every closed and bounded 
+ 0 
+ interval of ] c , b ] . 
+ We denote this as : f ∈ R ( [ a , b]\c ) . 
+ 0 loc 0 
+ Definition 
+ If the function f is not bounded at a point c , we say that the integral 
+ 0 
+ ( cid:90 ) b 
+ f(x)dx 
+ a 
+ has a singularity at c . 
+ April28,2024 39/45 
+ Singularities within the Interval 
+ Definition 
+ Let f ∈ R ( [ a , b]\c ) . 
+ Additionally , we have the 
+ 0 
+ decomposition 
+ ( cid:90 ) 4 1 ( cid:90 ) 1 1 ( cid:90 ) 4 1 
+ dx = dx + dx . 
+ x −1 x −1 x −1 
+ −1 −1 1 
+ Now , analyzing the integral 
+ ( cid:90 ) 1 1 
+ dx , 
+ x −1 
+ −1 
+ we find that it is a divergent improper Riemann integral . 
+ As a result , the 
+ entire original integral is divergent . 
+ April28,2024 41/45 
+ Singularities within the Interval 
+ Example 
+ ( cid:82)3 
+ Study of the integral f(x)dx where the function f is given by : 
+ −2 
+  
+ √1 if x < 0 
+ f(x ) = 
+ 3x 
+ 1 if x > 0 
+ x 
+ The integral ( cid:82)(cid:63)0 √dx is convergent , and the integral ( cid:82)3 dx is divergent . 
+ −2 3x ( cid:63)0 x 
+ ( cid:82)3 
+ Therefore , the integral f(x)dx is divergent . 
+ −2 
+ Definition 
+ Let f ∈ R ( [ a , b]\c ) . 
+ * * Remark * * In the limit of the previous definition , the numbers ε and δ 
+ are independent . 
+ In the case where δ = ε , we have the following definition . 
+ April28,2024 43/45 
+ Cauchy Principal Value 
+ Definition 
+ ( Cauchy Principal Value ): 
+ If 
+ loc 0 
+ ( cid:18)(cid:90 ) c0 −(cid:101 ) ( cid:90 ) b ( cid:19 ) 
+ lim f(x)dx + f(x)dx = l 
+ ( cid:101)→0 + a c0 + ( cid:101 ) 
+ exists and is finite , then the integral 
+ ( cid:90 ) b 
+ f(x)dx 
+ a 
+ has a Cauchy Principal Value , denoted as 
+ ( cid:90 ) b 
+ l = v.p . f(x)dx . 
+ In this case , it is said that the integral converges in the sense of the 
+ Cauchy Principal Value .

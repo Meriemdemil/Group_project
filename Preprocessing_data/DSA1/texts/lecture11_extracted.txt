@@ -1,0 +1,137 @@
+Sorting Algorithms 
+  
+ Definition 
+  
+ Different sorting algorithms 
+  
+ Selection Sort 
+  
+ Analysis 
+  
+ Modular decomposition 
+  
+ Application 
+  
+ Complexity 
+  
+ Introduction 
+ The goal of a sorting operation is to arrange elements in 
+ an array according to a specific order or criterion , either 
+ in ascending or descending order . 
+ There are several sorting algorithms : 
+ In this case , a 
+ backward check is performed to ensure that the order has not 
+ been modified , and if so , it is restored . 
+  Odd phase : Every odd indexed element is compared with the next 
+ even indexed element(considering 1 - based indexing ) . 
+  Even phase : 
+ Every even indexed element is compared with the next 
+ odd indexed element . 
+ Badly sorted elements move up in the array like bubbles 
+ rising to the surface of a liquid . 
+ The swapping of elements occurs 
+ with permutations if elem1 > elem2 . 
+ It is evident that multiple passes 
+ over all elements are necessary . 
+ This method is less efficient . 
+ This algorithm involves iterating through the values of the 
+ array , one by one , and inserting them at the right place in the 
+ sorted array consisting of previously inserted and sorted values . 
+ The values are inserted in the order in which they appear in the 
+ array . 
+ A list of n elements will take at most n-1 passes to sort the data 
+ Introduction 
+ Selection Sort ( Successive Minimum Sort ) 
+ sorts an array of N integers in ascending order . 
+ Selection Sort ( Modules ) 
+ PROCEDURE 
+ Integer A Var Integer A 
+ Integer B SWAP 
+ Var Integer B 
+ PROCEDURE 
+ Swap the content of A and B 
+ Integer A [ ] 
+ Var Integer A [ ] 
+ SELSORT 
+ Integer Size 
+ FUNCTION Sort the element of A in ascending 
+ order using the selection method 
+ Integer A [ ] 
+ Integer B1 Integer 
+ MinInd 
+ Integer B2 
+ Return the index of the smallest element 
+ of a portion ( B1 , B2 ) of 1D array A 
+ Selection Sort ( Modules ) 
+ Module MinInd 
+ Analysis : 
+  
+ We assume that B1 < B2 < Size . Integer Function MinInd ( Integer A [ ] , Integer B1 , 
+ Integer B2 ) 
+  Save B1 in Ind. 
+ Variable Integer Ind , i 
+  Traverse the array by varying the BEGIN 
+ index : 
+ At Ind = B1 
+ each iteration : 
+ FOR i FROM B1 + 1 TO B2 DO 
+ IF A[i ] < A[Ind ] THEN 
+  IF the element A[i ] is smaller 
+ Ind = i 
+ than A[Ind ] ( a new minimum is 
+ END IF 
+ found ) , THEN 
+ END FOR 
+  Update the index : 
+ Ind = i. MinInd = Ind 
+ END 
+ At each iteration : … .Procedure Body … 
+ Function MinInd 
+  Search for the index of the smallest 
+ … .Function Body … 
+ element between i and Size-1 : 
+ BEGIN 
+ ( MinInd(A , i , Size-1 ) ) . 
+ FOR i FROM 0 TO Size-1 DO 
+  Swap this element with A[i ] . Ind = MinInd(A , i , Size-1 ) 
+ SAWP ( A[i ] , A[Ind ] ) 
+ END FOR 
+ END 
+ Selection Sort ( Modules ) 
+ Construct the main algorithm 
+ Analysis : 
+ Algorithm Selection_Sort 
+  
+ Read the array A 
+ Selection Sort ( example ) 
+ Algorithm 
+ finished 
+ Selection Sort ( Application ) 
+ Provide the solution that allows searching by dichotomy for a given 
+ value V in a sorted array of up to 100 integers . 
+ Otherwise , we set another maximum , which is " mid " 
+  
+ We compare if A[mid ] is equal to V 
+  If it is equal , we assign True to Found 
+  We assign : RechDichV = Found 
+ Selection Sort ( Application ) 
+ Boolean FUNCTION SearchDichV ( Integer A [ ] , Integer Size , Integer V ) 
+ Variable Integer Min , Max , mid 
+ Boolean Found 
+ BEGIN 
+ Found = False 
+ Min = 0 
+ Max = Size -1 
+ WHILE Min < Max AND NOT Found DO 
+ mid = ( Min + Max ) DIV 
+ Complexity of Selection Sort 
+ To assess the efficiency and 
+ speed of a sorting algorithm , the 
+ concept of complexity is used , 
+ which provides an approximate 
+ time for the algorithm expressed 
+ in the number of operations 
+ performed . 
+ It is an order of magnitude 
+ expressed in terms of the amount 
+ of data to be processed .

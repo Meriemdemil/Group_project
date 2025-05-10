@@ -15,9 +15,29 @@ load_dotenv()
 # ----------------------------
 client = Together(api_key=os.getenv("TOGETHER_API_KEY"))
 embedder = SentenceTransformer("all-MiniLM-L6-v2", device="cpu")
-VECTOR_DB = "vector_db/DM_vector_store"
-searcher = FAISS.load_local(VECTOR_DB, embedder, allow_dangerous_deserialization=True)
+VECTOR_DB_DIRS = [
+    "vector_db/DM_vector_store",
+    "vector_db/DSA1_vector_store",
+    "vector_db/DSA2_vector_store",
+    "vector_db/OR_vector_store",
+    "vector_db/ANA1_vector_store",
+    "vector_db/DB_vector_store",
+    "vector_db/RL_vector_store",
+    "vector_db/CV_vector_store",
+    
+]
+vector_stores = {}
 
+
+for dir_path in VECTOR_DB_DIRS:
+    if os.path.exists(dir_path):
+        try:
+            vector_stores[dir_path] = FAISS.load_local(dir_path, embedder, allow_dangerous_deserialization=True)
+            print(f"Successfully loaded FAISS index from: {dir_path}")
+        except Exception as e:
+            print(f"Failed to load FAISS index from {dir_path}: {e}")
+    else:
+        print(f"Directory {dir_path} does not exist.")
 # ----------------------------
 # Web Fallback (Optional)
 # ----------------------------
@@ -93,6 +113,9 @@ def ensure_markdown_structure(md: str) -> str:
 # ----------------------------
 # Main Pipeline
 # ----------------------------
+# ----------------------------
+# Main Pipeline
+# ----------------------------
 def rag_pipeline(question: str, chat_history: list, conversation_id: Optional[str] = None) -> dict:
     # Step 0: Rephrase vague follow-up
     if chat_history:
@@ -102,10 +125,15 @@ def rag_pipeline(question: str, chat_history: list, conversation_id: Optional[st
 
     # Step 1: Retrieve context from FAISS
     query_vec = embedder.encode(question, normalize_embeddings=True)
-    docs = searcher.similarity_search_with_score_by_vector(query_vec, k=3)
-    context_chunks = [d.page_content for d, _ in docs]
+
+    # Collect context from all vector stores
+    context_chunks = []
+    for dir_path, searcher in vector_stores.items():
+        docs = searcher.similarity_search_with_score_by_vector(query_vec, k=3)
+        context_chunks.extend([d.page_content for d, _ in docs])
 
     if not context_chunks:
+        # If no context is found in vector stores, fallback to web lookup
         snippet = web_lookup(question)
         if snippet:
             context = snippet
@@ -115,6 +143,7 @@ def rag_pipeline(question: str, chat_history: list, conversation_id: Optional[st
                 "conversation_id": conversation_id or ""
             }
     else:
+        # Format the retrieved context
         context = "\n\n".join(f"### Source {i+1}\n{chunk}" for i, chunk in enumerate(context_chunks))
 
     # Step 2: Build message history with context

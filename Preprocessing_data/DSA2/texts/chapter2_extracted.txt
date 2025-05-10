@@ -1,0 +1,239 @@
+Data Structures and Algorithms 2 
+ Prof. 
+ National Higher School of AI 
+ Chapter 2 
+ Algorithm Complexity 
+ Chapter Outline 
+ • Algorithms efficiency 
+ • Algorithm analysis : 
+ – Machine - dependent vs Machine - independent 
+ • Function ordering 
+ – Weak Order ; Big - Oh ( asymptotically ≤ ) ; Big- 
+ ( asymptotically ≥ ) ; Big-(asymptotically =) ; Little - oh 
+ ( asymptotically < ) . 
+ Algorithms Efficiency 
+ • Buses move from one view point to another 
+ • A bus driver wishes to follow the shortest path ( travel 
+ time wise ) . 
+ • 
+ Every view point is connected to another by a road . 
+ • However , some roads are less congested than others . 
+ • Run time in the computer is machine - dependent 
+ • 
+ • Ideally : 
+ – programme all alternative algorithms 
+ – run them on the target machine 
+ – find which is more / most efficient ! 
+ Machine - Independent Analysis 
+ • 
+ We will assume that every basic operation takes 
+ constant time 
+ • 
+ Example of Basic Operations : 
+ – Addition , Subtraction , Multiplication , Memory 
+ Access 
+ • 
+ Non - basic Operations : 
+ – Sorting , Searching 
+ • Efficiency of an algorithm is thus measured in terms 
+ of the number of basic operations it performs 
+ – We do not distinguish between the basic operations . 
+ • This measure is good for all large input sizes 
+ • 
+ In fact , we will not worry about the exact number of 
+ operations , but will look at ` ` broad classes ’ of values . 
+ – Let there be n inputs . 
+ algorithms 
+ 12 
+ Function Orders : Big Oh Notation 
+ Definition 2.1 
+ f(n ) = O(g(n ) ) if there are positive constants c and 
+ n such that 0  f(n ) ≤ c * g(n ) when n ≥ n 
+ 0 0 
+ i.e. A function f(n ) is O(g(n ) ) if the rate of growth of f(n ) 
+ is not faster than that of g(n ) . 
+ i.e. if lim f(n)/g(n ) exists and is finite , then f(n ) is 
+ n 
+ O(g(n ) ) 
+ Intuitively , ( not exactly ) f(n ) is O(g(n ) ) means f(n ) g(n ) 
+ for all n beyond some value n ; i.e. g(n ) is an upper 
+ 0 
+ bound for f(n ) . 
+ 13 
+ Remark 
+ Before we begin , let us make some assumptions : 
+ Suppose we know that our algorithm uses at 
+ most O(f(n ) ) basic steps for any n inputs , and n is 
+ sufficiently large , 
+ – then we know that our algorithm will 
+ terminate after executing at most f(n ) basic 
+ steps . 
+ • We also know that a basic step takes a constant 
+ time on a machine . 
+  Our algorithm will terminate in at most 
+ f(n ) units of time , for all large n. 
+ 17 
+ Other Complexity : Big  Notation 
+ Now a lower bound notation , (n ) 
+ Definition 2.2 
+ f(n ) = (g(n ) ) if there are positive constants c 
+ and n such that f(n ) ≥ c * g(n ) when n ≥ n . 
+ 0 0 
+ i.e. lim ( f(n)/g(n ) ) > 0 , if lim ( f(n)/g(n ) ) 
+ n n 
+ exists . 
+ We say g(n ) is a lower bound on f(n ) , i.e. 
+ no 
+ matter what specific inputs we have , the algorithm will 
+ not run faster than this lower bound . 
+ Interpretation of the 
+  Notation 
+ Suppose , an algorithm has complexity (f(n ) ) . 
+ Big-(n ) means the algorithms runs at 
+ least in n time but could actually take a lot longer . 
+  Big - O notation : gives an upper bound so O(n ) would 
+ mean the algorithm runs in its worst case in n ( i.e. linear ) 
+ time . 
+ – f(n ) has a rate of growth equal to that of g(n ) 
+ 20 
+ Other Complexity : 
+ Little - oh Notation 
+ Definition 2.4 : 
+ f(n ) = o(g(n ) ) if , for all positive constants c , there exists 
+ an n such that f(n ) < c * g(n ) when n > n . 
+ We can show that , for example 
+ ln ( n ) = o ( np ) for any p > 0 
+ • Proof : Using l’Hôpital ’s rule , 
+ • So we have : 
+ ln(n ) 1/ n 1 1 
+ lim  lim  lim  lim n p  0 
+ 27 
+ n n p n pn p1 n pn p p n 
+ Algorithms Analysis 
+ • 
+ An algorithm is said to have polynomial time 
+ complexity if its run - time may be described 
+ by O(nd ) for some fixed d ≥ 0 . 
+ – We will consider such algorithms to be efficient . 
+ • Problems that have no known polynomial- 
+ time algorithms are said to be intractable . 
+ – Traveling salesman problem : find the shortest 
+ path that visits n cities 
+ – 
+ Best run time : Q(n2 2n ) 
+ 29 
+ Algorithm Analysis 
+ In general , you do n’t want to implement 
+ exponential - time or exponential - memory 
+ algorithms 
+ – Warning : do n’t call a quadratic curve 
+ “ exponential ” . 
+ 30 
+ Rules for arithmetic with big - O symbols 
+ • 
+ If T ( n ) = O(f ( n ) ) and T ( n ) = O(g(n ) ) , then 
+ 1 2 
+ – ( a ) T ( n ) + T ( n ) = O(f ( n ) + g(n ) ) ( intuitively and 
+ 1 2 
+ less formally it is O(max(f ( n ) , g(n ) ) ) ) , 
+ – ( b ) T ( n ) ∗ T ( n ) = O(f ( n ) ∗ g(n ) ) . 
+ • If T(n ) is a polynomial of degree k , then T(n ) = 
+ (nk ) . 
+ • logk n = O(n ) for any constant k. 
+ This tells us that logarithms grow very slowly . 
+ Rules for arithmetic with big - O symbols 
+ • 
+ If f(n ) = O(g(n ) ) , then c * f(n ) = O(g(n ) ) for 
+ any constant c. 
+ ( complexity of g o h ) 
+ • These are not all of the rules , but they ’re 
+ enough for most purposes . 
+ Complexity of a Problem vs 
+ Complexity of an Algorithm 
+ A problem is O(f(n ) ) means there is some 
+ O(f(n ) ) algorithm to solve the problem . 
+ A problem is (f(n ) ) means every algorithm 
+ that can solve the problem is (f(n ) ) 
+ 33 
+ Algorithm Complexity Analysis 
+ • 
+ We define Tavg(N ) and Tworst(N ) , as the average and 
+ worst - case running time , resp . , used by an algorithm on 
+ input of size N. 
+ Clearly , Tavg(N ) ≤ Tworst(N ) . 
+ • Occasionally , the best - case performance of an algorithm 
+ is analyzed . 
+ – but of little interest : does not represent the typical behavior . 
+ Average - case performance often reflects typical behavior 
+ • 
+ Worst - case performance represents a guarantee for 
+ performance on any possible input 
+ • 
+ We are interested in algorithm analysis not programme 
+ analysis : implementation issues / details / inefficiencies , etc . 
+ 34 
+ Algorithm Complexity Analysis 
+ This is O(N ) 
+ 36 
+ Rules for Complexity Analysis 
+ Complexity of a loop : 
+ O(Number of iterations in a loop * maximum 
+ complexity of each iteration ) 
+ First loop : O(N ) 
+ Inner loop : O(N ) 
+ Outer loop : N iterations 
+ Overall : O(N2 ) + O(N ) 
+  O(N2 ) 
+ If ( Condition ) 
+ S1 
+ Else S2 Maximum of the two complexities 
+ If ( yes ) 
+ Algo 1 
+ O(Algo 1 ) 
+ else Ago 2 
+ 38 
+ Ex : Do it and analyse your algorithm . 
+ 41 
+ Maximum Subsequence Problem 
+ Given an array of N elements 
+ Need to find i , j such that the sum of all 
+ elements between the ith and jth positions is 
+ maximum for all such sums 
+ 42 
+ Max . subsequence lies completely in left , or 
+ completely in right or spans the middle . 
+ ( Trace 
+ them ! ) 
+ 57 
+ Binary Search 
+ • You have a sorted list of numbers 
+ • You need to search the list for a specific number 
+ • If the number exists 
+ – Then find its position 
+ – Else detect that 
+ • 
+ Simple and quick way to calculate the time complexity of 
+ a recursive relation . 
+ • It applies to recurrence relations of the form : 
+ T(n ) = aT(n / b ) + f(n ) 
+ where 
+ – n is the size of the input ; 
+ – a is the number of subproblems in the recursion ; 
+ – n / b is the size of each subproblem ( all assumed to have 
+ the same size ) ; 
+ – f(n ): cost of work done outside recursive calls ; includes 
+ cost of dividing the problem and solutions merge cost . 
+ 61 
+ Since f(n ) = (nlog a ) , case 2 of the Master 
+ b 
+ Theorem applies , so T(n ) = (log n ) . 
+ Setting c= ¾ would cause this 
+ condition to be satisfied . 
+ Hence T(n ) = (n log n ) . 
+ Here the Master 
+ Theorem does not apply . 
+ Acknowledgement : This course PowerPoints make substantial ( non - exclusive ) use of 
+ the PPT chapters prepared by Prof. from the University of Pennsylvania , 
+ USA , themselves developed on the basis of the course textbook . 
+ Other references , if any , 
+ will be mentioned wherever applicable .

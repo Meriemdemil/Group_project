@@ -1,0 +1,1093 @@
+THE PRIMITIVE OF FUNCTION 
+ Let I denote an interval of R and f : I → R be a function . 
+ Definition 
+ A primitive of f on I is any function F : I → R that is differentiable on I 
+ and such that : 
+ ∀x ∈ I , F(cid:48)(x ) = f(x ) . 
+ Example 
+ 1 
+ F : R → R , x ( cid:55)→ x3 + x2−x 
+ 2 
+ is a primitive on R of f : x ( cid:55)→ 3x2+x −1 . 
+ Example 
+ F : ] 0,+∞ [ → R , x ( cid:55)→ xln(x)−x 
+ is a primitive on ] 0,+∞ [ of f : x ( cid:55)→ ln(x ) . 
+ February27,2024 4/1 
+ THE PRIMITIVE OF FUNCTION 
+ Example 
+ ( cid:40 ) x2cos ( cid:0)1(cid:1 ) , if x ( cid:54)= 0 
+ F : R → R , x ( cid:55)→ F(x ) = x 
+ 0 , if x = 0 
+ ( cid:40 ) 
+ 2xcos 
+ ( cid:0)1(cid:1 ) 
+ + sin 
+ ( cid:0)1(cid:1 ) 
+ , if x ( cid:54)= 0 
+ is a primitive on R of f : x ( cid:55)→ x x . 
+ 0 , if x = 0 
+ February27,2024 5/1 
+ Primitives of the Same Function 
+ Definition 
+ Let f : I → R be a function having a primitive F on I. Then , it has 
+ infinitely many primitives on I. 
+ The set of all these primitives is exactly the set of functions from I → R 
+ in the form F + C , where C is a real constant . 
+ Let F be a primitive of f on I , and let C be a real number . 
+ It is clear that the function x ∈ I ( cid:55)→ G(x ) = F(x)+C is a primitive of f 
+ on I. 
+ Conversely , let G be a primitive of f on I. 
+ We have : 
+ ( G(x)−F(x))(cid:48 ) = G(cid:48)(x)−F(cid:48)(x ) = f(x)−f(x ) = 0 
+ February27,2024 6/1 
+ Primitives of the Same Function 
+ Proof . 
+ Let F be a primitive of f on I , and let x ∈ I. 
+ We seek a primitive G of f 
+ 0 
+ on I such that G(x ) = y , where y ∈ R. 
+ 0 0 0 
+ According to the previous statement : 
+ ∃C ∈ R , ∀x ∈ I , G(x ) = F(x)+C 
+ G(x ) = F(x ) + C = y = ⇒ C = y −F(x ) 
+ 0 0 0 0 0 
+ Every continuous function on an interval I in R has antiderivatives . 
+ Example 
+ Examples of functions with antiderivatives on R : 
+ f ( x ) = e 
+ −x2 
+ 1 
+ f ( x ) = cos(x2 ) 
+ 2 
+ ( cid:40 ) 
+ sinx , if x ( cid:54)= 0 
+ f ( x ) = x 
+ 3 
+ 1 , if x = 0 
+ February27,2024 11/1 
+ Indefinite Integral and Properties 
+ Let I be an interval in R and f : → R be a function . 
+ Definition 
+ ( cid:82 ) 
+ The ” indefinite integral ” of f on I , denoted by dx , is the set of 
+ primitives of f on I. 
+ For a primitive F of f on I , we have : 
+ ( cid:90 ) 
+ f(x)dx = { x ∈ | F(x)+C , C ∈ R } . 
+ In accordance with the convention : 
+ ( cid:90 ) 
+ f(x)dx = F(x)+C , C ∈ R. 
+ February27,2024 12/1 
+ Indefinite Integral and Properties 
+ Example 
+ ( cid:90 ) ( cid:18 ) 1 ( cid:19 ) 1 
+ −x dx = Arctanx − x2+C , C ∈ R , I = R. 
+ 1+x2 2 
+ Example 
+ ( cid:90 ) √ 2 
+ xdx = x3/2+C , C ∈ R , I = [ 0,+∞ [ . 
+ 3 
+ Example 
+ ( cid:90 ) 1 
+ xe −x2 dx = − e −x2 + C , C ∈ R , I = R. 
+ 2 
+ February27,2024 
+ If F and G are primitives on I of f and g respectively , then F + G is 
+ a primitive on of f + g. 
+ We have : 
+ ( cid:90 ) ( cid:90 ) ( cid:90 ) 
+ ( f(x)+g(x))dx = F(x)+G(x)+C = f(x)dx + g(x)dx . 
+ 2 
+ For any λ ∈ R , λF is a primitive on I of λf . 
+ ” We have : ” 
+ ( cid:90 ) 
+ λf(x)dx = λF(x)+C. 
+ ” 
+ 3 . sinxdx = −cosx + c 
+ ( cid:82 ) 
+ 4 . cosxdx = sinx + c 
+ ( cid:82 ) 
+ 5 . 
+ 6 . sinh(x)dx = cosh(x)+c 
+ ( cid:82 ) 
+ 7 . cosh(x)dx = sinh(x)+c 
+ 8 . 
+ ( cid:82 ) −1 = cotxdx + c 
+ sin2x 
+ 1 dx = arctanx + c 
+ ( 1+x2 ) 
+ 10 . 
+ 1 dx = tanx + c 
+ cos2x 
+ √−1 dx = arccosx + c 
+ 1−x2 
+ February27,2024 17/1 
+ Indefinite Integral and Properties 
+ 13 . 
+ 1 dx = tanhx + c 
+ cosh2x 
+ 14 . 
+ ( cid:82 ) √ 1 dx = argchx + c 
+ x2−1 
+ tan(x)dx = −ln|cos(x)|+c 
+ ( cid:82 ) 
+ 18 . cot(x)dx = ln|sin(x)|+c 
+ ( cid:82 ) 
+ 19 . sec(x)dx = ln|sec(x)+tan(x)|+c 
+ ( cid:82 ) 
+ 20 . csc(x)dx = −ln|csc(x)+cot(x)|+c 
+ February27,2024 18/1 
+ Primitives and Areas 
+ We assume the existence of regions D in the plane called ” squareable , ” 
+ meaning that we can assign a positive real number called the ” area of D ” 
+ to them . 
+ In particular : 
+ If f : [ a , b ] → R ( a < b ) is continuous and positive , and if F is a primitive 
+ of f on [ a , b ] , then : 
+ D = { ( x , y ) | a ≤ x ≤ b , 0 ≤ y ≤ f(x ) } is squareable . 
+ The area of D is given by : 
+ A(D ) = F(b)−F(a ) 
+ February27,2024 19/1 
+ Primitives and Areas 
+ Let h > 0 be such that [ X , X + h ] ⊂ [ a , b ] . 
+ According to the Intermediate 
+ Value Theorem , there exist c and d in [ X , X + h ] such that : 
+ X X 
+ f(c ) = inf f(x ) and f(d ) = sup f(x ) . 
+ X X 
+ x∈[X , X+h ] x∈[X , X+h ] 
+ February27,2024 20/1 
+ Primitives and Areas 
+ We have : 
+ f(c ) h ≤ g(X + h)−g(X ) ≤ f(d ) h 
+ X X 
+ This implies : 
+ g(X + h)−g(X ) 
+ f(c ) ≤ ≤ f(d ) 
+ X X 
+ h 
+ Which further implies : 
+ g(X + h)−g(X ) 
+ lim = f(X ) . 
+ h→0 h 
+ This implies that g is a primitive of f on [ a , b ] . 
+ The same reasoning holds for h < 0 . 
+ February27,2024 21/1 
+ Primitives and Areas 
+ Let F be a primitive of f on [ a , b ] . 
+ There exists a constant C such that 
+ F(x ) = g(x)+C for x ∈ [ a , b ] . 
+ In particular , 
+ ( cid:90 ) a 
+ F(a ) = g(a)+C = C ( since f(x)dx = 0 ) . 
+ a 
+ Therefore , F(b)−F(a ) = g(b ) = the definite integral of f over[a , b ] . 
+ Example 
+ ( cid:90 ) 2 ( cid:20 ) x x3(cid:21)2 14 
+ ( 1+x2)dx = + = . 
+ 2 3 3 
+ 0 0 
+ February27,2024 22/1 
+ Integral of a Continuous Function 
+ Definition 
+ Let f : I → R be a continuous function , and F be a primitive of f. 
+ It 
+ is denoted by : 
+ ( cid:90 ) b 
+ f(x)dx 
+ a 
+ and is called the integral of f over [ a , b ] . 
+ Since f and g are continuous on [ a , b ] , they admit primitives F and G. 
+ ( cid:90 ) b 
+ ( f(x)+g(x))dx = ( F + G)(b)−(F + G)(a ) 
+ a 
+ = ( F(b)−F(a))+(G(b)−G(a ) ) 
+ ( cid:90 ) b ( cid:90 ) b 
+ = f(x)dx + g(x)dx 
+ a a 
+ February27,2024 26/1 
+ Integral of a Continuous Function - Linearity 
+ ( cid:90 ) b ( cid:90 ) b 
+ λf(x)dx = λ f(x)dx 
+ a a 
+ Proof . 
+ Since λF is a primitive of λf , we have : 
+ ( cid:90 ) b 
+ λf(x)dx = ( λF)(b)−(λF)(a ) 
+ a 
+ = λ(F(b)−F(a ) ) 
+ ( cid:90 ) b 
+ = λ f(x)dx 
+ a 
+ February27,2024 27/1 
+ Integral of a Continuous Function - Positivity 
+ 1 
+ ( cid:90 ) 
+ We 
+ have : 
+ ( cid:90 ) b ( cid:90 ) c ( cid:90 ) b 
+ f(x)dx = f(x)dx + f(x)dx . 
+ a a c 
+ Proof . 
+ ( cid:90 ) b 
+ f(x)dx = F(b)−F(a ) 
+ a 
+ = ( F(b)−F(c))+(F(c)−F(a ) ) 
+ ( cid:90 ) c ( cid:90 ) b 
+ = f(x)dx + f(x)dx . 
+ a c 
+ February27,2024 33/1 
+ Integral of a Continuous Function - Mean Value 
+ Formulas 
+ For c ∈]a , b [ , we have 1 ( cid:82)b f(x)dx = f(c ) . 
+ b−a a 
+ Proof . 
+ By definition : 
+ ( cid:90 ) b 
+ f(x)dx = F(b)−F(a ) . 
+ a 
+ According to the Mean Value Theorem applied to F on [ a , b ] , there exists 
+ c ∈]a , b [ such that : 
+ F(b)−F(a ) = ( b−a)F(cid:48)(c ) = ( b−a)f(c ) . 
+ Therefore : 
+ 1 ( cid:90 ) b 
+ f(x)dx = f(c ) . 
+ b−a 
+ a 
+ February27,2024 34/1 
+ Integral of a Continuous Function- Mean Value 
+ Formulas 
+ Example 
+ Let c ∈ [ 0,1 ] . 
+ We claim that 
+ If F denotes a primitive of f on I , then F is continuous on I. 
+ 3 
+ If f2 has a primitive on I , then the same is true for f. 
+ ( cid:82)b 
+ 4 
+ February27,2024 40/1 
+ Classroom questions 
+ 1 
+ If f and g are continuous and differentiable on [ a , b ] such that f ≤ g , 
+ then : 
+ ( cid:90 ) b ( cid:90 ) b 
+ f(x)dx ≤ g(x)dx . 
+ a a 
+ Also , for all x in [ a , b ] , f(cid:48)(x ) ≤ g(cid:48)(x ) . 
+ 3 
+ ( cid:82)b(cid:112 ) 
+ ( x −a)(b−x)dx = π 
+ ( cid:0)b−a(cid:1)2 
+ . 
+ a 2 2 
+ 4 ( cid:82)2 √ 1 dx = ( cid:82)2 ( arcsinx)(cid:48)dx = arcsin2 . 
+ 0 1−x2 0 
+ 5 ( cid:82)1 1 dx = 0 . 
+ −1 x3 
+ February27,2024 41/1 
+ Classroom questions 
+ 1 
+ If f and g are continuous on [ a , b ] , then : 
+ In the mean value theorems , the real number c is unique . 
+ Definition 
+ We have the following 
+ formula , known as the integration by parts formula : 
+ ( cid:90 ) ( cid:90 ) 
+ f(x)g(cid:48)(x)dx = f(x)g(x)− f(cid:48)(x)g(x)dx 
+ 1 1 
+ For any a ∈ I and b ∈ I , 
+ ( cid:90 ) b ( cid:12 ) ( cid:12)b ( cid:90 ) b 
+ f(x)g(cid:48)(x)dx = ( cid:12)f(x)g(x)(cid:12 ) − f(cid:48)(x)g(x)dx 
+ ( cid:12 ) ( cid:12 ) 
+ a a a 
+ ( cid:12 ) ( cid:12)b 
+ where ( cid:12)f(x)g(x)(cid:12 ) = f(b)g(b)−f(a)g(a ) . 
+ ( cid:12 ) ( cid:12 ) 
+ a 
+ February25,2024 5/58 
+ Integration by Parts 
+ Example 
+ ( cid:90 ) ( cid:90 ) ( cid:18 ) 1+cos(2x ) ( cid:19 ) 1 ( cid:90 ) 1 ( cid:90 ) 
+ xcos2(x)dx = x dx = xdx + xcos(2x)dx 
+ 2 2 2 
+ 1 1 1 1 
+ To calculate a primitive of xcos2(2x ) , we use integration by parts with : 
+ ( cid:40 ) 
+ f(x ) = x ⇒ f(cid:48)(x ) = 1 
+ g(x ) = sin(2x ) ⇒ g(cid:48)(x ) = cos(2x ) 
+ 2 
+ Applying the integration by parts formula : 
+ ( cid:90 ) xsin(2x ) ( cid:90 ) sin(2x ) 
+ xcos(2x)dx = − dx 
+ 2 2 
+ February25,2024 6/58 
+ Example 
+ ( cid:90 ) sin(2x ) ( cid:90 ) sin(2x ) 
+ xcos2(x)dx = x − dx 
+ 2 2 
+ 1 
+ sin(2x ) cos(2x ) 
+ = x + + K 
+ 2 4 
+ Where K is the constant of integration . 
+ Therefore , 
+ ( cid:90 ) sin(2x ) cos(2x ) 
+ xcos2(x)dx = x + + K 
+ 2 4 
+ 1 
+ Hence , 
+ ( cid:90 ) x2 1 ( cid:18 ) sin(2x ) cos(2x ) ( cid:19 ) 
+ xcos2(x)dx = + x + + K 
+ 4 2 2 4 
+ 1 
+ Simplifying further : 
+ ( cid:90 ) x2 x 1 
+ xcos2(x)dx = + sin(2x)+ cos(2x)+K 
+ 4 4 8 
+ 1 
+ February25,2024 7/58 
+ Integration by Parts 
+ Example 
+ ( cid:90 ) 1 ( cid:90 ) 1 x 
+ arctan(x)dx = xarctan(x)|1− dx 
+ 0 x2 + 1 
+ 0 0 
+ π 1 ( cid:90 ) 
+ Integration by Parts 
+ Example 
+ To find an antiderivative of ( 2x +1)cos(x ) , we integrate by parts again , 
+ setting : 
+ ( cid:40 ) 
+ f(x ) = 2x +1 ⇒ f(cid:48)(x ) = 2 
+ g(x ) = sin(x ) ⇒ g(cid:48)(x ) = cos(x ) 
+ This gives : 
+ ( cid:90 ) ( cid:90 ) 
+ ( 2x+1)cos(x)dx = ( 2x+1)sin(x)− 2sin(x)dx = ( 2x+1)sin(x)+2cos(x)+K 
+ Finally : 
+ ( cid:90 ) 
+ ( x2+x+1)sin(x)dx = −(x2+x+1)cos(x)+(2x+1)sin(x)+2cos(x)+K 
+ where K is the constant of integration . 
+ February25,2024 
+ Integration by Parts 
+ Consequence of the integration by parts theorem : 
+ Let I be an interval of R , and f : I → R be a continuous function on I. 
+ Let F be an antiderivative of f , F be an antiderivative of F , F be an 
+ 1 2 1 3 
+ antiderivative of F , and so on . 
+ 2 
+ Consider a polynomial P(x ) = a + a x + ... + a xn . 
+ 0 1 n 
+ Then , the formula is given by : 
+ ( cid:90 ) 
+ f(x)P(x)dx = P(x)F 
+ 1 
+ ( x)−P(cid:48)(x)F 
+ 2 
+ ( x)+P(cid:48)(cid:48)(x)F 
+ 3 
+ ( x)+ ... +(−1)nP(n)(x)F 
+ n+1 
+ ( x ) 
+ February25,2024 12/58 
+ Integration by Parts 
+ Proof . 
+ Integration by Parts 
+ Particular case : 
+ f(x ) = eλx , where λ ( cid:54)= 0 
+ According to the previous formula : 
+ ( cid:32 ) ( cid:33 ) 
+ ( cid:90 ) 1 P(cid:48)(x ) P(cid:48)(cid:48)(x ) P(cid:48)(cid:48)(cid:48)(x ) P(n)(x ) 
+ eλxP(x)dx = P(x)− + − + ... + ( −1)n eλx+K 
+ λ λ λ2 λ3 λn 
+ ( cid:32 ) ( cid:33 ) 
+ eλx P(cid:48)(x ) P(cid:48)(cid:48)(x ) P(cid:48)(cid:48)(cid:48)(x ) P(n)(x ) 
+ = P(x)− + − + ... + ( −1)n + K 
+ λ λ λ2 λ3 λn 
+ The expression in parentheses is a polynomial of the same degree as P. 
+ February25,2024 14/58 
+ Integration by Parts 
+ Rather than applying this formula , we seek an antiderivative of eλxP(x ) in 
+ the form of a product eλxQ(x ) where Q is a polynomial of the same 
+ degree as P. 
+ The coefficients of Q are obtained by differentiation and identification of 
+ the coefficients of monomials of the same degree . 
+ Example 
+ ( cid:90 ) 
+ e−x(x2+x)dx = ( ax2+bx + c)e−x + K 
+ When we differentiate the right - hand side , we obtain e−x(x2+x ) . 
+ The 
+ coefficients a , b , and c can be determined by identifying the coefficients of 
+ monomials of the same degree in e−x(ax2+bx + c ) . 
+ Integration by Parts 
+ f , F : I −→ C 
+ Definition 
+ F is an antiderivative of f if and only if Re(F ) is an antiderivative of 
+ Re(f ) and Im(F ) is an antiderivative of Im(f ) . 
+ ( cid:90 ) ( cid:18)(cid:90 ) ( cid:19 ) 
+ P(x)cos(λx)dx = Re P(x)eiλx dx 
+ ( cid:90 ) 
+ P(x)eiλx dx = Q(x)eiλx + K 
+ Where Q is a complex - coefficient polynomial of the same degree as P , and 
+ K is a complex constant . 
+ Integration by Parts 
+ Example 
+ ( cid:90 ) ( cid:18)(cid:90 ) ( cid:19 ) 
+ I = ( x2+x −1)cos(2x)dx = Re ( x2+x −1)e2ix dx 
+ 1 1 
+ ( cid:90 ) 
+ ( x2+x −1)e2ix dx = ( ax2+bx + c)e2ix + K 
+ 1 
+ where a , b , c , K are complex numbers . 
+ After differentiation , we get : 
+ 2iax2+(2a+2ib)x + ( b+2ic ) = x2+x −1 
+ By identification , we find : a = −i/2,b = −i/2 + 1/2,c = 3i/4 + 1/4 
+ Therefore , the result is : 
+ ( cid:18 ) ( cid:19 ) ( cid:18 ) ( cid:19 ) 
+ 1 1 1 1 3 
+ I = x + cos(2x)+ x2 + x − sin(2x)+C 
+ 1 
+ 2 4 2 2 4 
+ where C is an arbitrary constant . 
+ n ! n ! 
+ ( cid:82)b f(n+1)(x)·(b−x)ndx 
+ a 
+ Proof . 
+ Proof : Induction and integration by parts reasoning . 
+ Integration by Parts 
+ Example 
+ f(x ) = log(1+x ) , x > −1 . 
+ Then : 
+ ( cid:18 ) 
+ 1 1 
+ ( −1)n−1(cid:19 ) 
+ log(2 ) = lim 1− + + ... + 
+ n→∞ 2 3 n 
+ We apply the formula with remainder on [ 0,1 ] . 
+ Let ’s consider I = ( cid:82 ) ( logx)n+1dx . 
+ n+1 1 
+ February25,2024 23/58 
+ Reduction formulas 
+ Example 
+ Example ( continued ): We integrate by parts , setting : 
+ ( cid:40 ) f(x ) = ( logx)n+1 ⇒ f(cid:48)(x ) = ( n+1)(logx)n 
+ x 
+ g(x ) = x ⇒ g(cid:48)(x ) = 1 
+ This gives us : 
+ I = x(logx)n+1−(n+1)I 
+ n+1 n 
+ Another integration by parts applied to I yields : 
+ n 
+ I = x(logx)n−nI 
+ n n−1 
+ Combining these results , we get : 
+ I 
+ n+1 
+ = x(logx)n+1−(n+1)x(logx)n+(n+1)nI 
+ n−1 
+ + ... + C 
+ February25,2024 24/58 
+ Reduction formulas 
+ Example 
+ √ 
+ Let I = 
+ ( cid:82)1 
+ xn 1−xdx . 
+ Therefore : 
+ ( cid:90 ) 
+ If F is an antiderivative of f on I , then F ◦ ϕ is an antiderivative on J 
+ of ( f ◦ ϕ)·ϕ(cid:48 ) . 
+ Result from the derivative of a composite function : 
+ ( F ◦ ϕ)(cid:48)(t ) = F(cid:48)(ϕ(t))·ϕ ( cid:48)(t ) = f(ϕ(t))·ϕ ( cid:48)(t ) 
+ 2 . 
+ * 
+ To find an antiderivative of a function g that is continuous on an interval 
+ J , one examines whether it can be expressed in the form : 
+ g(x ) = f(ϕ(x))ϕ(cid:48)(x ) , where : 
+ ϕ : J → I 
+ is a C1 - class function , and f is continuous on I. 
+ Knowing an antiderivative F of f implies the knowledge of an 
+ antiderivative of g , namely F ◦ ϕ. 
+ ( cid:90 ) ( cid:90 ) 
+ g(x)dx = f(ϕ(x))ϕ ( cid:48)(x)dx = F(ϕ(x))+C 
+ In practice , one often substitutes ϕ(x ) with t and ϕ(cid:48)(x)dx with dt . 
+ ( cid:90 ) ( cid:90 ) ( cid:90 ) 
+ g(x)dx = f(ϕ(x))ϕ ( cid:48)(x)dx = f(t)dt = F(t)+C 
+ February25,2024 34/58 
+ Change of variable 
+ Example 
+ ( cid:90 ) 1 
+ Evaluate 
+ xex2 
+ dx 
+ 0 
+ 1 . 
+ Perform a change of variable by letting t = x2 , then dt = 2xdx . 
+ ( cid:90 ) 1 1 ( cid:90 ) 1 √ 1 ( cid:90 ) 1 
+ xex2 dx = 2xex2 24dx = etdt 
+ 2 2 
+ 0 0 0 
+ 2 . 
+ Now , calculate the integral with respect to t. 
+ 1 ( cid:90 ) 1 etdt = 1 ( cid:2 ) et(cid:3)1 = 1 ( cid:0 ) e1−1 ( cid:1 ) 
+ 2 2 0 2 
+ 0 
+ February25,2024 35/58 
+ Change of variable 
+ Example 
+ Evaluate 
+ ( cid:90 ) π sinx 
+ 4 
+ dx 
+ cos2x 
+ 0 
+ ( cid:90 ) π −sinx 
+ 4 
+ = − dx 
+ cos2x 
+ 0 
+ ( cid:90 ) π ( cosx)(cid:48 ) 
+ 4 
+ = − dx 
+ cos2x 
+ 0 
+ √ 
+ ( cid:90 ) 
+ 2 
+ = − dt 
+ t2 
+ 1 
+ February25,2024 36/58 
+ Change of variable 
+ ( cid:20 ) 
+ 1 
+ ( cid:21)1 
+ = − − 
+ t √ 
+ 2 
+ 2 
+ √ 
+ = 2−1 
+ ( cid:90 ) π sinx √ 
+ ∴ 4 dx = 2−1 
+ cos2x 
+ 0 
+ Example 
+ February25,2024 37/58 
+ Change of variable 
+ Example 
+ ( cid:90 ) e 1 ( cid:21 ) 1 ( cid:20 ) 
+ Evaluate dxwherex ∈ , e 
+ ( cid:113 ) 
+ e 
+ 1 / e x 1−log2(x ) 
+ ( cid:90 ) 1 ( cid:90 ) ( logx)(cid:48 ) ( cid:90 ) 1 
+ dx = dx = √ dt 
+ ( cid:112 ) ( cid:112 ) 
+ 1 x 1−log2x 1 1−log2x 1 1−t2 
+ ( cid:90 ) 
+ dx = Arcsin(t)+C 
+ ( cid:112 ) 
+ 1 x 1−log2x 
+ ( cid:90 ) 
+ dx = Arcsin(logx)+C 
+ We assume that the function ( f ◦ ϕ)ϕ(cid:48 ) has a simple - to - compute 
+ primitive G. 
+ In this case : 
+ G ◦ ϕ −1 
+ is a primitive of f. 
+ In practice , we substitute x with ϕ(t ) and dx with 
+ ϕ(cid:48)(t)dt in the expression of f. 
+ February25,2024 39/58 
+ Change of variable 
+ Example 
+ √ 
+ Given the function f(x ) = 1−x2 , find the definite integral 
+ ( cid:82)1 
+ f(x)dx . 
+ ( cid:2 ) 0 ( cid:3 ) 
+ Let ’s make the substitution x = sin(t ) , where t belongs to −π , π . 
+ 2 2 
+ ( cid:90 ) 1(cid:112 ) 
+ 1−x2dx = 
+ ( cid:90 ) π 
+ 2 
+ ( cid:113 ) 
+ 1−sin2(t)·cos(t)dt 
+ 0 0 
+ ( cid:90 ) π ( cid:113 ) ( cid:90 ) π 
+ 2 2 
+ = cos2(t)·cos(t)dt = |cos(t)|·cos(t)dt 
+ 0 0 
+ ( cid:90 ) π ( cid:90 ) π 1+cos(2 t ) 
+ = 2 cos2(t)dt = 2 dt 
+ 2 
+ 0 0 
+ 1 ( cid:90 ) 
+ 2 
+ = ( 1+cos(2t))dt 
+ 2 
+ 0 
+ February25,2024 40/58 
+ Change of variable 
+ Example 
+ ( cid:32 ) 
+ ( cid:20 ) 
+ ( cid:21)π(cid:33 ) 
+ 1 1 2 
+ = t + sin(2 t ) 
+ 2 2 
+ 0 
+ 1 ( cid:16)(cid:16)π(cid:17 ) ( cid:17 ) 
+ = −(0 + 0 ) 
+ 2 2 
+ π 
+ = 
+ 4 
+ ( cid:90 ) ( cid:112 ) 1 1 
+ 1−x2dx = arcsin(x)+ sin(2arcsin(x))+C 
+ 2 4 
+ 1 1 ( cid:112 ) 
+ = arcsin(x)+ x 1−x2+C 
+ 2 4 
+ February25,2024 41/58 
+ Change of variable 
+ Example 
+ ( Continued ): We can express the result differently for t ∈ [ −π , π ] , as 
+ 2 2 
+ follows : 
+ ( cid:113 ) ( cid:112 ) 
+ sin2(t ) = 2sin(t)cos(t ) , cos2(t ) = 2sin(t)cos(t ) , 1−sin2(t ) = 2x 1−x2 
+ Now , let ’s rewrite the result : 
+ Indeed , the proof is as follows : 
+ ( cid:90 ) a ( cid:90 ) 0 ( cid:90 ) a 
+ f(x)dx = f(x)dx + f(x)dx 
+ −a −a 0 
+ Then , for any a ∈ R : 
+ ( cid:90 ) a 
+ f(x)dx = 0 
+ −a 
+ The proof is identical to the previous case . 
+ * * For a periodic continuous function :* * 
+ Let f : R −→ R be a continuous and periodic function , meaning there 
+ exists T > 0 such that : 
+ f(x + T ) = f(x ) for all x ∈ R 
+ Then , for any a ∈ R : 
+ ( cid:90 ) a+T ( cid:90 ) T 
+ f(x)dx = f(x)dx 
+ a 0 
+ February25,2024 49/58 
+ Cases of even , odd , periodic functions 
+ Proof . 
+ ( cid:90 ) a+T ( cid:90 ) 0 ( cid:90 ) T ( cid:90 ) a+T 
+ f(x)dx = f(x)dx + f(x)dx + f(x)dx 
+ a a 0 T 
+ Since f is periodic , f(x + T ) = f(x ) . 
+ Therefore , 
+ ( cid:82)0 ( cid:82)a ( cid:82)a+T ( cid:82)a 
+ f(x)dx = − f(x)dx and f(x)dx = f(x)dx . 
+ a 0 T 0 
+ Substituting these results back into the original expression : 
+ ( cid:90 ) a+T ( cid:90 ) a ( cid:90 ) T ( cid:90 ) a 
+ f(x)dx = − f(x)dx + f(x)dx + f(x)dx 
+ a 0 0 0 
+ Simplifying : 
+ ( cid:90 ) a+T ( cid:90 ) T 
+ f(x)dx = f(x)dx 
+ a 0 
+ Thus , the property is established for a continuous and periodic 
+ function . 
+ February25,2024 50/58 
+ Cases of even , odd , periodic functions 
+ Proof . 
+ * * For the last integral , we make the substitution x = u+T where 
+ dx = du :* * 
+ ( cid:90 ) a+T ( cid:90 ) a ( cid:90 ) a ( cid:90 ) a ( cid:90 ) 0 
+ f(x)dx = f(u+T)du = f(u)du = f(x)dx = − f(x)dx 
+ T 0 0 0 a 
+ Example 
+ ( cid:90 ) 2π ( cid:90 ) 2π 
+ I = f(sin(nx))dx = f(cos(nx))dx 
+ n 
+ 0 0 
+ Assuming f is a continuous function on R , consider f being a function of 
+ cosine . Let ’s make the substitution x = u+ π where dx = du : 
+ 2n 
+ February25,2024 51/58 
+ Cases of even , odd , periodic functions 
+ Example 
+ continued 
+ ( cid:90 ) 2π− 2 π n π ( cid:90 ) 2π− 2 π n 
+ I = f(sin(nu+ ) ) du = f(cos(nu))du 
+ n 
+ −π 2 −π 
+ 2n 2n 
+ Now , I is expressed in terms of the function f evaluated at cos(nu ) over 
+ n 
+ ( cid:2 ) ( cid:3 ) 
+ the interval −π,2π− π . 
+ 2n 2n 
+ ( cid:90 ) 2π 
+ I = f(cos(nx))dx 
+ n 
+ 0 
+ This demonstrates the periodicity property when dealing with 
+ trigonometric functions in the integral . 
+ February25,2024 52/58 
+ Cases of even , odd , periodic functions 
+ Example 
+ Let f : [ a , b ] −→ R be a continuous function such that 
+ f(a+b−x ) = f(x ) for all x ∈ [ a , b ] . 
+ then ( cid:82)b x · f(x)dx = a+b ( cid:82)b f(x)dx 
+ a 2 a 
+ Proof . 
+ If we make the substitution x = a+b−u , then dx = −du . 
+ Therefore : 
+ ( cid:90 ) b ( cid:90 ) a 
+ x · f(x)dx = − ( a+b−u)·f(a+b−u)du 
+ a b 
+ Now , using the property f(a+b−x ) = f(x ): 
+ ( cid:90 ) b 
+ = ( a+b−u)·f(u)du 
+ a 
+ February25,2024 53/58 
+ Cases of even , odd , periodic functions 
+ Proof . 
+ Expanding : 
+ ( cid:90 ) b ( cid:90 ) b ( cid:90 ) b 
+ x · f(x)dx = ( a+b)·f(u)du− u·f(u)du 
+ a a a 
+ ( cid:90 ) b ( cid:90 ) b 
+ = ( a+b ) f(x)du− x · f(x)du 
+ a a 
+ a+b ( cid:90 ) b 
+ = f(x)dx 
+ 2 
+ Thus , the claim is proven . 
+ The derivative of the polynomial P , denoted as P(cid:48 ) , is defined as : 
+ P(cid:48)(z ) = a +2a z + ... + na z(n−1 ) 
+ 1 2 n 
+ This 
+ definition is equivalent to P being divisible by ( z −λ ) , meaning there 
+ exists a polynomial Q such that P(z ) = ( z −λ)Q(z ) . 
+ The roots of a polynomial can be either simple or multiple . 
+ March5,2024 
+ 2 3 
+ Example 
+ P(z ) = z4 + 4z3+mz2+nz +2 where m , n ∈ N 
+ Choose m and n such that −1 is a double root . 
+ Also , −1+i and −1−i are also roots of P. 
+ March5,2024 8/51 
+ Polynomial Reminders 
+ Case of Polynomials with Real Coefficients 
+ If λ ∈ C is a root of the polynomial , then the conjugate λ is also a root . 
+ * * Proof :* * 
+ P(λ ) = a + a λ+a λ 2+ ... +a λ n = 0 
+ 0 1 2 n 
+ Taking the conjugate of both sides : 
+ P(λ ) = a + a λ+a λ2+ ... +a λn = 0 
+ 0 1 2 n 
+ For example , consider P ( x ) = x2+x +1 and P ( x ) = x4 + 1 . 
+ 1 2 
+ The polynomials P ( x ) and P ( x ) do not have real roots . 
+ If λ , λ , ... , λ are the distinct roots with respective orders k , k , ... , k 
+ 1 2 p 1 2 p 
+ ( where k + k + ... + k = n ) , then : 
+ 1 2 p 
+ P(z ) = a ( z −λ ) k1(z −λ ) k2 ... (z −λ ) kp 
+ n 1 2 p 
+ In the expression of P , you find the factor ( z −λ)k(z −λ)k . 
+ March5,2024 11/51 
+ Polynomial Reminders 
+ * * Particularly , in the case where P is real , i.e. , of the form :* * 
+ P(x ) = a + a x + a x2+ ... +a xn 
+ 0 1 2 n 
+ where a , a , a , ... , a ∈ R , x ∈ R , 
+ 0 1 2 n 
+ Then , the factorization of such a polynomial in R gives us factors of the 
+ form ( x −a)k or ( x2+px + q)m with ∆ < 0 . 
+ Example 
+ P(x ) = x4 + 1 
+ √ √ 
+ P(x ) = ( x2 + 1)2−2x2 = ( x2−x 2 + 1)(x2+x 2 + 1 ) 
+ In this example , the factorization involves quadratic factors with ∆ < 0 . 
+ March5,2024 12/51 
+ Polynomial Reminders 
+ Example 
+ P(x ) = x5 + 1 
+ Let ’s find the roots in C. 
+ F is said to be proper if the degree of P is strictly less than the 
+ degree of Q ( deg(P ) < deg(Q ) ) . 
+ The roots of Q are called the ” poles ” of F. 
+ We know that the 
+ Q(x ) 
+ denominator can be factored into factors of the form ( x −a)k or 
+ ( x2+px + q)j where ∆ < 0 . 
+ Decomposition of a Rational Function 
+ Every proper rational fraction can be uniquely expressed as the sum of 
+ partial rational fractions . 
+ For simplicity , the procedure is outlined as 
+ In the decomposition of F into 
+ partial fractions 
+ , you multiply both sides by the denominator , expand , and 
+ then identify the coefficients of the monomials of the same power . 
+ Decompose the rational function into partial fractions : 
+ Decomposition of a Rational Function 
+ Example 
+ We can either 
+ To find D , we give x the value 0 . 
+ 1 
+ F(0 ) = −1 = −2A+D = − + D 
+ 2 
+ Solving for D , we find D = −1 . 
+ 2 March5,2024 30/51 
+ Decomposition of a Rational Function 
+ * * general case * * 
+ Let F(x ) = P(x ) be a rational function , whether proper or not . 
+ Q(x ) 
+ If deg(P ) < deg(Q ) , we directly proceed to partial fraction decomposition . 
+ If deg(P ) > deg(Q ) , we perform either polynomial long division or division 
+ following the decreasing powers of P(x ) by Q(x ) . 
+ Decomposition of a Rational Function 
+ Example 
+ x4+x −1 5x2+x −5 
+ f(x ) = = x −2 + 
+ x3 + 2x2−x −2 ( x +2)(x2−1 ) 
+ We have F ( x ) = 5x2+x−5 = A + B + C . 
+ Solving for A , 
+ 1 ( x3 + 2x2−x−2 ) ( x+2 ) ( x−1 ) ( x+1 ) 
+ B , and C using the limits : 
+ 13 
+ A = lim ( x +2)F ( x ) = 
+ 1 
+ x→−2 3 
+ 1 
+ B = lim(x −1)F ( x ) = 
+ 1 
+ x→1 6 
+ 1 
+ C = lim ( x +1)F ( x ) = 
+ 1 
+ x→−1 2 
+ March5,2024 32/51 
+ Decomposition of a Rational Function 
+ Example 
+ Thus , the decomposition is : 
+ 13 1 1 
+ f(x ) = x −2 + + + 
+ 3(x +2 ) 6(x −1 ) 2(x +1 ) 
+ March5,2024 33/51 
+ Antiderivatives of a Rational Function 
+ The decomposition of F(x ) = P(x ) generally results in a polynomial part 
+ Q(x ) 
+ E(x ) and partial fractions of the form : 
+ A Cx + D 
+ or 
+ ( x −a)k ( x2+px + q)j 
+ where k , j ∈ N∗ and ∆ = p2−4q < 0 . 
+ If E(x ) = a + a x + ... + a xi , 
+ 0 1 i 
+ ( cid:90 ) a a 
+ E(x)dx = a x + 1 x2+ ... + i xi+1+C 
+ 0 
+ 2 i +1 
+ Similarly , 
+ ( cid:40 ) 
+ ( cid:90 ) 1 ln|x −a|+C if k = 1 
+ dx = 
+ ( x −a)k 1 ( x −a)1−k + C 
+ cid:54)= 1 
+ 1−k 
+ March5,2024 34/51 
+ Antiderivatives of a Rational Function 
+ Therefore , we need to find the antiderivatives of Ax+B . 
+ m+1 
+ Given : 
+ 42 
+ · 1 
+ ( x2+x+1 ) 
+ This expression can be simplified further : 
+ Rational functions in hyperbolic sine and cosine 
+ 5 Functions containing radicals 
+ March24,2024 3/55 
+ Rational Functions in Sine and Cosine 
+ Definition 
+ We aim to find the antiderivatives of : 
+ f(x ) = R(cos(x),sin(x ) ) 
+ where x ∈ I ⊂]−π , π [ and f is continuous on I. 
+ By making the change of variable : 
+ ( cid:16)x(cid:17 ) 
+ t = tan ⇒ x = 2arctan(t ) 
+ 2 
+ we reduce the problem to the calculation of antiderivatives of a rational 
+ function in t. ” 
+ March24,2024 5/55 
+ Rational Functions in Sine and Cosine 
+ ” We have : 
+ 2sin 
+ ( cid:0)x(cid:1 ) 
+ cos 
+ ( cid:0)x(cid:1 ) 
+ 2 t 
+ sin(x ) = 2 2 = 
+ sin2(cid:0)x(cid:1 ) + cos2 ( cid:0)x(cid:1 ) 1+t2 
+ 2 2 
+ sin2(cid:0)x(cid:1 ) −cos2(cid:0)x(cid:1 ) 
+ 1−t2 
+ cos(x ) = 2 2 = 
+ sin2(cid:0)x(cid:1 ) + cos2 ( cid:0)x(cid:1 ) 1+t2 
+ 2 2 
+ 2 
+ dx = dt 
+ 1+t2 
+ Where t = tan 
+ ( cid:0)x(cid:1 ) 
+ . 
+ 2 
+ Therefore , 
+ ( cid:90 ) ( cid:90 ) ( cid:18 ) 1−t2 2 t ( cid:19 ) 2 
+ R(cos(x),sin(x))dx = R , dt 
+ 1+t2 1+t2 1+t2 
+ Note : Instead of taking I ⊂]π , π [ , we could have taken 
+ I ⊂]π+2kπ , π+2kπ [ , and set in this case ... ” 
+ In the search for primitives of rational functions involving sine and cosine , 
+ before performing the variable change t = tan 
+ ( cid:0)x(cid:1 ) 
+ , which can be lengthy , 
+ 2 
+ we check if other variable changes are possible . 
+ We set t = sin(x ) . 
+ March24,2024 9/55 
+ BIOCHE Rules 
+ ω(π+x ) = ω(x ) 
+ In this case : 
+ ( cid:90 ) ( cid:90 ) 
+ R(cos(x),sin(x))dx = g(tan(x))tan(x)(cid:48)dx 
+ We set t = tan(x ) . 
+ It is essential to remember that : 
+ d d 
+ ( −x ) = − x 
+ dx dx 
+ d d 
+ ( π−x ) = − x 
+ dx dx 
+ d d 
+ ( π+x ) = x 
+ dx dx 
+ March24,2024 10/55 
+ BIOCHE Rules 
+ Example 
+ Antiderivatives of f(x ) = 1 , where x ∈]0,π [ . 
+ sin(x ) 
+ 1 
+ ω(x ) = dx 
+ sin(x ) 
+ satisfies : 
+ ω(−x ) = ω(x ) 
+ . 
+ ( cid:90 ) 1 ( cid:90 ) sin(x ) ( cid:90 ) ( cos(x))(cid:48 ) ( cid:90 ) 1 
+ dx = dx = − dx = − dt 
+ sin(x ) sin2(x ) 1−cos2(x ) 1−t2 
+ ( cid:90 ) 
+ dx = dx = dx = dt 
+ cos(x ) cos2(x ) 1−sin2(x ) 
+ March24,2024 16/55 
+ BIOCHE Rules 
+ Example 
+ dx = dx 
+ sin2(x)+3cos2(x ) cos2(x)(3+tan2(x ) ) 
+ ( cid:90 ) ( tan(x))(cid:48 ) ( cid:90 ) 
+ 1 + √t 
+ 3 March24,2024 18/55 
+ BIOCHE Rules 
+ Example 
+ ( continued ): Let ’s continue with the integration : 
+ √ √ 
+ Let t = 3u , then dt = 3du . 
+ √ 
+ ( cid:90 ) 1 ( cid:90 ) 3 √ 
+ dt = du = 3arctan(u)+C 
+ ( cid:16 ) ( cid:17)2 1+u2 
+ 1 + √t 
+ 3 
+ √ 
+ Now , substitute back t = 3u : 
+ ( cid:90 ) 1 √ ( cid:18 ) t ( cid:19 ) 
+ dt = 3arctan √ + C 
+ 1 + 
+ ( cid:16 ) 
+ √t 
+ ( cid:17)2 
+ 3 
+ ) 
+ sin3(x)cos4(x)dx = − ( 1−cos2(x))cos4(x)(−sin(x))dx 
+ ( cid:90 ) t5 t7 
+ = − ( 1−t2)t4dt = − + + C 
+ 5 7 
+ cos5(x ) cos7(x ) 
+ = − + + C 
+ 5 7 
+ March24,2024 22/55 
+ Trigonometric polynomials 
+ Example 
+ ( cid:90 ) 
+ The change of variable t = ex or even t = tanh ( cid:0)x(cid:1 ) leads to : 
+ 2 
+ 1+t2 2 t 2dt 
+ cosh(x ) = , sinh(x ) = , and dx = 
+ 1−t2 1−t2 1−t2 
+ This leads us to primitives of rational functions in t. 
+ March24,2024 27/55 
+ Rational functions in hyperbolic sine and cosine 
+ However , before undertaking such variable changes , it is more 
+ advantageous to see if other changes are possible , such as t = cosh(x ) , 
+ t = sinh(x ) , or t = tanh(x ) . 
+ To do this , we replace cosh(x ) with cos(x ) , sinh(x ) with sin(x ) , and then 
+ apply the rules of BIOCHE seen previously . 
+ Example 
+ Calculate : 
+ ( cid:90 ) 1 
+ dx 
+ 1+cosh(x ) 
+ ( cid:90 ) 1 ( cid:90 ) ex 
+ dx = 2 dx 
+ 1+cosh(x ) e2x +2ex +1 
+ March24,2024 28/55 
+ Rational functions in hyperbolic sine and cosine 
+ Example 
+ ( continuation ): 
+ ( cid:90 ) ex ( cid:90 ) ex 2 
+ 2 dx = 2 dx = − + C 
+ ( ex +1)2 ( ex +1)2 1+ex 
+ Hence : 
+ ( cid:90 ) 1 2 
+ dx = − + C. 
+ 1+cosh(x ) 1+ex 
+ March24,2024 29/55 
+ Rational functions in hyperbolic sine and cosine 
+ Example 
+ Calculate : 
+ ( cid:90 ) sinh3(x ) 
+ dx 
+ cosh(x ) 
+ ( cid:90 ) sinh3(x ) ( cid:90 ) sinh2(x ) ( cid:90 ) ( cid:90 ) 
+ dx = sinh(x)dx = ( cosh2(x)−1)dx = dt 
+ cosh(x ) cosh(x ) t 
+ ( cid:90 ) 
+ * k2−t2 - We can set t = kcos(θ ) with θ ∈ [ 0,π ] or 
+ t = ksin(θ ) with θ ∈ √ [ −π/2,π/2 ] . 
+ 2 . 
+ - If t ≤ −k , we set t = −kcosh(θ ) with θ ≥ 0 . 
+ Substituting this , 
+ 3 2 
+ we get : 
+ ( cid:90 ) 1 2 ( cid:90 ) 1 
+ √ dx = √ dθ 
+ x x2+x +1 3 sinhθ− √1 
+ 3 
+ March24,2024 44/55 
+ Functions containing radicals 
+ Example 
+ Continued 
+ We make the substitution t = eθ which implies dθ = 1dt . 
+ t 
+ March24,2024

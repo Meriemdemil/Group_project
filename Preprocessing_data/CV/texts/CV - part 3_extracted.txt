@@ -1,0 +1,282 @@
+» 
+ Sid - Ahmed Berrani 
+ 2024 - 2025 
+ 1 
+ Color Fundamentals 
+ • We have seen that we perceive light radiation which is characterized 
+ by a certain intensity and wavelength . 
+ • 's intuition is that white is not a “ pure ” color , but is the 
+ composition of several colors . 
+ 2 
+ Color Fundamentals 
+ 3 
+ Color Fundamentals 
+ • The colors that humans and animals perceive in an object are determined by the nature 
+ of the light ( wavelength ) reflected from the object . 
+ • A body that favors reflectance in a limited range of the visible spectrum exhibits some 
+ shades of color . 
+ • Rods are responsible for vision in low - light conditions and do not detect color . 
+ • Cones are responsible for color vision and function best in bright light . 
+ • M - cones ( Medium - wavelength cones ): 
+ • Most sensitive to green light ( peak sensitivity around 530 - 540 nm ) . 
+ • Constitute about 32 - 40 % of all cones . 
+ • L - cones ( Long - wavelength cones ): 
+ • Most sensitive to red light ( peak sensitivity around 560 - 580 nm ) . 
+ • Constitute about 55 - 65 % of all cones . 
+ Human Vision 
+ Human Vision : Color Blindness 
+ • Color blindness ( color vision deficiency ) means you see colors differently than 
+ most people . 
+ • Most of the time , color vision deficiency makes it hard to tell the difference 
+ between certain colors . 
+ • The most common type of color vision deficiency makes it hard to tell the 
+ difference between red and green . 
+ • Another type makes blue and yellow look the same . 
+ • There different types of color vision deficiencies . 
+ Human Vision : Color Blindness 
+ S - cone absent 
+ L - cone absent 
+ 10 
+ Human Vision : Color Blindness 
+ The Ishihara Test is a widely used color vision test designed to detect color 
+ blindness . 
+ • The test consists of a series of circular plates ( Ishihara plates ) filled with colored dots . 
+ • Each plate contains a hidden number or pattern made up of dots in a specific color . 
+ • People with normal color vision can distinguish the numbers easily . 
+ The Commission Internationale de l'Éclairage ( CIE ) is an organization that 
+ sets standards for light , color , and vision . 
+ • CIE is responsible for defining color spaces and mathematical models that 
+ describe human color perception . 
+ A color model is a mathematical structure for representing colors as sets of numbers . 
+ Short - wavelength cones ( S ): Most sensitive to blue ( ~450 nm ) 
+ Medium - wavelength cones ( M ): Most sensitive to green ( ~530 nm ) 
+ Long - wavelength cones ( L ): Most sensitive to red ( ~600 nm ) 
+ 13 
+ Color Fundamentals 
+ • 
+ 14 
+ Color Fundamentals 
+ Color Fundamentals 
+ CIE RGB color matching function 
+ • Almost all colors can be matched this way , except 
+ some shades between blue and green that can not be 
+ reproduced . 
+ • 
+ If we add some red to the test light , than we can 
+ match it using only green and blue . 
+ • We need a negative amount of red to obtain some 
+ colors ! 
+ 17 
+ Color Fundamentals 
+ • The green light activates the red receptor more than the test light ( cyan ) . 
+ • To obtain the same response , we need to reduce the activation of the red cones 
+ ( subtract some red ) 
+ 18 
+ Color Fundamentals 
+ The metamers 
+ • These are different combinations of wavelengths of light that appear identical to the human 
+ eye , despite having different spectral compositions . 
+ 19 
+ Color Fundamentals 
+ The metamers : 
+ 20 
+ Color Fundamentals 
+ Color characteristics 
+ • In the color wheel , any particular spot on the wheel from 0 to 
+ 360 degrees 
+ is referred to as a hue . 
+ • The hue specifies the specific tone of color . 
+ 22 
+ Color Fundamentals 
+ Hue : The Identity of Color 
+ • Hue refers to the basic color on the spectrum , such as red , blue , or green . 
+ It is essentially what 
+ differentiates colors from one another . 
+ • Hue is the foundation of color perception . 
+ It is what differentiates a shade of red from a shade 
+ of blue . 
+ The concept of hue dates back to color wheel , which helped define 
+ how colors relate to one another . 
+ • While hue is a specific wavelength of light within the color spectrum , color is a broader term 
+ that includes hue along with saturation and luminance . 
+ • A bright pink and a deep maroon share the same hue ( red ) but differ in saturation and 
+ luminance . 
+ The intensity or purity of a color 
+ • 
+ Saturation is the intensity of a hue from gray tone ( no saturation ) to pure , vivid color ( high 
+ saturation ) . 
+ • Saturation plays a crucial role in setting the mood of an image : 
+ • Highly saturated images convey energy and excitement , 
+ • Highly saturated colors appear vivid and bold , 
+ • Desaturated images evoke a softer or more subdued atmosphere . 
+ • Luminance is essential for creating depth and contrast in an image . 
+ A well - balanced luminance 
+ scale ensures that details are visible without overexposing or underexposing parts of an 
+ image . 
+ • A color model is a mathematical structure for representing colors as sets of 
+ numbers . 
+ • A color model is a specification of : 
+ ▪ A coordinate system 
+ ▪ A subspace within that system where each color is represented by a single point . 
+ 28 
+ Color Models : RGB 
+ Each corner of the cube corresponds to a specific color combination . 
+ is the black corner , meaning no light is present ( no red , green , or blue ) . 
+ Color Models : RGB 
+ • 
+ The RGB color model is widely used in electronic displays , such as televisions , computer 
+ monitors , and digital cameras … 
+ • These devices emit light to display images . 
+  RGB is Device - dependent : Different displays use slightly different RGB primaries , 
+ leading to variations in color reproduction . 
+ While RGB is widely used in digital imaging , there are certain colors that can not be represented 
+ accurately in this system . 
+ • The exact range of colors ( gamut ) depends on the physical capabilities of the display or sensor . 
+ • Some colors fall outside this gamut and can not be accurately represented : 
+ • Spectral Colors Beyond RGB Primaries : Colors like pure cyan , pure yellow , and pure magenta 
+ • 
+ Extremely High - Saturation Colors : 
+ Some deeply saturated colors , such as those found in the natural spectrum of light 
+ ( e.g. , laser light , neon colors ) , exceed the limits of typical RGB displays . 
+ • While RGB is widely used in digital imaging , there are certain colors that can not be represented 
+ accurately in this system . 
+ • The exact range of colors ( gamut ) depends on the physical capabilities of the display or sensor . 
+ • Some colors fall outside this gamut and can not be accurately represented : 
+ • Spectral Colors Beyond RGB Primaries : Colors like pure cyan , pure yellow , and pure magenta 
+ • 
+ Extremely High - Saturation Colors : 
+ Some deeply saturated colors , such as those found in the natural spectrum of light 
+ ( e.g. , laser light , neon colors ) , exceed the limits of typical RGB displays . 
+ • Certain Fluorescent Colors : Fluorescent materials can reflect light in ways that exceed the capabilities of the RGB 
+ model . 
+ • .. 
+ 32 
+ Color Models : 
+ RGB 
+ Problems with RGB ( 2/2 ): 
+ • It is not easy to determine how much of R , G and B to use to make a given color . 
+ RGB = ( ? , ? , ? ) 
+ • It is also perceptually non - linear : 
+ The Y axis corresponds to the luminance , 
+ that is the perceived relative brightness . 
+ Pure white = > a diagonal vector ( equal- 
+ valued vector ) 
+ 34 
+ Color Models : CIE XYZ 
+ Problems with the XYZ : 
+ Many points in XYZ do not corresponds to visible colors 
+ XYZ is not realizable physically . 
+ Color Models : XYZ 
+ If we divide the XYZ values by the sum of X+Y+Z , we obtain the chromaticity 
+ coordinates : 
+ 𝑿 𝒀 𝒁 
+ 𝒙 = , 𝒚 = , 𝒛 = . 
+ 𝑿+𝒀+𝒁 𝑿+𝒀+𝒁 𝑿+𝒀+𝒁 
+  The CIE 1931 chromaticity diagram : 
+ This diagram represents all the color that are visible by the average human eye . 
+ Gamut and Color Mixing : 
+ • The gamut of a display ( RGB monitors , printers , etc . ) is a triangle inside the 
+ diagram , showing the range of reproducible colors . 
+ 37 
+ The CIE 1931 chromaticity diagram : 
+ The Gamut 
+ Any device that reproduces colors by mixing a fixed set of 
+ basic colors can only reproduce the colors within the convex 
+ envelope of their basis . 
+ Every point contained within this shape corresponds to a single color sensation . 
+ Color Models 
+ The CIE 1931 chromaticity diagram 
+ A color model is defined by a triangle and the 
+ white point . 
+ If we chose a different triangle , we define a 
+ different color models . 
+ The same physical color will have different 
+ coordinates if we consider different triangles 
+ and hence different color models . 
+ 40 
+ Color Models 
+ The CIE 1931 chromaticity diagram 
+ = > We need to define conversion methods 
+ between different color space . 
+ 41 
+ Color Models : HSV 
+ • The HSV ( Hue , Saturation , Value ) color model is an alternative to the RGB color model 
+ • It is designed to be more aligned with how humans perceive and categorize colors . 
+ Saturation ( S ): This represents the intensity or purity of the color . 
+ represents the brightness of the color . 
+ It ranges from 0 % to 100 % : 
+ ▪ 0 % means the color is completely black , regardless of the hue and saturation . 
+ ▪ 100 % means the color is at its full brightness , with no darkness added . 
+ The Saturation ( S ) is represented by the distance from the center of the cylinder ( the center 
+ represents no saturation , or gray , and the edge represents full saturation ) . 
+ • The Value ( V ) is represented by the height of the cylinder , from the bottom ( dark ) to the top ( bright ) . 
+ 43 
+ Color Models : HSV 
+ • HSV model is more intuitive for humans . 
+ • 
+ HSV is often easier to understand for humans because it separates chromatic 
+ content from brightness and mimics the way we perceive color . 
+ • We think about colors in terms of hue ( red , green , etc . ) , how vivid they are 
+ ( saturation ) , and how light or dark they are ( value ) . 
+ • Its better for color manipulation . 
+ In digital imaging and graphics , HSV is often used 
+ in applications where you want to change the color ’s hue ( e.g. , shifting a color to a 
+ different shade ) , adjust its brightness , or alter its vibrancy without affecting other 
+ components . 
+ 44 
+ Color Models : 
+ HSV in practice 
+ • HSV color model is typically represented as : 
+ • 0 ° to 360 ° for Hue 
+ • 0 to 100 % for Saturation and Value . 
+ In OpenCV , the HSV color model is represented in a slightly different range : 
+ Color Models : 
+ From RGB to HSV 
+ Applications of RGB to HSV Conversion : 
+ • Image segmentation : HSV makes it easier to separate colors . 
+ • Color filtering : Useful in OpenCV for detecting specific objects in images . 
+ • Color adjustments : Easier to modify hue / saturation separately than in RGB . 
+ base values : 
+ • Compute C ( chroma ) = V × S. 
+ • Compute X = C × ( 1−∣(H/60 ° ) mod 2−1∣ ) . 
+ • Compute m = V − C. 
+ 51 
+ Color Models : 
+ Intensity ( I ) = Average of RGB components 
+ = > Overall color intensity ( better for grayscale ) 
+ 54 
+ And Many Other Color Models 
+ CMYK ( Cyan , Magenta , Yellow , Key / Black ) 
+ • Used in printing : CMYK is designed for subtractive color mixing , where colors are 
+ created by subtracting light from a white background . 
+ • Components : 
+ • Cyan ( C ) , Magenta ( M ) , Yellow ( Y ): The primary colors used in printing . 
+ • Key ( K ): Black , used to deepen colors ( since it 's hard to achieve true black with 
+ just CMY ) . 
+ • Applications : Widely used in color printing ( e.g. , printers , publishing , graphic 
+ design ) . 
+ 55 
+ And Many Other Color Models 
+ LAB ( CIELAB ) 
+ • Perceptually Uniform : 
+ LAB is a device - independent color model based on human 
+ perception , designed to be uniform in terms of how we perceive color differences . 
+ • Components : 
+ • L : Lightness ( from black to white ) . 
+ • A : Green to red axis . 
+ • B : Blue to yellow axis . 
+ • Applications : Used in color correction , image processing , and digital imaging as it 
+ provides consistent color representation regardless of device . 
+ • Conversion : It can be converted from / to RGB or XYZ easily . 
+ And Many Other Color Models 
+ YCbCr ( Luminance , Chrominance ) 
+ • Used in video compression : YCbCr is a color space used in video and image 
+ compression , especially in JPEG , MPEG , and video streaming . 
+ • Components : 
+ • Y : Luminance ( brightness ) – represents grayscale . 
+ • Cb : Blue chrominance ( difference from blue channel ) . 
+ • Cr : Red chrominance ( difference from red channel ) . 
+ • Applications : 
+ • Compression : YCbCr separates brightness from color to allow more efficient compression ( since 
+ humans are more sensitive to brightness than to chroma ) . 
+ • Broadcasting and video formats : Used in digital TV , image compression , and video editing .

@@ -1,0 +1,159 @@
+Course 
+ « Computer Vision » 
+ Sid - Ahmed Berrani 
+ 2024 - 2025 
+ 1 
+ IV . 
+ Edge Detection : The Canny Detector 
+ • Probably the most widely used edge detector in computer vision . 
+ • 
+ It uses the best properties of the gradient operator and the Laplacian . 
+ Optimal means : 
+ 1 . Low error rate : All edges should be found , and there should be no spurious 
+ responses . 
+ Single edge point response : 
+ The detector should not identify multiple edge pixels 
+ where only a single edge point exists . 
+ Edge Detection : The Canny Detector 
+ • 
+ With the additional constraint that a single peak should be generated at a step - edge . 
+ Edge Detection : The Canny Detector 
+ • The algorithm : 
+ • Smooth the image with a 2D Gaussian filter . 
+ • Compute Image gradient using Sobel operator ( for example ) . 
+ • Find gradient magnitude at each pixel . 
+ • Find gradient orientation at each pixel . 
+ • Apply a non - maxima suppression approach ( the idea is to select the single 
+ maximum point across the width of an edge ) . 
+ • Threshold the non - maxima suppressed gradient image to reduce false edge 
+ points – Hysteresis thresholding is used here . 
+ 5 
+ IV . Edge Detection : The Canny Detector 
+ • Smooth the image with a 2D Gaussian filter : 
+ 𝒏 ∗ 𝑰 
+ 𝝈 
+ • Compute Image gradient using Sobel operator ( for example ): 
+ ∇𝒏 ∗ 𝑰 
+ 𝝈 
+ • Find gradient magnitude at each pixel : 
+ ∇𝒏 ∗ 𝑰 
+ 𝝈 
+ 6 
+ IV . 
+ Edge Detection : The Canny Detector 
+ • Smooth the image with a 2D Gaussian filter : 
+ 𝒏 ∗ 𝑰 
+ 𝝈 
+ • Compute Image gradient using Sobel operator ( for example ): 
+ ∇𝒏 ∗ 𝑰 
+ 𝝈 
+ • Find gradient magnitude at each pixel : 
+ ∇𝒏 ∗ 𝑰 
+ 𝝈 
+ • Find gradient direction at each pixel : 
+ ∇𝒏 ∗𝑰 
+ 𝒏ෝ = 𝝈 
+ ∇𝒏 ∗𝑰 
+ 𝝈 
+ 7 
+ IV . 
+ Edge Detection : The Canny Detector 
+ • Smooth the image with a 2D Gaussian filter : 
+ 𝒏 ∗ 𝑰 
+ 𝝈 
+ • Compute Image gradient using Sobel operator ( for example ): 
+ ∇𝒏 ∗ 𝑰 
+ 𝝈 
+ • Find gradient magnitude at each pixel : 
+ ∇𝒏 ∗ 𝑰 
+ 𝝈 
+ • Find gradient direction at each pixel : 
+ ∇𝒏 ∗𝑰 
+ 𝒏ෝ = 𝝈 
+ ∇𝒏 ∗𝑰 
+ 𝝈 
+ • Compute 1D Laplacian along the gradient direction 𝒏ෝ at each pixel : 
+ 𝟐 
+ 𝝏 ( 𝒏 ∗𝑰 ) 
+ 𝝈 
+ 𝝏𝒏ෝ𝟐 
+ 8 
+ IV . 
+ 10 
+ IV . Edge Detection : The Canny Detector 
+ • Smooth the image with a 2D Gaussian filter : 
+ 𝒏 ∗ 𝑰 
+ 𝝈 
+ • Compute Image gradient using Sobel operator ( for example ): 
+ ∇𝒏 ∗ 𝑰 
+ 𝝈 
+ • Find gradient magnitude at each pixel : 
+ ∇𝒏 ∗ 𝑰 
+ 𝝈 
+ • Find gradient direction at each pixel : 
+ ∇𝒏 ∗𝑰 
+ 𝒏ෝ = 𝝈 
+ ∇𝒏 ∗𝑰 
+ 𝝈 
+ • Apply the non - maxima suppression : For each pixel check the 
+ neighbors depending on the direction of the gradient 
+ 11 
+ IV . 
+ – smooth the image using a Gaussian filter . 
+ Can be presented as “ a non - maxima suppression ” or “ a 1D Laplacian 
+ operator ” . 
+ 15 
+ IV . Edge Detection : The Canny Detector 
+ • 
+ Edge Detection : The Canny Detector 
+ • 
+ Another example 
+ 17 
+ V. Edge Detection : Few Optical Illusions 
+ • 
+ https://michaelbach.de/ot/ang-hering/ 
+ Edge Detection Evaluation 
+ Why Evaluate Edge Detectors ? 
+ • Compare performance of different methods . 
+ • Choose the most suitable detector for a target application . 
+ • Ensure reliability in real - world tasks . 
+ 20 
+ V. Edge Detection Evaluation 
+ • Do the results match human perception ? 
+ Common practice : overlay edge map on original image . 
+  Quick , intuitive , but subjective . 
+ 21 
+ V. Edge Detection Evaluation 
+ V. Edge Detection Evaluation 
+ Lower BDE → better alignment with true boundaries . 
+ • Pratt ’s Figure of Merit ( FOM ): see next slide . 
+ • Edge Localization Error : Measures how precisely edges are detected in terms of position , 
+ especially important in high - resolution images or critical applications . 
+ V. Edge Detection Evaluation 
+ In addition , computational metrics can also be used : 
+ • Runtime performance 
+ • Memory usage 
+ • Scalability to large images 
+  These can be important in real - time or resource - constrained systems . 
+ 26 
+ V. Edge Detection Evaluation 
+ How is Ground - Truth Created ? 
+ • Manual annotation by humans ( pixel - accurate ) 
+ • 
+ Multiple annotators : consensus or averaging 
+ • Synthetic images with known edge structure ( ideal for testing ) 
+ Available datasets with ground - truth : 
+ • BSDS500 : Natural images , human - labeled contours 
+ • NYUDv2 : RGB - D indoor scenes with edges 
+ • PASCAL Boundaries : Object - level boundaries 
+ • SBD : Semantic boundaries from PASCAL VOC 
+ • BSDS300 : Classic version , still cited 
+ 27 
+ V. 
+ Edge Detection Evaluation 
+ Best Practices in Evaluation : 
+ • Align image resolutions ( ground - truth and prediction ) 
+ • Allow small tolerance in edge location 
+ • Avoid data leakage ( do not evaluate on training data ) 
+ • Combine quantitative and qualitative evaluation 
+ 28

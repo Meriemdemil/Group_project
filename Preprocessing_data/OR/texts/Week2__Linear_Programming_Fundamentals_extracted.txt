@@ -1,0 +1,305 @@
+Linear Programming 
+ Fundamentals 
+ Mohammed Brahimi 
+ 8/46 
+ What is Linear Programming ( LP ) ? 
+ AnoptimizationmodelisaLinearProgram(orLP)ifithascontinuousvariables , asingle 
+ linearobjectivefunction , andallconstraintsarelinearequalitiesorinequalities . 
+ 9/46 
+ What is Linear Programming ( LP ) ? 
+ • Decisionsvariables : thatweseektodetermine 
+ – x1 , x2 , ... , xn 
+ • Linearobjetivefunction:(goal)thatweneedtooptimize(maximizeorminimize ) 
+ – z = c∑1x1 + c2x2 + ... + cnxn 
+ – z= n 
+ i=1 
+ cixi 
+ • Linearconstraints : thatthesolutionmustsatisfy 
+ – a1jx1 + a2jx2 + ... + anjxn ≤ bjforj=1 ... m 
+ 10/46 
+ What is Linear Programming ( LP ) ? 
+ Maximize z = c1x1 + c2x2 + · · · + c 
+ n 
+ x 
+ n 
+ Subjectto a11x1 + a21x2 + · · · + a n1x 
+ n 
+ ≤ b1 , 
+ a12x1 + a22x2 + · · · + a n2x 
+ n 
+ ≤ b2 , 
+ . 
+ . 
+ . 
+ a1 m x1 + a2 m x2 + · · · + a 
+ nm 
+ x 
+ n 
+ ≤ b 
+ m 
+ , 
+ x ≥0 ( 1≤ i ≤ n ) 
+ i 
+ • Here , x representsthedecisionvariables , c , a andandb arefixedconstants 
+ i i ij j 
+ extractedfromthestudiedproblem.x 
+ ≥0representsnon - negativityconstraint . 
+ i 
+ 11/46 
+ What is Linear Programming ( LP ) ? 
+ • AnyLPproblemcanbeconvertedtothepreviousform11 . 
+ • Anequality(=)canberepresentedbytwoinequalities ( ≤ and ≥ ) 
+ • Aninequality 
+ ≥ 
+ canbeconvertedto 
+ ≤ 
+ bymultiplyingby 
+ −1 
+ • Anegativevariablex canbereplacedwithx 
+ = − 
+ x 
+ ′ 
+ andx 
+ ′ ≥0 . 
+ i i i i 
+ • Anunrestrictedvariables(i.e . ,itcantakebothpositiveandnegativevalues)canbe 
+ replacedbytwovariablesx = x + − x − andx + , x − ≥0 . 
+ i i i 
+ LP Applications : Resource Allocation 
+ • LPcommonlyusedforallocatingresourcestoactivitieswithlimitedresources 
+ • Theobjectiveistochooselevelsofactivitiesthatachievethebestoverall 
+ measureofperformance . 
+ • E.g. Optimizingtheschedulingofpersonnelandequipmentinahospitalor 
+ allocatingbudgetsacrossdifferentdepartmentsinacompany 
+ • Organizationscanmakethemostefficientuseoftheirresourcesandachieve 
+ betterperformanceoutcomesusingLP . 
+ 13/46 
+ 14/46 
+ Example : Resource Allocation 
+ • Context : manufacturingcompanyhastwofactoriesandthreeproductlines . 
+ • Thecompany’sobjective : maximizetheprofit . 
+ • Constraint1 : eachfactoryhasalimitedcapacityforproducingeachproductline . 
+ • 
+ Constraint2 
+ limiteddemandforeachproductline . 
+ 15/46 
+ Example : Resource Allocation 
+ • Context : manufacturing 
+ Maximize 15x1 +20x2 +10x3 
+ companyhastwofactoriesand 
+ Subjectto : 
+ threeproductlines . 
+ 2x1 +3x2 + x3 ≤30 ( Factory1capacityconstraint ) 
+ • Thecompany’sobjective 
+ maximizetheprofit . 
+ x1 +2x2 +4x3 ≤40 ( Factory2capacityconstraint ) 
+ x1 + x2 + x3 ≤20 ( Product1demandconstraint ) 
+ • Constraint1 
+ eachfactoryhas 
+ alimitedcapacityforproducing 2x2 +3x3 ≤25 ( Product2demandconstraint ) 
+ eachproductline . x1 +2x3 ≤15 ( Product3demandconstraint ) 
+ • Constraint2 : limiteddemand x1 , x2 , x3 ≥0 ( Non - negativityconstraint ) 
+ foreachproductline . 
+ 16/46 
+ LP Applications 
+ 1 . Productionplanning : 
+ – Determineoptimalmixofproductstoproduce 
+ – Determinequantityofeachproducttomanufacture 
+ – Utilizeresourcessuchaslabor , materials , andmachinesefficiently 
+ 2 . Transportationanddistribution : 
+ – Minimizetransportationcosts 
+ – Satisfydemandandsupplyconstraints 
+ 3 . Portfoliooptimization : 
+ – Selectbestmixofassets 
+ – Maximizereturnswhileminimizingrisks 
+ 17/46 
+ LP Applications 
+ 4 . Marketingoptimization : 
+ – Optimizeadvertisingcampaignsandpromotions 
+ – Determinebestmediachannels , advertisingfrequency , andpromotionoffers 
+ – Maximizesalesandprofits 
+ 5 . Energyandenvironmentalmanagement : 
+ – Optimizeuseofenergyresources 
+ – Reduceenvironmentalimpacts 
+ – Determineoptimalmixofenergysourcesandproductiontechnologies 
+ 6 . Otherapplications ... 
+ 18/46 
+ LP assumptions 
+ • LPassumptionsareimplicitinthemathematicalformulation . 
+ • InordertouseLPfromamodelingperspective , itisnecessaryfortheassumptions 
+ aboutthedatatobefulfilled .. 
+ UnderstandingLPassumptionscanhelpevaluatehowwelllinear 
+ programmingappliestoaproblem . 
+ 19/46 
+ LP assumptions : Proportionality 
+ • Thecontributionofeachvariabletotheobjectivefunctionzandfunctional 
+ constraintsisproportionaltox . 
+ j 
+ • Thisisrepresentedbythetermscx intheobjectivefunctionandajx inthe 
+ j j i j 
+ functionalconstraint . 
+ InaLPmodel , onlyvariableswithanexponentof1areallowedinthe 
+ termsofanyfunction , includingtheobjectivefunctionandconstraints . 
+ 20/46 
+ LP assumptions : Proportionality 
+ ProportionalityViolated 
+ x1 ProportionalitySatisfied Case1 Case2 Case3 
+ 0 0 0 0 0 
+ 1 3 2 3 3 
+ 2 6 5 7 5 
+ 3 9 8 12 6 
+ 4 12 11 18 6 
+ 21/46 
+ LP assumptions : Proportionality 
+ 22/46 
+ LP assumptions : Additivity 
+ • ProportionalityassumptioninLPmodelrestrictsexponentsto1 . 
+ • Itdoesnotforbidcross - producttermslikexx . 
+ i j 
+ • AdditivityassumptioninLPmodelrulesoutcross - productterms . 
+ Everyfunctioninthemodelcanberepresentedasthesumofthe 
+ separatecontributionsoftheindividualactivities . 
+ 23/46 
+ LP assumptions : Additivity 
+ Valueoftheobjectivefunctionz 
+ AdditivityViolated 
+ ( x1 , x2 ) AdditivitySatisfied Case1 Case2 
+ ( 1,0 ) 3 3 3 
+ ( 0,1 ) 5 5 5 
+ ( 1,1 ) 8 9 7 
+ 24/46 
+ LP assumptions : Divisibility 
+ • Thedivisibilityassumptionallowsdecisionvariablestohavevaluesthatarenot 
+ limitedtointegers . 
+ • IntegerProgrammingcanbeusedifthepropblemrequiresintegerdecision 
+ variables . 
+ LPallowsnon - integerdecisionvariablevalues , implyingthepossibility 
+ torunatfractionallevels , whichcanresultinmoreefficientsolutions 
+ insomescenarios . 
+ 25/46 
+ LP assumptions : Certainty 
+ • ThecertaintyassumptioninLPmodelsassumesthatalltheLPcoefficientsare 
+ knownfixedconstants . 
+ • Inpracticalapplications , satisfyingthecertaintyassumptionincanbechallenging 
+ asparametervaluesareoftenestimatedorpredictedvalues . 
+ • Therefore , sensitivityanalysisiscrucialtoidentifysensitiveparametersthatmay 
+ affecttheoptimalsolution 
+ LP assumptions : Conclusion 
+ • Mathematicalmodelsarejustapproximationsandsimplifyingassumptions . 
+ • Reasonablyhighcorrelationbetweenthemodel’spredictionandtheactual 
+ problemissufficientforusefulanalysis . 
+ • Ifanyoftheassumptionsareviolatedsignificantly , alternativemodelsareavailable . 
+ • LPoutperformsothercomplexmethodsintermsofitseffectivenessandefficiency . 
+ 27/46 
+ Graphical solution of LP 
+ Thegraphicalsolutionincludestwosteps : 
+ 1 . Determinationofthefeasiblesolutionspace(feasibleregion ) . 
+ 2 . Determinationoftheoptimumsolutionamongallpointsofthefeasibleregion . 
+ 28/46 
+ Determination of the feasible region 
+ 1 . 
+ Feasibleregion : setofpossiblesolutionsthatmeettheproblemconstraints . 
+ 2 . Graphinequalities : representconstraintsonacoordinateplane . 
+ 3 . 
+ Shaderegion : satisfyallconstraintstodeterminefeasiblesolutionspace . 
+ 29/46 
+ 30/46 
+ Determination of the optimum solution 
+ 1 . Optimumsolution : determinebestsolutionfromfeasiblesolutionspace . 
+ 2 . Graphtheobjectivefunction : Fixzanddrawthelinecalledisoprofit / iso - cost 
+ 3 . Shifttheline : shifttheiso - profitlineinaparallelmannerfromitsoriginalposition 
+ inadirectionthatincreasesofz . 
+ Why Corner Points help to solve LP ? 
+ • Thisresultlimitsthesearchfortheoptimalsolutionfromaninfinitenumberof 
+ feasiblepointstoafinitenumberofcornerpoints . 
+ • SimplexmethodisbasedonthispowerfulresulttosolvecomplexLPproblems . 
+ • Intwodimensioncase , theupperboundofthenumberofcornerpointsis 
+ ( ) 
+ Numberofcornerpoints ≤ n = n(n−1 ) : wherenisthenumberofconstraints . 
+ 2 2 
+ Keyresult 
+ IntelligentlynavigatingthecornerpointsofaLPproblemcansimplify 
+ solvingverylargeLPproblemsusingoptimizationalgorithms . 
+ 34/46 
+ Convex Sets , Extreme Points , and LP 
+ Convexset 
+ AsetofpointsSisaconvexsetifthelinesegmentjoininganypairof 
+ pointsinSiswhollycontainedinS. 
+ Sisconvex ⇒ ∀ A , B ∈ S , β ∈ [ 0,1],βA+(1−β)B ∈ S 
+ ExtremePoint(Cornerpoint ) 
+ ForanyconvexsetS , apointPinSisanextremepointifeachline 
+ segmentthatliescompletelyinSandcontainsthepointPhasPasan 
+ endpointofthelinesegment . 
+ 35/46 
+ Non - convex Sets Convex Sets 
+ 36/46 
+ Convex Sets , Extreme Points , and LP 
+ • Feasibleregioncannotcompriseseveraldisconnectedfeasibleregions . 
+ • Convexityguaranteestheabsenceoflocaloptima . 
+ • Nolocaloptimumthatcouldtrapthesolver . 
+ Keyresult 
+ Feasibleregionconvexityisacriticalpropertyanditassuresthatifthe 
+ LPproblemhasanoptimalsolution , thenatleastonecornerpointof 
+ thefeasibleregionisaglobaloptimum . 
+ 37/46 
+ LP Special Cases 
+ 1 . Alternativeormultipleoptimalsolutions : LPshaveaninfinitenumberofoptimal 
+ solutions . 
+ 2 . InfeasibleLPs : LPshavenofeasiblesolutions . 
+ 3 . UnboundedLPs : Therearepointsinthefeasibleregionwitharbitrarilylarge(ina 
+ maxproblem)z - values . 
+ 38/46 
+ Alternative or multiple optimal solutions 
+ • Theisoprofitintersectsanentireline 
+ segmentcorrespondingtothe 
+ constraint . 
+ • Thedecisionmakercanusea 
+ secondarycriteriontochoose 
+ betweenoptimalsolutions . 
+ 39/46 
+ Unbounded LPs 
+ • Objectivefunctioncanbearbitrarily 
+ large . 
+ • Unboundedoptimalsolutionshould 
+ notoccurinacorrectlyformulated 
+ LP . 
+ • Modifytheproblemformulationto 
+ removetheunboundednesstomake 
+ theproblemsolvable . 
+ 40/46 
+ Infeasible LPs 
+ • Feasibleregiontobeempty(containnopoints),resultinginaninfeasibleLP . 
+ • BecausetheoptimalsolutiontoanLPisthebestpointinthefeasibleregion , an 
+ infeasibleLPhasnooptimalsolution . 
+ • Over - constrainingtheproblem , whichmakestheconstraintsaretootighttoallow 
+ anyfeasiblesolution . 
+ • Introductionofincompatibleconstraints , suchaswhenoneconstraintrequiresa 
+ variabletobepositivewhileanotherrequiresittobenegative . 
+ • Modifytheproblemformulationtoremovethecontradictoryconstraintor 
+ constraintsandmaketheproblemfeasible . 
+ • TosolveamaxLPwithtwodecisionvariablesgraphically , followthesesteps : 
+ Step3 : Moveparalleltotheisoprofitlineinthedirectionofincreasingz . Thelastpointin 
+ thefeasibleregionthatcontactsanisoprofitlineisanoptimalsolutiontotheLP . 
+ • TheoptimalsolutiontoamaxLPwithtwodecisionvariablesistheextremepoint 
+ ofthefeasibleregionthatliesonthehighestisoprofitline . 
+ Case2 : TheLPhasmorethanoneoptimalsolution . 
+ – Onlyonepointinthefeasibleregionthatmaximizesorminimizestheobjectivefunction . 
+ – Thefeasibleregionhasmultiplepointsthatoptimizetheobjectivefunction . 
+ – Graphically , theisoprofitlinelasthitsanentirelinesegmentbeforeleavingthefeasible 
+ region . 
+ 44/46 
+ Case3 : TheLPisinfeasible . 
+ – Nopointsinthefeasibleregion . 
+ Case4 : TheLPisunbounded . 
+ – Therearepointsinthefeasibleregionwitharbitrarilylargeobjectivefunctionvalues . 
+ – Graphically , whenwemoveparalleltoanisoprofitlineinthedirectionofincreasingz , we 
+ neverlosecontactwiththeLP’sfeasibleregion . 
+ 45/46 
+ References 
+ 1 . Winston , Wayne&Goldberg , Jeffrey . Operationsresearch : applicationsand 
+ algorithms . 
+ 2 . FrederickS.HillierandGeraldJ.Lieberman . IntroductiontoOperationsResearch . 
+ 3 . 
+ OperationsResearch : AnIntroduction 
+ 4 . RobinJ.Wilson . 
+ Introductiontographtheory

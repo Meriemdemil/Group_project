@@ -1,0 +1,153 @@
+Motivation : 
+ We often do n't know how much space we will need to 
+ store things at " compile time " → int array[Max - size ] 
+ Dynamic memory allocation is the allocation of 
+ memory at " run time “ 
+ Introduction 
+ Differences between Static & Dynamic Memory Allocation : 
+ Dynamically allocated memory is kept on the memory 
+  
+ heap ( also known as the free store ) 
+ Dynamically allocated memory ca n't have a " name " it 
+  
+ must be referred to 
+  
+ Declarations are used to statically allocate memory , 
+ the new operator is used to dynamically allocate memory 
+ Introduction to Pointer 
+ What is a pointer ? 
+ a memory address ! 
+ a variable that store memory address ! 
+ Multiple pointers require multiple asterisks 
+  
+ int * myPtr1 , * myPtr2 ; 
+ Pointer Operators 
+ & ( address operator ) 
+ Returns memory address of its operand 
+  
+ Example : 
+  
+ int y = 5 ; 
+ int * yPtr ; 
+ yPtr = & y ; // yPtr gets address of y 
+ yPtr “ points to ” y 
+  
+ yptr y 
+ y 
+ 5 500000 600000 600000 5 
+ yPtr 
+ address of y 
+ is value of 
+ yptr 
+ Pointer Operators 
+ * ( indirection / dereferencing operator ) 
+  Utilized with the asterisk symbol ( * ) 
+ Yields a synonym for the object pointed to by its operand 
+  
+  Example : * yPtr returns y ( as yPtr points to y ) 
+  The dereferenced pointer is an lvalue 
+ The operators * and & are inverses of each other 
+ Pointer Operators 
+ 2 // Using the & and * operators . 
+ 3 # include < iostream > 
+ 4 
+ 5 using std::cout ; 
+ 6 using std::endl ; 
+ 7 
+ 8 int main ( ) 
+ 9 { 
+ 10 int a ; // a is an integer 
+ 11 int * aPtr ; // aPtr is a pointer to an integer 
+ 12 
+ 13 a = 7 ; 
+ 14 aPtr = & a ; // aPtr assigned address of a 
+ 15 
+ 16 cout < < " The address of a is " < < & a 
+ 17 < < " \nThe value of aPtr is " < < aPtr ; 
+ 18 
+ 19 cout < < " \n\nThe value of a is " < < a 
+ 20 < < " \nThe value of * aPtr is " < < * aPtr ; * and & are inverses 
+ 21 of each other 
+ 22 cout < < " \n\nShowing that * and & are inverses of " 
+ 23 < < " each other.\n&*aPtr = " < < & * aPtr 
+ 24 < < " \n*&aPtr = " < < * & aPtr < < endl ; 
+ 25 
+ Pointer Operators 
+ 26 return 0 ; // indicates successful termination 
+ 28 } // end main 
+ The address of a is 0012FED4 
+ The value of aPtr is 0012FED4 
+ The value of a is 7 
+ The value of * aPtr is 7 
+ Showing that * and & are inverses of each other . 
+ & * aPtr = 0012FED4 
+ * & aPtr = 0012FED4 * and & are inverses ; same 
+ result when both applied to 
+ aPtr 
+ Mystery Function : What prints out ? 
+ void mystery(int a , int & b , int * c ) { 
+ a++ ; 
+ ( * c)-- ; 
+ b + = * c ; 
+ Answer : 
+ cout 
+ < " The original value of number is " < < number ; 
+ pass address of number to 
+ 16 
+ cubeByReference 
+ 17 // pass address of number to cubeByReference 
+ 18 cubeByReference ( & number ) ; 
+ 19 
+ 20 cout < < " \nThe new value of number is " < < number < < endl ; 
+ 21 
+ 22 return 0 ; // indicates successful termination 
+ cubeByReference 
+ 23 
+ modified variable 
+ 24 } // end main 
+ number 
+ Calling Functions by Reference 
+ 26 // calculate cube of * nPtr ; modifies variable number in main 
+ 27 void cubeByReference ( int * nPtr ) 
+ 28 { 
+ 29 * nPtr = * nPtr * * nPtr * * nPtr ; // cube * nPtr 
+ cubeByReference 
+ 30 
+ receives address of int 
+ 31 } // end function cubeByReference 
+ variable , 
+ i.e. , pointer to an int 
+ The original value of number is 5 
+  
+ In pass - by - reference with reference arguments , you use the & symbol to 
+  
+ specify a reference parameter , 
+ In pass - by - reference with pointer arguments , you use the * symbol to specify 
+  
+ a pointer parameter . 
+ Nullability : 
+  
+ Pointers can have a null value , meaning they do n't point to any valid 
+  
+ memory location . 
+ This 
+  
+ means that passing a null pointer to a function can led to runtime errors if 
+ the function tries to dereference the pointer . 
+ Difference between pass - by- 
+ reference with reference and pointer 
+ Pointer arithmetic : 
+  
+ Pointers allow you to perform pointer arithmetic , which can be useful 
+  
+ in some cases , such as iterating over arrays or linked lists . 
+  
+ Memory management : 
+  
+ Pointers can be used to manage dynamic memory allocation and 
+  
+ deallocation , which can not be accomplished with references . 
+ For 
+ example , you can use new and delete operators to dynamically 
+ allocate and deallocate memory for a pointer , 
+ reference must always refer to an existing object .

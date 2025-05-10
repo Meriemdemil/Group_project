@@ -1,0 +1,168 @@
+Reinforcement learning 
+ Dr. 
+ The National School of Artificial Intelligence 
+ aissa.boulmerka@ensia.edu.dz 
+ 2024 - 2025 
+ Research Areas : Deep learning models applied to image / video segmentation 
+ and recognition . 
+ This course will provide a solid 
+ introduction to the field of reinforcement learning and 
+ students will learn about the core challenges and 
+ approaches , including generalization and exploration . 
+  Prerequisite : 
+ Linear algebra , probability , programming . 
+  Textbook : 
+ and . Reinforcement 
+ Learning : An Introduction . 
+ What is Reinforcement Learning ( RL ) 
+  A way of programming agents by reward and punishment without 
+ needing to specify how the task is to be achieved ( * ) . 
+  This approach allows us to train intelligent entities ( robots , software , or 
+ agents ) in a much more flexible and efficient way . 
+  Instead of hard - coding every action or behavior the agent needs to 
+ perform , we simply guide it by providing positive reinforcement for 
+ desirable behaviors and negative reinforcement for undesirable ones . 
+  
+ Over time , the agent learns on its own how to solve problems and 
+ achieve goals . 
+  ( * ) , , and . 
+ " Reinforcement learning : A survey . " 
+ The process of learning to ride a bike relies on trial and error , with feedback 
+ from falls ( pain ) and successes ( reward ) , rather than detailed explanations . 
+ RL Course at UCL . 
+ RL Course at UCL . 
+ There is no supervisor , only a reward signal 
+  
+ Feedback is delayed , not instantaneous 
+ Helicopter Flight Manoeuvers 
+ Video : https://www.youtube.com/watch?v=0JL04JJjocc 
+ , , , . 
+ An Application of Reinforcement Learning to Aerobatic Helicopter 
+ Flight . 
+ Human - level control through deep reinforcement learning . 
+ Mastering the game of Go without human knowledge . 
+ Robotics : Robot Learns to Flip Pancakes 
+ Robotics manipulation 
+ and autonomous 
+ systems : eg . elevator 
+ optimization , 
+ humanoid robots , 
+ emergency response 
+ robots , self - driving 
+ vehicles , etc . 
+ Video : https://www.youtube.com/watch?v=bxtPyJqVrmk 
+ P. , et . al . 
+ Robot motor skill coordination with EM - based Reinforcement Learning . 
+ Injured robots learn to limp 
+ Video : https://www.youtube.com/watch?v=KFDMm666QBU 
+ , et . al . 
+ Robots that can adapt like animals . 
+ Supply chain and manufacturing : Amazon Robotics uses RL to optimize 
+ warehouse robots for picking and placing items efficiently . 
+  Energy : Deepmind ’s RL reduce Google Data center cooling by 40 % 
+  NLP : ChatGPT ( OpenAI ) uses RL from Human Feedback ( RLHF ) to fine - tune 
+ responses , making them coherent and context - aware . 
+  Recommender systems : example : online advertisements . 
+ Basically , any complex dynamical system that is difficult to model analytically can 
+ be application of RL 
+ A reward 𝑅 is a scalar feedback signal 
+ 𝑡 
+  Indicates how well agent is doing at step 𝑡 — defines the goal 
+  The agent ’s job is to maximize cumulative reward ( we call this the return ) 
+ 𝐺 = 𝑅 + 𝑅 + 𝑅 + ⋯ 
+ 𝑡 𝑡+1 𝑡+2 𝑡+3 
+  Reinforcement learning is based on the reward hypothesis : 
+ Actions may have long term consequences 
+  Reward may be delayed 
+  It may be better to sacrifice immediate reward to gain more long - term reward 
+ The history is the full sequence of observations , actions , rewards 
+ ℋ = 𝑂 , 𝐴 , 𝑅 , 𝑂 , ⋯ , 𝑂 , 𝐴 , 𝑅 , 𝑂 
+ 𝑡 0 0 1 1 𝑡−1 𝑡−1 𝑡 𝑡 
+  i.e. all observable variables up to time t 
+  For instance , the sensorimotor stream of a robot 
+  What happens next depends on the history : 
+ The environment state 𝑆 𝑒 is 
+ 𝑡 
+ the environment ’s internal 
+ representation 
+  
+ The environment state is 
+ usually invisible to the agent 
+  
+ An information state ( a.k.a . state ) contains all useful information from 
+ the history . 
+ Suppose the agent sees the full 
+ environment state 
+  observation = environment state 
+  The agent state could just be this 
+ observation : 
+ Partially Observable Environments 
+  
+ Partial observability : The observations are not Markovian 
+  
+ A robot with camera vision is n’t told its absolute location 
+  
+ A trading agent only observes current prices 
+  Now agent state ≠ environment state 
+  Formally this is a partially observable decision process ( POMDP ) 
+ A policy defines the agent ’s behaviour 
+  It is a map from agent state to action 
+  
+ Value Function 
+  Value function is a prediction of future reward 
+  Used to evaluate the goodness / badness of states 
+  And therefore to select between actions , e.g. 
+ 𝑣 𝑠 = 𝔼 𝑅 + 𝛾𝑅 + 𝛾2𝑅 + ⋯|𝑆 = 𝑠 , 𝜋 
+ 𝜋 𝑡+1 𝑡+2 𝑡+3 𝑡 
+  We introduced a discount factor 𝛾 ∈ 0,1 
+  Trades off importance of immediate vs long - term rewards 
+  
+ The value depends on a policy 𝜋 
+  The goal is to maximize value , by picking suitable actions 
+  
+ Rewards and values define utility of states and action ( no supervised feedback ) 
+  
+ A model does not immediately give us a good policy - we would still need to 
+ plan 
+ We could also consider stochastic ( generative ) models 
+ Pick actions on joystick , see pixels 
+ and scores 
+  Rules of the game are known 
+ All components are functions 
+  Policies : 𝜋 : 𝒮 → 𝒜 ( or to probabilities over 𝒜 ) 
+  Value functions : 𝑣 : 𝒮 → ℝ 
+  Models : 𝑚 : 𝒮 → 𝒮 and/or 𝑟:𝒮 → ℝ 
+  State update : 𝑢 : 𝒮 × 𝒪 → 𝒮 
+  E.g. , we can use neural networks , and use deep learning techniques to learn 
+  
+  Reinforcement learning is like trial - and - error learning 
+  The agent should discover a good policy 
+  ... from its experiences of the environment 
+  ... without losing too much reward along the way 
+  Exploration finds more information about the environment 
+  Exploitation exploits known information to maximize reward 
+  
+  Restaurant Selection 
+  Exploitation Go to your favorite restaurant 
+  Exploration Try a new restaurant 
+  Online Banner Advertisements 
+  Exploitation Show the most successful advert 
+  Exploration Show a different advert 
+  Oil Drilling 
+  Exploitation Drill at the best known location 
+  Exploration Drill at a new location 
+  Game Playing 
+  Exploitation Play the move you currently believe is best 
+  
+ Exploration 
+ Try a new strategy 
+ Prediction and Control 
+  Prediction : evaluate the future ( for a given policy ) 
+  Control : optimize the future ( find the best policy ) 
+  
+ These can be strongly related : 
+ 𝜋 𝑠 = argmax 𝑣 𝑠 
+ ∗ 𝜋 
+ 𝜋 
+  If we could predict everything do we need anything else ? 
+  What is the optimal policy ?

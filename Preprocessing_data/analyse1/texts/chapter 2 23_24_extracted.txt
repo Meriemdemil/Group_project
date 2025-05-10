@@ -1,0 +1,743 @@
+Taylor Formula 
+ 1 
+ Taylor Formula 
+  formula with integral remainder 
+  formula with Lagrange remainder 
+  formula with remainder 
+ 2 
+ Taylor Formula 
+ THEOREM ( formula with integral remainder ) 
+ Let f a function defined on an open interval 𝐼 𝑜𝑓 ℝ 
+ 𝑛+1 
+ and verify : f is class 𝐶 on 𝐼 , and let 𝑥 and 𝑥 ∊ 𝐼 
+ 0 
+ Then we have : 
+ k 
+ k 
+   
+ n f x 
+     0   
+ f x  x  x  R x , x 
+ 0 n 0 
+ k ! 
+ k0 
+ 3 
+ Taylor Formula 
+ where 
+ n1 
+    
+ n 
+ f t x  t 
+ x 
+   
+ R x , x   dt 
+ n 0 
+ x n ! 
+ 0 
+ 4 
+ Taylor Formula 
+ The above formula is called the 
+ formula with integral remainder . 
+ The 
+ polynomial : 
+ 5 
+ p 
+ n 
+  
+ x 
+  
+  
+ k 
+ n 
+  0 
+  
+ x  x 
+ 0 
+  
+ k 
+ f 
+  k  
+ k 
+  
+ ! 
+ x 
+ 0 
+  
+ is called a regular or a smooth part of f 
+ Taylor Formula 
+ ( formula with Lagrange remainder ) 
+ THEOREM 
+ Let f a function defined on an open interval 𝐼 𝑜𝑓 ℝ and 
+ 𝑛 ( 𝑛+1 ) 
+ verify : f is classe 𝐶 on 𝐼 , and 𝑓 exists on 𝐼 and let 𝑥 and 𝑥 ∊ 𝐼 
+ 0 
+ then there exists such that : 
+ 6 
+ f 
+ c 
+  
+ x 
+  
+ x 
+  
+ 0 
+ k 
+ n 
+  0 
+  
+ x 
+  
+  
+ x 
+ x 
+ 0 
+ x 
+  
+ k 
+ 0 
+  
+ f 
+ , 
+  
+ k 
+  
+ k 
+  
+ ! 
+ x 
+ 0 
+  
+  
+ 0 
+  
+ , 1 
+  
+  
+ x  x 
+ 0 
+  
+ n  1 
+ f 
+  
+  
+ n 
+ n  
+  
+ 1 
+  
+ 1 
+  
+ c 
+  
+ ! 
+  
+       
+ Taylor Formula 
+ the terme 
+ 7 
+ R 
+ n 
+  
+ x , x 
+ 0 
+  
+  
+  
+ x  x 
+ 0 
+  n 
+ f 
+  
+  
+ n 
+ n  
+  
+ 1  
+ 1 
+  
+ c 
+  
+ ! 
+  
+ is called Lagrange remainder 
+ Remark 
+ For 𝑛=0 this is exactly the statement of mean 
+ value theorem . 
+ Formula 
+ • Applications 
+ ∞ 
+ For is of 𝐶 classe on ℝ then we can 
+ we can apply the previous formula . 
+ Alors , such that 
+ 𝑥 ( 𝑛 ) 𝑥 
+ We have ∀𝑛 ∈ ℕ ( 𝑒 ) = 𝑒 
+ 8 
+ f  x   e x 
+   
+ c  tx , t  0,1 
+ e 
+ x 
+  
+  
+ k 
+ n 
+  0 
+ x 
+ k 
+ k 
+ ! 
+  
+  
+ x 
+ n 
+ n  
+  
+ 1 e 
+ 1 
+ c 
+  
+ ! 
+ for all x∈ ℝ 
+ Taylor Formula 
+ let 𝑓 𝑥 = 𝑐𝑜𝑠𝑥 . 
+ we can apply the previous formula . 
+ ∞ 
+ for all x∈ ℝ and ∀𝑛 ∈ ℕ because is of class 𝐶 on ℝ 
+ Furthermore we know that 
+ ∀𝑛 ∈ ℕ 
+ then we have , 
+ 9 
+ f 
+  n   
+ 0 
+  
+ c o s n 
+ 2 
+  
+ f 
+ 0 
+ 1 
+  k 
+ n 
+ n 
+ 2 k 
+ 2 k 
+ 1 
+  
+  
+   
+  
+  
+  
+  
+  
+  
+ n x 2k x 2n1  
+ Using notations , the Taylor – Young formula is 
+ written : 
+ 𝑛 
+ 𝑘 
+ 𝑓 ( 𝑥 ) 
+ 0 
+ 𝑘 𝑛 
+ 𝑓 𝑥 = ෍(𝑥 − 𝑥 ) + 𝑜 𝑥 − 𝑥 
+ 0 0 
+ 𝑘 ! 
+ 𝑘=0 
+ Indeed 
+ 𝑅 ( 𝑥 , 𝑥 ) 
+ 𝑛 0 
+ = 𝜓 𝑥 − 𝑥 = 0 
+ 0 
+ 𝑥 − 𝑥 𝑛 
+ 0 
+ In practice , we often use this notation . 
+ 22 
+ l ix 
+  
+ m 
+ x 
+ 0 
+ l ix 
+  
+ m 
+ x 
+ 0 
+ Taylor Formula 
+ Examples : 
+ 2 𝑛 
+ 𝑥 𝑥 𝑥 
+ 𝑥 𝑛 
+ 𝑒 = 1 + + + ⋯ + + 𝑜(𝑥 ) 
+ 1 ! 2 ! 𝑛 ! 
+ 2 4 2𝑛 
+ 𝑥 𝑥 𝑥 
+ 𝑛 2𝑛+1 
+ cos 𝑥 = 1 − + + ⋯ + −1 + 𝑜 𝑥 
+ 2 ! 
+ 2𝑛 ! 
+ sin 𝑥 
+ 3 5 2𝑛+1 
+ 𝑥 𝑥 𝑥 
+ 𝑛 2𝑛+2 
+ = 𝑥 − + − ⋯ + −1 + 𝑜 𝑥 
+ 3 ! 5 ! 2𝑛 + 1 ! 
+ 23 
+ Taylor Formula 
+ local study 
+ • Extremum 
+ A function 𝑓 has an extremum at 𝑥 
+ 0 
+ if 𝑓 𝑥 − 𝑓(𝑥 ) keeps a constant sign on a neighborhood 
+ 0 
+ of 𝑥 of the type 𝜏 = 𝑥 − 𝛼 , 𝑥 + 𝛼 , 𝛼 > 0 , 
+ 0 𝑥 0 0 
+ 0 
+ Let 's write the Taylor - Yong formula 
+ ′ 𝑥 ′′ 𝑥 
+ 𝑓 0 𝑓 0 
+ 2 
+ 𝑓 𝑥 − 𝑓 𝑥 = 𝑥 − 𝑥 + 𝑥 − 𝑥 + ⋯ 
+ 0 0 0 
+ 1 ! 
+ 𝑛 
+ 𝑓 𝑥 
+ 0 
+ 𝑛 𝑛 
+ + 𝑥 − 𝑥 + 𝑜 𝑥 − 𝑥 ( 1 ) 
+ 0 0 
+ 𝑛 ! 
+ 24 
+ Taylor Formula 
+ 1 ) If 𝑓′(𝑥 ) ≠ 0 , as 𝑥 − 𝑥 changes the 
+ 0 0 
+ sign on 𝜏 , then 𝑓 𝑥 − 𝑓(𝑥 ) changes 
+ 𝑥 0 
+ 0 
+ the sign on 𝜏 , and therefore 𝑓 has no extrema 
+ 𝑥 
+ If 𝑘 is even , 𝑓 has an extremum at 𝑥 . 
+ 0 
+ Moreover , 
+ a. 
+ If 𝑓 𝑘 ( 𝑥 ) > 0 , 𝑓 has a minimum at 𝑥 . 
+ 0 0 
+ b. 
+ If 𝑓 𝑘 ( 𝑥 ) < 0 , 𝑓 has a maximum en𝑥 . 
+ 0 0 
+ 31 
+ So , for the existence of the 
+ 0 
+ ′′ 
+ inflection point , the condition 𝒇 𝒙 = 𝟎 is only 
+ 𝟎 
+ necessary but not sufficient . 
+ 38 
+ Taylor Formula 
+ • 
+ If is odd , the curve admits an inflection 
+ 𝑘 𝐶 
+ 𝑓 
+ point at 
+ 𝑀 . 
+ 0 
+ ii . 
+ If is even , the curve does not admit an 
+ 𝑘 𝐶 
+ 𝑓 
+ inflection point at , moreover 
+ 𝑀 
+ 0 
+ a)If 𝑘 , the curve is above its 
+ 𝑓 ( 𝑥 ) > 0 
+ 0 
+ tangent line at the point 
+ 𝑀 . 
+ 0 
+ b ) If 𝑘 , is below its tangent line at 
+ 𝑓 ( 𝑥 ) < 0 
+ 0 
+ the point 
+ 𝑀 . 
+ 0 
+ 40 
+ Taylor Formula 
+ • Example : 
+ 𝜋 
+ 𝑓 𝑥 = cos 𝑥 , 𝑥 = , 
+ 0 
+ 4 
+ We have : 
+ 2 𝜋 2 𝜋 2 2 𝜋 2 
+ cos 𝑥 = − 𝑥 − − 𝑥 − + 𝑜 𝑥 − 
+ 2 4 2 4 2 4 
+ 41 
+ Taylor Formula 
+ The tangente line equation to the cure at a point 
+ 𝐶 𝑀 
+ 𝑓 0 
+ is 
+ 2 𝜋 2 2 𝜋 
+ 𝑦 = − 𝑥 − = −𝑥 + 1 + 
+ 2 4 2 2 4 
+ and 
+ 𝜋 2 2 𝜋 2 
+ cos 𝑥 − 𝑦 = − 𝑥 − + 𝑜 𝑥 − 
+ 4 2 4 
+ We can clearly see that cos 𝑥 − 𝑦 ≤ 0 on 𝜏 , the the curve 
+ 𝑥 
+ 0 
+ 𝐶 below its tangent line on 𝝉 
+ 𝑓 𝒙 
+ 𝟎 
+ 42 
+ Limited developments 
+ Definitions and properties 
+  INTRODUCTION 
+  Usual limited development 
+  Properties and examples 
+  – Young theorem 
+  Necessary condition for the existence of a LD 
+ Limited developments 
+ • INTRODUCTION 
+ We have seen that , via 's formula , we can approximate a 
+ function 𝒇 by a polynomial . 
+ But in 's formula , we require the 
+ function f to be regular or smooth , that is to say differentiable up to 
+ order n on a neighborhood of the point 𝑥 . 
+ On the other hand , this 
+ 0 
+ regularity is not required to obtain a limited development of a 
+ function . 
+ This is the advantage of limited developments which make 
+ it possible to approach regular or non - regular functions using 
+ polynomials . 
+ The other advantage is to use simple D.L. calculation 
+ techniques to find the expansions , for regular functions , 
+ without knowing the derivatives of 𝒇 at 𝑥 , and consequently , we 
+ 0 
+ can simply obtain derivatives of 𝒇 at 𝑥 . 
+ If f is odd then 
+ 𝑎 = 𝑎 = ⋯ = 𝑎 = 0 
+ 0 2 2𝑘 
+ Limited developments 
+ Proof : 
+ Suppose f is even . 
+ But there 
+ is also a condition that the function f must satisfy 
+ to admit a L.D , at zero . 
+ Limited developments 
+ • Necessary condition for the existence of a L.D 
+ Proposition 
+ If 𝑓 has a limited expansion at 0 
+ then lim 𝑓(𝑥 ) exists and is finite . 
+ 𝑥→0 
+ Limited developments 
+ • Noticed 
+ This resul of this proposition allows us to 
+ recognize functions that do not have limited 
+ devlopment . 
+ Limited developments 
+ • Proposition : 
+ A function 𝑓 admits a limited expansion , of orde 𝑛 
+ at 𝑥 , if and only if , the function 
+ 0 
+ 𝑔 𝑡 = 𝑓 𝑡 + 𝑥 admits a limited expansion , of 
+ Limited developments 
+ Limited developments 
+  
+ Limited developments to the neighborhood of 
+ infinity 
+ Noticed 
+ We have the same definition for the development 
+ limited to the neighborhood of −∞ , for a function 
+ defined on an interval of the form −∞ , 𝛼 . 
+ Limited developments 
+  
+ Generalized Limited developments 
+  
+ Let 's start with an example 
+ Exemple : 
+ Limited developments 
+ Limited developments 
+ Application of Limited Developments 
+ Find the limits . 
+ Generally are the limits of indeterminate form . 
+ It is always possible , with a change of variable , to 
+ return to a limit when x tends towards 0 . 
+ Limited developments 
+ • Examples . 
+ 𝜋 
+ 1 . Calculete lim(𝑥 − ) tan 𝑥 . 
+ 𝜋 2 
+ 𝑥→ 
+ 2 
+ We see that this limit is of the indeterminate form 
+ 𝜋 
+ 0 ∙ ∞. we set X = 𝑥 − , 
+ 2 
+ 𝜋 𝜋 
+ ( 𝑥 − ) tan 𝑥 = 𝑋 tan(𝑋 + ) 
+ 2 2 
+ Limited developments 
+ 𝜋 
+ sin(𝑋 + ) 
+ 𝑋 
+ 2 
+ 𝑋 = − 
+ 𝜋 
+ tan 𝑋 
+ cos(𝑋 + ) 
+ 2 
+ On connait le DL de tan 𝑋 en 0 
+ 3 
+ 𝑋 
+ 3 
+ tan 𝑋 = 𝑋 + + 𝑜 𝑋 
+ 3 
+ En remplaçant on a 
+ 𝜋 𝑋 
+ lim(𝑥 − ) tan 𝑥=lim 
+ 𝜋 2 𝑋→0 tan 𝑋 
+ 𝑥→ 
+ 2 
+ Limited developments 
+ 𝜋 
+ lim(𝑥 − ) tan 𝑥 
+ 𝜋 2 
+ 𝑥→ 
+ 2 
+ 𝑋 
+ = −lim = 
+ tan 𝑋 
+ 𝑋→0 
+ 1 
+ lim = −1 
+ 𝑋2 
+ 𝑋→0 
+ 1 + + 𝑜 𝑋2 
+ 3 
+ Limited developments 
+ 1 
+ 2 1/𝑥 
+ 2 . 
+ Find lim 𝑥 𝑒 − 𝑒 . We set 
+ 1+𝑥 
+ 𝑥→+∞ 
+ 1 
+ X = . Then we have 𝑥 → + ∞ if only if X → 0 
+ 𝑥 
+ 1 1 𝑋 
+ 2 1/𝑥 𝑋 
+ 𝑥 𝑒 − 𝑒1+𝑥 = 𝑒 − 𝑒1+𝑋 
+ 𝑋2 
+ It is sufficient to calculate the DL at a certain order 
+ of : 
+ 1 𝑋 
+ 𝑋 
+ 𝑒 − 𝑒1+𝑋 
+ 𝑋2 
+ Limited developments 
+ We have : 
+ 𝑋 
+ 2 2 
+ = 𝑋 − 𝑋 + 𝑜 𝑋 
+ 1 + 𝑋 
+ 2 
+ 𝑌 
+ 𝑌 2 
+ 𝑒 = 1 + 𝑌 + + 𝑜 𝑌 
+ 2 ! 
+ 2 
+ 𝑋 𝑋 
+ 2 
+ 𝑒1+𝑋 = 1 + 𝑋 − + 𝑜 𝑋 
+ 2 ! 
+ 𝑋 
+ 1 
+ 𝑋 2 
+ so 𝑒 − 𝑒 = 1+𝑜 𝑋 
+ 1+𝑋 
+ 2 
+ 𝑋 
+ Therefore 
+ 1 
+ 2 1/𝑥 
+ lim 𝑥 𝑒 − 𝑒 = 1 . 
+ 1+𝑥 
+ 𝑥→+∞ 
+ Limited developments 
+ Position of the curve relative to a tangent line 
+ Suppose that f admits a DL of order n at 𝑥 
+ 0 
+ 2 
+ 𝑓 𝑥 = 𝑎 + 𝑎 𝑥 − 𝑥 + 𝑎 𝑥 − 𝑥 + ⋯ 
+ 0 1 0 2 0 
+ 𝑛 𝑛 
+ + 𝑎 𝑥 − 𝑥 + 𝑜 ( 𝑥 − 𝑥 ) avec 𝑛 ≥ 2 . 
+ So we have 
+ 𝑚 
+ If m is even then the sign of 
+ ∆= 𝑓 𝑥 − 𝑎 + 𝑎 𝑥 − 𝑥 
+ 0 1 0 
+ is locally of the same sign as 𝑎 and we have 
+ 𝑚 
+ 1 . If 𝑎 > 0 then ∆≥ 0 locally and therefore the curve is 
+ 𝑚 
+ locally above its tangent line . 
+ 2 . Si 𝑎 < 0 alors ∆≤ 0 locally and therefore the curve is 
+ 𝑚 
+ locally below its tangent line . 
+ • If m is odd the the curve untersect its tangent line at 
+ 𝑥 , 𝑓 𝑥 it is an inflection tangent line . 
+ 0 0 
+ Limited developments 
+ Position de la courbe par rapport à une asymptote 
+ Supposons que f admet une asymptote d’équation 
+ 𝑦 = 𝑎 𝑥 + 𝑎 
+ 0 1 
+ Pour trouver 𝑎 et 𝑎 en utilisant la méthode des 
+ 0 1 
+ 1 1 
+ DL à l’ordre 1 de la fonction X𝑓 , 𝑋 = 
+ 𝑋 𝑥 
+ 1 
+ Si X𝑓 = 𝑎 + 𝑎 𝑋 + 𝑜 𝑋 en 0 , 
+ 0 1 
+ 𝑋 
+ 1 1 1 
+ on a 𝑓 𝑥 = 𝑎 + 𝑎 + 𝑜 au V + ∞ 
+ 0 1 
+ 𝑥 𝑥 𝑥 
+ 𝑓 𝑥 
+ On voit que lim = 𝑎 
+ 0 
+ 𝑥→+∞ 𝑥 
+ et 
+ lim 𝑓 𝑥 − 𝑎 𝑥 = 𝑎 
+ 0 1 
+ 𝑥→+∞ 
+ Limited developments 
+ Position de la courbe par rapport à l’asymptote 
+ 1 
+ on doit calculer un DL d’ordre supérieure de X𝑓 
+ 𝑋 
+ en 0 . 
+ 1 
+ 2 𝑛 𝑛 
+ Si X𝑓 = 𝑎 + 𝑎 𝑋 + 𝑎 𝑋 + ⋯ + 𝑎 𝑋 + 𝑜(𝑋 ) . 
+ 0 1 2 𝑛 
+ 𝑋 
+ 1 1 1 
+ 𝑓 𝑥 -(𝑎 𝑥 + 𝑎 ) = 𝑎 … + 𝑎 + 𝑜 
+ 0 1 2 𝑛 
+ 𝑛−1 𝑛−1 
+ 𝑥 𝑥 𝑥 
+ Soit m le plus petit entier tel que 𝑎 ≠ 0 . 
+ Rép : 
+ La fonction 𝑥 ⟼ 𝑥 , n’admet pas de 
+ développement limité d’ordre 1 en zéro . 
+ Les développements limités 
+ Encore en peut écrire : 
+ 𝑥7=𝑎 + 𝑎 𝑥 + 𝑎 𝑥 2 + 𝑎 𝑥 3 + 𝑎 𝑥 4 + 𝑥 4 𝜑(𝑥 ) , 
+ 0 1 2 3 4 
+ 1 
+ − 
+ avec 𝑎 = 𝑎 = 𝑎 = 𝑎 = 𝑎 = 0 et 𝜑 𝑥 = 𝑥 
+ 2 
+ 0 1 2 3 4 
+ mais 
+ lim 𝜑 𝑥 = + ∞ . 
+ In this case does not 
+ 𝑥→0 𝑔 
+ admit L.D to order n at 0 , because 
+ 𝑓 𝑥 
+ lim = ±∞. 
+ 𝑥→0 𝑔 𝑥 
+ 2 . lim 𝑓(𝑥 ) = 0 . 
+ In this case the D.L of f is 
+ 𝑥→0 
+ of the form 
+ 𝑝 𝑛 𝑛 
+ 𝑓 𝑥 = 𝑎 𝑥 + ⋯ + 𝑎 𝑥 + 𝑥 𝜑 𝑥 
+ 𝑝 𝑛 
+ Limited Developments 
+ Operation on Limited Development . 
+ • Treatment of the case lim 𝑔(𝑥 ) = 0 . 
+ 𝑥→0 
+ And that of g is of the form 
+ 𝑞 𝑛 𝑛 
+ 𝑔 𝑥 = 𝑏 𝑥 + ⋯ + 𝑏 𝑥 + 𝑥 𝜓 𝑥 
+ 𝑞 𝑛 
+ 𝑓 
+ with 𝑎 ≠ 0 𝑎𝑛𝑑 𝑏 ≠ 0 . 
+ We treat the quotient 
+ 𝑝 𝑞 
+ 𝑔 
+ according to the values of p and q. 
+ • 
+ If p < q but 𝑎 ≠ 0 , we show that 
+ 𝑝 
+ 𝑓 𝑥 𝑓 
+ lim = ±∞ and therefore 
+ 𝑥→0 𝑔 𝑥 𝑔 
+ does not admit a L.D to order n at 0 . 
+ Limited Developments 
+ Operation on Limited Development 
+ • Treatment of the case lim 𝑔(𝑥 ) = 0 . 
+ 𝑥→0 
+ 𝑓 
+ • If p ≥ q we reduce the quotient to the form 
+ 𝑔 
+ 𝑓 
+ 1 
+ with lim 𝑔 ( 𝑥 ) ≠ 0 . 
+ So to calculate the 
+ 1 
+ 𝑔 𝑥→0 
+ 1 
+ 𝑓 
+ D.L of to order n at 0 , we calculate the 
+ 𝑔 
+ D.L of f and g to order n + q , and then we 
+ use the method ofdivision according to 
+ increasing powers . 
+ On a 
+ 3 5 
+ 𝑥 𝑥 
+ 5 
+ sin 𝑥=𝑥 − + + 𝑜 𝑥 
+ 3 ! 5 ! 
+ Par conséquent le premier coefficient non - nul 
+ est 𝑏 . 
+ Limited Developments 
+ Operation on Limited Development 
+ • Proposition 
+ ( L.D of composition function ) 
+ If the functions 𝑓 and 𝑢 have limited expansions of order 𝑛 
+ and if lim 𝑢(𝑥 ) = 0 then the function g= 𝑓 ∘ 𝑢 admits a 
+ 𝑥→0 
+ limited expansion of order 𝒏 . 
+ In fact we have 
+ tan 𝑥 = − ln(cos ) ′ 𝑥 
+ Limited Developments 
+ Operation on Limited Development 
+ Differentiability of L.D 
+ • Example 2 
+ Le D.L à l’ordre 6 de : 
+ 6 ! 
+ Limited Developments 
+ Operation on Limited Development 
+ Differentiability of L.D 
+ • Example 2 
+ 2 4 6 
+ 𝑥 𝑥 𝑥 
+ 6 
+ ln cos 𝑥 = − − − + 𝑜 𝑥 
+ 2 12 90 
+ The opposite of the derivative gives 
+ 3 5 
+ 𝑥 𝑥 
+ 5 
+ 𝑡𝑔 𝑥 = 𝑥 + + + 𝑜(𝑥 ) 
+ 3 15

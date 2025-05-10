@@ -1,0 +1,445 @@
+Université des sciences et de la Technologie Houari Boumediene 
+ USTHB – Alger 
+ Département d’Informatique 
+ MASTER SYSTÈMES INFORMATIQUES INTELLIGENTS 
+ MASTER INFORMATIQUE VISUELLE LA MÉTA - BASE 
+ ( LES CATALOGUES ) 
+ ARCHITECTURE ET ADMINISTRATION DES 
+ BASES DE DONNÉES 
+ ORACLE , SQL SERVER , MYSQL 
+ ET DB2 
+ ENSEIGNANT : M. KAMEL BOUKHALFA 2 
+ PLAN 
+ ( cid:0)Un peu de théorie 
+ ( cid:0)Dictionnaire de données Oracle 
+ ( cid:0)Les catalogues système de SQL SERVER 
+ ( cid:0)Catalogues de MySQL 
+ ( cid:0)Catalogues de DB2 d’IBM 
+ ( cid:0)Conclusion 
+ ( cid:0)Bibliographie 
+ 3 
+ RAPPEL 
+ 4 
+ Administrateur Utilisateur Applications 
+ Programmes 
+ Requêtes DDL Requêtes 
+ Interactives Compilateur du 
+ Pré - Compilateur 
+ langage de Prog . 
+ Compilateur DDL Compilateur Commandes DML 
+ de Requêtes 
+ Transactions 
+ Compilateur DML 
+ Compilées 
+ Méta - base 
+ Gestionnaire Exécute Processeur de BD 
+ des données 
+ Module de contrôle des 
+ accès concurrents 
+ BD 
+ Module de Restauration 
+ et de recouvrement 
+ UN PEU DE THÉORIE 
+ Une base de données contient des relations de base , des chemins 
+ d’accès et des vues . 
+ Le SGBD , pour fonctionner et assurer ses objectifs doit pouvoir 
+ retrouver les différentes informations sur ces catégories d’information . 
+ 🡪 CATALOGUES 
+ Les catalogues sont des relations ( tables ) . 
+ Ces relations contiennent des informations sur tous les objets de la 
+ base de données . 
+ Sans ces informations le SGBD ne peut pas assurer ses objectifs . 
+ PRINCIPAUX CATALOGUES 
+ ( cid:0)La relation RELATION : 
+ Chacun de ses tuples décrit une relation de la 
+ base . 
+ ( cid:0)La relation ATTRIBUT : 
+ chacun de ses tuples décrit 
+ un attribut d’une 
+ relation de la base 
+ ( cid:0)La relation INDEX : 
+ chacun de ses tuples décrit une relation index crée 
+ sur une relation de base ou système . 
+ ( cid:0)La relation VUE : chacun de ses tuples décrit une vue de la base . 
+ ( cid:0)La relation AUTORISATION : 
+ chacun de ses tuples décrit un utilisateur 
+ avec les droits qui lui sont accordés sur chaque objet de la 
+ base(lecteur / écriture / modification … ) 
+ 6 
+ RELATION 
+ Nom relation Type Ident Taille tuple Cardinalité Degré Date Version Adresse 
+ ( nom relation relation ( nbre ( nombre ( nombre création 1er 
+ externe ) ( nom octets ) tuples ) attributs ) attribut 
+ interne ) 
+ Relation système 1 100 50 09 25/03/02 1 
+ Fournisseur Base 10 110 1000 04 25/03/02 1 @ 
+ 7 
+ ATTRIBUT 
+ Chaque tuple est un descripteur d’une relation dans la base de 
+ ⦿ 
+ donnée . 
+ Informations incluses : 
+ ⦿ 
+ Nom de la relation 
+ ⦿ 
+ Type de la relation 
+ ⦿ 
+ Taille 
+ ⦿ 
+ Cardinalité 
+ ⦿ 
+ Date de création , 
+ ⦿ 
+ Adresse du premier attribut 
+ ⦿ 
+ 8 
+ Chaque tuple décrit un attribut d’une relation de la base 
+ ⦿ 
+ Informations incluses : 
+ ⦿ 
+ Nom de l’attribut 
+ ⦿ 
+ Identificateur attribut 
+ ⦿ 
+ Identificateur relation 
+ ⦿ 
+ Type attribut 
+ ⦿ 
+ longueur 
+ ⦿ 
+ Position de l’attribut dans la table 
+ ⦿ 
+ Nom attribut Identificateur Identificateur Type attribut longueur Position attribut 
+ ( nom externe ) attribut relation dans la relation 
+ Numf 11 02 Integer 06 01 
+ Nomf 12 02 Char 10 02 
+ INDEX 
+ 9 
+ VUE 
+ Chaque tuple décrit UN index cré sur une relation de base ou 
+ ⦿ 
+ système 
+ Informations incluses : 
+ ⦿ 
+ Nom de l’index 
+ ⦿ 
+ Identificateur de la relation indexée 
+ ⦿ 
+ Type de l’index 
+ ⦿ 
+ Attributs indexés 
+ ⦿ 
+ Nom index Identification relation Type Liste arguments index 
+ ( primaire , secondaire ) 
+ XFOUR 02 P Numf 
+ XSFOUR 02 S villef 
+ 01 
+ Chaque tuple décrit une vue créée sur la base . 
+ ⦿ 
+ Informations incluses : 
+ ⦿ 
+ Identificateur de la vue 
+ ⦿ 
+ Identificateurs des relations de base utilisées par la vue 
+ ⦿ 
+ Requête définissant la vue 
+ ⦿ 
+ Identificateur(s ) des relations de Identificateur de la vue Requête qui définit la vue 
+ base 
+ 02 100 
+ Select * from fournisseur where 
+ villef = ’ Tunis ’ 
+ CATALOGUES - SGBD 
+ ❖ 
+ Les catalogues dépendent du SGBD 
+ ❖ Chaque SGBD possède une spécificité 
+ ❖ D’autres catalogues peuvent exister 
+ Les structures des catalogues peuvent être différentes selon 
+ les SGBDs 
+ ORACLE 
+ 21 
+ LE DICTIONNAIRE DE DONNÉES 
+ ORACLE 
+ Organisé comme une base de données ( ensemble de 
+ ❖ La plupart de ses tables ne sont pas modifiables par 
+ les utilisateurs(seul l’administrateur de la base 
+ système , a accès à ces dernières ) . 
+ ❖ Le contenu de ces tables est accessible par 
+ l’intermédiaire des vues . 
+ CLASSEMENT DE VUES DE 
+ DICTIONNAIRE DE DONNÉES 
+ USER_XXX 
+ •décrit les objets appartenant à l’utilisateur connecté 
+ ALL_XXX : 
+ •décrit les objets accessibles à tous les utilisateurs 
+ DBA_XXX : 
+ •décrit tous les objets ( vues autorisées aux administrateurs de la 
+ base seulement … ) 
+ V$_XXX : 
+ •pour le suivi des performances 
+ 41 
+ QUELQUES VUES DE DICTIONNAIRE 
+ D’ORACLE 
+ Nom de la vue contenu 
+ DICTIONARY ( DICT ) Vues permettant de consulter le dictionnaire de données 
+ tables et vues crées par l’utilisateur 
+ USER_TABLES ( TABS ) 
+ Tables et vues sur lesquelles l’utilisateur a des droits ( lecture , 
+ ALL_CATALOG ( CAT ) 
+ écriture , modification … ) 
+ USER_TAB_COLUMNS 
+ Colonnes de chaque table ou vue crée par l’utilisateur courant 
+ ( COLS ) 
+ USER_VIEWS Vues crées par l’utilisateur 
+ Indexes crées par l’utilisateur ou indexant des tables crées par 
+ USER_INDEXES ( IND ) 
+ l’utilisateur 
+ Objets sur lesquels l’utilisateur est propriétaire , donneur ou 
+ USER_TAB_PRIVS 
+ receveur d’autorisation 
+ USER_CONSTRAINTS Définition de contraintes pour les tables d’utilisateur 
+ 51 
+ REQUÊTES UTILES 
+ ( cid:0)DESCRIBE table / vue 
+ ( cid:0)pour avoir tous les attributs de cette table ou vue 
+ ( cid:0)select comments from DICT where table_name=‘nom d’une vue de 
+ dictionnaire de données ‘ 
+ ( cid:0)Utiliser l’attribut comments de la vue DICTIONARY pour connaitre 
+ le contenu de la vue . 
+ 61 
+ QUELQUES EXEMPLES 
+ Structure d’une table 
+ SELECT COLUMN_NAME , DATA_TYPE , DATA_LENGTH , DATA_PRECISION FROM USER_TAB_COLUMNS WHERE TABLE_NAME = 
+ ’ INSTALLER ’ ; 
+ COLUMN_NAME DATA_TYPE DATA_LENGTH DATA_PRECISION 
+ ------------ 
+ SELECT OBJECT_NAME , OBJECT_TYPE , CREATED FROM USER_OBJECTS ; 
+ OBJECT_NAME OBJECT_TYPE CREATED 
+ ------------------------------ ------------------ 
+ SQL 
+ SERVER 
+ 81 
+ LES CATALOGUES SYSTÈME DE SQL 
+ SERVER 
+ ❖ 
+ Un ensemble de vues affichant les métadonnées 
+ décrivant les objets dans une instance de SQL 
+ Server 
+ ❖ 
+ Les métadonnées ne sont visibles que pour les 
+ éléments sécurisables qu'un utilisateur détient ou 
+ pour lesquels des autorisations lui ont été 
+ accordées . 
+ 91 
+ L’ACCÈS AUX INFORMATIONS DES 
+ CATALOGUES SYSTÈME 
+ ❖ Affichage catalogue . 
+ ( la plus recommandée ) 
+ ❖ Vues des schémas d'information . 
+ ❖ Ensembles de lignes de schémas OLE DB . 
+ ❖ Fonctions de catalogue ODBC . 
+ ❖ Fonctions et procédures stockées système . 
+ 02 
+ VUES D’AFFICHAGE CATALOGUE 
+ OBJETS 
+ 12 
+ EXEMPLE DE REQUÊTES 
+ Vue de catalogue Contenu 
+ Sys.objects 
+ Contient une ligne pour chaque objet(table sys , table user , Toutes les tables définies par l'utilisateur dans une base de 
+ contraint check , primary key .. ) 
+ données spécifiée(simple ): 
+ Sys.tables(hérite de sys.objects 
+ Toutes les table de la base en cours ( définies par l’utilisateur ) 
+ sys.columns , informations sur toutes les colonnes pour chaque table de la Use < database_name > 
+ sys.computed_columns(calculée ) base , les autres vues sont pour des colonnes de type particulier 
+ sys.foreign_key_column ( elles héritent de sys.columns ) go 
+ sys.identity_columns 
+ sys.foreign_keys Informations sur les contraintes de type clé étrangères Select * from sys.tables 
+ sys.foreign_key_columns 
+ sys.indexes 
+ Information sur les indexes de tables de la base en cours(nom 
+ go 
+ de l’index , la table sur laquelle l’index est crée ) 
+ sys.check_constraints , Informations sur les différentes contraintes . 
+ sys.default_constraints , 
+ sys.key_constraints 
+ 22 
+ MYSQL 
+ 32 
+ MYSQL 
+ ❖ MySQL dispose d'un catalogue système pour l'ensemble des 
+ bases de données présentes dans le SGBD . 
+ ❖ Le nom de cette base , accessible en lecture , est 
+ INFORMATION_SCHEMA . 
+ ❖ Une collection de vues systèmes et non pas de tables 
+ physiques . 
+ ❖ Pour se placer dans le catalogue , il suffit de taper la 
+ commande suivante : USE INFORMATION_SCHEMA ; 
+ 42 
+ CATALOGUES ET DICTIONNAIRE DE 
+ DONNÉES 
+ Les informations concernant les bases sont décrites dans la vue 
+ système SCHEMATA . 
+ Pour obtenir toutes les informations sur une base de données on 
+ utilise l’attribut SCHEMA_NAME . 
+ SELECT * 
+ FROM INFORMATION _ SCHEMA . 
+ SCHEMATA 
+ WHERE SCHEMA _ NAME = ' nom _ base ' ; 
+ 52 
+ LES TABLES 
+ Les métadonnées des tables sont présentes dans la vue système 
+ TABLES . 
+ Les informations couramment utilisées dans cette vue système sont : 
+ • TABLE_SCHEMA 
+ • TABLE_NAME 
+ • TABLE_TYPE 
+ • ENGINE 
+ • TABLE_ROWS 
+ • DATA_LENGTH 
+ • MAX_DATA_LENGTH 
+ • INDEX_LENGTH 
+ • AUTO_INCREMENT 
+ • CREATE_TIME : date et heure de création de la table ; 
+ • TABLE_COLLATION 
+ 62 
+ LES COLONNES 
+ Les métadonnées sur les colonnes ( ou champs ) sont contenues dans la vue système 
+ COLUMNS . 
+ Les informations les plus utiles dans cette vue système sont les suivantes : 
+ • TABLE_SCHEMA 
+ • TABLE_NAME 
+ • COLUMN_NAME 
+ • ORDINAL_POSITION 
+ • COLUMN_DEFAULT : la valeur par défaut de la colonne ; 
+ • IS_NULLABLE DATA_TYPE 
+ • CHARACTER_MAXIMUM_LENGTH 
+ • Etc … .. 
+ 72 
+ LES INDEX 
+ La vue système STATISTICS contient les métadonnées sur les index 
+ Une partie de cette information se retrouve dans la vue système décrivant les colonnes . 
+ Les informations les plus utiles sont : 
+ • TABLE_SCHEMA 
+ • TABLE_NAME 
+ • NON_UNIQUE 
+ • INDEX_NAME 
+ • SEQ_IN_INDEX 
+ • COLUMN_NAME 
+ • CARDINALITY 
+ • INDEX_TYPE 
+ 82 
+ LES CONTRAINTES 
+ Pour les informations sur les contraintes d'une table , il faut utiliser la 
+ combinaison de deux nouvelles vues systèmes de métadonnées : 
+ TABLE_CONSTRAINTS et KEY_COLUMN_USAGE . 
+ La première des deux vues fournit principalement le type de la 
+ contrainte , alors que la seconde donne les tables et colonnes qui 
+ utilisent cette contrainte . 
+ EXEMPLE 
+ Afficher la liste des clés étrangères d'une table 
+ SELECT * 
+ FROM INFORMATION _ SCHEMA . 
+ TABLE _ CONSTRAINTS 
+ WHERE TABLE _ SCHEMA = ' nom _ base ' 
+ AND TABLE _ NAME = ' nom _ table ' 
+ AND CONSTRAINT _ TYPE = ' FOREIGN KEY ' ; 
+ 03 
+ LES PROCÉDURES STOCKÉES , 
+ FONCTIONS ET DÉCLENCHEURS 
+ Utilisation de la vue système ROUTINES 
+ Les informations sur les procédures stockées et fonctions 
+ ( routines 
+ SELECT * 
+ FROM INFORMATION_SCHEMA.ROUTINES 
+ 13 
+ LES TRIGGERS : 
+ Le catalogue fournit , depuis la version 5.0.10 de MySQL , des informations sur les 
+ déclencheurs ( triggers ) . 
+ Quelques données contenues dans le dictionnaire 
+ • TRIGGER_NAME 
+ • EVENT_MANIPULATION 
+ • EVENT_OBJECT_SCHEMA 
+ • EVENT_OBJECT_TABLE 
+ • ACTION_ORDER 
+ • ACTION_STATEMENT 
+ • ACTION_ORIENTATION 
+ • ACTION_TIMING 
+ • DEFINER 
+ 23 
+ LES PRIVILEGES 
+ Quatre vues systèmes fournissent des informations sur les privilèges globaux sur 
+ un serveur MySQL 
+ • USER_PRIVILEGES ; 
+ • SCHEMA_PRIVILEGES ; 
+ • TABLE_PRIVILEGES ; 
+ • COLUMN_PRIVILEGES . 
+ ( cid:0)La vue système USER_PRIVILEGES fournit des informations sur les utilisateurs 
+ déclarés . 
+ Ces informations sont issues de la table MYSQL.USER . 
+ 33 
+ IBM DB2 
+ 43 
+ LES TABLES 
+ SYSCAT.TABLES 
+ •Vue du catalogue contenant des informations sur les objets créés dans 
+ une base de données , tels que des tables , des vues , … 
+ Les informations ( champs ) couramment utilisées dans cette vue 
+ système 
+ •TABSCHEMA 
+ •TABNAME 
+ •TYPE 
+ •ColCount 
+ •INDEXID 
+ 53 
+ LES VUES ET LES COLONNES 
+ SYSCAT.VIEWS 
+ Permet de visualiser une ou plusieurs lignes par vue définie dans une 
+ instance de base de données . 
+ On peut utiliser cette vue catalogue 
+ pour en savoir plus sur les vues . 
+ Les informations enregistrées dans 
+ cette vue inclut nom de la vue , et la validité de la vue ... 
+ Les colonnes 
+ SYSCAT.COLUMNS 
+ • Utilisé pour stocker des informations sur les colonnes dans une table . 
+ 63 
+ LES INDEX 
+ SYSCAT.INDEXES 
+ • Utilisé pour stocker des informations sur les index définis pour une table donnée . 
+ Les informations remarquables dans cette vue système 
+ • INDSCHEMA 
+ • INDNAME 
+ • DEFINER 
+ • TABSCHEMA 
+ • TABNAME 
+ • Colnames 
+ • UNIQUERULE . 
+ 73 
+ LES DÉCLENCHEURS 
+ SYSCAT.TRIGGERS 
+ • Utilisé pour stocker des informations sur les déclencheurs définis dans une base de 
+ données . 
+ Informations contenues dans la vue 
+ • TRIGSCHEMA 
+ • TRIGNAME 
+ • DEFINER 
+ • TABSCHEMA 
+ • TABNAME 
+ • TRIGTIME 
+ • TRIGEVENET 
+ • GRANULARITE . 
+ 83 
+ AUTRES CATALOGUES UTILES 
+ ❑ SYSCAT.CHECKS - contient des informations sur les contraintes de vérification dans un 
+ tableau 
+ ❑ SYSCAT.COLAUTH - contient des informations sur les droits d'accès des utilisateurs pour 
+ une colonne particulière 
+ ❑ SYSCAT . 
+ DATATYPE - contient des informations sur les types de données intégrés et définis 
+ par l'utilisateur disponible dans la base de données 
+ ❑ SYSCAT . 
+ DBAUTH - des informations d'autorisation des utilisateurs pour une instance de base 
+ de données particulière 
+ ❑ SYSCAT.IND EXAUTH - Avantages pour les utilisateurs sur un index particulier

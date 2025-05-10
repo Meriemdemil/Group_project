@@ -1,0 +1,363 @@
+Prof. 
+ • We discuss the problem of sorting an array of elements . 
+ • We will assume that the array contains only integers , although the 
+ code will allow more general objects . 
+ External sorting ( which must be done on disk or tape ) , will be 
+ discussed at the end of the chapter . 
+ • We will assume the existence of the “ < ” and “ > ” operators ( besides 
+ the assignment operator ) . 
+ They can be used to place a consistent 
+ ordering on the input . 
+ Sorting under these conditions is known as 
+ comparison - based sorting . 
+ Sorting in the STL 
+ • 
+ The interface that will be used is not the same as in the STL sorting algorithms . 
+ • In STL , sorting ( generally quicksort ) is accomplished by use of the function 
+ template sort . 
+ void sort ( Iterator begin , Iterator end ) ; 
+ void sort ( Iterator begin , Iterator end , Comparator cmp ) ; 
+ • 
+ The iterators must support random access . 
+ Insertion Sort 
+ • 
+ It is one of the simplest sorting algorithms . 
+ • Insertion sort consists of N−1 passes . 
+ Then tmp is moved to the correct spot at the end . 
+ Analysis of Insertion Sort 
+ If the input is pre - sorted ( or almost sorted ) , the running time is O ( N ) , 
+ because the test in the inner for loop always fails immediately 
+ 8 
+ • 
+ An inversion in an array of numbers is any ordered pair ( i , j ) having the 
+ property that i < j but a[i ] > a[j ] . 
+ • 
+ • This is exactly the number of swaps that needed to be ( implicitly ) 
+ performed by insertion sort . 
+ We can compute precise bounds on the average running time of insertion 
+ sort by computing the average number of inversions in a permutation . 
+ ( Proof : See textbook . ) 
+ • This theorem implies that insertion sort is quadratic on average . 
+ It also 
+ provides a very strong lower bound about any algorithm that only exchanges 
+ adjacent elements . 
+ ( Proof : See textbook . ) 
+ Shellsort 
+ • 
+ It works by comparing elements that are distant ; the distance between 
+ comparisons decreases as the algorithm runs until the last phase , in which 
+ adjacent elements are compared . 
+ For this reason , Shellsort is sometimes referred to as diminishing increment 
+ sort . 
+ Shellsort uses a sequence , h , h , . . . , h , called the increment sequence . 
+ 1 2 t 
+ • 
+ • After a phase , using some increment h , for every i , we have a[i ] ≤ a[i + h ] 
+ k 
+ • Important property of Shellsort : if you h -sort an h -sorted file , then it 
+ k−1 k 
+ remains h -sorted 
+ k 11 
+ • 
+ The general strategy to h -sort is for each position , i , sort the subarray starting 
+ k 
+ at i of elements obtained by increments h then take the next ( smaller ) h and 
+ Worst - Case Analysis of Shellsort 
+ • The running time of Shellsort depends on the choice of increment sequence , and the proofs 
+ can be rather involved . 
+ • The average - case analysis of Shellsort is a long - standing open problem , except for the most 
+ trivial increment sequences . 
+ Key difference : consecutive increments have no common factors . 
+ The simplicity of the code makes it the algorithm of choice for sorting up to 
+ moderately large input . 
+ Heapsort 
+ • Priority queues can be used to sort in O(N log N ) time . 
+ The algorithm 
+ based on this idea is known as heapsort 
+ • Reminder from Chapter 6 : basic strategy is 
+  build a binary heap of N elements . 
+ This stage takes on average O(N ) time . 
+  then perform N deleteMin operations . 
+ • Since each deleteMin takes O(log N ) time , the average running time of 
+ Heapsort is O(N log N ) . 
+ • The main problem with this algorithm is that it uses an extra array . 
+ Thus , the memory requirement is doubled . 
+ After the last deleteMin the array will contain the elements in decreasing 
+ sorted order . 
+ Thus , we have a ( max)heap . 
+ The smaller of A[Actr ] and B[Bctr ] is copied to the next entry in C , 
+ and the appropriate counters are advanced . 
+ • When either input list is exhausted , the remainder of the other list is 
+ copied to C. 
+ • 
+ The remainder of the B array is then copied to C 
+ 20 
+ • This algorithm is a classic divide - and - conquer strategy . 
+ 21 
+ • The problem is divided into smaller problems and solved recursively . 
+ • The conquering phase consists of patching together the answers . 
+ • Divide - and - conquer is a very powerful use of recursion that we will see 
+ many times . 
+ Mergesort routines 
+ Merge routine 
+ • The merge routine is subtle . 
+ If a temporary array is declared locally for 
+ each recursive call of merge 
+ , then there could be logN temporary arrays 
+ active at any point . 
+ • Further , we can use any part of the temporary array ; we will use the 
+ same portion as the input array a. 
+ 22 
+ Analysis of Mergesort 
+ • 
+ Mergesort is a classic example of the techniques used to analyze recursive 
+ routines : We have to write a recurrence relation for the running time . 
+ Remarks on MergeSort 
+ ( Answer almost identical ) . 
+ This copying can be avoided by judiciously switching the roles of a and tmpArray at 
+ alternate levels of the recursion . 
+ • A non - recursive implementation of mergeSort is also possible . 
+ • The running time of mergeSort , when compared with other O(N logN ) alternatives , 
+ depends heavily on the relative costs of comparing elements and moving elements in 
+ the array ( and the temporary array ) . 
+ • These costs are language dependent . 
+ ( See the discussion Java vs C++ in textbook . ) 
+ 25 
+ QuickSort 
+ • For C++ , quicksort has historically been the fastest known 
+ generic sorting algorithm in practice . 
+ • Its average running time is O(N logN ) . 
+ • It has O(N2 ) worst - case performance . 
+ • By combining quicksort with heapsort , we can achieve 
+ quicksort ’s fast running time on almost all inputs , with 
+ heapsort ’s O(N logN ) worst - case running time . 
+ ( Left as Exercise 
+ 7.27 , which describes this approach ) . 
+ • Like mergeSort , quickSort is a divide - and - conquer recursive 
+ algorithm . 
+ 26 
+ QuickSort Algorithm 
+ • Let us begin with the following simple sorting algorithm to sort a list . 
+ Implementation of this simple recursive sorting algorithm 
+ • This algorithm forms the basis of quicksort . 
+ But it does not change much from 
+ mergeSort , especially in terms of extra memory . 
+ The pivot is selected randomly to be 65 
+ 29 
+ 30 
+ Discussion 
+ • The previous algorithm works , but is it any faster than mergesort ? 
+ • But , unlike mergesort , the subproblems are not guaranteed to be of equal 
+ size , which is potentially bad . 
+ • quicksort is faster because the partitioning step can actually be performed 
+ in place and very efficiently . 
+ • This efficiency more than makes up for the lack of equal - sized recursive 
+ calls . 
+ Picking the Pivot 
+ • The algorithm as described works whichever element is chosen as pivot ; 
+ some choices are obviously better than others . 
+ 1 2 
+ • If the input is pre - sorted , then quicksort will take quadratic time to do 
+ essentially nothing at all . 
+ very bad idea 
+ • A safe course is to choose the pivot randomly , unless the random number 
+ generator has a flaw . 
+ 32 
+ Median - of - three Partitioning 
+ • 
+ The median of a group of N numbers is the ceiling(N / 2)th largest number . 
+ • The best choice of pivot would be the median of the array . 
+ • This is hard to calculate and would slow down quicksort considerably . 
+ • 
+ • The randomness turns out not to help much , so the common course is to use 
+ as pivot the median of the left , right , and centre elements . 
+ 33 
+ Partitioning Strategy 
+ • Several partitioning strategies are used in practice ; the one described here is known 
+ to give good results . 
+ • The partitioning stage wants to move all the small elements to the left part of the 
+ array and all the large elements to the right part . 
+ ( “ Small ” and “ large ” are relative to 
+ the pivot . ) 
+ • While i is to the left of , it is moved right , skipping over elements that are smaller 
+ than the pivot . 
+ • j is moved left , skipping over elements that are larger than the pivot . 
+ • When i and have stopped , i is pointing at a large element and is pointing at a 
+ small element . 
+ • If i is to the left of j , those elements are swapped 
+ 34 
+ swap the elements pointed to by i and j. 
+ Repeat the process until i and cross . 
+ Now , i and have crossed , so no swap is performed . 
+ Partitioning final part : swap the pivot element with the element pointed to by i : 
+ 36 
+ Handling equal elements 
+ • 
+ • If both i and j stop , there will be many swaps between identical elements . 
+ • The mergesort analysis tells us that the total running time would then be 
+ O(N logN ) . 
+ 37 
+ Handling equal elements 
+ • If neither i nor j stops , and code is present to prevent them from 
+ running off the end of the array , no swaps will be performed . 
+ • 
+ Although this seems good , a correct implementation would then 
+ swap the pivot into the last spot that i touched , which would be 
+ the next - to last position ( or last , depending on the exact 
+ implementation ) . 
+  This would create very uneven subarrays . 
+  If all the elements are identical , the running time is O ( N2 ) . 
+ • It is better to do the unnecessary swaps and create even subarrays 
+ than to risk wildly uneven subarrays . 
+ • Therefore , we will have both i and j stop if they encounter an 
+ element equal to the pivot . 
+ • Also , because quicksort is recursive , these cases will occur frequently . 
+ • A common solution is not to use quicksort recursively for small arrays , but 
+ instead use a sorting algorithm that is efficient for small arrays , such as 
+ insertionSort . 
+ • Using this strategy can actually save about 15 percent in the running time 
+ ( over doing no cutoff at all ) . 
+ Quicksort routines 
+ Analysis of Quicksort 
+ • The worst - case bound for quicksort is ϴ ( N2 ) . 
+ • Best - Case Analysis gives ϴ(N log N ) . 
+ • Average - case O(N log N ) . 
+ • The pivot is the smallest element , all the time . 
+ We have algorithms for sorting with O ( N log N ) ; but is it as good 
+ as we can do ? 
+ • As just stated , any algorithm for sorting that uses only 
+ comparisons requires Ω ( N log N ) comparisons ( and hence time ) 
+ in the worst case . 
+ = = > So mergesort and heapsort are optimal to within a constant 
+ factor . 
+ • The proof can be extended to show that Ω ( N log N ) comparisons 
+ are required , even on average , for any sorting algorithm that uses 
+ only comparisons . 
+ = = > So quicksort is optimal on average to within a constant factor . 
+ Each bucket is then sorted by using any of the suitable sorting 
+ algorithms , or recursively applying the same bucket algorithm . 
+ • Finally , the sorted buckets are combined to form a final sorted array . 
+ Each slot of this array is used as a bucket for storing elements . 
+ 0 0 0 0 0 0 0 0 0 0 
+ • Insert elements into the buckets from the array . 
+ The elements are inserted according to 
+ the range of the bucket . 
+ ( Each element from the bucket is erased once it 
+ is copied into the original array . 
+ Analysis of Bucket Sort 
+ • The input A , A , . . . , A must be only positive integers smaller than M. 
+ 1 2 N 
+ • The array of buckets of size M , is initialized to all 0s . 
+ So it has M buckets , 
+ initially empty . 
+ Worst Case Complexity : O(N2 ) 
+ • When there are elements of close range in the array , they are likely to be 
+ placed in the same bucket . 
+  
+ Some buckets may have more elements than others . 
+  The complexity will depend on the sorting algorithm used to sort the 
+ elements of the bucket . 
+ The complexity becomes even worse when the elements are in reverse order . 
+ • If insertion sort is used to sort elements of the bucket , then the worst time 
+ complexity becomes O(N2 ) . 
+ Best Case Complexity : O(N+M ) 
+ • Best case occurs when the elements are uniformly distributed in the 
+ buckets with a nearly equal number of elements in each bucket . 
+ • 
+ The complexity becomes even better if the elements inside the buckets 
+ are already sorted . 
+ • If insertion sort is used to sort elements of a bucket then the overall 
+ complexity in the best case will be linear i.e. O(N+M ) . 
+ where O(N ) is the complexity for making the buckets and 
+ O(M ) is the complexity for sorting the elements of the bucket 
+ using algorithms having linear time complexity in the best 
+ Average Case Complexity : O(N ) 
+ • It occurs when the elements are distributed randomly in the 
+ array . 
+ • Even if the elements are not distributed uniformly , bucket 
+ sort runs in linear time . 
+ • This remains true until the sum of the squares of the bucket 
+ sizes is linear in the total number of elements . 
+ Application : 
+ Bucket sort is mainly useful when input is 
+ uniformly distributed over a range of values . 
+ Counting Sort 
+ ( https://www.programiz.com/dsa/counting-sort ) 
+ • Counting Sort is a non - comparison - based sorting algorithm that works well 
+ when there is a limited range of input values . 
+ • It is particularly efficient when the range of input values is small compared to the 
+ number of elements to be sorted . 
+ • Sorts the elements of an array by counting the number of occurrences of each 
+ unique element in the array . 
+ • The count is stored in an auxiliary array and the sorting is done by mapping the 
+ count as an index of the auxiliary array . 
+ Working of Counting Sort : 
+ Find out the maximum element , max , from the given array . 
+ This array is used for storing the count of the elements in the array . 
+ Store the count of each element at their respective index in count array 
+ Store the cumulative sum of the elements of the count array . 
+ It helps in placing the elements into the correct index of the sorted array . 
+ Find the index of each element of the original array in the count array . 
+ This gives the cumulative count . 
+ Place the element at the index calculated as shown in the figure below . 
+ Counting Sort complexities 
+ Worst Case Complexity : O(N+M ) 
+ Best Case Complexity : O(N+M ) 
+ Average Case Complexity : O(N+M ) 
+ where N is the size of the input array and M is the size of the 
+ count array . 
+ In all the above cases , the complexity is the same because no 
+ matter how the elements are placed in the array , the algorithm goes 
+ through them N+M times . 
+ Counting sort generally performs faster than all comparison - based sorting 
+ algorithms , such as merge sort and quicksort . 
+ • Counting sort is easy to code 
+ • Counting sort is a stable algorithm . 
+ Disadvantage of Counting Sort : 
+ • Counting sort does not work on decimal values . 
+ • Counting sort is inefficient if the range of values to be sorted is very large . 
+ • Counting sort is not an In - place sorting algorithm , It uses extra space for 
+ sorting the array elements . 
+ 59 
+ Linear - Time Sorts : 
+ Radix Sort 
+ ( programiz.com ) 
+ Radix sort sorts the elements by 
+ • first grouping the individual digits of the same place value , 
+ • then , sorting the elements according to their increasing / decreasing 
+ order . 
+ 60 
+ 61 
+ Working of Radix Sort 
+ 1 . 
+ Find the largest element in the array , i.e. max . 
+ Let X be the number of 
+ digits in max . 
+ X is calculated because we have to go through all the significant 
+ places of all elements . 
+ Now , go through each significant place one by one . 
+ Use any stable sorting technique to sort the digits at each significant 
+ place . 
+ E.g. counting sort . 
+ Sort the elements based on the unit place digits ( X=0 ) . 
+ Analysis of Radix Sort 
+  
+ Since Radix Sort is a non - comparative algorithm , it has advantages over 
+ comparative sorting algorithms . 
+  For the Radix Sort that uses counting sort as an intermediate stable 
+ sort , the time complexity is O(d * ( N+M ) ) . 
+ Where d is the number of 
+ cycles and O(N+M ) is the time complexity of Counting Sort . 
+  Radix Sort has linear time complexity which is better than O(N log N ) of 
+ comparative sorting algorithms . 
+  If we take very large digit numbers or the number of other bases like 
+ 32 - bit and 64 - bit numbers , then it can perform in linear time . 
+  However the intermediate sort takes large space . 
+  Radix Sort is 
+ space - inefficient . 
+  This is why this algorithm is not used in software libraries . 
+ Acknowledgement : This course PowerPoints make substantial ( non - exclusive ) use of 
+ the PPT chapters prepared by Prof. from the University of Pennsylvania , 
+ USA , themselves developed on the basis of the course textbook . 
+ Other references , if any , 
+ will be mentioned wherever applicable .

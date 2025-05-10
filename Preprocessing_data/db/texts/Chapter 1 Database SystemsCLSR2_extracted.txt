@@ -1,0 +1,272 @@
+Emails : kamel.boukhalfa@ensia.edu.dz 
+ Pr . 
+ ● 
+ Course Description : A ) Course Test ( 30 mn ) – 10 % 
+ The object of this course is to teach students the general concepts of relational databases and how to design a database that is 
+ anomaly free . 
+ Students will learn to design , create , populate , and query a database by working with a relational database engine and 
+ the SQL language . 
+ Students will also learn basic database administration skills such as creating users , granting / revoking privileges 
+ individually or collectively to several users through the use of roles . 
+ Further , students will learn how to create constraints with triggers B ) Tutorial Test ( 60 mn ) – 15 % 
+ in addition to the use of PL / SQL language . 
+ , . 
+ , . 
+ Good decisions require good information derived • 
+ Databases solve many of the problems encountered in 
+ from raw facts data management 
+ – Used in almost all modern settings involving data 
+ • 
+ Data is managed most efficiently when stored in a 
+ management : 
+ database 
+ • Business 
+ • Databases evolved from computer file systems 
+ • Research 
+ Data are raw facts • 
+ Data : building blocks of information 
+ • 
+ Information is the result of processing raw data to • 
+ Information produced by processing data 
+ reveal meaning • 
+ Information used to reveal meaning in data 
+ • Accurate , relevant , timely information is the key to good 
+ • 
+ Information requires context to reveal meaning 
+ decision making 
+ • 
+ Raw data must be formatted for storage , processing , 
+ • Good decision making is the key to organizational survival 
+ and presentation 
+ • 
+ Data management : focuses on proper generation , 
+ • 
+ Introducing the Database Role and Advantages of the DBMS 
+ • 
+ Database : shared , integrated computer structure that stores • 
+ DBMS is the intermediary between the user and the 
+ a collection of : 
+ database 
+ – End - user data : raw facts of interest to end user 
+ – Metadata : data about data – 
+ Database structure stored as file collection 
+ • 
+ Provides description of data characteristics and relationships in data 
+ – Can only access files through the DBMS 
+ • 
+ Complements and expands value of data 
+ Database management system ( DBMS ): collection of • 
+ Databases can be classified according to : • Centralized database : data located at a single site 
+ – Number of users 
+ • 
+ Distributed database : data distributed across several different 
+ – 
+ Database location(s ) 
+ Expected type and extent of use 
+ • 
+ Operational database : supports a company ’s day - to - day 
+ • 
+ Multiuser database supports multiple users at the same – Transactional or production database 
+ Types of Databases ( cont'd . ) 
+ • 
+ Security features difficult to program • 
+ Unstructured data exist in their original state 
+ – Often omitted in file system environments • 
+ Structured data result from formatting 
+ – 
+ Structure applied based on type of processing to be 
+ • 
+ Summary of file system limitations : 
+ performed 
+ – Requires extensive programming 
+ • 
+ Semistructured data have been processed to some 
+ – Can not perform ad hoc queries 
+ extent 
+ – System administration is complex and difficult 
+ • 
+ Extensible Markup Language ( XML ) represents data 
+ – 
+ Difficult to make changes to existing structures 
+ elements in textual format 
+ – Security features are likely to be inadequate 
+ – XML database supports semistructured XML data 
+ • Database design focuses on design of database structure used for 
+ end - user data 
+ – Designer must identify database ’s expected use 
+ • 
+ Well - designed database 
+ – Facilitates data management 
+ – Generates accurate and valuable information 
+ Vendor offers single - user / personal DBMS version 
+ • 
+ Contents of each file folder are logically related 
+ Manual file systems 
+ – Complexity of database design is easier to understand 
+ – Served as a data repository for small data collections 
+ – Understanding file system problems helps to avoid problems with DBMS 
+ – 
+ Cumbersome for large collections 
+ systems 
+ • 
+ Computerized file systems 
+ – Knowledge of file system is useful for converting file system to database 
+ – 
+ Data processing ( DP ) specialist converted computer file structure from 
+ system 
+ manual system 
+ • 
+ File systems typically composed of collection of file folders , each tagged • Wrote software that managed the data 
+ • 
+ Designed the application programs 
+ and kept in cabinet 
+ – 
+ Initially , computer file systems resembled manual systems 
+ • 
+ As number of files increased , file systems evolved 
+ • 
+ Each file used its own application program to store , 
+ retrieve , and modify data 
+ • 
+ Structural dependence : access to a file is dependent on its • 
+ Practical significance of data dependence is difference between 
+ own structure 
+ logical and physical format 
+ All file system programs must be modified to conform to a new 
+ • 
+ Logical data format : how human views the data 
+ file structure 
+ • 
+ Structural independence : change file structure without • 
+ Physical data format : how computer must work with data 
+ affecting data access 
+ • 
+ Each program must contain 
+ • 
+ Data dependence : data access changes when data storage 
+ – Lines specifying opening of specific file type 
+ characteristics change 
+ – Record specification 
+ • 
+ Data independence : data storage characteristics do not 
+ affect data access – Field definitions 
+ File system structure makes it difficult to combine data from multiple • 
+ Data inconsistency : different and conflicting versions of same data occur at 
+ sources 
+ different places 
+ – Vulnerable to security breaches 
+ • 
+ Data anomalies : abnormalities when all changes in redundant data are not 
+ • 
+ Organizational structure promotes storage of same data in different 
+ made correctly 
+ locations 
+ – Update anomalies : An agent has a new phone number , it must be changed in all 
+ – Islands of information 
+ records of that agent 
+ Data stored in different locations is unlikely to be updated 
+ consistently – 
+ Insertion anomalies : A new agent would have to be entered with a dummy 
+ • 
+ Data redundancy : same data stored unnecessarily in different customer 
+ places 
+ – 
+ Most users lack the skill to properly design databases • 
+ Database system consists of logically related data stored in a 
+ – Despite multiple personal productivity tools being single logical data repository 
+ available 
+ – May be physically distributed among multiple storage facilities 
+ • 
+ Data - modeling skills 
+ – DBMS eliminates most of file system ’s problems 
+ – 
+ Vital in the data design process 
+ – Current generation stores data structures , relationships between 
+ • 
+ Good data modeling facilitates communication 
+ structures , and access paths 
+ between the designer , user , and the developer 
+ • 
+ People : all users of the database system • 
+ Database systems are created and managed at 
+ – System and database administrators different levels of complexity 
+ – 
+ Database designers • 
+ Database solutions must be cost - effective as well 
+ – 
+ Systems analysts and programmers as tactically and strategically effective 
+ – End users 
+ • Database technology already in use affects 
+ Most functions are transparent to end users 
+ – Can only be achieved through the DBMS 
+ • Data dictionary management 
+ – DBMS stores definitions of data elements and relationships ( metadata ) in a 
+ data dictionary 
+ – DBMS looks up required data component structures and relationships 
+ – Changes automatically recorded in the dictionary 
+ – 
+ DBMS Functions ( cont'd . ) 
+ • 
+ Data transformation and presentation • 
+ Multi - User access control 
+ – DBMS transforms data entered to conform to required data structures – DBMS uses sophisticated algorithms to ensure concurrent access 
+ – DBMS transforms physically retrieved data to conform to user ’s logical does not affect integrity 
+ expectations 
+ • 
+ Backup and recovery management 
+ • 
+ Security management 
+ – DBMS provides backup and data recovery to ensure data safety and 
+ – DBMS creates a security system that enforces user security and data 
+ integrity 
+ privacy 
+ – Recovery management deals with recovery of database after a failure 
+ – Security rules determine which users can access the database , which 
+ • Critical to preserving database ’s integrity 
+ items can be accessed , etc . 
+ Data integrity management • Database access languages and application 
+ Managing the Database System : A Shift in Focus 
+ • 
+ Database communication interfaces • 
+ Database system provides a framework in which strict 
+ – Current DBMSs accept end - user requests via multiple procedures and standards enforced 
+ different network environments 
+ – 
+ Role of human changes from programming to managing 
+ – 
+ Communications accomplished in several ways : 
+ organization ’s resources 
+ • 
+ End users generate answers to queries by filling in screen 
+ forms through Web browser • 
+ Database system enables more sophisticated use of the data 
+ • 
+ DBMS automatically publishes predefined reports on a Web 
+ • 
+ Data structures created within the database and their 
+ site 
+ relationships determine effectiveness 
+ • 
+ Data are raw facts • 
+ Metadata is data about data 
+ • 
+ Information is the result of processing data to reveal its • 
+ Database design defines the database structure 
+ meaning 
+ – Well - designed database facilitates data 
+ • 
+ Accurate , relevant , and timely information is the key to 
+ management and generates valuable information 
+ good decision making 
+ – Poorly designed database leads to bad decision 
+ • 
+ Data are usually stored in a database 
+ making and organizational failure 
+ • DBMS implements a database and manages its 
+ Databases evolved from manual and 
+ Summary ( cont'd . ) 
+ • 
+ In a file system , data stored in independent files • 
+ Database management systems were developed to 
+ – Each requires its own management program address file system ’s inherent weaknesses 
+ •

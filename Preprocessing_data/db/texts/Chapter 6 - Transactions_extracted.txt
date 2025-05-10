@@ -1,0 +1,296 @@
+The National Higher School of What Is a Transaction ? 
+ Artificial Intelligence 
+ • 
+ Logical unit of work that must be either entirely 
+ completed or aborted 
+ Improper or incomplete transactions can have 
+ devastating effect on database integrity 
+ – 
+ Some DBMSs provide means by which user 
+ can define enforceable constraints 
+ – Other integrity rules are enforced automatically 
+ by 
+ ANSI has defined standards that govern SQL 
+ database transactions • Keeps track of all transactions that update the 
+ database 
+ • 
+ Transaction sequence must continue until : 
+ • 
+ While the DBMS executes transactions that 
+ – COMMIT statement is reached 
+ modify the database , it also automatically 
+ – ROLLBACK statement is reached 
+ updates the transaction log 
+ – End of program is reached 
+ • 
+ The ability to recover a corrupted database is 
+ – Program is abnormally terminated 
+ worth the Increased processing overhead 
+ • 
+ Next slide illustrates a simplified transaction log that 
+ • Transaction log stores : 
+ reflects a transaction composed of two SQL UPDATE 
+ – A record for the beginning of transaction 
+ statements 
+ – For each transaction component : 
+ • If a system failure occurs , the DBMS examines the log 
+ • 
+ Type of operation being performed ( update , delete , 
+ for all uncommitted or incomplete transactions and 
+ insert ) 
+ restores the database to its previous state 
+ • 
+ Objective is to ensure serializability of 
+ transactions in a multiuser environment 
+ • 
+ The simultaneous execution of transactions over 
+ a shared database can create several data 
+ integrity and consistency problems 
+ • 
+ Lost update problem : • 
+ Uncommitted Data 
+ • 
+ Serial execution of the transactions yields the 
+ • 
+ Inconsistent retrievals : 
+ • 
+ A sample of the PRODUCT table , showing the 
+ • Inconsistent retrievals are possible during the 
+ records being updated as specified in the 
+ transaction execution 
+ UPDATE code 
+ – 
+ Serializable schedule 
+ – Interleaved execution of transactions yields same 
+ results as serial execution 
+ • 
+ The Scheduler Concurrency Control with Locking Methods 
+ • Lock 
+ • FCFS is an inefficient method of allocating the CPU , 
+ since the CPU waits idly as a READ or WRITE – Guarantees exclusive use of a data item to a current 
+ operation completes transaction 
+ • 
+ Lock is acquired prior to access and released when 
+ • 
+ • Use of locks based on the assumption that conflict 
+ will result 
+ between transactions is likely 
+ Database - level lock 
+ • 
+ Indicates level of lock use – Entire database is locked , prevents the use 
+ of any tables by transaction T2 while T1 is 
+ • 
+ Row - level lock 
+ – Allows concurrent transactions to access 
+ different rows of same table 
+ • 
+ Even if rows are located on same page 
+ • High overhead because a lock exists for each 
+ row of a table 
+ • 
+ If the application requests multiple locks on the 
+ same , a row level lock is automatically escalated 
+ to a page level lock 
+ Field - level lock 
+ – Allows concurrent transactions to access same 
+ row 
+ • Requires use of different fields ( attributes ) within 
+ the row 
+ • 
+ Applying locks to the “ Lost Update Problem ” 
+ – Lock / unlock eliminates problem because the lock is not released 
+ until the WRITE is completed 
+ • 
+ A shared lock is issued when a transaction wants to 
+ – Access is specifically reserved for transaction that read data from the DB and no exclusive lock is held 
+ locked object on that data item 
+ – Must be used when potential for conflict exists • 
+ • If T1 has a shared lock on data item X , T2 may be • 
+ A shared / exclusive lock schema increases the lock 
+ issued a shared lock to read X manager ’s overhead 
+ • 
+ If T2 wants to update X , an exclusive lock is required – 
+ The type of lock held must be known before a lock can 
+ by T2 be granted 
+ – 
+ The exclusive lock is granted if and only if no other – 
+ The schema has been enhanced to allow a lock upgrade 
+ from shared to exclusive and a lock downgrade from 
+ exclusive to shared 
+ 41 42 
+ 16/10/2022 16/10/2022 
+ Lock Types 
+ • Defines how transactions acquire and 
+ – 
+ The resulting transaction schedule might not be 
+ serializable relinquish locks 
+ – The schedule might create deadlocks • Guarantees serializability , but does not 
+ • 
+ • Transaction releases all locks and can not obtain 
+ any new lock 
+ • If T1 has not unlocked data item Y , T2 can not begin 
+ • If T2 has not unlocked data item X , T1 can not continue 
+ • T1 and T2 each wait for the other to unlock the required 
+ data item – deadly embrace 
+ • Possible only if one of the transactions wants to 
+ obtain an exclusive lock on a data item 
+ – 
+ – A transaction requesting a new lock is aborted when 
+ there is the possibility that a deadlock can occur . 
+ – If the transaction is aborted , all changes made by this 
+ transaction are rolled back and all locks obtained by 
+ the transaction are released 
+ – The transaction is then rescheduled for execution 
+ – It avoids the condition that leads to deadlocking 
+ 49 50 
+ 16/10/2022 16/10/2022 
+ Controlling Deadlock Deadlocks 
+ • Detection 
+ • Choice of deadlock control method depends on 
+ – The DBMS periodically tests the database for database environment 
+ deadlocks 
+ – Low probability of deadlock ; detection 
+ – If found , the “ victim ” transaction is aborted ( rolled back 
+ recommended 
+ and restarted ) and the other transaction continues 
+ – High probability ; prevention recommended 
+ • 
+ Avoidance 
+ – If response time is not high on the system ’s priority 
+ – The transaction must obtain all of the locks it needs 
+ list , deadlock avoidance might be employed 
+ before it can be executed 
+ • 
+ All current DBMSs support deadlock detection 
+ – This avoids the rolling back of conflicting transactions 
+ while some use a blend of prevention and 
+ by requiring that locks be obtained in succession 
+ avoidance techniques for other types of data , 
+ – Serial lock assignment increases action response 
+ times such as data warehouses or XML data 
+ 51 52 
+ 16/10/2022 16/10/2022 
+ Concurrency Control Concurrency Control 
+ with Time Stamping Methods with Time Stamping Methods 
+ • 
+ All database operations within the same 
+ • Assigns global unique time stamp to each 
+ transaction must have the same timestamp 
+ transaction 
+ • 
+ The DBMS executes conflicting operations in 
+ • Produces explicit order in which transactions are 
+ timestamp order , thereby ensuring serializability 
+ submitted to DBMS 
+ of the transactions 
+ • Properties of timestamps 
+ • 
+ Younger transaction requests lock - it dies ( rolls back ) and 
+ – This increases memory needs and the database ’s 
+ is rescheduled using the same timestamp 
+ processing overhead 
+ – Wound / wait 
+ • Timestamping demands a lot of system resources 
+ • 
+ Older transaction requests lock , it preempts ( wounds ) the 
+ because many transactions might have to be 
+ younger transaction by rolling it back and rescheduling it 
+ stopped , rescheduled and restamped 
+ using the same timestamp 
+ • 
+ Younger transaction requests lock , it will wait until the 
+ other transaction is completed and the locks released 
+ 55 56 
+ 16/10/2022 16/10/2022 
+ Wait / Die and Wound / Wait Schemes 
+ Concurrency Control 
+ • Wait for lock request can cause some transactions to 
+ with Optimistic Methods 
+ wait indefinitely , causing a deadlock 
+ • To prevent a deadlock , each lock request has an • 
+ Optimistic 
+ Read Phase • 
+ This approach is acceptable for most read or 
+ – 
+ Transaction reads the database , executes computations , query database systems that require few update 
+ makes updates to a private copy of the database values 
+ transactions 
+ ( temporary update file ) not accessed by the remaining 
+ • 
+ Validation Phase 
+ • 
+ However , it may be necessary at times to employ 
+ Transaction is validated to ensure that the changes made 
+ will not affect the integrity and consistency of the database database recovery techniques to restore the 
+ • 
+ If validation test is positive , the transaction goes to the write database to a consistent state 
+ phase 
+ Write - ahead - log protocol : ensures transaction 
+ When a transaction updates data , it actually 
+ logs are written before database data is updated 
+ updates the copy of the data in the buffer 
+ • In case of a failure , the DB can be recovered using because that ’s faster than updating the physical 
+ data in the transaction log disk 
+ – 
+ Redundant transaction logs : ensure physical disk • 
+ Later , all buffers that contain data are written to a 
+ failure will not impair ability to recover physical disk during a single operation thereby 
+ saving significant processing time 
+ 63 64 
+ 16/10/2022 16/10/2022 
+ Transaction Recovery Transaction Recovery 
+ – Checkpoints : operations in which DBMS writes all its 
+ • 
+ Deferred - write ( deferred update ) technique 
+ updated buffers to disk 
+ – Only transaction log is updated 
+ • 
+ While this is happening , the DBMS does not execute any 
+ – DB is physically updated only after the 
+ other requests 
+ transaction reaches is commit point 
+ • Scheduled by the DBMS several times per hour 
+ – If the transaction aborts before a commit , no 
+ • A checkpoint operation is also registered in the 
+ rollback is needed 
+ transaction log 
+ • The physical database and the transaction log are in 
+ synch 
+ – Synching is required because update operations 
+ update the copy of the data in the buffers and not in 
+ the physical database 
+ 65 66 
+ 16/10/2022 16/10/2022 
+ Transaction Recovery 
+ Transaction Recovery 
+ • Write - through technique 
+ • Recovery process for all started and committed transactions 
+ ( before the failure ) follows these steps – Database is immediately updated by transaction operations 
+ during transaction ’s execution even before the transaction 
+ – identify last checkpoint ( i.e. , when transaction data was 
+ reaches its commit point 
+ physically saved to disk ) 
+ • 
+ Recovery process : identify last checkpoint ( when data were 
+ – If transaction committed before checkpoint : 
+ physically written to the disk ) 
+ • Do nothing , the data was already saved 
+ – If transaction committed before checkpoint : 
+ – If transaction committed after checkpoint : 
+ • Do nothing ; data already saved 
+ • Use transaction log to redo the transaction using the “ after ” 
+ – If transaction committed after last checkpoint : 
+ values 
+ – Changes are made in oldest to newest order • 
+ DBMS redoes the transaction using “ after ” values in oldest to newest 
+ order 
+ – If transaction had ROLLBACK operation after the last 
+ – If transaction had ROLLBACK or was left active ( with neither 
+ checkpoint or that was left active ( with neither a COMMIT 
+ a COMMIT nor a ROLLBACK ) before failure occurred : 
+ nor a ROLLBACK ) before the failure : 
+ A database checkpoint writes all updated database buffers 
+ for previously uncommitted transaction to disk . 
+ For each transaction committed after TRL ID 423 , the DBMS 
+ uses the transaction log to write changes to disk using the 
+ “ after ” values .

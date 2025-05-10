@@ -1,0 +1,274 @@
+Data Structures and Algorithms 2 
+ Prof. 
+ The National Higher School of AI 
+ From Linear ADTs to … 
+ • For input of large size , the linear access time of 
+ linked lists is prohibitive . 
+ • In this chapter , we look at a simple data structure 
+ for which the average running time of most 
+ operations is O(log n ) , and some simple 
+ modification to get O(log n ) in the worst case . 
+ •  Binary Search Trees 
+ • Trees are very useful abstractions in computer 
+ science 
+ • We will discuss their use in other , more general 
+ applications . 
+ Aims of this chapter 
+ • 
+ We will also see how trees are used to : 
+ – implement the file system of several popular 
+ OSs . 
+ – evaluate arithmetic expressions . 
+ – support search operations in O(log n ) average 
+ time 
+ – refine these ideas to obtain O(log n ) worst- 
+ case bounds . 
+ – implement these operations when the data are 
+ stored on a disk . 
+ Formal Definition 
+ A tree is a sequence of nodes . 
+ There is a starting node known as root node . 
+ Every node other than the root has a parent node . 
+ • In a tree there is exactly one path from the root to any 
+ node . 
+ • For any node n , the depth of n is the length of the 
+ i i 
+ unique path from the root to n . 
+ i 
+  all leaves are at height 0 . 
+  height ( tree ) = height ( root ) 
+ • If there is a path from n to n , then n is an 
+ 1 2 1 
+ ancestor of n and n is a descendant of n . 
+ 2 2 1 
+ • If n ≠ n , then n is a proper ancestor of n and 
+ 1 2 1 2 
+ n is a proper descendant of n . 
+ 2 1 
+ 7 
+ Implementation of Trees 
+ • 
+ Can be very costly : number of children per node can 
+ vary greatly and is not known in advance 
+ • 
+ Arrows that point downward are firstChild links . 
+ • Arrows that go left to right are nextSibling links . 
+ • Null links are not drawn ( too many ) . 
+ • Ex . : node E has both a link to a sibling ( F ) and a link to a 
+ 9 
+ child ( I ) ; some nodes have neither 
+ Tree Traversal with Applications 
+ Application : 
+ A complete binary tree is a 
+ binary tree in which every 
+ level , except possibly the 
+ last , is completely filled , 
+ and all nodes are as far left 
+ as possible . 
+ • 
+ Binary Search Trees will be presented later in this chapter 
+ Complexity Analysis of CBT 
+ A 
+ complete binary tree of N nodes has depth 
+ Next example in the area of Compiler Design 
+ 20 
+ Expression Trees 
+ The leaves of an expression tree are operands , 
+ such as constants or variable names ; 
+ • The other nodes contain operators 
+ An ET is not necessarily binary : 
+ – e.g. case of unary operators ( - and + ) 
+ – Nodes may have more than 2 children : e.g. ternary 
+ operators . 
+ 21 
+ Inorder / Postorder / Preorder Traversal 
+ • 
+ Inorder traversal strategy : ( left , node , right ) 
+ – Produce an overly paranthesised expression by 
+ o recursively processing a parenthesized left expression 
+ then printing out the operator at the root , and finally 
+ o 
+ o recursively processing a parenthesized right expression . 
+ A pointer to this new tree is then pushed onto the 
+ stack . 
+ 27 
+ Binary Trees 
+ • Important application of binary trees is their use 
+ in searching 
+ • We will assume a tree of integers , though 
+ arbitrarily complex ( nodes ) elements are 
+ possible 
+ • We will also assume that all the items are 
+ distinct ( duplicates dealt with later ) 
+ 28 
+ Binary Search Tree 
+ • 
+ Binary search tree ( BST ): a BT where every 
+ node in the left subtree is less than the root , 
+ and every node in the right subtree is larger 
+ than the root . 
+ • Properties of a BST are recursive 
+ • Examples : Are the following BSTs ? 
+ A BST Not a BST 
+ 29 
+ Operations on BSTs 
+ • Implemented recursively 
+ • Average depth of a binary search tree is O(log N ) 
+  no need to worry in general about running out of 
+ stack space 
+ • 
+ The data member is a pointer to the root node ; this 
+ pointer is nullptr for empty trees . 
+ { 
+ std::vector < int > v1 = createVector ( ) ; 
+ // copy constructor 
+ std::vector < int > & & v2 = createVector ( ) ; 
+ // move constructor 
+ Refresher : lvalue vs rvalue 
+ • Function createVector ( ) returns a vector of integers . 
+ • In main ( ) , we call createVector ( ) twice : once to 
+ initialise v1 and once to initialise v2 . 
+ • When v1 is initialised , copy constructor is called : 
+ – creates a new vector , 
+ – copies contents of vector returned by createVector ( ) into 
+ it . 
+ • 
+ When v2 is initialised , move constructor is called : 
+ – moves contents of vector returned by createVector ( ) in 
+ to v2 . 
+ – Since original vector not needed anymore , this is more 
+ efficient than copying it . 
+ Searching an element in a BST 
+ Start from the root . 
+ Each time we encounter a node , see if the key 
+ in the node equals the element . 
+ If yes stop . 
+ If the element is less , go to the left subtree . 
+ If it is more , go to the right subtree . 
+ Conclude that the element is not in the list if 
+ we reach a leaf node and the key in the node 
+ does not equal the element . 
+ Search(node , elt ) 
+ If ( node = NULL ) conclude NOT FOUND ; 
+ Else If ( node.key = elt ) conclude FOUND ; 
+ Else If ( elt < node.key ) Search(node.leftchild , elt ) ; 
+ Else If ( elt > node.key ) Search(node.rightchild , elt ) ; 
+ } 
+ Complexity : O(d ) , d is the depth of the element 
+ being searched for 
+ For complete binary search trees : 
+ O(log N ) where 
+ N is the number of nodes 
+ 41 
+ Find Min 
+ • Returns a pointer to the node containing the 
+ smallest element in the tree 
+ • Start at the root and 
+ – go left as long as there is a left child . 
+ – The stopping point is the smallest element 
+ BinaryNode * findMin ( BinaryNode * t ) const { // recursive 
+ if ( t = = nullptr ) 
+ return nullptr ; 
+ if ( t->left = = nullptr ) 
+ return t ; 
+ return findMin ( t->left ) ; } 
+ Complexity : O(d ) 43 
+ Find Min 
+ // non - recursive version 
+ BinaryNode * findMin ( BinaryNode * t ) const 
+ { 
+ if ( t ! = nullptr ) 
+ while ( t->left ! = nullptr ) 
+ t = t->left ; 
+ return t ; 
+ Insert an element 
+ Try to find the element ; 
+ If the element exists , do nothing . 
+ If it does not , insert it at the position of the 
+ returned null pointer ; 
+ 46 
+ Insertion function 
+ void insert(const Comparable & x , BinaryNode * & t ) { 
+ if ( t = = nullptr ) 
+ t = new BinaryNode { x , nullptr , nullptr } ; 
+ else if ( x < t->element ) 
+ insert ( x , t->left ) ; 
+ else if ( t->element < x ) 
+ insert ( x , t->right ) ; 
+ else 
+ ; // Duplicate ; do nothing 
+ } 
+ Complexity : 
+ Any problem deleting it ? 
+ Need to take care of the children of this min . element , 
+ ( The min element can have at most one child . ) 
+ For deletion convenience , always have a pointer from a 
+ node to its parent . 
+ remove ( const Comparable & x , BinaryNode * & t ) { 
+ if ( t = = nullptr ) 
+ • Indeed running time ( contains , insert , delete ) is 
+ O(d ) , where d is the depth of the node 
+ • 
+ Assuming insertion sequences are equally 
+ likely 
+ , the average depth over all nodes in a tree 
+ is O(log N ) . 
+ 57 
+ Average - Case Analysis for BSTs 
+ • 
+ Definition : the internal path length is the sum of the 
+ depths of all nodes in a tree . 
+ • What is the average internal path length of a BST , taken 
+ over all possible insertion sequences . 
+ • Let D(N ) be the internal path length for some tree T of 
+ N nodes . 
+ So D(N ) = D(i ) + D(N − i − 1 ) + N − 1 58 
+ Average - Case Analysis for BSTs 
+ • 
+ • We have seen that all operations depend on the 
+ depth of the tree . 
+ • We do n’t want trees with large - height nodes 
+ • This can be attained if both subtrees of each node 
+ have roughly the same height . 
+ • An AVL ( Adelson - Velskii and Landis ) tree is a BST 
+ with a balance condition . 
+ • The balance condition must be easy to maintain , 
+ and it ensures that the depth of the tree is O(log N ) . 
+ • Simplest idea : require left and right subtrees have 
+ same height . 
+ FindMin , Complexity ? 
+ O(log N ) 
+ Deletion ? 
+ Insertion ? 
+ Insertion into an AVL Tree 
+ Insert 6 
+  Tree not AVL anymore 
+ • The AVL property has to be restored before 
+ the insertion step is considered over . 
+ • This can be done with a simple modification 
+ to the tree , known as a rotation . 
+ 65 
+ Insertion into AVL Tree 
+ • 
+ After insertion , only nodes on the path from 
+ insertion point to the root might have their 
+ balance altered because only those nodes have 
+ their subtrees altered . 
+ • As we follow the path up to the root and update 
+ the balancing information , we may find a node 
+ whose new balance violates the AVL condition . 
+ ( Generically : only 
+ possible case : Subtree X has grown to an extra level , causing 
+ it to be exactly two levels deeper than Z. ) 
+ Result of Single Rotation 
+ • Note that Single Rotation requires only a few 
+ pointer changes , 
+ • We get another BST that is an AVL tree . 
+ •  no further updating of heights on the path to 
+ the root is needed , and consequently no further 
+ 70 
+ rotations needed . 
+ Extended Example 
+ Other references , if any , 
+ 80 
+ will be mentioned wherever applicable .

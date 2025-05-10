@@ -1,0 +1,49 @@
+Objectives 
+ The National Higher School of 
+ Artificial Intelligence • 
+ ER model forms the basis of an ER diagram • Refers to entity set and not to single entity occurrence 
+ • 
+ ERD represents conceptual database as viewed by end user • Corresponds to table and not to row in relational 
+ • 
+ ERDs depict database ’s main components : environment 
+ – Entities • 
+ In and Crow ’s Foot models , entity is represented by 
+ – Attributes rectangle with entity ’s name 
+ – Relationships 
+ • 
+ notation : attributes represented by ovals 
+ connected to entity rectangle with a line 
+ – Each oval contains the name of attribute it 
+ represents 
+ • 
+ Required attribute : must have a value 
+ Optional attribute : may be left empty 
+ Domain : set of possible values for an attribute 
+ – 
+ Attributes may share a domain 
+ • 
+ Composite attribute can be subdivided 
+ • Simple attribute can not be subdivided 
+ • 
+ Single - value attribute can have only a single 
+ value 
+ • 
+ M : N relationships and multivalued attributes 
+ should not be implemented 
+ – Create several new attributes for each of the 
+ original multivalued attributes ’ components 
+ – Create new entity composed of original 
+ multivalued attributes ’ components 
+ • 
+ Derived attribute : value may be calculated 
+ from other attributes 
+ Weak ( non - identifying ) relationships 
+ – Exists if PK of related entity does not contain 
+ PK component of parent entity 
+ • 
+ parent entity in relationship 
+ Entity relationship ( ER ) model • 
+ Connectivities and cardinalities are based on 
+ – Uses ERD to represent conceptual database business rules 
+ as viewed by end user • M : N relationship is valid at conceptual level 
+ –

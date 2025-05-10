@@ -1,0 +1,97 @@
+Reinforcement learning 
+ Dr. 
+ The National School of Artificial Intelligence 
+ aissa.boulmerka@ensia.edu.dz 
+ 2024 - 2025 
+ • States : 
+ • States can be low - level sensory readings , for example , in the pixel values of 
+ the video frame . 
+ • They can also be high - level such as object descriptions . 
+ • Actions : 
+ • Actions can be low - level , such as the wheel speed of this robot . 
+ • Actions can also be high - level , such as go to the charging station . 
+ • Time - steps : 
+ • Time - steps can be very small or very large . 
+ The goal of the robot is to pick - and - place 
+ objects . 
+ There are many ways to formalize this task : 
+ State : The state could be the readings of the joint 
+ angles and velocities . 
+ Action : the amount of voltage applied to each 
+ motor . 
+ Reward : +100 for successfully placing each object . 
+ -1 for each unit of energy consumed . 
+ In RL , the goal of the agent is to maximize future reward . 
+  Formally , the return at time step 𝑡 , is simply the sum of rewards obtained 
+ after time step 𝑡. 
+ We denote the return with the 𝐺 . 
+ 𝑡 
+ 𝐺 ≐ 𝑅 + 𝑅 + 𝑅 + ⋯ 
+ 𝑡 𝑡+1 𝑡+2 𝑡+3 
+  The return is a random variable because the dynamics of the MDP can be 
+ stochastic . 
+ In general , many different trajectories from the same state are possible . 
+ This is why we maximize the expected return . 
+  For this to be well - defined , the sum of rewards must be finite . 
+ Interaction goes on continually 
+  𝜸 < 𝟏 , the infinite sum has a finite value as long as the reward sequence 
+ * 𝑅 + is bounded . 
+ in this case , the agent is concerned only with maximizing 
+ immediate rewards . 
+ The agent is called Short - sighted agent . 
+  𝜸 → 𝟏 , the return objective takes future rewards into account more 
+ strongly . 
+ The agent becomes Far - sighted agent . 
+ Returns at successive time steps are related to each other in a way that is 
+ important for the theory and algorithms of reinforcement learning : 
+ 2 3 
+ 𝐺 ≐ 𝑅 + 𝛾𝑅 + 𝛾 𝑅 + 𝛾 𝑅 + ⋯ 
+ 𝑡 𝑡+1 𝑡+2 𝑡+3 𝑡+4 
+ 2 
+ 𝐺 = 𝑅 + 𝛾 𝑅 + 𝛾𝑅 + 𝛾 𝑅 + ⋯ 
+ 𝑡 𝑡+1 𝑡+2 𝑡+3 𝑡+4 
+ 𝑮 = 𝑹 + 𝛄𝑮 
+ 𝒕 𝐭+𝟏 𝐭+𝟏 
+  Although the return is a sum of an infinite number of terms , it is still finite if the 
+ reward is nonzero and constant . 
+  
+ It can be seen as an episodic task , where each 
+ attempt to balance the pole is an episode . 
+ A reward of +1 can be given for each time step 
+ without failure , with the total reward being the 
+ number of steps before failure . 
+  Alternatively , it can be treated as a continuous 
+ task using discounting . 
+ A policy is a mapping from states to probabilities of selecting each possible 
+ action . 
+ The value function of a state 𝑠 under a policy 𝜋 , denoted 𝑣 ( 𝑠 ) , is the expected 
+ 𝜋 
+ return when starting in 𝑠 and following the policy 𝜋. 
+  
+ We call the 
+ function 𝑣 the state - value function for policy 𝝅. 
+ 𝜋 
+  
+ A fundamental property of value functions used throughout reinforcement 
+ learning and dynamic programming is that they satisfy recursive relationships . 
+  It will be a recursive equation for the value of a state action pair in terms of its 
+ possible successors state action pairs . 
+ We can only solve small MDPs directly , but Bellman Equations will factor into 
+ solutions we see later for large MDPs . 
+ A policy 𝜋 is defined to be better than or equal to a policy 𝜋 if its expected 
+ 1 2 
+ return is greater than or equal to that of 𝜋 for all states . 
+  In general it is not possible to implement this solution exactly . 
+ Even if we limit 
+ ourselves to deterministic policies , the number of possible policies is 
+ |𝓐||𝓢| 
+ . 
+  We can use a brute force search to compute the value function for every policy 
+ to find the optimal policy ⇒ intractable for even moderately large MDPs . 
+  Fortunately , there 's a better way to organize the search of the policy space . 
+ The solution will come in the form of yet another set of equations , 
+ called the Bellman 's Optimality equations . 
+ We consider a variety of such 
+ methods in the following chapters . 
+ Example : Solving the Gridworld 
+ Suppose we solve the optimality equation for 𝑣 for the Gridworld .

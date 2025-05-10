@@ -1,0 +1,140 @@
+Objectives 
+ The National Higher School of 
+ Designers , programmers , and end users see data in 
+ need they fulfill different ways 
+ • How data models can be classified by their level of • 
+ Different views of same data lead to designs that do 
+ not reflect organization ’s operation 
+ abstraction 
+ • 
+ Data modeling reduces complexities of database 
+ design 
+ • 
+ Data Modeling and Data Models 
+ The Importance of Data Models 
+ • 
+ Data models • 
+ Facilitate interaction among the designer , the 
+ – Relatively simple representations of complex applications programmer , and the end user 
+ real - world data structures 
+ • End users have different views and needs for data 
+ • Often graphical 
+ • 
+ Data model organizes data for various users 
+ • 
+ Model : an abstraction of a real - world object or event 
+ • 
+ Data model is an abstraction 
+ – Useful in understanding complexities of the real - world 
+ – Can not draw required data out of the data model 
+ environment 
+ • 
+ Relationship : describes an association among entities 
+ • 
+ Description of operations to create / enforce actions within 
+ – 
+ Hierarchical and Network Models ( cont’d . ) 
+ Conceptual organization of entire database as viewed by the 
+ – Resembles hierarchical model 
+ database administrator 
+ • 
+ Record may have more than one parent 
+ – Subschema 
+ Relational diagram 
+ – Representation of entities , attributes , and 
+ relationships 
+ • 
+ Each table is independent from another 
+ • 
+ Widely accepted standard for data modeling • 
+ Entity instance ( or occurrence ) is row in table 
+ • 
+ Entity set is collection of like entities 
+ • 
+ Graphical representation of entities and their • 
+ Connectivity labels types of relationships 
+ relationships in a database structure • 
+ Relationships are expressed using notation 
+ • 
+ Entity relationship diagram ( ERD ) – Relationships are represented by a diamond 
+ – 
+ Relationship name is written inside the diamond 
+ – Uses graphic representations to model database 
+ components • 
+ Crow ’s Foot notation used as design standard in this 
+ book 
+ – 
+ The Object - Oriented ( OO ) Model 
+ • 
+ Data and relationships are contained in a single structure 
+ known as an object 
+ • 
+ OODM ( object - oriented data model ) is the basis for OODBMS 
+ – Semantic data model 
+ • 
+ The Internet revolution created the potential to 
+ – Semantic data model developed in response to exchange critical business information 
+ increasing complexity of applications • 
+ In this environment , Extensible Markup Language 
+ – Includes many of OO model ’s best features ( XML ) emerged as the de facto standard 
+ Often described as an object / relational database 
+ • 
+ Current databases support XML 
+ management system ( O / RDBMS ) 
+ – 
+ Every key has a corresponding value or set of values 
+ • 
+ Sparse data 
+ – Number of attributes is very large 
+ – Number of actual data instances is low 
+ • 
+ Eventual consistency 
+ – Updates will propagate through system ; eventually all data 
+ copies will be consistent 
+ Common characteristics : 
+ – Conceptual simplicity with semantic completeness 
+ – Represent the real world as closely as possible 
+ – Real - world transformations must comply with 
+ consistency and integrity characteristics 
+ • 
+ Each new data model capitalized on the 
+ shortcomings of previous models 
+ • 
+ Some models better suited for some tasks 
+ The External Model 
+ Database designer starts with abstracted view , then • 
+ End users ’ view of the data environment 
+ adds details 
+ • ER diagrams represent external views 
+ • ANSI Standards Planning and Requirements 
+ Conceptual 
+ – Constraints 
+ The Internal Model 
+ • Provides a relatively easily understood macro level view • Representation of the database as “ seen ” by the DBMS 
+ of data environment – Maps the conceptual model to the DBMS 
+ • 
+ Independent of both software and hardware • 
+ Internal schema depicts a specific representation of an 
+ internal model 
+ – Does not depend on the DBMS software used to 
+ implement the model • Depends on specific database software 
+ – Does not depend on the hardware used in the – Change in DBMS software requires internal model be 
+ implementation of the model changed 
+ – Changes in hardware or software do not affect database • 
+ Relational model aimed at logical level 
+ – Does not require physical - level details 
+ • 
+ A data model is an abstraction of a complex real - world data 
+ environment 
+ • Basic data modeling components : 
+ – Entities 
+ – Attributes 
+ – Relationships 
+ – Constraints 
+ • 
+ Business rules identify and define basic modeling 
+ components 
+ Hierarchical model • 
+ Object - oriented data model : object is basic modeling 
+ OO data models depicted using UML 
+ •

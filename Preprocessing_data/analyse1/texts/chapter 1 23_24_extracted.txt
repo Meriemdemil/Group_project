@@ -1,0 +1,143 @@
+A.KACIMI 
+ Maître de conférences classe A 
+ Faculté de Mathématique 
+ exponentielle 
+ Définition : 
+ On appelle fonction exponentielle , notée 
+ 𝑒𝑥𝑝 la fonction réciproque de la fonction 
+ ∗ 
+ logarithme népérien définie de ℝ vers ℝ 
+ + 
+ et on a 
+ 𝑦 = 𝑒𝑥𝑝 𝑥 ⇔ 𝑥 = 𝑙𝑛 𝑦 ; ∀𝑥 ∈ ℝ 
+ II . Fonctions exponentielle 
+ Proposition : 
+ La fonction exponentielle est une 
+ bijection strictement croissante de ℝ vers 
+ ∗ 
+ ℝ 
+ + 
+ ∗ 
+ 𝑒𝑥𝑝 : ℝ ⟶ ℝ 
+ + 
+ 𝑥 ⟼ 𝑦 = 𝑒𝑥𝑝 𝑥 
+ sa dérivée 
+ 1 1 
+ ′ 
+ 𝑒𝑥𝑝 𝑥 = = = 𝑒𝑥𝑝 𝑥 
+ 𝑙𝑛′ 𝑦 1 
+ 𝑦 
+ De plus 
+ lim 𝑒𝑥𝑝 𝑥 = + ∞ , lim 𝑒𝑥𝑝 𝑥 = 0 
+ 𝑥⟶+∞ 𝑥⟶−∞ 
+ II . 
+ exponentielle 
+ Tableau de variations : 
+ −∞ 𝟎 + ∞ 
+ 𝒙 
+ 𝑒𝑥𝑝′ 𝑥 + 
+ + ∞ 
+ 1 
+ 𝑒𝑥𝑝 𝑥 
+ 0 
+ I. Fonction exponentielle 
+ Graphe de l’exponentielle : 
+ II . Fonctions exponentielle 
+ Proposition : 
+ 1 . 𝑒𝑥𝑝 0 = 1 
+ 2 . 
+ Pour tout 𝑥 , 𝑦 dansℝ 
+ 𝑒𝑥𝑝 𝑥 + 𝑦 = 𝑒𝑥𝑝 𝑥 𝑒𝑥𝑝 𝑦 
+ 3 . Pour tout 𝑥dansℝ 
+ 1 
+ 𝑒𝑥𝑝 −𝑥 = 
+ 𝑒𝑥𝑝 𝑥 
+ 4 . Pour tout 𝑥 , 𝑦 dans ℝ 
+ 𝑒𝑥𝑝 𝑥 
+ 𝑒𝑥𝑝 𝑥 − 𝑦 = 
+ 𝑒𝑥𝑝 𝑦 
+ 5 . Pour tout 𝑥 dans ℝ et ∀𝑛 ∈ ℤ ; 
+ 𝑛 
+ 𝑒𝑥𝑝 𝑛𝑥 = 𝑒𝑥𝑝 𝑥 
+ II . 
+ exponentielle 
+ Preuve : 
+ • 𝑙𝑛1 = 0 ⇔ 𝑒𝑥𝑝 0 = 1 
+ • 𝑙𝑛 𝑒𝑥𝑝 𝑥 + 𝑦 = 𝑥 + 𝑦 , et 𝑙𝑛 𝑒𝑥𝑝 𝑥 𝑒𝑥𝑝 𝑦 = 
+ 𝑙𝑛 𝑒𝑥𝑝 𝑥 + 𝑙𝑛 𝑒𝑥𝑝 𝑦 = 𝑥 + 𝑦 
+ • 𝑙𝑛 𝑒𝑥𝑝 −𝑥 = −𝑥 et 
+ 1 
+ 𝑙𝑛 = −𝑙𝑛 𝑒𝑥𝑝 𝑥 = −𝑥 
+ 𝑒𝑥𝑝 𝑥 
+ • 𝑒𝑥𝑝 𝑥 − 𝑦 = 𝑒𝑥𝑝 𝑥 + −𝑦 = 
+ 𝑒𝑥𝑝 𝑥 
+ 𝑒𝑥𝑝 𝑥 𝑒𝑥𝑝 −𝑦 = 
+ 𝑒𝑥𝑝 𝑦 
+ • 𝑙𝑛 𝑒𝑥𝑝 𝑛𝑥 = 𝑛𝑥 et 
+ 𝑛 
+ 𝑙𝑛 𝑒𝑥𝑝 𝑥 = 𝑛𝑙𝑛 𝑒𝑥𝑝 𝑥 = 𝑛𝑥 
+ II . 
+ exponentielle 
+ Fonctions exponentielle 
+ Théorème 1 : 
+ exponentielle 
+ Fonctions logarithme de base « a » 
+ Cas particulier : Le logarithme décimal 
+ On peut donc définir 
+ la fonction réciproque , application continue 
+ et strictement croissante de 1 , + ∞ sur 
+ 0 , + ∞ . 
+ On peut donc 
+ définir la fonction réciproque , application 
+ continue et strictement croissante de 
+ −1 , +1 sur ℝ. Cette fonction réciproque est 
+ appelée argument tangente hyperbolique ; 
+ on la désigne par le symbole 𝐴𝑟𝑔𝑡ℎ 
+ caractérisée par 
+ ∀𝑥 ∈ ℝ , ∀𝑦 ∈ −1 , +1 ; 
+ 𝑦 = 𝑡ℎ 𝑥 ⟺ 𝑥 = 𝐴𝑟𝑔𝑡ℎ 𝑦 
+ 31 
+ Fonctions hyperboliques inverses 
+ Propriétés : 
+ • La fonction argument tangente hyperbolique 
+ est une fonction impaire 
+ • Elle vérifie que 
+ lim 𝐴𝑟𝑔𝑡ℎ 𝑥 = + ∞ lim 𝐴𝑟𝑔𝑡ℎ 𝑥 = −∞ 
+ 𝑥→1− 𝑥→−1 + 
+ • La fonction argument tangente hyperbolique 
+ est dérivable partout dans −1 , +1 
+ et de plus 
+ Pour tout 𝑦 ∈ −1 , +1 tel que 𝑦 = 𝑡ℎ 𝑥 
+ 1 1 1 
+ ′ 
+ 𝐴𝑟𝑔𝑡ℎ 𝑦 = = = 
+ 𝑡ℎ′𝑥 1 − 𝑡ℎ2 𝑥 1 − 𝑦2 
+ 32 
+ Fonctions hyperboliques inverses 
+ Tableau de variation de Argth : 
+ 33 
+ Fonctions hyperboliques inverses 
+ Graphe de Argch : 
+ 34 
+ Fonctions hyperboliques inverses 
+ Expression logarithmique de 𝑎𝑟𝑔𝑡ℎ : 
+ Nous avons que pour tout 𝑥 dans ℝ 
+ 2𝑥 
+ 𝑒 − 1 
+ 𝑥 = 𝐴𝑟𝑔𝑡ℎ 𝑦 ⟺ 𝑦 = 𝑡ℎ 𝑥 ⟺ 𝑦 = 
+ 𝑒2𝑥 + 1 
+ 1 + 𝑦 1 1 + 𝑦 
+ 2𝑥 
+ ⟺ 𝑒 = ⟺ 𝑥 = 𝑙𝑛 
+ 1 − 𝑦 2 1 − 𝑦 
+ D’où en déduit que la fonction Argument 
+ tangente hyperbolique peut être exprimée 
+ en fonction du logarithme comme suite 
+ ∀𝑥 ∈ −1 , +1 ; 
+ 1 1 + 𝑥 1 + 𝑥 
+ 𝐴𝑟𝑔𝑡ℎ 𝑥 = 𝑙𝑛 = 𝑙𝑛 
+ 2 1 − 𝑥 1 − 𝑥 
+ 35 
+ Fonctions hyperboliques inverses 
+ Merci de votre attention 
+ 36

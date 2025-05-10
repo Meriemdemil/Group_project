@@ -1,0 +1,339 @@
+The art of solving real - world problems : 
+ Operations Research ( OR ) 
+ Mohammed Brahimi 
+ Agenda 
+ The Beginnings of 
+ The art of modeling in OR 
+ Operations Research ( OR ) 
+ 1 3 
+ 2 4 
+ Introduction to OR Phases of OR study 
+ 2 
+ The Beginnings of Operations Research ( OR ) 
+ 3 
+ Origine of Operations Research ( OR ) 
+ Who were the first Operations Research teams ? 
+ Origine of Operations Research ( OR ) 
+ ● Large number of scientists are called to apply a scientific approach to 
+ address strategic and tactical problems 
+ ● Results 
+ ○ Scarce resources allocation to military operations 
+ ○ Deployment of radar 
+ ○ Convoy management 
+ ○ … 
+ The origins of operations research ( OR ) is the a time of war , when highly intelligent 
+ scientists came together to tackle crucial problems . 
+ 5 
+ OR from War to Business and Research 
+ ● 
+ Scientists motivated to pursue OR research , leading to significant advancements in the field 
+ ● 
+ Emergence of components with separate goals 
+ ● Conflict between components 
+ ● Difficulty in resource allocation 
+ Emergence of Operations Research ( OR ) to solve these 
+ problems 
+ 7 
+ OR and computer 
+ revolution 
+ ● 
+ The computer revolution was a 
+ major boost to OR 's development 
+ ● 
+ The continued acceleration of 
+ computer power has contributed 
+ to the growth of OR 
+ 8 
+ Introduction to Operations Research ( OR ) 
+ 9 
+ What is Operations Research ( OR ) ? 
+ Operations Research 
+ Operations : 
+ ● problems related to operations within organizations 
+ Research : 
+ ● scientific method to investigate the problem 
+ Observation and formulation 
+ ○ 
+ Building a mathematical model 
+ ○ 
+ Testing the model . 
+ ○ 
+ Nature of Operations 
+ Research ( OR ) 
+ Organizational 
+ point of view 
+ ● OR adopts an organizational 
+ point of view and considers the 
+ best for the organization as a 
+ whole 
+ Optimal 
+ solution 
+ ● OR searches for the best 
+ possible solution ( optimal ) not 
+ only an acceptable solution 
+ Team 
+ approach 
+ ● OR requires a team approach , 
+ as no single individual can have 
+ expertise in all aspects of OR 
+ 11 
+ Impact of Operations Research ( OR ) 
+ Organization Use case Annual Savings 
+ Reduce manufacturing time 
+ Samsung Electronics and the amount of stocked $ 200 million more revenue 
+ raw material 
+ Hewlett - Packard ( HP ) Product portfolio management $ 180 million 
+ Optimize operation of a railway 
+ Netherlands Railways $ 105 million 
+ network 
+ Develop a route management 
+ Waste Management system for trash collection and $ 100 million 
+ disposal 
+ Syngenta 
+ Increase the productivity of $ 57 million 
+ Tickets purchasing problem 
+ Alternatives 
+ What are the decision alternatives ? 
+ What are the restrictions for making the 
+ Constraints 
+ decision ? 
+ What is an appropriate objective 
+ Objective 
+ criterion for evaluating the alternatives ? 
+ 14 
+ What are the decision alternatives ? 
+ Tickets purchasing problem 
+ What are the restrictions for making the decision ? 
+ Objective criterion 
+ The cheapest ticket price . 
+ Alternatives costs 
+ a. 
+ Alternative a : Cost : $ 2000 ( 5 * $ 400 ) 
+ b. 
+ The best alternative is the one with the smallest cost 
+ 16 
+ Challenge : what are the decision alternatives ? 
+ ● How many alternatives exist ? 
+ ● Is there a cheaper alternative to the options offered ? 
+ ● What is the cost of this alternative ? 
+ Example : Garden 
+ problem 
+ ● A homeowner is starting a 
+ backyard vegetable garden 
+ ● The garden must be 
+ rectangular and fenced to 
+ keep critters out 
+ Fence the largest possible 
+ ● The owner has enough 
+ material to build a fence of 
+ rectangular area 
+ length L = 100 ft 
+ 18 
+ Garden problem 
+ Alternatives 
+ What are the decision alternatives ? 
+ What are the restrictions for making the 
+ Constraints 
+ decision ? 
+ What is an appropriate objective 
+ Objective 
+ criterion for evaluating the alternatives ? 
+ 19 
+ Garden problem 
+ What are the restrictions for making the decision ? 
+ Objective criterion 
+ Maximize the area of the garden 
+ Alternatives costs 
+ Impossible to test all the possibilities because we have continuous variables 
+ 20 
+ Garden problem 
+ The art of modeling in Operations Research ( OR ) 
+ 23 
+ Example : Wozac 
+ production process 
+ ● 
+ Eli Daisy produces Wozac by 
+ heating a chemical mixture in a 
+ pressurized container 
+ ● 
+ The production process results 
+ in different amounts of Wozac 
+ produced each time 
+ ● 
+ The amount produced is called 
+ Understand the factors that 
+ the process yield , measured in 
+ pounds 
+ influence the yield . 
+ 24 
+ Wozac Production Process 
+ ● 
+ Model - building process should be used 
+ Decision variables : factors influencing Wozac production yield : 
+ ○ Container volume ( V ) , Container pressure ( P ) , Container temperature ( T ) 
+ ○ A , B , and C be percentage of mixture made up of chemicals A , B , and C 
+ ● Model : descriptive model that describes behavior of actual yield 
+ ○ 
+ Regression methods used to determine influence 
+ ○ 
+ Find the model parameters based on the data 
+ 25 
+ Constraints in Wozac Production Process 
+ What are the restrictions for making the decision on Wozak Production Process ? 
+ ● Volume ( V ) between 1 and 5 liters 
+ ● Pressure between 200 and 400 milliliters 
+ ● Temperature between 100 and 200 degrees Celsius 
+ ● 
+ Mixture must be made of A , B , and C 
+ ● 
+ Wozac Production Process 
+ 27 
+ Wozac Production Process 
+ Any values of decision variables that meet constraints is in feasible region 
+ ● 
+ Optimal solution is a point in feasible region that optimizes objective function 
+ ● 
+ Use an OR method to determine the optimal solution for the model 
+ ● 
+ Optimal solution : 
+ ○ 5 - liter container , 200 milliliters pressure , 100 degrees Celsius temperature , 29 % 
+ A and 71 % C 
+ ○ Maximum yield of 183.38 pounds can be obtained with the optimal solution 
+ 28 
+ Modeling in OR 
+ ● 
+ Model expresses the 
+ behavior in an easily 
+ understandable manner 
+ Dominant variables are 
+ concentrated 
+ Model is a simplified representation 
+ ● 
+ Example : UPS- Optimize delivery itineraries 
+ Problem : 
+ ● UPS introduced ORION software to provide tailored delivery itineraries 
+ ● 
+ The software proposed shorter routes , leading to potential savings 
+ ● 
+ Drivers did n't like the idea of a machine " beating " them 
+ 33 
+ UPS- Optimize delivery itineraries 
+ Problem : 
+ ● UPS introduced ORION software to provide tailored delivery itineraries 
+ ● 
+ The software proposed shorter routes , leading to potential savings 
+ ● 
+ Drivers did n't like the idea of a machine " beating " them 
+ Solution : 
+ ● ORION developers added a button " Beat the Computer " 
+ ● 
+ Drivers took the challenge , some beat computer - suggested routes 
+ Perception of ORION changed from a threat to a complement to drivers ' experience 
+ 34 
+ Example : Solving the Airport Baggage Delay 
+ Problem : 
+ ● Long baggage wait complained about by Houston Intercontinental Airport travelers 
+ ● Increasing the number of baggage handlers did not alleviate the problem 
+ 35 
+ Waiting - line problem requiring mathematical queuing analysis 
+ Elevator Wait Time Issues 
+ Problem : 
+ ● Complaints of slow elevator service in a large office building 
+ ● 
+ Waiting - line problem requiring mathematical queuing analysis 
+ Solution proposed with psychologist : 
+ ● Installation of full - length mirrors at the entrance to the elevators 
+ ● 
+ Solving the Long Wait for Truck Transport 
+ Problem : 
+ The problem was perceived as a need for an additional truck 
+ Solution : 
+ ● Low truck utilization due to obscure parking and lack of visibility for supervisors 
+ ● 
+ Lessons Learned from these examples 
+ ) 
+ Define the problem Observe the system Build the [ math ] model 
+ Solve the model Validate the model Present the results 
+ Implement the final solution Monitor the system 
+ Objectives ● 
+ Data tells story about the 
+ ○ Decision alternatives problem . 
+ ● Model may fit standard math 
+ ○ Constraints models ( e.g. linear programming ) 
+ ● Determine the variables 
+ ● Determine the study scope affecting problem 
+ ○ Organization parts 
+ 44 
+ Phases of an OR Study ( 3 ) 
+ Solve the model Validate the model Present the results 
+ ● Use well - defined ● Validate the model 's output ● Present model and 
+ methods if possible with historical data or recommendation to decision 
+ simulations maker 
+ ● Heuristics or 
+ simulation if not ● Ensure the solution is ● Discuss feasibility 
+ intuitively acceptable 
+ ● Sensitivity analysis ( to ● Revisit earlier phases if 
+ be covered ) recommendations are not 
+ approved 
+ 45 
+ Phases of an OR Study ( 4 ) 
+ Implement the final solution Monitor the system 
+ ● Assistance in implementing the Monitor the system and update it 
+ regularly to meet organization 's 
+ recommendations 
+ objectives 
+ ● Translating the results into clear and 
+ understandable operating instructions 
+ 46 
+ Example : CITGO Petroleum 
+ The work saved the company an estimated $ 70 million per year 
+ ● 
+ CITGO was purchased by Southland Corporation ( the owners of 7 - Eleven stores ) 
+ 47 
+ Phases of an OR Study ( 1 ) 
+ Define the problem Observe the system Build the [ math ] model 
+ ● Observe Lake Charles ● Develop Linear programming ( LP ) 
+ Refinery model to optimize operations 
+ ● 
+ The goal : Minimize the cost of 
+ operating CITGO 's refineries ● Estimate key relationships 
+ ( cost of producing each 
+ product , energy needed to 
+ produce each product , 
+ yield , etc . ) 
+ ● Install Accurate Data 
+ Collection Systems 
+ 48 
+ Phases of an OR Study ( 2 ) 
+ Solve the model Validate the model Present the results 
+ ● Solve the Linear 
+ ● Validate model with actual ● Show Benefits of $ 50M+ 
+ programming problem 
+ inputs and outputs from the Annually to Decision Makers 
+ using a software 
+ refinery 
+ package 
+ 49 
+ Phases of an OR Study ( 2 ) 
+ Implement the final solution Monitor the system 
+ ● Use the model to guide day - to - day Monitor the system and update it 
+ regularly to meet organization 's 
+ operations 
+ objectives 
+ 50 
+ Conclusion 
+ ● OR rationalizes complex organizational management using scientific 
+ methodology 
+ ● OR involves collaboration across multiple fields to solve problems 
+ ● OR is about understanding problems and proposing solutions that lead to cost 
+ savings and profits 
+ 51 
+ Conclusion 
+ Real - world problem 
+ Abstract Model 
+ Solve the model 
+ Improve the reality 
+ 52 
+ Used Books for Lecture Preparation 
+ 53 
+ Open discussion

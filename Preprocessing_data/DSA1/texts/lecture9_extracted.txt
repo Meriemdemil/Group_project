@@ -1,0 +1,196 @@
+Introduction 
+  
+ Definition 
+  
+ Example 
+  
+ Declaration 
+  
+ Fundamental Modules for 2D Array Operations 
+  
+ Read , Write 
+  
+ Applications 
+  
+  Arrangement 
+ 2D Array in C++ 
+  
+ Definition and Declaration 
+  
+ Examples 
+ Introduction to 2D Array 
+ Definition 
+ 2D ARRAY : is an object composed of multiple 
+  
+ elements of the same type ( row ) , each element , in 
+ turn , decomposed into several elements of the same 
+ type in columns . 
+ Accessing an element of the array is done by 
+  
+ specifying the object 's name followed , in square 
+ brackets [ r , c ] , by the row index and column index 
+ separated by a comma 
+ Introduction to 2D Array 
+ Examples 
+ Column 
+ Example 1 : 
+ The number of rows and columns in the array 
+  
+ constitutes the size of the array . 
+ It is crucial not to confuse between the maximum size 
+  
+ used during the declaration of the array and the actual 
+ size of the array . 
+ The declaration is practically identical to that of one- 
+  
+ dimensional arrays . 
+ [ ] [ ] 
+ READ2D 
+ Var Integer nb_row 
+ Var Integer nb_col 
+ Role : read a 2D array with number 
+ of rows and number of columns 
+ Basic Modules for 2D Array 
+ ANALYSIS 
+ • The number of rows ( nb_row ) of Procedure READ2D ( Var Data_type A 
+ [ ] , Var Integer 
+ the array is read . 
+ nb_row , Var Integer nb_col ) 
+ Variable Integer i , j 
+ • The number of columns ( nb_col ) 
+ BEGIN 
+ of the array is read . 
+ Assignment : SearchV2D = Found 
+ Basic Modules for 2D Array 
+ Application 1 : Searching for an element in a 2D array 
+ Boolean Function SearchV2D ( Data_type A [ ] [ ] , Integer nb_row , Intger nb_col , 
+ Data_type V ) 
+ Variable Integer i , j 
+ Boolean Found 
+ BEGIN 
+ Found = False 
+ i = 0 
+ WHILE ( i < nb_row ) AND ( Found = = False ) DO 
+ j = 0 
+ WHILE ( j < nb_col ) AND ( Found = = False ) DO 
+ IF A[i , j ] = = V THEN 
+ Found = True 
+ END IF 
+ j = j + 1 
+ END WHILE 
+ i = i + 1 
+ END WHILE 
+ SeachV2D = Found 
+ END 
+ Basic Modules for 2 D Array 
+ Application 2 : Sum of Columns 
+ Given a 2D array A , store the cumulative sums of the elements in 
+  
+ each column of the same column in a 1D array SCOL . 
+ A 
+ SCOL 
+ Basic Modules for 2D Array 
+ Application 2 : Sum of Columns 
+ Modular breakdown : 
+ The module READ2D , which allows us to read a 2D array . 
+  
+ The module SumCOL , which calculates the sum of a column and 
+  
+ stores it in a cell of a 1D array . 
+ A module that displays the array containing the results of the sum 
+  
+ of each column , WRITE1D. 
+ An optional module , WRITE2D , which displays the array 
+  
+ containing the elements of the initial 2D array . 
+ Basic Modules for 2D Array 
+ PROCEDURE 
+ Data_type A 
+ ] 
+ SumCOL 
+ Integer nb_col 
+ Data_type SCOL [ ] 
+ Integer nb_row 
+ Calculates the cumulative sum for each 
+ column , considering all its elements , and 
+ stores it in a 1D array R. 
+ Basic Modules for 2D Array 
+ Application 2 : Sum of Columns 
+ Construction of the SumCOL Module : 
+ Analysis : 
+ For each column j , 
+  
+ • We initialize sumC to 0 ( which will contain the sum of the 
+  
+ elements in the column ) 
+ • For each row i 
+  
+ We accumulate the elements A[i , j ] into sumC 
+  
+ • We store the cumulative sum ( sumC ) in the SCOL[j ] 
+  
+ Basic Modules for 2D Array 
+ Application 2 : Sum of Columns 
+ Procedure SumCOL ( Data_type A [ ] [ ] , Integer nb_row , Intger nb_col , Var Data_type SCOL [ ] ) 
+ Variable Integer i , j , sumC 
+ BEGIN 
+ FOR j FROM 0 TO nb_col-1 DO 
+ sumC = 0 
+ FOR i FROM 0 TO nb_row-1 DO 
+ sumC = sumC + A[i , j ] 
+ END FOR 
+ SCOL[j ] = sumC 
+ END FOR 
+ END 
+ Basic Modules for 2D Array 
+ Application 2 : Sum of Columns 
+ Main Algorithm 
+ Analysis : 
+ The procedure READ2D is called to read the size of the array 
+  
+ and its elements . 
+ WRITE2D is called for verification ( optional ) . 
+  
+ The SumCOL procedure is called to perform the sums 
+  
+ ( cumulative sums ) of the columns and place them in a one- 
+ dimensional array . 
+ WRITE1D is called to display the contents of the SCOL array . 
+ # include < iostream > 
+ 4 
+ < " The array is:\n " 
+ 34 printArray ( studentGrades , students , exams ) ; 
+ We pass the 
+ 52 
+ array / row containing the 
+ 53 } // end main 
+ 54 student ’s grades . 
+ 62 for ( int j = 0 ; j < tests ; j++ ) 
+ 63 
+ 64 if ( grades [ i ] [ j ] < lowGrade ) 
+ 65 lowGrade = grades [ i ] [ j ] ; 
+ 66 
+ 67 return lowGrade ; 
+ 68 
+ 69 } // end function minimum 
+ 70 
+ 71 
+ if ( grades [ i ] [ j ] > highGrade ) 
+ 81 highGrade = grades [ i ] [ j ] ; 
+ return static_cast < double > ( total ) / tests ; // average 
+ // end function maximum 
+ 99 
+ 100 // Print the array 
+ 2D Array in C++ 
+ 101 void printArray ( int grades [ ] [ exams ] , int pupils , int tests ) 
+ 102 { 
+ 10 3 // set left justification and output column heads 
+ 104 cout < 
+ [ 0 ] [ 1 ] [ 2 ] [ 3 ] " ; 
+ 105 
+ 106 // output grades in tabular format 
+ 107 for ( int i = 0 ; i < pupils ; i++ ) { 
+ 108 
+ 109 // output label for row 
+ 110 cout < 
+ \nstudentGrades [ " <

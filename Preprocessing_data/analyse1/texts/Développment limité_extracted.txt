@@ -1,0 +1,290 @@
+Chapitre 6 
+ Les développements limités 
+ Introduction . 
+ On a vu que , par l’intermédiaire de la formule de Tayloy , on peut approximer une fonc- 
+ tion f par un polynôme . 
+ Mais dans la formule de , on exige de la fonction f d’être 
+ régulière c’est à dire dérivable jusqu’à l’ordre n sur un voisinage du point x 
+ .Par contre , 
+ 0 
+ cette régularité n’est pas exigée pour obtenir un développement limité d’une fonction . 
+ C’est là l’avantage des développements limités qui permettent d’approcher des fonctions 
+ régulières ou non par des polynômes . L’autre avantage est , de passer par des techniques 
+ simples de calcul de D.L. pour trouver les développements de , pour les fonctions 
+ régulières , sans connaitre les dérivées de f en x , et par conséquent , on peut obtenir sim- 
+ 0 
+ plementdesdérivéesdef enx . Nouscommençonsparlesdéveloppementslimitésenzéro . 
+ 0 
+ 6.1 Développements limités en zéro . 
+ Dénition 6.1.1 Soit f une fonction dénie sur un v(0 ) . 
+ On dit que f adment un 
+ développement limité d’ordre n en 0 si , il existe n+1 nombres réels ( a , a , , , , , a ) et 
+ 0 1 n 
+ une fonction 
+ ϕ : v(0 ) R 
+ → 
+ x ϕ(x ) 
+ → 
+ avec 
+ limϕ(x ) = 0 , 
+ x→0 
+ tel que 
+ f(x ) = a + a x+a x2+ ..... +a xn+xnϕ(x ) . 
+ Les développements limités 
+ • Lepolynôme a + a x+a x2+ ..... +a xnestappelépartierégulièredudéveloppement 
+ 0 1 2 n 
+ limité de f. 
+ • L’expression xnϕ(x ) est appelée reste d’ordre n du D.L. dse f. 
+ • Le monôme du plus bas degré de la partie régulière est appelé Partie principale du 
+ D.L. de f. 
+ Remarque 6.1.2 
+ Du fait que 
+ xnϕ(x ) 
+ lim = limϕ(x ) = 0 , 
+ x→0 xn x→0 
+ alors ( 6.1.1 ) s’écrit sous la forme : 
+ f(x ) = a + a x+a x2+ ..... +a xn+o(xn ) . 
+ Les développements limités 
+ Proposition 6.1.5 
+ De plus 
+ 0 
+ on a la relation 
+ fk(0 ) 
+ a = , k = 0,1, ... n. ( 6.1.4 ) 
+ k k ! 
+ De la formule de Taylor et de l’unicité du développement limité on obtient les formules 
+ suivantes 
+ x2 x3 x4 xn 
+ ex = 1+x+ + + + ..... + + o(xn ) , 
+ 2 ! 
+ Exercice En déduire les D.L. des fonctions 
+ 1 1 1 1 
+ f ( x ) = , f ( x ) = , f ( x ) = √1+x , f ( x ) = , f ( x ) = 
+ 1 1+x 2 1 x 3 4 √1+x 5 √1 x2 
+ − − 
+ Remarque 6.1.7 On a vu plus haut qu’une fonction admet un D.L. en zéro , sans qu’elle 
+ ne soit continue en zéro . 
+ il y’a comme même une condition que la fonction f doit 
+ satisfaire pour admettre un D.L. en zéro . 
+ Condition nécessaire d’existence d’un D.L. 
+ Proposition 6.1.8 Si f admet un développement limité en 0 alors limf(x ) existe et est 
+ x→0 
+ nie . 
+ Remarque 6.1.9 
+ Cette proposition permet de reconnaitre les fonction n’ayant pas de 
+ développement limités . 
+ Les développements limités 
+ 6.1.2 Opérations sur les D.L. 
+ Théorème 6.1.10 Soient f et g deux fonctions ayant des développements limités d’ordre 
+ n en zéro . 
+ De plus 
+ 1 . lapartierégulièredudéveloppementlimitédef+g estlasommedespartiesrégulières 
+ des développements limités de f et de g. 
+ 2 . 
+ la partie régulière du développement limité de fg s’obtient du produit des parties 
+ régulières des développements limités de f et de g , en ne gardant que 
+ les monômes 
+ de degrés inférieures ou égaux à n. 
+     
+ x3 
+ = x+x2 + + o(x4 ) 
+ 3 
+ Exemple 6.1.12 En utilisant la division suivant les puissances croissantes , on obtient 
+ x3 
+ tgx = x+ + o(x4 ) . 
+ 3 
+ 104 
+ 7 . 
+ Les développements limités 
+ 6.1.3 D.L. de la fonction composée 
+ Proposition 6.1.13 
+ Si les fonctions f et u ont des développements limités d’ordre n et 
+ si en outre limu(x ) = 0 alors la fonction g = fou admet un développement limité d’ordre 
+ x→0 
+ n. 
+ De plus la partie régulière du D.L. de g s’obtient de la partie régulière du D.L. de f en 
+ substituant la partie régulière du D.L. de u et en ne gardant que les monômes de degrés 
+ inférieures ou égaux à n. 
+ Exemple 6.1.14 Le D.L. d’ordre 4 de la fonction esinx s’obtient comme suit : 
+ x3 1 x3 2 1 x3 3 1 x3 4 
+ esinx = 1 + x + x + x + x + o(x4 ) 
+ − 3 ! 
+ − 3 ! 
+     
+ x2 3 
+ = 1+x+ x4+o(x4 ) 
+ 2 − 4 ! 
+ 6.1.4 Intégration d’un D.L. 
+ Soit f une fonction intégrable sur un voisinage de zéro . 
+ et soit 
+ x 
+ F(x ) = f(t)dt 
+ ∫0 
+ la primitive de f , s’annulant en zéro . 
+ On a le résultat suivant qui donne le D.L. de F à 
+ partir du D.L. de f. 
+ Proposition 6.1.15 Soit f une fonction intégrable sur un voisinage de zéro . 
+ un développement limité d’ordre n en zéro alors sa primitive F admet un développement 
+ limité d’ordre n+1 en zéro . 
+ De plus , la partie régulière du D.L. de F est la primitive , 
+ s’annulant en zéro , de la partie régulière du développement limité de f. 
+ Exemple 6.1.16 Sachant que ( Trouver le résultat suivant ) 
+ 1 
+ = 1 x2+x4+ ..... + ( 1)nx2n+o(x2n+1 ) , 
+ 1+x2 − − 
+ on obtient 
+ x3 x5 x2n+1 
+ Arctgx = x + + ..... + ( 1)n + o(x2n+2 ) . 
+ − 3 5 − 2n+1 
+ Remarque 6.1.17 
+ Comme annoncé en introduction de ce chapitre , le développement 
+ limité d’une fonction régulière 
+ permet de calculer les dérivées de cette fonction par la 
+ relation ( 6.1.4 ) . 
+ Comme exemple 
+ 105 
+ 7 . 
+ Les développements limités 
+ 0 si n = 2k , 
+ ( Arctg)(n)(0 ) = 
+  ( 1)k(2k ) ! si n = 2k+1 . 
+ − 
+ Exercice 
+ 1 ) Déterminer les D.L. d’ordre 5 des fonctions 
+ Arcsinx , ln(3 + 2x ) et Argshx . 
+ 2 ) Déterminer la dérivée d’ordre 5 en zéro de la fonction f(x ) = Arcsinx ln(3 + 2x ) . 
+ 6.1.5 Dérivation d’un D.L. 
+ Proposition 6.1.18 Supposons que 
+ 1 . f admet un développement limité d’ordre n en zéro , 
+ 2 . f est dérivable sur un voisinage de zéro 
+ 3 . f′ admet un développement limité d’ordre n 1 en zéro , 
+ − 
+ alors la partie régulière du développement limité de f′ est la dérivée de la partie régulière 
+ du développement limité de f. 
+ En eet , parce que la partie régulière du développement limité de f est une primitive de 
+ la partie régulière du développement limité de 
+ f′ 
+ . 
+ Remarque 6.1.19 
+ Le fait que f admet un développement limité d’ordre n n’implique pas que f est 
+ 2 . Mêmesif estdérivablesurunvoisinagedezéro , lafonctionf′ peutnepasadmettre 
+ de développement limité en zéro . 
+ 6.1.6 développement limité en x 
+ 0 
+ Dénition 6.1.20 Soit f une fonction dénie sur un v(x ) . 
+ On dit que f adment un 
+ 0 
+ développement limité d’ordre n en x si , il existe n+1 nombres réels ( a , a , , , , , a ) et 
+ 0 0 1 n 
+ une fonction 
+ ϕ : v(0 ) R 
+ → 
+ x ϕ(x ) 
+ → 
+ 106 
+ 7 . 
+ Les développements limités 
+ avec 
+ lim ϕ(x x ) = 0 , 
+ 0 
+ x→x0 − 
+ tel que 
+ f(x ) = a + a ( x x ) + a ( x x ) 2+ ..... +a ( x x ) n+(x x ) nϕ(x x ) . 
+ ( 6.1.6 ) 
+ 0 1 0 2 0 n 0 0 
+ − − − − 
+ Proposition 6.1.22 Une fonction f admet un développement limité , d’ordre n , en x si , 
+ 0 
+ et seulement si , la fonction g(t ) = f(t+x ) admet un développement limité , d’ordre n , 
+ 0 
+ en zéro . 
+ Exemple 6.1.23 Calculons le D.L. d’ordre 4 de la fonction f(x ) = cosx en x = π . 
+ On 
+ 0 6 
+ pose t = x π et on a 
+ − 6 
+ Les développements limités 
+ 6.1.7 développement limité au voisinage de l’inni 
+ Dénition 6.1.25 Soit f une fonction dénie sur ] α , + [ . On dit que f adment un 
+ ∞ 
+ développement limité d’ordre n au voisinage de + si , il existe n + 1 nombres réels 
+ ∞ 
+ ( a , a , , , , , a ) et une fonction 
+ 0 1 n 
+ ϕ : v(0 ) R 
+ → 
+ x ϕ(x ) 
+ → 
+ avec 
+ 1 
+ lim ϕ ( ) = 0 , 
+ x→+∞ x 
+ tels que 
+ a a a 1 1 
+ f(x ) = a + 1 + 2 + ..... + n + ϕ ( ) . 
+ ( 6.1.7 ) 
+ 0 x x2 xn xn x 
+ Remarque 6.1.26 L’expression ( 6.1.7 ) s’écrit sous la forme : 
+ a a a 1 
+ f(x ) = a + 1 + 2 + ..... + n + o . 
+ ( 6.1.8 ) 
+ 0 x x2 xn xn 
+   
+ Proposition 6.1.27 Une fonction f admet un développement limité , d’ordre n , au voisi- 
+ nage de + si et seulement si la fonction g(t ) = f(1 ) admet un développement limité , 
+ ∞ t 
+ d’ordre n , en zéro . 
+ Remarque 6.1.28 
+ On a la même dénition pour le développement limité au voisinage 
+ de , pour une fonction dénie sur un intervalle de la forme ] , α [ . 
+ −∞ −∞ 
+ Application Déterminons , lorsque x , l’équation de l’asymptôte et sa position 
+ → −∞ 
+ par rapport à la courbe de la fonction f dénie par 
+ f(x ) = √3 8x3 + 4x2 1 x. 
+ − − 
+ 108 
+ 7 . 
+ Les développements limités 
+ On pose t = 1 0 . 
+ La fonction f(x ) = cotgx n’admet pas de développement limité en 
+ Les développements limités 
+ Dénition 6.1.30 Supposons que la fonction f n’a pas de développement limité en zéro , 
+ mais il existe α > 0 tel que 
+ x α f(x ) = a + a x+a x2+ ..... +a xn+o(xn ) . 
+ 0 1 2 n 
+ Alors , 
+ a a a a 
+ f(x ) = 0 + 1 + 2 + ..... + n + o(xn−α ) , 
+ xα x1−α x2−α xn−α 
+ et l’expression 
+ a a a a 
+ 0 + 1 + 2 + ..... + n + o(xn−α ) 
+ xα x1−α x2−α xn−α 
+ est appelée développement limité généralisé en zéro de f. 
+ Pour l’exemple précédent , utilisant la division d’odre 4 , suivant les puissances croissantes 
+ on a : 
+ x2 17 
+ xcotgx = 1 x4+o(x4 ) . 
+ − 3 − 3.5 ! 
+ → 
+ Exercice 2 Calculer le développement limité d’ordre n en 0 des fonctions suivantes 
+ 1+sinx 
+ 1 . 
+ ( cosx)sinx n = 5 . 
+ x tgx − − 
+ − 
+  
+ Exercice 3 Calculer le développement limité en zéro d’ordre 2 des fonctions 
+ exp x + cosx e2 ln(1+x2)+sin2x 
+ 1 . f(x ) = sinx − ; 2 . g(x ) = . 
+ ln(1 x ) 1 cosx 
+  −  − 
+ 110 
+ 7 . 
+ Soit f la fonction dénie par f(x ) = ln(x2 + 2x+2 ) . 
+ Donner l’équation de la tangente 
+ à la courbe au point d’abscisse 0 et étudier la position de la courbe par rapport à sa 
+ tangente en ce point 
+ Etudier l’existences de l’asymptôte oblique et la position de la courbe par 
+ rapport à l’asymptôte pour les fonctions suivantes

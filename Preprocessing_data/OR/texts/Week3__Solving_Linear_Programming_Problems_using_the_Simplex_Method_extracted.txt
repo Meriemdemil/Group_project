@@ -1,0 +1,430 @@
+Solving Linear 
+ Programming Problems 
+ TheSimplexMethod 
+ Mohammed Brahimi 
+ ENSIA / IntelligentSystemsEnginnering 
+ March3,2023 
+ Outline 
+ KeyTakeawaysfromLastLecture 
+ LPStandardForm 
+ ANaiveAlgorithm 
+ BasicandNonbasicVariables 
+ Protoypeexample 
+ Thestatesofsolutions 
+ SimplexAlgorithm 
+ Simplex : Specialcases 
+ Conclusion 
+ 2/36 
+ • ThefeasibleregionforanyLPisaconvexset . 
+ Key Takeaways from Last Lecture 
+ • IfanoptimalsolutionexistsfortheLP , thenatleastoneofthecornerpointsis 
+ optimal . 
+ 3/36 
+ Key Takeaways from Last Lecture 
+ • IfanoptimalsolutionexistsfortheLP , thenatleastoneofthecornerpointsis 
+ optimal . 
+ • ThefeasibleregionforanyLPisaconvexset . 
+ 3/36 
+ LP Standard Form 
+ Maximize z = c1x1 + c2x2 + · · · + c 
+ n 
+ x 
+ n 
+ Subjectto a11x1 + a21x2 + · · · + a n1x 
+ n 
+ = b1 , 
+ a12x1 + a22x2 + · · · + a n2x 
+ n 
+ = b2 , 
+ . 
+ . 
+ . 
+ a1 m x1 + a2 m x2 + · · · + a 
+ nm 
+ x 
+ n 
+ = b 
+ m 
+ , 
+ x ≥0 ( 1≤ i ≤ n ) 
+ i 
+ But ... 
+ Why this LP Standard Form ? ! 
+ 4/36 
+ LP Standard Form 
+ Maximize z = c1x1 + c2x2 + · · · + c 
+ n 
+ x 
+ n 
+ Subjectto a11x1 + a21x2 + · · · + a n1x 
+ n 
+ = b1 , 
+ a12x1 + a22x2 + · · · + a n2x 
+ n 
+ = b2 , 
+ . 
+ . 
+ . 
+ a1 m x1 + a2 m x2 + · · · + a 
+ nm 
+ x 
+ n 
+ = b 
+ m 
+ , 
+ x ≥0 ( 1≤ i ≤ n ) 
+ i 
+ Because ... 
+ To solve a system of equations . 
+ 5/36 
+ • WhentheSlack / Surplus / Originalvariableisnull , itmeansthataconstraintis 
+ satisfiedwithequality(Bindingconstraint ) . 
+ • Introducetwonon - negativeartificialvariables , S 
+ + ≥0andS − ≥0,totransform 
+ i i 
+ unrestrictedvariablex ( nosignrestriction ) . 
+ i 
+ – xi = S + 
+ i 
+ − S − 
+ i 
+ • Alltheoriginalvariablesx andtheaddedvariablesS arepositive . 
+ i i 
+ How to convert to the LP Standard Form 
+ • Introducenon - negativeslackandexcessvariablevariables , S 
+ ≥0,totransform 
+ i 
+ theinequalityconstraintsintoequalityconstraints . 
+ ∑ ∑ 
+ – n 
+ i=1 
+ aijxi ≤ bj , addaslackvariableSj ≥0suchthat ( n 
+ i=1 
+ aijxi ) + Sj = bj . 
+ ∑ ∑ 
+ – n 
+ i=1 
+ aijxi ≥ bj , addasurplusvariableSj ≥0suchthat ( n 
+ i=1 
+ aijxi ) − Sj = bj . 
+ 6/36 
+ • WhentheSlack / Surplus / Originalvariableisnull , itmeansthataconstraintis 
+ satisfiedwithequality(Bindingconstraint ) . 
+ • Introducetwonon - negativeartificialvariables , S 
+ + ≥0andS − ≥0,totransform 
+ i i 
+ unrestrictedvariablex ( nosignrestriction ) . 
+ i 
+ – xi = S + 
+ i 
+ − S − 
+ i 
+ • Alltheoriginalvariablesx andtheaddedvariablesS arepositive . 
+ i i 
+ How to convert to the LP Standard Form 
+ • 
+ Introducenon - negativeslackandexcessvariablevariables , S 
+ ≥0,totransform 
+ i 
+ theinequalityconstraintsintoequalityconstraints . 
+ ∑ ∑ 
+ – n 
+ i=1 
+ aijxi ≤ bj , addaslackvariableSj ≥0suchthat ( n 
+ i=1 
+ aijxi ) + Sj = bj . 
+ ∑ ∑ 
+ – n 
+ i=1 
+ aijxi ≥ bj , addasurplusvariableSj ≥0suchthat ( n 
+ i=1 
+ aijxi ) − Sj = bj . 
+ 6/36 
+ • Introducetwonon - negativeartificialvariables , S 
+ + ≥0andS − ≥0,totransform 
+ i i 
+ unrestrictedvariablex ( nosignrestriction ) . 
+ i 
+ – xi = S + 
+ i 
+ − S − 
+ i 
+ • Alltheoriginalvariablesx andtheaddedvariablesS arepositive . 
+ i i 
+ How to convert to the LP Standard Form 
+ • Introducenon - negativeslackandexcessvariablevariables , S 
+ ≥0,totransform 
+ i 
+ theinequalityconstraintsintoequalityconstraints . 
+ ∑ ∑ 
+ – n 
+ i=1 
+ aijxi ≤ bj , addaslackvariableSj ≥0suchthat ( n 
+ i=1 
+ aijxi ) + Sj = bj . 
+ ∑ ∑ 
+ – n 
+ i=1 
+ aijxi ≥ bj , addasurplusvariableSj ≥0suchthat ( n 
+ i=1 
+ aijxi ) − Sj = bj . 
+ • WhentheSlack / Surplus / Originalvariableisnull , itmeansthataconstraintis 
+ satisfiedwithequality(Bindingconstraint ) . 
+ 6/36 
+ • Alltheoriginalvariablesx andtheaddedvariablesS arepositive . 
+ i 
+ How to convert to the LP Standard Form 
+ • Introducenon - negativeslackandexcessvariablevariables , S 
+ ≥0,totransform 
+ i 
+ theinequalityconstraintsintoequalityconstraints . 
+ ∑ ∑ 
+ – n 
+ i=1 
+ aijxi ≤ bj , addaslackvariableSj ≥0suchthat ( n 
+ i=1 
+ aijxi ) + Sj = bj . 
+ ∑ ∑ 
+ – n 
+ i=1 
+ aijxi ≥ bj , addasurplusvariableSj ≥0suchthat ( n 
+ i=1 
+ aijxi ) − Sj = bj . 
+ • WhentheSlack / Surplus / Originalvariableisnull , itmeansthataconstraintis 
+ satisfiedwithequality(Bindingconstraint ) . 
+ • Introducetwonon - negativeartificialvariables , S 
+ + ≥0andS − ≥0,totransform 
+ i i 
+ unrestrictedvariablex ( nosignrestriction ) . 
+ i 
+ – xi = S + 
+ i 
+ − S − 
+ i 
+ 6/36 
+ How to convert to the LP Standard Form 
+ • Introducenon - negativeslackandexcessvariablevariables , S 
+ ≥0,totransform 
+ i 
+ theinequalityconstraintsintoequalityconstraints . 
+ ∑ ∑ 
+ – n 
+ i=1 
+ aijxi ≤ bj , addaslackvariableSj ≥0suchthat ( n 
+ i=1 
+ aijxi ) + Sj = bj . 
+ ∑ ∑ 
+ – n 
+ i=1 
+ aijxi ≥ bj , addasurplusvariableSj ≥0suchthat ( n 
+ i=1 
+ aijxi ) − Sj = bj . 
+ • WhentheSlack / Surplus / Originalvariableisnull , itmeansthataconstraintis 
+ satisfiedwithequality(Bindingconstraint ) . 
+ • Introducetwonon - negativeartificialvariables , S 
+ + ≥0andS − ≥0,totransform 
+ i i 
+ unrestrictedvariablex ( nosignrestriction ) . 
+ i 
+ – xi = S + 
+ i 
+ − S − 
+ i 
+ • Alltheoriginalvariablesx andtheaddedvariablesS arepositive . 
+ i i 
+ 6/36 
+ LP Standard Form 
+ Maximize z = c1x1 + c2x2 + · · · + c 
+ n 
+ x 
+ n 
+ Subjectto a11x1 + a21x2 + · · · + a n1x 
+ n 
+ = b1 , 
+ a12x1 + a22x2 + · · · + a n2x 
+ n 
+ = b2 , 
+ . 
+ . 
+ . 
+ a1 m x1 + a2 m x2 + · · · + a 
+ nm 
+ x 
+ n 
+ = b 
+ m 
+ , 
+ x ≥0 ( 1≤ i ≤ n ) 
+ i 
+ But ... 
+ ≪ 
+ More variables than equations ( m n ) . 
+ 7/36 
+ LP Standard Form 
+ Maximize z = c1x1 + c2x2 + · · · + c 
+ n 
+ x 
+ n 
+ Subjectto a11x1 + a21x2 + · · · + a n1x 
+ n 
+ = b1 , 
+ a12x1 + a22x2 + · · · + a n2x 
+ n 
+ = b2 , 
+ . 
+ . 
+ . 
+ a1 m x1 + a2 m x2 + · · · + a 
+ nm 
+ x 
+ n 
+ = b 
+ m 
+ , 
+ x ≥0 ( 1≤ i ≤ 
+ i 
+ But ... 
+ Take m variables and solve the system . 
+ 7/36 
+ Solving LP problem : A Naive Algorithm 
+ • Generateallfeasiblecornerpoints 
+ – Determinealltheintersectionpointsbetweenconstraints . 
+ – Testwhetheritisfeasible . 
+ • Usetheobjectivefunctiontodeterminewhichcornerpointistheoptimalsolution . 
+ But ... 
+ WhatisthenumberofintersectionpointsforaLPproblemwithm 
+ constraintsandnvariables ? 
+ 8/36 
+ Solving LP problem : A Naive Algorithm 
+ • Generateallfeasiblecornerpoints 
+ – Determinealltheintersectionpointsbetweenconstraints . 
+ – Testwhetheritisfeasible . 
+ • Usetheobjectivefunctiontodeterminewhichcornerpointistheoptimalsolution . 
+ But ... 
+ n = n ! 
+ m m!(n − m ) ! 
+ 8/36 
+ Solving LP problem : A Naive Algorithm 
+ • Generateallfeasiblecornerpoints 
+ – Determinealltheintersectionpointsbetweenconstraints . 
+ – Testwhetheritisfeasible . 
+ • Usetheobjectivefunctiontodeterminewhichcornerpointistheoptimalsolution . 
+ But ... 
+ 10 
+ 8/36 
+ Basic and Nonbasic Variables 
+ • ABasicSolutionisobtainedbysetting(n − m)variablesto0andsolvingthe 
+ remainingsystemofmvariables . 
+ • TheremainingvariablesaretheBasicvariables , andtheremovedonesarethe 
+ Non - basicvariables . 
+ • Thenonbasicvariablessettozerorepresentthefullysatisfiedconstraints . 
+ • ABasicFeasibleSolution(BFS)isabasicsolutionthatsatisfiesallofthe 
+ constraints . 
+ KeyIdea 
+ A corner point in the feasible region of an LP is a Basic 
+ Feasible Solution ( BFS ) . 
+ 9/36 
+ Assign to b ’s Assign to 0 
+ Basic Variables Nonbasic Variables 
+ ∑ 
+ n 
+ = + 
+ x b a x 
+ 1 1 1i i 
+ i = m+1 
+ . 
+ . 
+ . 
+ ∑ 
+ n 
+ = + 
+ x b a x 
+ m m mi i 
+ i = m+1 
+ 10/36 
+ Assign to b ’s 
+ Basic Variables Nonbasic Variables 
+ ∑ 
+ n 
+ = + 
+ x b a x 
+ 1 1 1i i 
+ i = m+1 
+ . 
+ Basic Feasible Solutions ( BFS ’s ) 
+ E 
+ Infeasible 
+ E - 
+ 1 
+ Maximize z = 6− x − s2 E 
+ subjectto y = 6−2x − S2 
+ S1 = −6 + 3x+2S2 
+ x , y , S1 , S2 ≥ 0 
+ B 
+ C 
+ A D F 
+ 19/36 
+ Example : Infeasible solution ( x , S ) - F - 
+ 2 
+ Maximize z = 6− y − s1 E 
+ subjectto x = 6−2y − S1 
+ S2 = −6−3y+2S1 
+ x , y , S1 , S2 ≥ 0 
+ B 
+ C 
+ A D F 
+ 20/36 
+ Example : Summary 
+ Nonbasic(zero ) Basic Basic Corner Feasible ? 
+ 5 : Updatethebasisbyreplacingtheleavingvariablewiththeenteringvariable . 
+ 6 : Recalculatethebasicfeasiblesolution . 
+ 7 : endwhile 
+ 8 : Outputtheoptimalsolution . 
+ 26/36 
+ The minimum ratio test 
+ Maximize z = x+y 
+ subjectto S1 
+ = 6− 
+ x 
+ −2y 
+ S2 
+ = 6−2x − 
+ y 
+ x , y , S1 , S2 ≥0 
+ Howtochoosetheleavingvariable ? 
+ • Wemustmaintainfeasibility . 
+ 27/36 
+ Entering variable : y 
+ • Leaving variable : S 1 
+ 33/36 
+ Simplex Tableau Method 
+ Base z x y S1 S2 b Ratio 
+ 1 1 
+ 1 0 0 4 
+ 3 3 
+ 2 −1 
+ y 0 0 1 2 
+ 3 3 
+ −1 2 
+ x 0 1 0 2 
+ 3 3 
+ • All the objective coefficients are positive . 
+ • Optimal Basic Feasible Solution detected 
+ 34/36 
+ Simplex : Special cases 
+ • Unboundedness : occurswhentheobjectivefunctioncanbeincreasedindefinitely 
+ withoutviolatinganyoftheconstraints . 
+ • Infeasibility : occurswhenthereisnofeasiblesolutionthatsatisfiesallofthe 
+ constraints . 
+ • Degeneracy : occurswhenoneormorebasicvariablesbecomezeroduringthe 
+ iterationprocess . 
+ 35/36 
+ Conclusion 
+ • Simplexmethodisanefficientalgorithmforfindingoptimalsolutions 
+ toLPproblemsbynavigatingthroughthecornerpointsofthe 
+ feasibleregion . 
+ • ItiterativelymovesfromoneBasicFeasibleSolution(BFS)toabetter 
+ neighborhoodBFSuntiltheoptimalBFSisreached . 
+ • BydetectingtheoptimalBFS , thesimplexmethodprovidesthe 
+ optimalvaluesofthedecisionvariablesandtheobjectivefunction . 
+ 36/36

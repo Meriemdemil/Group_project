@@ -1,0 +1,110 @@
+Reinforcement learning 
+ Dr. 
+ The National School of Artificial Intelligence 
+ aissa.boulmerka@ensia.edu.dz 
+ 2024 - 2025 
+ Introduction 
+  Temporal - difference ( TD ) learning is a central and novel idea in reinforcement 
+ learning . 
+  TD learning is a combination of Monte Carlo ideas and dynamic programming 
+ ( DP ) ideas . 
+  Like Monte Carlo methods , TD methods can learn directly from raw experience 
+ without a model of the environment ’s dynamics . 
+  Like DP , TD methods update estimates based in part on other learned estimates , 
+ without waiting for a final outcome ( they bootstrap ) . 
+  The relationship between TD , DP , and Monte Carlo methods is a recurring 
+ theme in the theory of reinforcement learning . 
+ Recall that in the prediction problem , our goal is to learn a value function that 
+ estimates the returns starting from a given state . 
+ The next most obvious advantage of TD methods over MC methods is that they 
+ are naturally implemented in an online , fully incremental fashion , especially for 
+ very long episodes and continuing tasks . 
+  TD methods converges faster than MC methods . 
+ In this example we empirically compare the prediction abilities of TD(0 ) and 
+ constant-𝜶 MC when applied to the following MDP : 
+ Episodes terminate either on the extreme left or the extreme right . 
+ The left graph above shows the values learned after various numbers of 
+ episodes on a single run of TD(0 ) . 
+ The TD method was consistently better than the MC method on this task . 
+ On - Policy TD Control 
+ On - policy TD Control 
+ In particular , for an on - policy method we must estimate 𝒒 ( 𝒔 , 𝒂 ) for the 
+ 𝝅 
+ current behavior policy 𝝅 and for all states s and actions 𝑎. 
+  
+ Recall that an episode consists of an alternating sequence of states and state- 
+ action pairs : 
+  In the previous section we considered transitions from state to state and 
+ learned the values of states . 
+ Now we consider transitions from state – action 
+ pair to state – action pair , and learn the values of state – action pairs . 
+  Formally these cases are identical : they are both Markov chains with a reward 
+ process . 
+ If 𝑆 is 
+ 𝑡 𝑡+1 
+ terminal 
+ This quintuple 
+ gives rise to the name SARSA for the algorithm . 
+ It is straightforward to design an on - policy control algorithm based on the Sarsa 
+ prediction method . 
+ On - policy TD Control 
+ Windy Gridworld 
+ The strength of the wind is given 
+ below each column , in number of 
+ cells shifted upward . 
+ The increasing slope of the graph shows that the goal was reached more quickly 
+ over time . 
+  Note that MC methods can not easily be used here because termination is not 
+ guaranteed for all policies . 
+  
+ If a policy was ever found that caused the agent to stay in the same state , then 
+ the next episode would never end . 
+  Online learning methods such as Sarsa do not have this problem because they 
+ quickly learn during the episode that such policies are poor , and switch to 
+ something else . 
+  This dramatically simplifies the analysis of the algorithm and enabled early 
+ convergence proofs . 
+  The policy still has an effect in that it determines which state – action pairs are 
+ visited and updated . 
+ However , all that is required for correct convergence is 
+ that all pairs continue to be updated . 
+ This gridworld example compares Sarsa and Q - learning highlighting the 
+ difference between on - policy ( Sarsa ) and off - policy ( Q - learning ) methods . 
+  This is a standard undiscounted , episodic task , with start and goal states , and 
+ actions = { up , down , right , and left } . 
+ Reward is -1 on all transitions except those 
+ in the Cliff region . 
+ Stepping into this region incurs a reward of -100 and sends 
+ the agent instantly back to the start . 
+ Unfortunately , this results in its occasionally 
+ falling off the cliff because of the 𝜀-greedy 
+ action selection . 
+  Sarsa , on the other hand , takes the action selection into account and learns the 
+ longer but safer path through the upper part of the grid . 
+  Although Q - learning actually learns the values of the optimal policy , its online 
+ performance is worse than that of Sarsa , which learns the roundabout policy . 
+ Of 
+ course , if 𝜀 were gradually reduced , then both methods would asymptotically 
+ converge to the optimal policy . 
+ The expected Sarsa algorithm is just like Q - learning except that instead of the 
+ maximum over next state - action pairs it uses the expected value , taking into 
+ account how likely each action is under the current policy . 
+ Expected Sarsa outperformed Sarsa for almost 
+ all values of alpha . 
+ Expected Sarsa is able to use 
+ larger alpha values more effectively . 
+ This is 
+ because it explicitly averages over the 
+ randomness due to its own policy . 
+  
+ This environment is deterministic , so there are 
+ no other sources of randomness to account for . 
+  This means expected Sarsa 's updates are 
+ deterministic for a given state and action . 
+ Sarsa 's updates on the other hand can vary 
+ significantly depending on the next action . 
+  Therefore the step size only determines how 
+ quickly the estimates approach their target 
+ values . 
+  Sarsa behaves quite differently here , it even 
+ fails to converge for larger values of alpha .

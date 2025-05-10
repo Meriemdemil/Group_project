@@ -1,0 +1,245 @@
+« Computer Vision » 
+ 
+ 2024 - 2025 
+ 1 
+ Image Filtering in the Frequency Domain 
+ • Today , we can say that there is no discipline of science or engineering that has not 
+ been profoundly impacted by the Fourier transform . 
+ • The goal of this lesson is to give a working knowledge of how the Fourier transform 
+ and the frequency domain can be used for image filtering . 
+ Image Filtering in the Frequency Domain 
+ Who is ? 
+ He was actually obsessed with heat . 
+ He was very interested in 
+ knowing how heat propagated through materials of different 
+ shapes . 
+ = > That is what led him to develop the Fourier transform . 
+ 3 
+ Image Filtering in the Frequency Domain 
+ Fourier Transform 
+ • Basically , any periodic function can actually be written as a weighted 
+ sum of infinite sinusoids of different frequencies . 
+ • Functions that are not periodic ( but whose area under the curve is 
+ finite ) can also be expressed as the integral of sines and cosines multiplied by a 
+ weighting function 
+ 4 
+ F(u ) - > IFT - > f(x ) 
+ 9 
+ Image Filtering in the Frequency Domain 
+ Fourier Transform ( of a 1D signal ): 
+ ∞ 
+ −𝑖2𝜋𝑢𝑥 
+ 𝐹 𝑢 = න 𝑓 𝑥 𝑒 𝑑𝑥 
+ 𝑥 : space 
+ −∞ 
+ 𝑢:frequency 
+ 𝑖𝜃 
+ 𝑒 = cos 𝜃 + 𝑖 sin𝜃 
+ Inverse Fourier Transform ( of a 1D signal ): 
+ 𝑖 = −1 
+ ∞ 
+ 𝑖2𝜋𝑢𝑥 
+ 𝑓 𝑥 = න 𝐹 𝑢 𝑒 𝑑𝑢 
+ −∞ 
+ 10 
+ Image Filtering in the Frequency Domain 
+ 𝑖𝜃 
+ Why do we have 𝑒 = cos 𝜃 + 𝑖 sin 𝜃 ? ( 𝑖 = −1 ) 
+ 𝑖𝜃 
+ Expand 𝑒 using Taylor Series : 
+ 2 3 4 5 6 
+ 𝑖𝜃 𝑖𝜃 𝑖𝜃 𝑖𝜃 𝑖𝜃 
+ 𝑖𝜃 
+ 𝑒 = 1 + 𝑖𝜃 + + + + + + ⋯ 
+ 2 ! 
+ cos 𝜃 sin 𝜃 
+ 11 
+ Image Filtering in the Frequency Domain 
+  The Fourier Transform is Complex ! 
+ 𝐹(𝑢 ) holds the Amplitude and the Phase of the sinusoid of frequency u 
+ ∞ 
+ −𝑖2𝜋𝑢𝑥 
+ 𝐹 𝑢 = න 𝑓 𝑥 𝑒 𝑑𝑥 
+ −∞ 
+ 𝑖𝜑(𝑢 ) 
+ 𝐹 𝑢 = ℜ 𝐹(𝑢 ) + 𝑖 ℑ 𝐹(𝑢 ) = 𝐴(𝑢 ) 𝑒 
+ Amplitude : 𝐴 𝑢 = ℜ 𝐹(𝑢 ) 2 + ℑ 𝐹(𝑢 ) 2 
+ Phase : 𝜑 𝑢 = atan2(ℑ 𝐹 𝑢 , ℜ 𝐹 𝑢 ) 
+ 12 
+ Image Filtering in the Frequency Domain 
+ Few examples of the Fourier transform : 
+ Image Filtering in the Frequency Domain 
+ Few examples of the Fourier transform : 
+ 14 
+ Image Filtering in the Frequency Domain 
+ Few examples of the Fourier transform : 
+ 15 
+ Image Filtering in the Frequency Domain 
+ Few examples of the Fourier transform : 
+ 19 
+ Image Filtering in the Frequency Domain 
+ Fourier transform and convolution 
+ • 
+ A close and important relationship . 
+ A close and important relationship . 
+ A close and important relationship . 
+ A close and important relationship . 
+ A close and important relationship . 
+ • Analyze in the frequency domain , a filter that 
+ is designed in the spatial domain . 
+ 29 
+ Image Filtering in the Frequency Domain 
+ Fourier transform and convolution 
+ A noisy signal f(x ) A Gaussian kernel 
+  Convolving the noisy signal with the Gaussian kernel . 
+ 30 
+ Image Filtering in the Frequency Domain 
+ Fourier transform and convolution 
+  Convolving the noisy signal with the Gaussian kernel . 
+ 𝑛 𝑥 
+ 𝜎 
+ f(x ) 
+ * 
+ FT FT IFT 
+ x 
+ = 
+ 31 
+ Image Filtering in the Frequency Domain 
+ Application to images – The 2D Fourier transform 
+ ∞ 
+ −𝑖2𝜋 𝑢𝑥+𝑣𝑦 
+ Fourier Transform : 𝐹 𝑢 , 𝑣 = ׭ 𝑓 𝑥 , 𝑦 𝑒 𝑑𝑥 𝑑𝑦 
+ −∞ 
+ u and v are the frequencies along x and y , respectively . 
+ Image Filtering in the Frequency Domain 
+ Application to images – The 2D Discrete Fourier transform ( DFT ) 
+ Inverse Discrete Fourier Transform : 
+ 𝑀−1 𝑁−1 
+ 1 
+ 𝑖2𝜋𝑝𝑚/𝑀 𝑖2𝜋𝑞𝑛/𝑁 
+ 𝑓 𝑚 , 𝑛 = ෍ ෍ 𝐹 𝑝 , 𝑞 𝑒 𝑒 
+ 𝑀𝑁 
+ 𝑚=0 𝑛=0 
+ 𝑚 = 0 … 𝑀 − 1 and 𝑛 = 0 … 𝑁 − 1 
+ 34 
+ Image Filtering in the Frequency Domain 
+ Application to images – The 2D Discrete Fourier transform ( DFT ) 
+ f(m , n ) log(|F(p , q)| ) 
+ Min Max 
+ Color to show the magnitude 
+ 35 
+ Image Filtering in the Frequency Domain 
+ Application to images – The 2D Discrete Fourier transform ( DFT ) 
+ f(m , n ) log(|F(p , q)| ) 
+ Min Max 
+ Color to show the magnitude 
+ 36 
+ Image Filtering in the Frequency Domain 
+ Application to images – The 2D Discrete Fourier transform ( DFT ) 
+ f(m , n ) log(|F(p , q)| ) 
+ Min Max 
+ Color to show the magnitude 
+ 37 
+ Image Filtering in the Frequency Domain 
+ Application to image filtering : 
+ The low pass filter and the high pass filter 
+ • Low frequencies in the transform are related to slowly varying intensity components . 
+ • High frequencies are caused by sharp transitions in intensity , such as edges , corners 
+ and noise 
+  
+ A filter H(u , v ) that attenuates high frequencies while passing low frequencies ( low- 
+ pass filter ) blurs an image 
+  A high - pass filter ( which attenuates low frequencies ) enhances sharp detail , but 
+ cause a reduction in contrast in the image . 
+ D is the cutoff frequency . 
+ D is the cutoff frequency . 
+ D is the cutoff frequency . 
+ In all of the previous examples , we have used only the magnitude . 
+ Filtering has been performed considering only the magnitude . 
+ What about the phase ? 
+ In many cases , the phase is more important than the amplitude to 
+ preserve the visual information . 
+ Image Filtering in the Frequency Domain 
+ In general , 
+ • The amplitudes of the sinusoids determine the intensities in the image . 
+ • The phase is a measure of displacement of the various sinusoids with respect to 
+ their origin . 
+ Carry much of the information about where discernable objects are located 
+ 58 
+ Image Filtering in the Frequency Domain 
+ Apply DFT 
+ Set all the phases to 0 
+ Preserve the magnitude 
+ Reconstruct the image using the IDFT 
+ Reconstructed image 
+ Original image 
+ Réf . : Signal reconstruction from Fourier transform sign information . 
+ , , A. Oppenheim . 
+ Image Filtering in the Frequency Domain 
+ Apply DFT 
+ Preserve the phases 
+ Using an average of magnitudes 
+ computed on a set of images 
+ Reconstruct the image using the IDFT 
+ Reconstructed image 
+ Original image 
+ Réf . : Signal reconstruction from Fourier transform sign information . 
+ , , A. Oppenheim . 
+ 60 
+ Image Filtering in the Frequency Domain 
+ Example of image reconstruction using only the phase 
+ The original image The phase 
+ 61 
+ Image Filtering in the Frequency Domain 
+ Example of image reconstruction using only the amplitude 
+ The original image The phase 
+ 62 
+ Image Filtering in the Frequency Domain 
+ Example of image reconstruction using the phase and another amplitude 
+ Image from which we Image from which we Reconstructed Image 
+ compute the amplitude compute the phase 
+ 63 
+ Image Filtering in the Frequency Domain 
+ Hybrid images 
+ r 
+ e 
+ t 
+ l 
+ i 
+ f 
+ s 
+ s 
+ a 
+ p 
+ w 
+ o 
+ L 
+ Average 
+ r 
+ e 
+ t 
+ l 
+ i 
+ f 
+ s 
+ s 
+ a 
+ p 
+ h 
+ g 
+ i 
+ H 
+ Hybrid image 
+ Réf . 
+ Hybrid images . 
+ A. Oliva , A. Torralba , P. Schyns . 
+ https://stanford.edu/class/ee367/reading/OlivaTorralb_Hybrid_Siggraph06.pdf 
+ Image Filtering in the Frequency Domain 
+ Hybrid images 
+ Réf . : 
+ Hybrid images . 
+ , , . 
+ https://stanford.edu/class/ee367/reading/OlivaTorralb_Hybrid_Siggraph06.pdf 
+ Image Filtering in the Frequency Domain 
+ Hybrid images 
+ 66
