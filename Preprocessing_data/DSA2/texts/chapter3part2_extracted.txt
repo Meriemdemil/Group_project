@@ -1,0 +1,251 @@
+Data Structures and Algorithms 2 
+ Prof. 
+ The National Higher School of AI 
+ Chapter 3 
+ Abstract Data Types ( ADT ) 
+ Abstract Data Types 
+ • ADT : set of objects together with a set of operations 
+ • 
+ Mathematical abstraction ; no mention in ADT of 
+ how the set of operations is implemented 
+ • 
+ Examples : Objects such as lists , sets , and graphs , 
+ along with their operations , can be viewed as ADTs 
+ The C++ class allows for the implementation of 
+ ADTs , with appropriate hiding of implementation 
+ details 
+ • Any implementation changes should not affect the 
+ use of the ADT ( completely transparent to the rest of 
+ the programme ) 
+ 2 
+ Usual Data Types 
+ Integer , Double , Boolean 
+ Implementation details of these are not known 
+ Some operations on these can be defined : add , 
+ multiply , read , write 
+ The programmer just uses these operations 
+ without knowing their implementation . 
+ The List ADT 
+ A Linked List consists of a sequence of nodes 
+ • 
+ Head 
+ 3 5 2 
+ 10 
+ NULL 
+ Tail 
+ struct ListNode { 
+ int value ; 
+ ListNode * next ; 
+ • Since the elements in memory are stored 
+ randomly , the elements are accessed 
+ sequentially ; no direct access is allowed . 
+ Doubly Linked Lists 
+ A node contains pointers to previous and next 
+ element 
+ One can move in both directions 
+ Complexities ? 
+ 23 
+ Head 
+ NULL 3 5 2 
+ 10 NULL 
+ Advantages Of DLLs 
+ • Reversing the doubly linked list is very easy . 
+ • It can allocate or reallocate memory easily during its 
+ execution . 
+ • As with a singly linked list , it is the easiest data 
+ structure to implement ( not considering arrays ) . 
+ • The traversal of this doubly linked list is bidirectional 
+ which is not possible in a singly linked list . 
+ • Deletion of nodes is easy as compared to a Singly 
+ Linked List . 
+ A singly linked list deletion requires a 
+ pointer to the node and previous node to be deleted but 
+ in the doubly linked list , it only requires the pointer 
+ which is to be deleted . 
+ Disadvantages of DLLs 
+ • It uses extra memory when compared to the 
+ array and singly linked list . 
+ • Since the elements in memory are stored 
+ randomly , the elements are accessed 
+ sequentially ; no direct access is allowed . 
+ Uses of DLLs 
+ • Used by the browser to implement backward and forward 
+ navigation of visited web pages ( back and forward buttons ) 
+ • Used by various applications to implement undo and redo 
+ functionality . 
+ • 
+ Also in many operating systems , the thread scheduler ( the 
+ code that chooses what process needs to run at which time ) 
+ maintains a doubly - linked list of all processes running at 
+ that time . 
+ • Other data structures like stacks , Hash Tables , Binary 
+ trees can also be constructed or programmed using a doubly- 
+ linked list . 
+ • Used in the navigation systems where front and back 
+ navigation are required . 
+ ( See also Search in AI ) 
+ • We can go to any node and traverse from any 
+ node . 
+ We just need to stop when we visit the 
+ same node again . 
+ Applications of 
+ Circular Linked Lists 
+ • Used in multiplayer games to swap between 
+ players . 
+ • 
+ On Operating Systems : Multiple running 
+ applications can be placed in a CLL so the OS 
+ keeps on iterating over these applications giving 
+ them time slices . 
+ ( Round Robin Scheduling ) 
+ • Music or media player : the use of CLLs allows 
+ for a continuous playback of the playlist 
+ 30 
+ All of these operations take constant time . 
+ o Deletion is called “ pop ’’ 
+ o Addition is called “ push ’’ 
+ • You can also test whether the stack is empty but 
+ nothing else . 
+ 31 
+ EXAMPLE 
+ Push 5 , 3 , 1 , Pop , Pop , Push 7 
+ 1 
+ 3 
+ 3 
+ 5 
+ 5 5 
+ Push 3 Push 1 
+ Push 5 
+ Get 1 
+ Get 3 
+ 7 
+ 3 
+ 5 
+ 5 
+ 5 
+ Pop Pop Push 7 
+ 32 
+ Function Calls 
+ • When a subroutine calls another subroutine 
+ ( including itself ) the system must first store its 
+ register contents . 
+ • So , the system pushes the register contents onto 
+ a stack . 
+ • The new function uses the registers . 
+ • When the program returns to the old function , 
+ the system pops the stack . 
+ • Nested Functions and Stack Overflow ! 
+ 33 
+ Stack Implementation using an 
+ Array 
+ • Need to know the maximum number of 
+ elements 
+ Push the beginning symbols you wish to match , 
+ ignore the rest . 
+ Push brace , parentheses , brackets , ignore the 
+ Whenever you encounter a right symbol , pop an element 
+ from the stack . 
+ If stack is empty , then error . 
+ Otherwise , if the popped element is the corresponding 
+ left symbol , then fine ; else there is an error . 
+ What is the complexity of the operation ? 
+ O(n ) 
+ 40 
+ EXAMPLE 
+ Check braces , brackets , parentheses matching 
+ [ a+b{1 * 2]9 * 1}+(2 - 1 ) 
+ Push [ , Push { , Pop , Pop , Push ( , Pop 
+ { 
+ [ 
+ [ 
+ Push { 
+ Push [ 
+ Oops ! Something 
+ Get { wrong , was expecting [ 
+ [ 
+ Pop Expecting [ 
+ 41 
+ EXAMPLE 
+ Check brace , bracket parentheses matching 
+ [ a+b{1 * 2}9 * 1]+(2 - 1 ) 
+ Push [ , Push { , Pop , Pop , Push ( , Pop 
+ Get { 
+ { 
+ [ 
+ [ [ 
+ Push { Pop 
+ Push [ 
+ Perfect ! 
+ Expect { 
+ Get ( 
+ Get [ 
+ ( 
+ Pop Expect [ 
+ Push ( Pop Expect ( 
+ 42 
+ Evaluation of arithmetic expressions 
+ A*B + C 
+ A*(B + C ) 
+ A+B+C*D 
+ A*D+B+C*E 
+ To do the correct operation , the calculator needs 
+ to know the priorities of the operators 
+ We do n’t need any priority nor parentheses if the 
+ operation is expressed in postfix or reverse 
+ polish notation . 
+ 43 
+ Postfix Notation 
+ Infix notation Postfix notation 
+ A*B + C AB*C+ 
+ A*(B + C ) 
+ ABC+ * 
+ A+B+C*D AB+CD*+ 
+ A*D+B+C*E AD*B+CE*+ 
+ Suppose the expression is in postfix , how do we 
+ compute the value ? 
+ ( N.B. : Postfix notation already 
+ takes into account operators priorities . ) 
+ Computation of a Postfix Expression 
+ Whenever you see a number push it in the stack . 
+ At the end Pop to get the answer 
+ Complexity ? 
+ EXAMPLE 
+ Compute 5 * 4 + 6 + 7 * 2 
+ Think which data structure you could 
+ use to implement the evaluation of an expression 
+ written in polish ( prefix ) notation . 
+ And how would 
+ you do it ? 
+ 49 
+ Queues 
+ • A Queue is a Linked List where an element is inserted at the 
+ end ( back ) , and deleted from the beginning ( front ) of the list 
+ • Thus insertion and deletion work at different ends 
+ • This type of service is called First In First Out ( FIFO ) 
+ 50 
+ Linked List Implementation of a Queue 
+ • Insert at the Back of the linked list 
+ o 
+ Maintain a pointer to the last element 
+ Whenever there is insertion , update this 
+ pointer Back to point to the newly 
+ inserted element . 
+ • Delete from the beginning of the linked list . 
+ Use the Front pointer 
+ • Start inserting from the beginning of the array . 
+ – Insert at the end of the current list ( Back ) 
+ • When an element is deleted from the beginning 
+ ( Front ) , DO NOT move all elements forward 
+ – Just mark the position as blank . 
+ 55 
+ Any problem ? 
+ • We will soon reach the end of the array even 
+ though there are spaces in the beginning to insert 
+ in . 
+ • Roll back to the beginning . 
+ This course PowerPoints make substantial ( non - exclusive ) use of 
+ the PPT chapters prepared by Prof. from the University of Pennsylvania , 
+ USA , themselves developed on the basis of the course textbook . 
+ Other references , if any , 
+ 62 
+ will be mentioned wherever applicable .

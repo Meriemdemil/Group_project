@@ -1,0 +1,214 @@
+Course 
+ « Computer Vision » 
+ Sid - Ahmed Berrani 
+ 2024 - 2025 
+ 1 
+ Image Features 
+ What is a feature ? 
+ • Local , meaningful , detectable parts of the image . 
+ 2 
+ Image Features in Computer Vision 
+ What is a feature ? 
+ • Location of sudden change 
+ Why use features ? 
+ • Information content is high 
+ • Invariant to change of viewpoint or illumination 
+ • Reduces computational burden 
+ 3 
+ Image Features in Computer Vision 
+ A good feature is invariant to : 
+ • Viewpoint 
+ • Lighting conditions 
+ • Object deformations 
+ • Partial occlusions 
+ and should be : 
+ • Unique 
+ • Easy to be found and extracted 
+ 4 
+ Image Features : 
+ Edges 
+ Edge pixels are pixels at which the intensity of an image function changes abruptly . 
+ Image Features : Focus on Edge Detection 
+ Objective : 
+ Convert a 2D image into a set of points where intensity changes rapidly . 
+ Topics : 
+ 1 . What is an edge ? 
+ 5 . Line / curve boundary detection . 
+ Image Features : Edges 
+ • What causes an edge ? 
+ Depth discontinuity 
+ 8 
+ Image Features : Edges 
+ • What causes an edge ? 
+ Surface orientation discontinuity 
+ 9 
+ Image Features : Edges 
+ • What causes an edge ? 
+ Reflectance discontinuity 
+ ( i.e. change of material ) 
+ 10 
+ Image Features : Edges 
+ • What causes an edge ? 
+ Surface color discontinuity 
+ 11 
+ Edge detection : Introduction 
+ • Find image pixels that present abrupt ( local ) 
+ changes in intensity . 
+ • Examples : Boundary between a black object and a white 
+ background . 
+ Edge detection : Introduction 
+ Different edge models : Ramp edges 
+ • Description : The intensity change is gradual over a 
+ few pixels . 
+ • 
+ Model : Represents real - world edges affected by 
+ blurring or gradual transitions . 
+ • Mathematical shape : A smooth transition ; often 
+ modeled as a linear or sigmoid ramp . 
+ The slope of the ramp is inversely 
+ • Examples : Shadow boundaries or edges in out - of- proportional to the degree of blurring 
+ in the edge . 
+ focus regions 
+ Edge detection : Introduction 
+ Different edge models : Roof edges 
+ • Description : Intensity increases to a peak and then 
+ decreases symmetrically . 
+ • 
+ Model : Represents edges formed by narrow ridges or 
+ lines . 
+ • Mathematical shape : A peaked or triangular profile . 
+ Edge detection : Introduction 
+ • Direction of an adge refers to the way the entensity changes from one side of the edge to the other . 
+ • Orientation describes the angle in which the edge is aligned . 
+  Direction is about the change in intensity while orientation is about the alignment of that change . 
+ 17 
+ I. Edge Detection using Gradients 
+ • 
+ 1 - D edge detection : 
+ Edge : Rapid change in image intensity in a small region . 
+ edge detection using derivatives 
+ 𝒇 𝒙 
+ 𝝏𝒇 
+ 𝝏𝒙 
+ Local extrema 
+ indicate edges 
+ 𝝏𝒇 
+ 𝝏𝒙 Local maxima 
+ indicate edges 
+  We get both location and strength of edges . 
+ 19 
+ I. Edge Detection using Gradients 
+ • 2D edge detection using derivatives : 
+ Basic calculus : Partial derivatives of a 
+ continuous 2D function represents the 
+ 𝑰 𝒙,𝒚 
+ Edge 
+ amount of change along each dimension . 
+ Edge 
+ 20 
+ I. Edge Detection using Gradients 
+ • 2D edge detection using derivatives : 
+ 2D edge detection using derivatives : The gradient operator ∇ 
+ 2 2 
+ 𝜕𝐼 𝜕𝐼 
+ Magnitude : 𝑆 = ∇𝐼 = + 
+ 𝜕𝑥 𝜕𝑦 
+ 𝜕𝐼 𝜕𝐼 
+ −1 
+ Orientation : 𝜃 = 𝑡𝑎𝑛 / 
+ 𝜕𝑦 𝜕𝑥 
+ 22 
+ I. Edge Detection using Gradients 
+ • Application to discrete images : 
+ 𝜕𝐼 1 
+ ≈ 𝐼 − 𝐼 + 𝐼 − 𝐼 𝜺 
+ 𝑖+1 , 𝑗+1 𝑖 , 𝑗+1 𝑖+1 , 𝑗 𝑖 , 𝑗 
+ 𝜕𝑥 2 ℇ 
+ 𝜕𝐼 1 
+ ≈ 𝐼 − 𝐼 + 𝐼 − 𝐼 
+ 𝑖+1 , 𝑗+1 𝑖+1 , 𝑗 𝑖 , 𝑗+1 𝑖 , 𝑗 
+ 𝜕𝑦 2 ℇ 
+ • It can be implemented as convolution : 
+ −1 1 1 1 
+ 𝜕𝐼 1 𝜕𝐼 1 
+ ≈ ≈ 
+ 𝜕𝑥 2 ℇ −1 1 𝜕𝑦 2 ℇ −1 −1 
+ 23 
+ I. 
+ Edge Detection using Gradients 
+ A variety of gradient operator has been proposed : 
+ Good localization Poor localization 
+ Noise sensitive Less noise sensitive 
+ Poor detection Good detection 24 
+ I. Edge Detection using Gradients 
+ • Gradient using a 3x3 Sobel operator 
+ 𝜕𝐼 Gradient 𝜕𝐼 
+ Image 𝐼 
+ 𝜕𝑦 magnitude 𝜕𝑥 
+ 25 
+ I. 
+ Edge Detection using Gradients 
+ Thresholding : Deciding which pixels definitely belong to an edge . 
+ • Standard : Using a single threshold ( 𝑇 ) 
+ ∇𝐼(𝑥 , 𝑦 ) < 𝑇 Definitely not an edge 
+ ∇𝐼(𝑥 , 𝑦 ) ≥ 𝑇 Definitely an edge 
+ • 
+ Hysteresis - based : 
+ Edge Detection using Gradients 
+ Thresholding : Deciding which pixels definitely belong to an edge . 
+ • If the threshold is too high , important edges may be missed . 
+ • If the threshold is too low , noise may be mistaken for a genuine edge . 
+ 27 
+ I. Edge Detection using Gradients 
+ • The Lena example . 
+ 𝜕𝐼 𝜕𝐼 Gradient Threshold 
+ Image 𝐼 
+ edge 
+ 𝜕𝑥 𝜕𝑦 magnitude 
+ 28 
+ I. Edge Detection using Gradients 
+ • 
+ Another example . 
+ Gradient 𝜕𝐼 
+ 𝜕𝐼 
+ Image 𝐼 
+ magnitude 𝜕𝑦 
+ 𝜕𝑥 
+ 29 
+ II . 
+ Edge Detection using Laplacian 
+  These sign changes usually occur at edges , especially where there is a sharp 
+ change in intensity . 
+  Laplacian does not provide the direction of edges . 
+ Apply the Laplacian operator 
+ • Convolve the image with a Laplacian kernel . 
+ • This results in a new 2D image of Laplacian values : some positive , some negative . 
+ Edge Detection : Derivatives and Noise 
+ The noise introduces rapid 
+ changes in the signal – and 
+ 𝒇 𝒙 
+ the edge is also defined as a 
+ rapid change in the signal 
+ Noise leads to a false 
+ 𝛁𝒇 𝒙 
+ interpretation of the edge . 
+ ( Gradient ) 
+ The edge is completely lost . 
+ • The noise has to be removed / mitigated before applying 
+ edge detection . 
+  The solution : Image smoothing . 
+ It is usually a mandatory 
+ step prior to the use of derivatives . 
+ Edge Detection : Derivatives and Noise 
+ Using derivate of Gaussian 
+ 𝛻 𝑛 ∗ 𝑓 = 𝛻𝑛 ∗ 𝑓 
+ 𝜎 𝜎 
+ 𝒇 𝒙 
+ 𝛻𝑛 
+ 𝜎 
+ 𝛻𝑛 ∗ 𝑓 
+ 𝜎 
+ 40 
+ III . Edge Detection : Derivatives and Noise 
+ • 
+ convolution .

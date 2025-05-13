@@ -151,6 +151,8 @@ function App() {
 
       // ✅ Step 3: Save to local state
       addMessage("assistant", answerText);
+      console.log("Answer content (debug):", JSON.stringify(answerText));
+
 
       // ✅ Step 4: Save messages to DB
       console.log("📥 Storing user message:", { conversationId, userMessage });
@@ -271,15 +273,18 @@ function App() {
 
       <main className={`main-content ${sidebarOpen ? "sidebar-open" : ""}`}>
         <header className="header">
-          <button className="menu-button" onClick={toggleSidebar}>
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path
-                d="M3 6h18M3 12h18M3 18h18"
-                stroke="currentColor"
-                strokeWidth="2"
-              />
-            </svg>
-          </button>
+        <button
+  type="button"
+  className="menu-button"
+  onClick={toggleSidebar}
+  aria-label="Toggle menu"
+>
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+    <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" strokeWidth="2" />
+  </svg>
+</button>
+
+
           <h1>Student booster</h1>
         </header>
 
@@ -310,14 +315,19 @@ function App() {
               placeholder="Type your message here..."
               className="w-full p-3 bg-white text-white rounded-md focus:outline-none"
             />
-            <button type="submit" disabled={loading || !input.trim()}>
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <path
-                  d="M22 2L11 13M22 2L15 22L11 13M22 2L2 9L11 13"
-                  stroke="currentColor"
-                />
-              </svg>
-            </button>
+          <button
+  type="submit"
+  disabled={loading || !input.trim()}
+  aria-label="Send message"
+>
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+    <path
+      d="M22 2L11 13M22 2L15 22L11 13M22 2L2 9L11 13"
+      stroke="currentColor"
+    />
+  </svg>
+</button>
+
           </div>
           <div className="disclaimer">Student helper powered by RAG</div>
         </form>

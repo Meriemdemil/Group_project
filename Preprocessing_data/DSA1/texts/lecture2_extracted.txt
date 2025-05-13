@@ -1,0 +1,341 @@
+The goal is to use a common language to understand 
+ algorithms constructed by others and vice versa . 
+ → 
+ Hence , the importance of formalism . 
+ Need for Algorithmic Formalism 
+ Algorithmic formalism is a set of conventions ( or rules ) 
+ in which any solution to a given problem is expressed . 
+ Common language . 
+  
+ Communication . 
+  
+ Precision - non - ambiguity . 
+  
+ Adopted Formalism 
+ In the following , we will present the adopted 
+ formalism ( a set of rules ) for formulating 
+ algorithms that should be readable and 
+ understandable by multiple individuals . 
+ Algorithm Structure 
+ An algorithm must follow rules and is composed of a 
+ header and a body : 
+ Header 
+ , which specifies : 
+  The name of the algorithm . 
+  
+ Its purpose ( Role ) - optional . 
+ Declarations ( Environment ): 
+  Declarations of " input " data , i.e. , the elements essential for its proper functioning . 
+  Declarations of " output " data , i.e. , the elements calculated or produced by the algorithm . 
+  Declarations of local data specific to the algorithm . 
+  ... 
+ Body , which consists of : 
+  The keyword BEGIN . 
+  A sequence of indented instructions . 
+  The keyword END . 
+ Algorithm Structure 
+ Head ALGORITHM Algorithm_name 
+ ENVIRONEMENT ( Declarations of objects and modules 
+ Environment 
+ used in the algorithm ) 
+ BEGIN 
+ ALGORITHM BODY 
+ Body 
+ ( Manipulation of declared objects and modules ) 
+ END 
+ Algorithm Structure 
+ Header 
+ The header serves the simple purpose of identifying the algorithm . 
+ The syntax is as follows : 
+ Algorithm algorithm_name 
+ // role of the algorithm ( optional ) 
+ In general , it is advisable to choose a meaningful name to 
+  
+ allow the reader to have an idea of what the algorithm will do . 
+ Examples of headers : 
+  
+ Algorithm Calculate_circle_area 
+ Algorithm Integer_sum 
+ Algorithm Structure 
+ Environment 
+ The environment ( declarative part ) contains a comprehensive 
+ list of objects used and manipulated within the algorithm 's body . 
+ For each object , you need to specify : 
+ A NAME ( Identifier ) that allows it to be referred to and 
+  
+ distinguished from other elements . 
+ A TYPE that indicates the nature of the set from which the 
+  
+ object takes its values . 
+ A VALUE assigned to this object at a given moment . 
+  
+ Algorithm Structure 
+ Environment 
+ Note : 
+ Identifier Concept 
+ Constructing a unique name to designate an object follows precise rules : 
+  must start with a lowercase or uppercase letter and 
+  can consist of letters , digits , and/or the underscore symbol ( ' _ ’ ) . 
+  must not contain spaces ( whitespace ) , accented characters , or certain 
+ symbols like % , ? , * , . , - , etc . 
+ Examples of correct identifiers : 
+  x , objectSpeed , Pi , name _ 
+ Examples of incorrect identifiers : 
+  34x ( because it does n't start with a letter ) 
+  speed object ( because it contains a space between speed and object ) 
+ Algorithm Structure 
+ Environment 
+ IDENTIFIER 
+ _ 
+ Letter 
+ Letter 
+ Digit 
+ Algorithm Structure 
+ ALGORITHM Algorithm_name 
+ Head 
+ //Declaration of : 
+ Constant * 
+ Environment Types * 
+ Variables * 
+ Sub - programs ( Modules , functions , procedures ) 
+ BEGIN 
+ Body 
+ ALGORITHM BODY 
+ ( Manipulation of declared objects and modules ) 
+ END 
+ Algorithm Structure 
+ Declaration of : 
+ Constants 
+ FORMAT : 
+ Constant Identifier_Constant = Value 
+ Constant Data : 
+ Some identifiers have a constant value that 
+ does not change throughout the algorithm 's execution . 
+ These identifiers are called constants . 
+ They are declared at 
+ the beginning of the algorithm by specifying the identifier 's 
+ name followed by its value . 
+ Algorithm Structure 
+ Declaration of : 
+ Constants 
+ OPERATION : 
+ Some information manipulated by a program never changes . 
+ For example , this is 
+ the case with the value of 𝜋 ( PI ) , the maximum number of students in a class , etc . 
+ These data are not variable but constant . 
+ Instead of explicitly putting their value 
+ in the program 's text , it is preferable to give them a symbolic ( and meaningful ) 
+ name . 
+ This is the set of integer numbers , but it should be 
+ noted that while this set is infinite in mathematics , on a 
+ computer , the values are limited by the length of machine 
+ The type is designated by the predefined identifier : INTEGER 
+ < int in C / C++ > 
+ Algorithm Structure 
+ Declarations : 
+ Standard Types 
+ Real Type : 
+ This is the set of numbers with a fractional part . 
+ This set is also limited , but the limits are broader and 
+ depend on the internal representation . 
+ ➢ The type is designated by the predefined identifier : REAL 
+ < double in C / C++ > 
+ Algorithm Structure 
+ Declarations : 
+ Standard Types 
+ Character Type : 
+ It corresponds to a single character . 
+ Depending on the systems , the character set may vary , and 
+ it includes all alphanumeric characters ( letters and 
+ numbers ) , special symbols , and whitespace . 
+ ➢ 
+ The type is designated by the predefined identifier : CHAR 
+ < char in C / C++ > 
+ Algorithm Structure 
+ Declarations : 
+ Standard Types 
+ Values of the type : 
+ The CHAR type encompasses all the 
+ characters in the character set of the installation . 
+ A 
+ character is represented by the character itself enclosed in 
+ single quotes ( apostrophes ) . 
+ The values are ordered 
+ according to the internal codes of the characters ( ASCII , 
+ UNICODE , ... ) . 
+ Algorithm Structure 
+ Declarations : 
+ Standard Types 
+ Valid Operators for Integers and Reals : 
+ Integer Type : 
+  Relational Operators : 
+ = = < = > = 
+  Arithmetic Operators : + - * DIV MOD 
+  Successor Operators : SUCC and PRED 
+ Real Type : 
+  Relational Operators : < > 
+  Arithmetic Operators : + - * / 
+ Algorithm Structure 
+ Declarations : 
+ Standard Types 
+ Valid Operators for Boolean and Char : 
+ Boolean Type : 
+  Relational Operators : < > 
+ < > = = < = > = 
+  Logical Operators : AND , OR , NOT 
+ Char Type : 
+  Relational Operators : 
+ < > < > = = < = > = 
+  Arithmetic Operators : + - * / 
+  Successor Operators : SUCC and PRED 
+ Algorithm Structure 
+ Declarations : 
+ To Know the different data types used in C++ 
+ language 
+ refer to the reference card that you 
+ can download from the website 
+ Algorithm Structure 
+ Body 
+ The body of an algorithm contains the fundamental tools 
+ required to express any algorithm . 
+ A block is used to specify 
+ how the actions that make up an algorithm should be 
+ chronologically arranged . 
+ A block consists of basic actions and control structures . 
+ Algorithm Structure 
+ Basic actions 
+ Assignment 
+  
+  Expressions 
+  Input ( read ) 
+  Output ( write ) 
+ Algorithm Structure 
+ Body 
+ Assignment Assignment 
+ Symbol 
+ FORMAT : 
+ = 
+ Variable expression 
+ The role of assignment is to assign ( give , attribute ) a value 
+ to a variable . 
+ The value can be a constant , the value of 
+ another variable , or the result of evaluating an expression . 
+ Variables and expressions must be compatible . 
+ Algorithm Structure 
+ Body 
+ Assignment 
+ OPERATION : 
+ In assignment , it is necessary to evaluate , if applicable , 
+ the entity on the right side of the assignment operator 
+ and then place this result into the entity on the left side of 
+ the assignment operator . 
+ Algorithm Structure 
+ Body 
+ Assignment 
+ ⚠ ️ 
+ A = B + 3 : B must have a value , otherwise , 
+ at the beginning of an action , the variables have an 
+ undetermined value . 
+ B must have been initialized . 
+ An expression is a coherent ( possibly 
+ parenthesized ) set consisting of operands and operators that 
+ are evaluated to produce a value . 
+ Algorithm Structure 
+ Body 
+ Expression Evaluation 
+ Parentheses 
+ can be used to alter the priority . 
+ Algorithm Structure 
+ Body 
+ Operators Hierarchy 
+ •Operators hierarchy allows to determine how an expression will 
+ be evaluated . 
+ We start with operators that have the highest hierarchy and then 
+ move on to those with immediately lower hierarchy , and so on . 
+ • In the case of an arithmetic expression , we start by performing 
+ all multiplications , divisions , integer divisions , and modulos , and 
+ then proceed to additions and subtractions . 
+ ➢ 
+ When the hierarchy is the same , the expression is evaluated 
+ from left to right . 
+ Algorithm Structure 
+ Body 
+ Expression Evaluation ( Examples ) 
+ Algorithm Structure 
+ Body 
+ Expression Evaluation ( Remarks ) 
+ Operator Operand types : Result types : 
+ ( op ) I : integer R : Real I : Integer R : Real 
+ The table provides the type to 
+ + - * I op I I 
+ be used for the result of an 
+ R op R R 
+ arithmetic expression based on 
+ R op I R 
+ the operators and operand 
+ I op R R 
+ types . 
+ It must be followed , as failure to R op R R 
+ R op I R 
+ do so may result in errors during 
+ I op R R 
+ program execution . 
+ DIV , MOD I op I I 
+ Algorithm Structure 
+ The use of Parentheses 
+ ➢ 
+ Complex expressions require the use of 
+ parentheses to express them in a linear form ( on 
+ the same line ) . 
+ ➢ Expressions within parentheses are evaluated first , 
+ starting with the innermost parentheses . 
+ Algorithm Structure 
+ The use of Parentheses 
+ Example 
+ Express it as : Cr = ( L * B * F ) /((((F * B ) + n ) /d ) + e ) 
+ Or : Cr = L * B * F /((F * B + n ) / d + e ) 
+ Parentheses can be removed due to the operator hierarchy . 
+ Algorithm Structure 
+ Body 
+ Reading 
+ FORMAT : 
+ READ ( [ f ] , Var1 , Var2 , … , Varn ) 
+ It allows providing values from the outside to variables of the algorithm 
+ because it often happens that an object does not change during the 
+ execution of the algorithm . 
+ This object is called a 
+ parameter , and the use of parameters allows generalizing algorithms . 
+ Note : f indicates the logical name of the input file . 
+ By default f is the 
+ keyboard . 
+ Algorithm Structure 
+ Body 
+ Reading 
+ OPERATION : 
+ The values read from the keyboard are 
+  
+ assigned to the variables , taking into account 
+ the compatibility of the types . 
+ Examples : 
+ READ ( N ) 
+  
+ READ ( a , b , c ) 
+  
+ Algorithm Structure 
+ Body 
+ Writing 
+ FORMAT : 
+ WRITE ( [ f ] , r1 , r2 , … , rn ) 
+ It allows for the output of algorithm results . 
+ ri can be : a variable ; a label : a string enclosed in single 
+ quotes ; an expression . 
+ Note : f indicates the logical name of the output file . 
+ By 
+ default , it refers to the screen . 
+ Algorithm Structure 
+ Body 
+ Reading 
+ OPERATION : 
+ The expressions are evaluated , and the values 
+  
+ ( results ) are written or displayed .

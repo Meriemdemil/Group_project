@@ -1,0 +1,620 @@
+Intégrale de Riemann 
+ Aimé Lachal 
+ a ) Définitions 
+ Définition 1.3 ( Somme de Riemann ) 
+ Soit f une fonction définie sur [ a , b ] , σ=(x , ... , x ) une subdivision de [ a , b ] , 
+ 0 n 
+ et Λ=(λ , ... , λ ) une famille de réels tels que : ∀k ∈{1, ... ,n } , λ ∈[x , x ] 
+ 1 n k k−1 k 
+ ( on dit alors que la famille Λ est adaptée à la subdivision σ ) . 
+ On appelle somme de Riemann de la fonction f associée à σ et à Λ le nombre 
+ n 
+ ( cid:88 ) 
+ S(f , σ , Λ)= ( x −x ) f(λ ) . 
+ k k−1 k 
+ k=1 
+ Ce nombre représente l’aire de la réunion des rectangles de base [ x , x ] et de 
+ k−1 k 
+ hauteur f(λ ) . 
+ k 
+ f(x ) 
+ • 
+ • • 
+ • 
+ • • • 
+ • 
+ • • 
+ • 
+ • 
+ a b 
+ x x x x x x x x x x x x x x 
+ 0 1 2 3 4 5 6 7 8 9 10 11 12 
+ λ λ λ λ λ λ λ λ λ λ λ λ 
+ 1 2 3 4 5 6 7 8 9 10 11 12 
+ 2 
+ 1 . 
+ b ) Exemples 
+ Exemple 1.4 ( Subdivision équirépartie ) 
+ Considérons une subdivision « équirépartie » avec comme choix des λ une des 
+  k 
+ b−a 
+ x = a+k , 0(cid:54)k ( cid:54)n 
+ bornes de chaque sous - intervalle : k n 
+ λ = x ou x , 1(cid:54)k ( cid:54)n 
+ k k−1 k 
+ Les sommes de Riemann correspondantes s’écrivent : 
+ n−1 ( cid:18 ) ( cid:19 ) n ( cid:18 ) ( cid:19 ) 
+ b−a(cid:88 ) b−a b−a(cid:88 ) b−a 
+ S(f , σ , Λ)= f a+k ou f a+k 
+ n n n n 
+ k=0 k=1 
+ f(x ) f(x ) 
+ • • 
+ • • • • • 
+ • • 
+ • • 
+ • • • • • 
+ • • 
+ • • • • 
+ a • b a • b 
+ x0 x1 x2 x3 x4 x5 x6 x7 x8 x9x10x11x12 x x0 x1 x2 x3 x4 x5 x6 x7 x8 x9x10x11x12 x 
+ λ1 λ2 λ3 λ4 λ5 λ6 λ7 λ8 λ9λ10λ11λ12 λ1 λ2 λ3 λ4 λ5 λ6 λ7 λ8 λ9λ10λ11λ12 
+ 3 
+ 1 . 
+ Exemples 
+ Exemple 1.5 ( Sommes de Darboux ( facultatif ) ) 
+ Soit f une fonction continue sur [ a , b ] , σ=(x , ... , x ) une subdivision de [ a , b ] . 
+ 0 n 
+ Introduisons les valeurs « extrémales » relatives à chacun des sous - intervalles de σ : 
+ ∀k ∈{1,2, ... ,n } , m = min f et M = max f. 
+ k k 
+ [ xk−1,xk ] [ xk−1,xk ] 
+ Parcontinuité , f atteintsesbornes : ilexistedoncdesλ1,λ2 dans[x , x ] telsque 
+ k k k−1 k 
+ f(λ1)=m et f(λ2)=M . 
+ k k k k 
+ Les sommes de Riemann correspondant aux familles adaptées Λ =( λ1, ... ,λ1 ) et 
+ 1 1 n 
+ Λ =( λ2, ... ,λ2 ) sont appelées sommes de Darboux : 
+ 2 1 n 
+ n n 
+ ( cid:88 ) ( cid:88 ) 
+ S = S(f , σ , Λ ) = m ( x −x ) et S = S(f , σ , Λ ) = M ( x −x ) . 
+ 1 1 k k k−1 2 2 k k k−1 
+ k=1 k=1 
+ • 
+ f(x ) • • 
+ •• • 
+ • • 
+ •• 
+ •• 
+ • 
+ •• 
+ • • 
+ •• 
+ •• 
+ •• • • 
+ a • b 
+ x0x1x2 x3x4 x5 x6 x7 x8x9 x10 x11 x12 x13 x 
+ λ1λ1 λ1λ1λ1 λ1 λ1λ1λ1λ1 λ1 λ1 λ1 
+ 1 2 3 4 5 6 7 8 9 10 11 12 13 
+ λ2λ2λ2 λ2λ2 λ2λ2 λ2 λ2λ2 λ2 λ2λ2 
+ 1 2 3 4 5 6 7 8 9 10 11 12 13 
+ Remarque : toutes les sommes de Riemann sont comprises entre S et S . 
+ 1 2 
+ 4 
+ Sommaire 
+ 1 Sommes de Riemann d’une fonction 
+ 2 Intégrale de Riemann 
+ Intégrabilité 
+ Exemples 
+ Propriétés 
+ Formule de la moyenne 
+ 3 Primitives 
+ 2 . Intégrale de Riemann a ) Intégrabilité 
+ Définition 2.1 ( Intégrabilité ) 
+ Soit f : [ a , b]→R une fonction bornée . 
+ S’il existe un nombre réel I tel que 
+ ∀ε>0 , ∃δ>0 , ∀σ subdivision de pas < δ , ∀Λ adaptée à σ , |S(f , σ , Λ)−I|<ε 
+ on dit que la fonction f est intégrable ( au sens de Riemann ) sur [ a , b ] et le nombre 
+ ( cid:90)b ( cid:90)b 
+ I est l’intégrale defff sur[[[aaa,,,bbb ] ] ] . 
+ Ce nombre est noté f(x)dx ou f. 
+ a a 
+ Autrement dit , une fonction est intégrable ssi toutes ses suites de sommes de 
+ Riemann do nt le pas des subdivisions associées tend vers 0 , sont convergentes de 
+ même limite finie . 
+ f(x ) 
+ • 
+ • • 
+ • 
+ • • • 
+ • 
+ • • 
+ • 
+ • 
+ a b x 
+ δ 
+ 5 
+ 2 . Intégrale de Riemann 
+ Intégrabilité 
+ Définition 2.1 ( Intégrabilité ) 
+ Soit f : [ a , b]→R une fonction bornée . 
+ S’il existe un nombre réel I tel que 
+ ∀ε>0 , ∃δ>0 , ∀σ subdivision de pas < δ , ∀Λ adaptée à σ , |S(f , σ , Λ)−I|<ε 
+ on dit que la fonction f est intégrable ( au sens de Riemann ) sur [ a , b ] et le nombre 
+ ( cid:90)b ( cid:90)b 
+ I est l’intégrale defff sur[[[aaa,,,bbb ] ] ] . 
+ Intégrabilité 
+ Définition 2.1 ( Intégrabilité ) 
+ Soit f : [ a , b]→R une fonction bornée . 
+ S’il existe un nombre réel I tel que 
+ ∀ε>0 , ∃δ>0 , ∀σ subdivision de pas < δ , ∀Λ adaptée à σ , |S(f , σ , Λ)−I|<ε 
+ on dit que la fonction f est intégrable ( au sens de Riemann ) sur [ a , b ] et le nombre 
+ ( cid:90)b ( cid:90)b 
+ I est l’intégrale defff sur[[[aaa,,,bbb ] ] ] . 
+ Ce nombre est noté f(x)dx ou f. 
+ a a 
+ Autrement dit , une fonction est intégrable ssi toutes ses suites de sommes de 
+ Riemann do nt le pas des subdivisions associées tend vers 0 , sont convergentes de 
+ même limite finie . 
+ f(x ) 
+ • 
+ • • 
+ • • • 
+ • • • 
+ • • • • • • 
+ • • 
+ • 
+ • 
+ • • • • • • • • • 
+ • • 
+ a b x 
+ δ 
+ 5 
+ 2 . 
+ Intégrabilité 
+ Remarque 2.2 ( Notations / conventions ) 
+ La variable utilisée dans la notation de l’intégrale est dite muette : 
+ ( cid:90 ) b ( cid:90 ) b ( cid:90 ) b ( cid:90 ) b ( cid:90 ) b 
+ f = f(x)dx = f(t)dt = f(u)du= f ( ) d = · · · 
+ a a a a a 
+ • Le nombre ( cid:90)b f représente l’«aire algébrique » entre la courbe de f dans un 
+ a 
+ repère orthonormal et l’axe des abscisses , en comptant négativement les parties 
+ au - dessous de l’axe et positivement les parties au - dessus . 
+ f(x ) 
+ + + 
+ + 
+ − 
+ a − b x 
+ ( cid:90 ) a ( cid:90 ) b ( cid:90 ) a 
+ • Conventions : on convient que f(x)dx = − f(x)dx et f(x)dx = 0 . 
+ b a a 
+ 6 
+ 2 . 
+ a ) Intégrabilité 
+ Théorème 2.3 ( Exemples de fonction intégrable ( admis ) ) 
+ • Toute fonction continue sur [ a , b ] est intégrable sur [ a , b ] . 
+ • Plus généralement , toute fonction continue par morceaux sur [ a , b ] 
+ ( i.e. admettant un nombre fini de discontinuités , celles - ci étant de 1re espèce ) 
+ est intégrable sur [ a , b ] . 
+ Plus précisément , en notant x , x , ... , x ses discontinuités et en posant 
+ 1 2 n−1 
+ x = a et x = b , on peut prolonger f par continuité sur chaque intervalle 
+ 0 n 
+ [ x , x ] , k ∈{1, ... ,n } . 
+ Notons f˜ ce prolongement . 
+ Remarquons que si l’on modifie la valeur d’une fonction continue par morceaux 
+ en un nombre fini de points , alors la valeur de son intégrale reste la même 
+ • Toute fonction monotone sur [ a , b ] est intégrable sur [ a , b ] . 
+ 7 
+ 2 . Intégrale de Riemann b ) Exemples 
+ Exemple 2.4 ( Fonctions constante , identité , exponentielle ... ) 
+ À l’aide de la somme de Riemann associée à une subdivision équirépartie , on trouve 
+ pour une fonction intégrable 
+ b−a(cid:88 ) n ( cid:18 ) b−a ( cid:19 ) ( cid:90 ) b 
+ lim f a+k = f(x)dx . 
+ n→+∞ n k=1 n a 
+ • Dans le cas d’une fonction constante , cela donne 
+ ( cid:90 ) b b−a(cid:88 ) n 
+ ∀λ∈R , λdx = lim λ = λ(b−a ) ( aire d’un rectangle ! ) 
+ a n→+∞ n k=1 
+ • Dans le cas de la fonction exponentielle , cela donne 
+ ( cid:90 ) b exdx = lim b−a(cid:88 ) n ea+kb− n a = eb−ea . 
+ a n→+∞ n k=1 
+ • Dans le cas de la fonction identité , cela donne 
+ ( cid:90 ) b 
+ xdx = lim 
+ b−a(cid:88 ) n ( cid:18 ) 
+ a+k 
+ b−a ( cid:19 ) 
+ = 
+ 1 
+ ( b2−a2 ) ( aire d’un trapèze ! ) 
+ a n→+∞ n k=1 n 2 
+ • Dans le cas de la fonction carré , cela donne 
+ ( cid:90 ) b 
+ x2dx = lim 
+ b−a(cid:88 ) n ( cid:18 ) 
+ a+k 
+ b−a ( cid:19)2 
+ = 
+ 1 
+ ( b3−a3 ) . 
+ a n→+∞ n k=1 n 3 8 
+ 2 . 
+ Exemples 
+ Exemple 2.5 ( Fonction indicatrice de QQQ ) 
+ Considéronslafonction«indicatrice»(ou«caractéristique»)deQ.Ils’agitdelafonction 
+ 1 
+ Q 
+ : R−→Q 
+ ( cid:40 ) 
+ 1 si x ∈Q 
+ x ( cid:55)−→ 
+ 0 si x ∈/ Q 
+ Soitunesubdivisionσ=(x , ... , x ) d’unintervalle[a , b]depasarbitrairementpetit , 
+ 0 n 
+ Λ=(λ , ... , λ ) etΛ(cid:48)=(λ(cid:48), ... ,λ(cid:48))deuxfamillesadaptéesàlasubdivisionσtellesque 
+ 1 n 1 n 
+ ∀k ∈{1, ... ,n } , λ ∈Q et λ(cid:48 ) ∈R\Q. 
+ k k 
+ Les sommes de Riemann correspondantes valent 
+ S(1 Q , σ , Λ)=b−a et S(1 Q , σ , Λ(cid:48))=0 . 
+ Elles ne peuvent pas tendre vers une limite commune . 
+ Ainsi , la fonction indicatrice de Q n’est intégrable sur aucun intervalle [ a , b ] . 
+ Annexe(facultatif ) 
+ Entredeuxréelsdistinctsquelconques , ilexisteunrationneletunirrationnel(enfaitune 
+ infinitédechaque).OnditquelesensemblesQetR\QsontdensesdansR. 
+ Eneffet : soit(a , b)∈R2 telsquea < b. Alorsilexisteunentierntelquea < b− 1 . 
+ √ n 
+ Posonsun= E(na 
+ n 
+ ) +1 etvn= E(na 
+ n 
+ √ 2 
+ 2 
+ ) +1.Lesnombresun etvn sontcomprisentreaetb , 
+ un estrationneletvn estirrationnel . 
+ a un vn b− 1 
+ n 
+ b 
+ 9 
+ 2 . Intégrale de Riemann c ) Propriétés 
+ Proposition 2.6 ( Opérations ) 
+ 1 Linéarité 
+ Soit f et g deux fonctions intégrables sur [ a , b ] ( a(cid:54)b ) et λ,µ∈R. 
+ La fonction λf + µg est intégrable sur [ a , b ] et 
+ ( cid:90 ) b ( cid:90 ) b ( cid:90 ) b 
+ ( λf(x)+µg(x))dx = λ f(x)dx+µ g(x)dx 
+ a a a 
+ 2 Relation de Chasles 
+ Soit f une fonction intégrable sur [ a , b ] ( a(cid:54)b ) 
+ Pour tout c ∈[a , b ] , f est intégrable f(x ) 
+ sur [ a , c ] et [ c , b ] et 
+ ( cid:90 ) b ( cid:90 ) c ( cid:90 ) b 
+ f(x)dx = f(x)dx+ f(x)dx 
+ a a c 
+ ou encore 
+ ( cid:90 ) c ( cid:90 ) b ( cid:90 ) b 
+ f(x)dx = f(x)dx− f(x)dx 
+ a a c 
+ a c b x 
+ Ces propriétés restent valables lorsque 
+ Intégrale de Riemann c ) Propriétés 
+ Proposition 2.7 ( Parité ) 
+ Soit f une fonction intégrable sur [ −b,−a ] ∪ [ a , b ] ( 0(cid:54)a(cid:54)b ) . 
+ • Si f est paire , alors • Si f est impaire , alors 
+ ( cid:90 ) −a ( cid:90 ) b ( cid:90 ) −a ( cid:90 ) b 
+ f(x)dx = f(x)dx . f(x)dx = − f(x)dx . 
+ −b a −b a 
+ f(x ) f(x ) 
+ f(b ) f(b)• • 
+ • • • 
+ f(a ) f(a)• • 
+ • • • 
+ −b −a 
+ − • b − • a O a • b • x • • O a • b • x 
+ • •−f(a ) 
+ • •−f(b ) 
+ . 
+ 11 
+ 2 . 
+ Intégrale de Riemann c ) Propriétés 
+ Proposition 2.7 ( Parité ) 
+ Cas particulier : soit f une fonction intégrable sur [ −a , a ] ( a(cid:62)0 ) . 
+ • Si f est paire , alors • Si f est impaire , alors 
+ ( cid:90 ) a ( cid:90 ) a ( cid:90 ) a 
+ f(x)dx = 2 f(x)dx . f(x)dx = 0 . 
+ −a 0 −a 
+ Autrement dit , la fonction Autrement dit , la fonction 
+ ( cid:90 ) x ( cid:90 ) x 
+ x ∈[−a , a](cid:55)−→ f(t)dt x ∈[−a , a](cid:55)−→ f(t)dt 
+ 0 0 
+ est impaire . 
+ Intégrale de Riemann c ) Propriétés 
+ Proposition 2.8 ( Périodicité ) 
+ Soit f une fonction T - périodique sur R intégrable sur [ 0,T ] ( T > 0 ) . 
+ Alors , pour 
+ tout réel a , f est intégrable sur [ a , a+T ] et 
+ ( cid:90 ) a+T ( cid:90 ) T 
+ f(x)dx = f(x)dx . 
+ a 0 
+ f(x ) 
+ • • • • 
+ • • 
+ • • • • • • 
+ 0 T 2 T a 3 T a+T x 
+ 13 
+ 2 . 
+ c ) Propriétés 
+ Proposition 2.9 ( Ordre ) 
+ 1 Croissance / Positivité y 
+ Soitf etg deuxfonctionsintégrablessur[a , b](a(cid:54)b ) . 
+ y = f(x ) 
+ ( cid:90 ) b ( cid:90 ) b 
+ Si f ( cid:62)g sur [ a , b ] alors f(x)dx ( cid:62 
+ a a 
+ ( cid:90 ) b 
+ En particulier : si f ( cid:62)0 sur [ a , b ] alors f(x)dx ( cid:62)0 . 
+ O a y = g(x ) b x 
+ a 
+ 2 Inégalité triangulaire y 
+ Soit f une fonction intégrable sur [ a , b ] ( a(cid:54)b ) . 
+ On a ( cid:12 ) ( cid:12 ) f(x)dx ( cid:12 ) ( cid:12 ) ( cid:54 ) |f(x)|dx 
+ ( cid:12 ) ( cid:12 ) 
+ a a 
+ Plus généralement , quel que soit l’ordre de a et b , 
+ ( cid:12)(cid:90 ) b ( cid:12 ) ( cid:12)(cid:90 ) b ( cid:12 ) O a b x 
+ ( cid:12 ) ( cid:12 ) f(x)dx ( cid:12 ) ( cid:12 ) ( cid:54)(cid:12 ) ( cid:12 ) |f(x)|dx ( cid:12 ) ( cid:12 ) ( cid:54)|b−a|× sup |f(x)| . y = f(x ) 
+ ( cid:12 ) ( cid:12 ) ( cid:12 ) ( cid:12 ) 
+ a a x∈[a , b ] 
+ f(x ) 
+ 3 Stricte positivité f(x0 ) • 
+ Supposons f continue et positive . 
+ ( cid:90 ) b 
+ • S’ilexistex0∈[a , b]telquef(x0)>0,alors f(x)dx>0 . 
+ ( cid:90 ) b a 
+ • Si f(x)dx = 0alors , pourtoutx ∈[a , b],f(x)=0 . 
+ a O a x0 b x 
+ 14 
+ 2 . 
+ Formule de la moyenne 
+ Définition 2.10 ( Valeur moyenne ) 
+ Soit f : [ a , b]→R une fonction intégrable . 
+ 1 ( cid:90 ) b 
+ On appelle valeur moyenne defff sur[[[aaa,,,bbb ] ] ] le réel f(x)dx . 
+ b−a 
+ a 
+ Exemple 2.11 
+ Soit y , y , ... , y des nombres réels 
+ 1 2 n 
+ et f : [ a , b ] −→ R la fonction y 
+ constante par morceaux définie par 
+ f(x ) = y pour tout k ∈{1,2, ... ,n } 
+ y7 
+ et tout x 
+ k 
+ ∈ [ x , x ] où l’on a posé 
+ y6 
+ x k = a+(b−a k ) − k n 1 . 
+ Alorslavaleurmoyennedef sur[a , b ] y¯ 
+ coïncide avec la moyenne arithmé- y y y 1 4 9 0 
+ tique des nombres y 1 , ... , y n : y y 1 2 
+ 1 ( cid:90 ) b 1(cid:88 ) n y5 
+ f(x)dx = y = y¯. 
+ b−a 
+ a 
+ n 
+ k=1 
+ k x0 x1 x2 x3 x4 x5 x6 x7 x8 x9 x10 x 
+ 15 
+ 2 . 
+ Intégrale de Riemann d ) Formule de la moyenne 
+ Théorème 2.12 ( Formule de la moyenne ) 
+ Soit f : [ a , b]→R continue et soit g : [ a , b]→R intégrable de signe constant . 
+ Alors ( cid:90 ) b ( cid:90 ) b 
+ ∃c ∈[a , b ] , f(x)g(x)dx = f(c ) g(x)dx . 
+ a a 
+ f(x ) 
+ En particulier , pour g = 1 : 
+ ( cid:90 ) b 
+ ∃c∈[a , b ] , f(x)dx = f(c)(b−a ) . 
+ a f(c ) • 
+ Autrement dit , il existe un c ∈ [ a , b ] 
+ tel que f(c ) coïncide avec la valeur 
+ moyenne de f sur [ a , b ] . 
+ a c b x 
+ Exemple 2.13 
+ Soit f : [ a , b]→R continue et pour tout n∈N , u = ( cid:82)bf(x)e−nxdx . 
+ n a 
+ La fonction x ( cid:55)−→e−nx étant intégrable positive sur [ a , b ] , 
+ ( cid:90 ) b 1 
+ ∃c ∈[a , b ] , u = f(c ) e−nxdx = f(c ) ( e−na−e−nb ) . 
+ n n n n n 
+ a 
+ Lafonctionf étantcontinuesur[a , b],doncbornée , onendéduitque lim u = 0 . 
+ n 
+ n→+∞ 
+ 16 
+ Sommaire 
+ 1 Sommes de Riemann d’une fonction 
+ 2 Intégrale de Riemann 
+ 3 Primitives 
+ Théorème fondamental de l’analyse 
+ Lien intégrale / primitive 
+ Exemple de synthèse 
+ Primitives des fonctions usuelles 
+ 3 . Primitives a ) Théorème fondamental de l’analyse 
+ Le théorème de la moyenne permet d’obtenir une relation de réciprocité entre les 
+ opérations d’intégration et de dérivation décrite dans le résultat suivant : 
+ Théorème - définition 3.1 ( Théorème fondamental de l’analyse ) 
+ Soit f une fonction continue sur un intervalle I et a∈I fixé . 
+ ( cid:90 ) x 
+ On définit la fonction suivante F sur I par ∀x ∈I , F(x)= f(t)dt . 
+ a 
+ Alors F est de classeCCC111 sur I et F(cid:48 ) = f. 
+ On dit que F est une primitive de f sur I. 
+ F est en fait l’unique primitive de f sur I qui s’annule en a. 
+ Remarque 3.2 ( Raffinement de la formule de la moyenne ( facultatif ) ) 
+ La formule de la moyenne précédemment énoncée stipule l’existence d’un c 
+ ( cid:90)b 
+ appartenant à l’intervalle fermé [ a , b ] tel que f(x)dx = f(c)(b−a ) . 
+ a 
+ En fait , le théorème des accroissements finis appliqué à une primitive de f permet 
+ d’assurer plus précisément l’existence d’un tel c dans l’intervalle ouvert ] a , b [ . 
+ 17 
+ 3 . Primitives b ) Lien intégrale / primitive 
+ Corollaire 3.3 
+ Soit f une fonction continue sur un intervalle I. 
+ Alors : 
+ 1 f admet des primitives sur I ; 
+ 2 si F est une primitive de f , alors toutes les primitives de f s’obtiennent en 
+ ajoutant une constante réelle à F ; 
+ ( cid:90 ) b 
+ 3 pour toute primitive F de f et ( a , b)∈I2 , on a : f(t)dt = F(b)−F(a ) . 
+ a 
+ Notations : 
+ • la quantité F(b)−F(a ) se note aussi [ F(t)]b ; 
+ a 
+ ( cid:90 ) 
+ • on note f(x)dx toute primitive de f ( définie à une constante additive près ) . 
+ Corollaire 3.4 
+ Soit f une fonction de classeCCC111 sur un intervalle I. 
+ ( cid:90 ) b 
+ Alors on a pour tout ( a , b)∈I2 : f(cid:48)(t)dt = f(b)−f(a ) . 
+ a 
+ Onferaattentiondenepasconfondrelaformuleprécédenteaveclasuivante(valable 
+ pour f continue ) , l’ordre d’intégration et de dérivation n’étant pas le même : 
+ d ( cid:90 ) x 
+ f(t)dt = f(x ) . 
+ dx 
+ a 
+ 18 
+ 3 . Primitives c ) Exemple de synthèse 
+ Exemple 3.5 ( Un calcul d’intégrale ) 
+ 1 
+ La fonction d’intérêt : soitf :] 0,1 [ −→ R 
+ x−1 
+ x ( cid:55)−→ 
+ lnx 
+ • Lafonctionf estcontinuesur]0,1 [ . 
+ • Ona lim f(x)=0et lim f(x)=1 . 
+ x→0 + x→1− f˜(x ) 
+ • Doncf admetunprolongementparcontinuitéf˜ 
+ en0et1obtenuenposantf˜(0)=0etf˜(1)=1 . aire = I 
+ Plusprécisément : 
+ 1 • 
+ f˜:[0,1 ] −→ R 
+  
+  f(x ) six ∈]0,1 [ 
+ x ( cid:55)−→ 0 six = 0 
+ 1 six = 1 
+ On se propose alors de calculer l’intégrale 
+ • 
+ ( cid:90 ) 1 0 1 x 
+ I = f˜(x)dx . 
+ 0 
+ 19 
+ 3 . 
+ Primitives 
+ Exemple de synthèse 
+ Exemple 3.5 ( Un calcul d’intégrale ) 
+ 2 Une fonction intermédiaire : soit F :] 0,1 [ −→ R 
+ ( cid:90 ) x2 1 
+ x ( cid:55)−→ dt 
+ lnt 
+ x 
+ • Limite en 0 + . 
+ Posons ϕ(t)= 1 pour t ∈]0,1 
+ En appliquant la formule de la 
+ lnt 
+ moyenne à la fonction ϕ continue sur [ x2,x ] , il existe c(x)∈[x2,x ] tel que 
+ F(x)= 
+ x2−x 
+ . 
+ Or limc(x)=0 . 
+ D’où lim F(x)=0 . 
+ ln(cid:0)c(x)(cid:1 ) x→0 + x→0 + 
+ • Limite en 1−. 
+ En décomposant ϕ(t)=f(t)× 1 et en appliquant la formule de la 
+ t−1 
+ moyenne , la fonction t ( cid:55)→ 1 étant négative sur [ x2,x ] , il existe d(x)∈[x2,x ] tel 
+ t−1 
+ que F(x)=f ( cid:0 ) d(x ) ( cid:1)(cid:90)x2 1 dt = f ( cid:0 ) d(x ) ( cid:1 ) ln(x+1 ) . 
+ . 
+ x→1− x→1− 
+ • Prolongementparcontinuitésur[0,1 ] . DoncFadmetunprolongementparcontinuité 
+ F˜ en 0 et 1 obtenu en posant F˜(0)=0 et F˜(1)=ln2 ( F étant continue sur ] 0,1 [ ) . 
+ • Dérivée de F˜. La fonction ϕ étant continue sur ] 0,1 [ , elle admet une primitive Φ. 
+ On peut écrire F(x)=Φ(x2)−Φ(x ) , Φ étant dérivable sur ] 0,1 [ . 
+ On voit alors que F est dérivable sur ] 0,1 [ et F(cid:48)(x)=2xϕ(x2)−ϕ(x)=f(x ) . 
+ Primitives 
+ Exemple de synthèse 
+ Exemple 3.5 ( Un calcul d’intégrale ) 
+ 3 Le calcul d’aire : 
+ • LafonctionF˜estuneprimitivedef˜sur[0,1 ] . 
+ Enconséquence , I = ( cid:2 ) F˜(x ) ( cid:3)1 = F˜(1)−F˜(0)soit 
+ 0 
+ I = ln2 . 
+ f˜(x ) 
+ aire = ln2 
+ F˜(x ) 
+ 1 • 
+ ln2 • 
+ • • 
+ 0 1 x 0 1 x 
+ 21 
+ 3 . Primitives d ) Primitives des fonctions usuelles 
+ Partant des dérivées des fonctions classiques , on peut dresser une liste de primitives 
+ à connaître : 
+ Exemple 3.6 ( Fonctionspuissances / exponentielles / trigonométriques / hyperboliques ) 
+ ( cid:90 ) 1 ( cid:90 ) 1 
+ 1 xpdx = xp+1+Cste pour tout p∈R\{−1 } et dx = ln|x|+Cste 
+ p+1 x 
+ ( cid:90 ) 1 1 1 
+ ou encore dx = − + Cste pour tout p∈R\{1 } 
+ xp p−1xp−1 
+ ( cid:90 ) 
+ 2 eaxdx = eax + Cste pour tout a∈R∗ 
+ a 
+ ( cid:90 ) ( cid:90 ) 
+ 3 cosxdx = 
+ −cosx+Cste 
+ 1 
+ tanxdx = −ln|cosx|+Cste et dx = tanx+Cste 
+ cos2x 
+ ( cid:90 ) ( cid:90 ) 
+ 4 chxdx = 
+ 1 
+ thxdx = lnchx+Cste et dx = thx+Cste 
+ ch2x 
+ ( cid:90 ) 1 ( cid:90 ) 1 
+ 5 √ dx = arcsinx+Cste et √ dx = argshx+Cste 
+ 1−x2 x2 + 1 
+ ( cid:90 ) 1 
+ 6 dx = arctanx+Cste 
+ x2 + 1 
+ 22 
+ 4 . 
+ Compléments 
+ plus loin ... 
+ http://math.univ-lyon1.fr/~alachal/diaporamas/ http://math.univ-lyon1.fr/~alachal/diaporamas/ 
+ diaporama_riemann.pdf diaporama_stirling.pdf 
+ http://math.univ-lyon1.fr/~alachal/diaporamas/ http://math.univ-lyon1.fr/~alachal/diaporamas/ 
+ diaporama_machin_plouffe.pdf diaporama_sinus_eulerien.pdf 
+ En résumé ... 
+ Notions à retenir 
+ • 
+ Sommes de Riemann 
+ ( cid:63 ) Application au calcul de limites de certaines suites 
+ • Intégrale de Riemann 
+ ( cid:63 ) Interprétation géométrique 
+ ( cid:63 ) Opérations 
+ ( cid:63 ) Inégalités , théorème de la moyenne 
+ • Primitives 
+ ( cid:63 ) Théorème fondamental de l’analyse : lien entre intégrale définie et 
+ primitive 
+ ( cid:63 ) Primitives usuelles à connaître 
+ 24

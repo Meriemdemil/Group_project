@@ -1,0 +1,221 @@
+Data Structures and Algorithms 2 
+ Prof. 
+ Complexity of find operation is O(1 ) 
+ 2 
+ • The space for storage is called ` ` hash table , ’’ H 
+ • Ideal hash table data structure is just an array of some 
+ fixed size , TableSize , containing the data items . 
+ • 
+ A search for an item is performed on some part ( i.e. 
+ data member ) of the item , called the key . 
+ • For example , an item could consist of a string ( that 
+ serves as the key ) and additional data members ( for 
+ instance , a name that is part of a large employee 
+ structure , etc . ) . 
+ • The common convention is to have the table run from 0 
+ to TableSize − 1 
+ 3 
+ Hashing 
+ • 
+ Each key is mapped into some number in the range 0 to 
+ TableSize − 1 and placed in the appropriate cell . 
+ Choice of a Hash Function 
+ • If the input keys are integers , then Key mod TableSize 
+ is generally a reasonable strategy , unless Key happens 
+ to have some undesirable properties . 
+ • One has to be careful in the design of the hash 
+ function . 
+ • It is often a good idea to ensure that the table size is 
+ prime 
+ • 
+ When the input keys are random integers , then the 
+ above function is not only very simple to compute but 
+ also distributes the keys evenly 
+ 7 
+ Choosing a hash function 
+ • Usually , the keys are strings ; in this case , the hash 
+ function needs to be chosen carefully . 
+ 8 
+ • The previous hash function is simple to implement and 
+ computes an answer quickly . 
+ • However , if the table size is large , the function does not 
+ distribute the keys well ( fairly evenly ) . 
+ This is clearly not an even distribution over the hash 
+ table ! 
+ ( About 90 % of the table will never be used ! ) 
+ This hash function is easy to compute . 
+  though no collisions , only 
+ 28 % of the table is actually hashed to . 
+ • The hash function takes advantage of the fact that 
+ overflow is allowed and uses unsigned int to avoid 
+ introducing a negative number . 
+ • This hash function has a reasonable table distribution , 
+ not necessarily the best . 
+ • It does have the merit of extreme simplicity and is 
+ reasonably fast . 
+ • 
+ If the keys are very long , the hash function will take too 
+ long to compute . 
+ – A common practice in this case is not to use all the 
+ characters . 
+ – E.g. a street address key : Use a couple of characters 
+ from the street address , a couple from city , and from 
+ zip code . 
+ • Search in Hash Table : use the hash function to 
+ determine which list to traverse . 
+ Then search the 
+ appropriate list . 
+ • Insertion in Hash Table : check the appropriate list to 
+ see if element is found ( if duplicates are expected , an 
+ extra counter data member is incremented ) . 
+ Otherwise , 
+ insert it at front of the list : convenience and likelihood of 
+ frequent access . 
+ • Deletion of an element : do the hashing , then delete from 
+ the linked list . 
+ • Note : the hash tables in this chapter work only for 
+ objects that provide a hash function and equality 
+ operators ( operator== an / or operator!= ) . Comparables14 ? 
+ Hash function implementation 
+ • Use of function object template ( C++11 ) 
+ template < typename Key > 
+ class hash 
+ { 
+ public : 
+ size_t operator ( ) ( const Key & k ) const ; 
+ } ; 
+ • 
+ Alternatives to Linked Lists ? 
+ • Any scheme could be used besides linked lists to 
+ resolve the collisions . 
+ • A binary search tree or even another hash table 
+ would work . 
+ • If the table is large and the hash function is good , 
+ all the lists should be short  so basic separate 
+ chaining makes no attempt to try anything 
+ complicated . 
+ Load factor of a hash table 
+ • Load factor of a hash table : 
+ λ = # of elements in the hash table / table size 
+ • 
+ • Usually , a threshold is set on λ to do the 
+ rehashing : i.e. expanding the table and re- 
+ calculating the hash code of already stored entries 
+ • 
+ Time required to perform a search = constant time 
+ to evaluate the hash function + time to traverse 
+ the list . 
+ 19 
+ HTs without LLs : probing hash tables 
+ • Hashing with separate chaining has the disadvantage 
+ of using linked lists  can slow the algorithm down 
+ • 
+ Alternative approach ( to resolving collisions with 
+ linked lists ) 
+ is to try alternative cells until an empty 
+ cell is found . 
+ • Worse , even if the table is relatively empty , blocks of 
+ occupied cells start forming . 
+ This effect , known as 
+ primary clustering ,  key that hashes into the cluster 
+ will require several attempts to resolve the collision , and 
+ then it will be added to the cluster . 
+ Popular choice is f ( i ) = i 
+ 23 
+ Probing properties 
+ • For linear probing , it is a bad idea to let the hash table get 
+ nearly full , because performance degrades . 
+ • For quadratic probing , the situation is even more drastic : 
+ Code for hash tables using probing strategies 
+ 24 
+ • A poor choice of hash2(x ) would be disastrous . 
+ • It is also important to make sure all cells can be probed 
+ 25 
+ A function as hash2(x ) = R − ( x mod R ) , with R a prime 
+ smaller than TableSize 
+ , will work well . 
+ Important reminder : Size of table should be prime ! 
+ Rehashing 
+ If the hash table is close to full , then running time for the 
+ operations will start taking too long , and insertions might 
+ fail if separate chaining with quadratic probing 
+  a hash table of bigger size ( ~ twice as big ) is used 
+ with a new hash function 
+  compute the new hash value for each element of the 
+ original table and insert it in the new table . 
+ The old hash table is subsequently deleted . 
+ This operation is called Rehashing . 
+ It Should be done infrequently . 
+ You can easily check the new hash table with 
+ these data elements . 
+ When to rehash ? 
+ • The other extreme is to rehash only when an insertion 
+ fails ( even with probing ) . 
+ Implementation of rehashing for quadratic probing 
+ See in textbook rehashing for separate chaining hash table . 
+ Hash tables with worst - case O(1 ) Access 
+ • 
+ In fact , expected worst case for a search assuming a 
+ reasonably well - behaved hash function : 
+ – Answer : Θ(logN/ log logN ) , i.e. on average , we expect some 
+ queries to take ~logarithmic time . 
+ • 
+ BUT , we would like to obtain O(1 ) worst - case cost 
+ 30 
+ Perfect Hashing 
+ • If a separate chaining implementation guarantees each list 
+ has at most a constant number of items , we would be done . 
+ • We know : more lists  the lists will on average be shorter 
+  theoretically if we have enough lists , then with a reasonably 
+ high probability we might expect to have no collisions at all 
+ • 
+ Because the bins are expected to have only a few items 
+ each , the hash table that is used for each bin can be 
+ quadratic in the bin size 
+ • 
+ Each secondary hash table will be constructed using a 
+ different hash function until it is collision free . 
+ • 
+ The primary hash table can also be constructed several 
+ times if the number of produced collisions is higher than 
+ required . 
+ total size of the secondary hash 
+ • 
+ It is proved that the 
+ tables is linear ( at most 2N ) 
+ 32 
+ Cuckoo Hashing 
+ • 
+ the 
+ rebuilding cost is minimal . 
+ • Allow each table to store multiple keys ; this can increase 
+ space utilization and make it easier to do insertions 
+ • 
+ • With proper care , the evictions can be done quickly and 
+ guarantee that those evicted are not placed too far from 
+ their hash locations . 
+ • The algorithm is deterministic : given a hash function , 
+ either the items can be evicted or they ca n’t . 
+ • The latter case implies that the table is likely too crowded , 
+ and a rehash is in order . 
+ • Rehash would happen only at very high load factors , > 0.9 
+ • 
+ Hopscotch hashing table 
+ • A column of hop bit arrays is added to the hash table . 
+ It 
+ indicates where conflicting items have been repositioned . 
+ ( e.g. MAX_DIST=4 ) 
+ • Instead , we look to evict an item and relocate it to position 
+ 13 . 
+ • 
+ Go backward . 
+ 13 freed  
+ see Hop[10 ] : all zeros ; no eviction . 
+ Try Hop|12 ] . 
+ Otherwise we could have had to rehash ! 
+ Acknowledgement : This course PowerPoints make substantial ( non - exclusive ) use of 
+ the PPT chapters prepared by Prof. from the University of Pennsylvania , 
+ USA , themselves developed on the basis of the course textbook . 
+ Other references , if any , 
+ 45 
+ will be mentioned wherever applicable .

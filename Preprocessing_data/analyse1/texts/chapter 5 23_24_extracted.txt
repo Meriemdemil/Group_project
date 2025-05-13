@@ -1,0 +1,516 @@
+Furthermore , we notice that any 
+ function of the form φ ( x ) = ce2x , where c is any real constant , is a 
+ c 
+ solution to this equation . 
+ May12,2024 7/97 
+ Differential equations with separated variables 
+ Definition 
+ Thus , we obtain : For ( x , y ) ∈]1,+∞[×R∗ 
+ May12,2024 8/97 
+ Differential equations with separated variables 
+ Example 
+ 1dy 3lnx +1 1 3lnx +1 
+ xy(cid:48)lnx = ( 3lnx +1)y ⇒ = ⇒ dy = dx 
+ y dx xlnx y xlnx 
+ Solution method : To solve a differential equation with separated variables , 
+ it suffices to integrate both sides of equation ( 4.2.1 ) separately . 
+ ( cid:90 ) ( cid:90 ) 
+ u(y)dy = v(x)dx ⇒ u(y)dy = v(x)dx ⇒ U(y ) = V(x)+c 
+ where c is a real constant , and if possible , express y as a function of x. 
+ May12,2024 9/97 
+ Differential equations with separated variables 
+ Example 
+ 1 ) Solve on I =] 1,+∞ [ the differential equation from the previous 
+ example : 
+ xy(cid:48)lnx = ( 3lnx +1)y . 
+ After separating the variables , we integrate both sides , yielding 
+ ( cid:90 ) 1 ( cid:90 ) 3lnx +1 
+ dy = dx ⇒ ln|y|+c = 3ln|x|+ln|lnx|+c 
+ 1 2 
+ y xlnx 
+ ⇒ ln|y| = 3lnx + ln(lnx)+c ⇒ ln|y| = ln(x3lnx)+c 
+ 3 3 
+ May12,2024 10/97 
+ Differential equations with separated variables 
+ Example 
+ By exponentiating the last equality , we obtain the final solution as : 
+ y = Cx3lnx with C ∈ R∗ , 
+ where C = ±ec3 takes into account both possibilities for |y| . 
+ , the general 
+ solution of this equation is given by : 
+ y(x ) = cex2 +1 with c ∈ R. 
+ May12,2024 13/97 
+ Homogeneous Differential Equations 
+ Definition 
+ A function f(x , y ) is said to be homogeneous of degree n with respect to 
+ the variables x and y if for all λ ∈ R , 
+ f(λx , λy ) = λ nf(x , y ) . 
+ ( cid:112 ) 
+ 1 . 
+ Resolution Method : 
+ By hypothesis , f(λx , λy ) = f(x , y ) . 
+ Indeed , this equation can be 
+ written in the form 
+ dz dx 
+ = . 
+ f(1,z)−z x 
+ We solve this equation using the method for solving separable variables 
+ equations . 
+ Then , we return to the function y(x ) . 
+ May12,2024 16/97 
+ Homogeneous Differential Equations 
+ Example 
+ Consider the following differential equation : 
+ x2−y2 
+ y(cid:48 ) = . 
+ dy dy dz dt dz 
+ = · · = , 
+ dx dz dt dx dt 
+ and the equation then becomes : 
+ dz at + bz + ah+bk + c 
+ = . 
+ dt a t + b z + a h+b k + c 
+ 1 1 1 1 1 
+ This equation is homogeneous if , and only if , h and k satisfy the system 
+ ( cid:40 ) 
+ ah+bk + c = 0 
+ ( 4.2.4 ) 
+ a h+b k + c = 0 . 
+ 1 1 1 
+ Using the method for solving 
+ homogeneous equations , we determine the solution z(t ) of equation 
+ ( 4.2.5 ) , and then we return to the original variables . 
+ Equations reducing to homogeneous equations 
+ Example 
+ Solve the differential equation : 
+ x + y −3 
+ y(cid:48 ) = 
+ x −y −1 
+ We have , 
+ ( cid:12 ) ( cid:12 ) 
+ ∆ = ( cid:12 ) ( cid:12 ) 1 1 ( cid:12 ) ( cid:12 ) = −2 ( cid:54)= 0 
+ ( cid:12)1 −1(cid:12 ) 
+ so the system 
+ ( cid:40 ) 
+ h+k −3 = 0 
+ h−k −1 = 0 
+ admits a unique solution given by 
+ ( cid:12 ) ( cid:12 ) ( cid:12 ) ( cid:12 ) 
+ 1 ( cid:12)3 1 ( cid:12 ) 1 ( cid:12)1 3(cid:12 ) 
+ h = − ( cid:12 ) ( cid:12 ) = 2 and k = − ( cid:12 ) ( cid:12 ) = 1 . 
+ 2 ( cid:12)1 −1(cid:12 ) 2 ( cid:12)1 1(cid:12 ) 
+ May12,2024 22/97 
+ Equations reducing to homogeneous equations 
+ Example 
+ Then , by setting 
+ x = t +2 and y = z +1 , 
+ equation becomes 
+ t + z 
+ z(cid:48 ) = 
+ t −z 
+ which is a homogeneous equation . 
+ In this case , the system ( 4.2.4 ) has no solution 
+ and thus the method used previously does not work . 
+ We will approach it 
+ differently . 
+ Equation can then be 
+ written as : 
+ x −2y +1 
+ y(cid:48 ) = . 
+ −2(x −2y)−3 
+ We set z = x −2y , yielding y(cid:48 ) = 1−z(cid:48 ) . 
+ 2 
+ Note that this equation is separable . 
+ Solve the differential equation 
+ 3x −2 
+ y(cid:48 ) = 
+ 5 
+ This equation is separable . 
+ Indeed , we have : 
+ 3x −2 
+ dy = dx . 
+ 5 
+ Definition 
+ In fact , the homogeneous 
+ equation ( 4.5 ) is a separable equation . 
+ We have 
+ p 
+ a(x)y(cid:48 ) + b(x)y = f(x ) ( 4.6 . ) 
+ p p 
+ Since 
+ p 
+ y = z + y , we have the following result : 
+ ’s method , or variation of constants . 
+ This method consists of finding a particular solution of the complete 
+ equation , starting from the general solution of the associated 
+ homogeneous equation , by varying the constant ” C ” . 
+ That ’s why it ’s 
+ called this name . 
+ So , let 
+ ( cid:18 ) ( cid:90 ) b(x ) ( cid:19 ) 
+ y ( x ) = C exp − dx 
+ h 
+ a(x ) 
+ be the general solution of the associated homogeneous equation to 
+ We seek a particular solution of the complete equation in the 
+ form 
+ ( cid:18 ) ( cid:90 ) b(x ) ( cid:19 ) 
+ y ( x ) = C(x)exp − dx , 
+ p 
+ a(x ) 
+ where the unknown is the function C(x ) . 
+ May12,2024 34/97 
+ Linear First - Order Equations 
+ We have 
+ ( cid:18 ) ( cid:90 ) b(x ) ( cid:19 ) b(x ) ( cid:18 ) ( cid:90 ) b(x ) ( cid:19 ) 
+ y(cid:48)(x ) = C(cid:48)(x)exp − dx −C(x ) exp − dx . 
+ p a(x ) a(x ) a(x ) 
+ Substituting into ( 4.4 ) , and since 
+ b(x ) ( cid:18 ) ( cid:90 ) b(x ) ( cid:19 ) b(x ) ( cid:18 ) ( cid:90 ) b(x ) ( cid:19 ) 
+ C(x ) exp − dx −C(x ) exp − dx = 0 , 
+ a(x ) a(x ) a(x ) a(x ) 
+ we obtain 
+ ( cid:18 ) ( cid:90 ) b(x ) ( cid:19 ) 
+ C(cid:48)(x)a(x)exp − dx = f(x ) , 
+ a(x ) 
+ which gives 
+ ( cid:90 ) f(x ) ( cid:18)(cid:90 ) b(x ) ( cid:19 ) 
+ C(x ) = exp dx dx . 
+ a(x ) a(x ) 
+ May12,2024 35/97 
+ Linear First - Order Equations 
+ Example 
+ Solve the following differential equation 
+ x 1 
+ y(cid:48)+ y = . 
+ 1+x2 1+x2 
+ The associated homogeneous equation to above equation is 
+ x 
+ y(cid:48)+ y = 0 . 
+ 1+x2 
+ The general solution to this equation is 
+ ( cid:18 ) ( cid:90 ) x ( cid:19 ) C 
+ y ( x ) = C exp − dx = √ 
+ h 1+x2 1+x2 
+ May12,2024 36/97 
+ Linear First - Order Equations 
+ Example 
+ Let ’s find a particular solution of the complete equation in the form 
+ C(x ) 
+ y ( x ) = √ 
+ p 
+ 1+x2 
+ We have 
+ C(cid:48)(x ) 
+ y 
+ p 
+ ( cid:48)(x ) = √ −C(x)x(1+x2)−3 2 . 
+ 1+x2 
+ Substituting into the complete equation , we get 
+ 1 
+ C(cid:48)(x ) = √ ⇒ C(x ) = Argsh x. 
+ 1+x2 
+ May12,2024 37/97 
+ Linear First - Order Equations 
+ Example 
+ A particular solution of the complete equation is 
+ Argsh x 
+ y ( x ) = √ . 
+ p 
+ 1+x2 
+ The general solution to the complete equation is given by 
+ C Argsh x 
+ y(x ) = y ( x)+y ( x ) = √ + √ . 
+ h p 
+ 1+x2 1+x2 
+ May12,2024 38/97 
+ Linear First - Order Equations 
+ Equation of Bernoulli 
+ Definition 
+ A Bernoulli equation is an equation of the form 
+ a(x)y(cid:48 ) + b(x)y = ynf(x ) , ( 4.7 ) 
+ where the functions x ( cid:55)→ a(x ) , x ( cid:55)→ b(x ) , and x ( cid:55)→ f(x ) satisfy the 
+ assumptions made for linear equations . 
+ But we can take n = α ∈ R , considering only 
+ positive solutions . 
+ We 
+ solve this equation and then revert to the unknown y(x ) . 
+ Example 
+ Solve the equation 
+ y(cid:48)+xy = x3y3 . 
+ Dividing both sides by y3 , we obtain : 
+ y−3y(cid:48)+xy−2 = x3 . 
+ May12,2024 40/97 
+ Linear First - Order Equations 
+ Example 
+ Now let ’s set 
+ z = y−2 ⇒ z(cid:48 ) = −2y−3 . 
+ May12,2024 41/97 
+ Linear First - Order Equations 
+ Example 
+ By replacing z with its value , we obtain 
+ 1 
+ y2(x ) = , C ∈ R. 
+ x2 + 1+Cex2 
+ The set of solutions to the equation ( 9.2.25 ) is given by 
+ ( cid:26 ) ( cid:27 ) 
+ 1 
+ S = y2(x ) = , where C ∈ R , y = 0 . 
+ Cex2 + x2 + 1 
+ May12,2024 42/97 
+ Linear First - Order Equations 
+ Equation of Riccati 
+ Definition 
+ A equation is an equation of the form : 
+ a(x)y(cid:48 ) + b(x)y = g(x)+y2f(x ) , ( 4.8 ) 
+ where the functions x ( cid:55)→ a(x ) , x ( cid:55)→ b(x ) , x ( cid:55)→ f(x ) , and x ( cid:55)→ g(x ) 
+ satisfy the assumptions made for linear equations . 
+ Moreover , unlike linear equations , we can not search for a 
+ particular solution except in very particular cases . 
+ Suppose we know a particular 
+ solution y of this equation . 
+ We seek the general solution in the form 
+ 1 
+ y(x ) = u(x)+y ( x ) . 
+ The functions x ( cid:55)→ a(x ) , x ( cid:55)→ b(x ) , and x ( cid:55)→ c(x ) are called the 
+ coefficients of the equation . 
+ - The function x ( cid:55)→ f(x ) is called the 
+ right - hand side of the equation . 
+ The general solution of the complete equation is the sum of the 
+ general solution of the associated homogeneous equation and a 
+ particular solution of the complete equation . 
+ ( cid:12 ) ( cid:12 ) 
+ W(x ) = ( cid:12 ) ( cid:12 ) cosx sinx(cid:12 ) ( cid:12 ) = cos2x + sin2x = 1 . 
+ ( cid:12)−sinx cosx(cid:12 ) 
+ The solution of the system ( I ) is given by 
+ −sin2x 1 
+ c(cid:48)(x ) = = ( cos2x −1 ) , 
+ 1 1 2 
+ sinxcosx sin2x 
+ c(cid:48)(x ) = = . 
+ 2 1 2 
+ May12,2024 62/97 
+ Second - Order Linear Equations 
+ Example 
+ 65/97 
+ Second - Order Linear Equations 
+ If α is a double root of the characteristic equation , a particular solution 
+ of the complete equation is in the form 
+ y ( x ) = x2Q ( x)eαx 
+ p n 
+ where Q is a polynomial of degree n. 
+ n 
+ Remark : If f(x ) = P ( x)eαx , in many examples , we find a particular 
+ n 
+ solution in the form 
+ y ( x ) = Q(x)eαx 
+ p 
+ where eαx remains the same , Q(x ) is a polynomial , but the degree of this 
+ polynomial differs from one example to another . 
+ For this reason , we search 
+ for a particular solution in the form y ( x ) = Q(x)eαx and check under 
+ p 
+ what condition the degree of the polynomial Q is constrained . 
+ Theorem 
+ 1 . 
+ If r is not a root of the characteristic equation , Z ( x ) is given in 
+ p 
+ the form 
+ Z ( x ) = Q ( x)erx 
+ p n 
+ b. 
+ If r is a root of the characteristic equation , Z ( x ) is given in the 
+ p 
+ form 
+ Z ( x ) = xQ ( x)erx 
+ p n 
+ May12,2024 68/97 
+ Second - Order Linear Equations 
+ 2 . 
+ In the case where 
+ f(x ) = P ( x)eαx sinβx = Im(P ( x)erx ) 
+ n n 
+ then a particular solution can be sought in the following form : 
+ y ( x ) = Im(Z ( x ) ) , 
+ p p 
+ and Z ( x ) is given as before . 
+ The proof of this theorem is left as an 
+ p 
+ exercise . 
+ May12,2024 69/97 
+ Second - Order Linear Equations 
+ Method of superposition . 
+ Second - Order Linear Equations 
+ Example 
+ Since f ( x ) is in the form 
+ 1 1 
+ P ( x)eαx and α = −2 is not a root of the characteristic equation , we look 
+ 2 
+ for a solution y in the form : 
+ 1 
+ y ( x ) = Q(x)e−2x 
+ 1 
+ where Q(x ) = a + a x + a x2 . 
+ We have : 
+ 0 1 2 
+ y(cid:48 ) = [ Q(cid:48)(x)−2Q(x)]e−2x 
+ 1 
+ y(cid:48)(cid:48 ) = [ Q(cid:48)(cid:48)(x)−4Q(cid:48)(x)+4Q(x)]e−2x 
+ 1 
+ Substituting into the equation , we obtain : 
+ Q(cid:48)(cid:48)(x)−6Q(cid:48)(x)+9Q(x ) = ( 9x2−6x +5 ) 
+ May12,2024 72/97 
+ Second - Order Linear Equations 
+ Example 
+ Therefore , for all x ∈ R : 
+ 9a x2+(9a −12a ) x + ( 2a −6a +9a ) = 9x2−6x +5 
+ 2 1 2 2 1 0 
+ We have : 
+ 0 1 
+ y(cid:48 ) = [ Q(cid:48)(x)+Q(x)]ex 
+ 2 
+ y(cid:48)(cid:48 ) = [ Q(cid:48)(cid:48)(x)+2Q(cid:48)(x)+Q(x)]ex 
+ 2 
+ Substituting into the equation , we obtain : 
+ Q(cid:48)(cid:48)(x ) = ( 3x −2 ) 
+ Therefore , for all x ∈ R : 
+ May12,2024 74/97 
+ Second - Order Linear Equations 
+ Example 
+ 6a x +2a = 3x −2 
+ 1 0 
+ We then get : 
+ 1 
+ a = 
+ 1 
+ 2 
+ and a = −1 . 
+ So , 
+ 0 
+ x2 
+ y ( x ) = ( x −2)ex 
+ 2 
+ 2 
+ May12,2024 75/97 
+ Second - Order Linear Equations 
+ Example 
+ A particular solution of the equation is : 
+ 2 7 x2 
+ y ( x ) = ( x2 + x + ) e−2x + ( x −2)ex 
+ p 
+ 3 9 2 
+ The general solution is : 
+ 2 7 x2 
+ y(x ) = ( c + c x)e2x + ( x2 + x + ) e−2x + ( x −2)ex 
+ 1 2 
+ 3 9 2 
+ , where c , c are real constants . 
+ 1 2 
+ May12,2024 76/97 
+ Second - Order Linear Equations 
+ Example 
+ 2 . 
+ Seeking a particular solution of the equation . 
+ By linearizing cos3(x ) , 
+ the right - hand side of this equation is written as : 
+ f(x ) = 3cos(x)+cos(3x)+(6x −3)sin(2x ) = f ( x)+f ( x)+f ( x ) 
+ 1 2 3 
+ Since r = i is a root of the characteristic equation , 
+ 1 
+ we seek Z ( x ) in the form 
+ 1 
+ Z ( x ) = Axeix 
+ 1 
+ We have : 
+ Z(cid:48)(x ) = ( A+iAx)eix and Z(cid:48)(cid:48)(x ) = ( 2iA−Ax)eix 
+ 1 1 
+ May12,2024 78/97 
+ Second - Order Linear Equations 
+ Example 
+ Upon substitution and simplification by eix , we obtain : 
+ 3 
+ 2iA = 3 = ⇒ A = − i 
+ 2 
+ So , 
+ 3 3 3 
+ Z ( x ) = − ieix = xsin(x)− ixcos(x ) 
+ 1 
+ 2 2 2 
+ Since y ( x ) = Re(Z ( x ) ) , we have 
+ 1 1 
+ 3 
+ y ( x ) = xsinx 
+ 1 
+ 2 
+ May12,2024 79/97 
+ Second - Order Linear Equations 
+ Example 
+ Let ’s calculate Z ( x ) . 
+ Since r = 3i is not a root of the characteristic 
+ 2 
+ equation , we look for Z ( x ) in the form 
+ 1 
+ Z ( x ) = Ae3ix 
+ 2 
+ Then , 
+ Z(cid:48)(x ) = 3iAe3ix and Z(cid:48)(cid:48)(x ) = −9Ae3ix 
+ 2 2 
+ Substituting , we have 
+ 1 
+ −8A = 1 = ⇒ A = − 
+ 8 
+ May12,2024 80/97 
+ Second - Order Linear Equations 
+ Example 
+ So , 
+ 1 1 1 
+ Z ( x ) = − e3ix = − cos3x − isin3x 
+ 2 
+ 8 8 8 
+ Since y ( x ) = Re(Z ( x ) ) , then 
+ 2 2 
+ 1 
+ y ( x ) = − cos3x 
+ 2 
+ 8 
+ May12,2024 81/97 
+ Second - Order Linear Equations 
+ Example 
+ Let ’s calculate Z ( x ) . 
+ Solving these equations : 
+ As previously seen , the general solution of a 
+ linear equation 
+ is the sum of the general solution of the associated 
+ homogeneous equation and a particular solution of the complete 
+ equation . 
+ May12,2024 84/97 
+ Second - Order Linear Equationsnwith variable coefficients 
+ The associated homogeneous equation : 
+ Definition 
+ In fact , except for a few cases , we generally do not know 
+ how to solve these equations . 
+ May12,2024 85/97 
+ Second - Order Linear Equationsnwith variable coefficients 
+ In the following , we provide some cases where we can solve them . 
+ If we know a particular solution : Suppose y is a known solution of the 
+ 1 
+ homogeneous equation . 
+ Integrating this expression , we obtain : 
+ ( cid:90 ) ( cid:20 ) ( cid:18 ) ( cid:90 ) 2a(x)y(cid:48)(x)+b(x)y ( x ) ( cid:19)(cid:21 ) 
+ u(x ) = exp − 1 1 dx dx ( cid:54)= Cte . 
+ The general solution of the homogeneous 
+ 1 
+ equation is thus given by : 
+ y(x ) = c y ( x)+c u(x)y ( x ) , c , c ∈ R 
+ 1 1 2 1 1 2 
+ We thus have the following result : 
+ We have : 
+ y(x ) = y(g−1(t ) ) , 
+ so the function y is considered as a function u of the new variable t , and 
+ we set 
+ y(x ) = u(g(x ) ) = u(t ) 
+ May12,2024 92/97 
+ Second - Order Linear Equationsnwith variable coefficients 
+ ( 4.20 ) 
+ May12,2024 93/97 
+ Second - Order Linear Equationsnwith variable coefficients

@@ -26,9 +26,10 @@ def handle_query():
 
         result = rag_pipeline(question=query, chat_history=history)
 
+        cleaned_answer = re.sub(r"\s+", " ", result["answer"]).strip()
 
         return jsonify({
-            "answer": result["answer"],
+            "answer": cleaned_answer,  # ✅ single field, not array
             "status": "success",
             "conversation_id": result.get("conversation_id", "")
         })
@@ -41,8 +42,7 @@ def handle_query():
             "answers": ["Something went wrong. Please try again."],
             "status": "error"
         }), 500
-
-
+    
 if __name__ == "__main__":
     print("\nEfficient Document RAG Search API (running on port 5000)")
     app.run(port=5000, debug=True) 

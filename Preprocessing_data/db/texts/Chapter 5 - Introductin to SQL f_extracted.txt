@@ -1,0 +1,87 @@
+Objectives 
+ The National Higher School of 
+ Artificial Intelligence 
+ Introduction to SQL 
+ • 
+ American National Standards Institute ( ANSI ) 
+ prescribes a standard SQL 
+ • 
+ – DBMS verifies that only registered users are – Group of database objects that are related to 
+ able to access database each other 
+ – Log on to RDBMS using user ID and password • CREATE SCHEMA AUTHORIZATION { creator } ; 
+ created by database administrator 
+ Primary key attributes contain both a NOT • NOT NULL constraint 
+ NULL and a UNIQUE specification – Ensures that column does not accept nulls 
+ • 
+ RDBMS will automatically enforce referential • UNIQUE constraint 
+ integrity for foreign keys 
+ – Ensures that all values in column are unique 
+ • 
+ Command sequence ends with semicolon 
+ • 
+ DEFAULT constraint 
+ – Assigns value to attribute when a new row is 
+ added to table 
+ Logical Operators : AND , OR , and NOT Special Operators 
+ • 
+ Searching data involves multiple conditions • 
+ BETWEEN : checks whether attribute value is 
+ within a range 
+ • 
+ Logical operators : AND , OR , and NOT 
+ • IS NULL : checks whether attribute value is null 
+ • Can be combined 
+ – Parentheses enforce precedence order • LIKE : checks whether attribute value matches 
+ given string pattern 
+ • 
+ Conditions in parentheses are always executed 
+ first • 
+ IN : checks whether attribute value matches any 
+ • 
+ All changes in table structure are made by • 
+ ALTER can be used to change data type 
+ using ALTER command 
+ • 
+ Some RDBMSs do not permit changes to data 
+ • 
+ SQL permits copying contents of selected table 
+ existing rows columns 
+ • 
+ If relationship between entries and existing – Data need not be reentered manually into newly 
+ columns , can assign values to slots created table(s ) 
+ ALTER TABLE tablename ADD PRIMARY any relationship 
+ KEY(fieldname ) ; 
+ – Otherwise , RDBMS generates an error message 
+ – For foreign key , use FOREIGN KEY in place of 
+ – 
+ Foreign key integrity violation 
+ Access places nulls at the top of the list 
+ – Compare to each value returned by the query 
+ – Oracle places it at the bottom 
+ • 
+ SUM computes total sum for any specified 
+ – Placement of nulls does not affect list contents 
+ Alias identifies the source table from which data 
+ between relational database and other DBs are taken 
+ • 
+ Join is performed when data are retrieved from • 
+ Any legal table name can be used as alias 
+ – Equality comparison between foreign key and 
+ • 
+ Add alias after table name in FROM clause 
+ primary key of related tables 
+ – FROM tablename alias 
+ • 
+ Join tables by listing tables in FROM clause of 
+ SELECT statement 
+ • Alias is especially useful when a table must be • 
+ Summary ( cont’d . ) 
+ • 
+ DML commands allow you to add , modify , and • WHERE clause can be used with SELECT , 
+ delete rows from tables UPDATE , and DELETE statements 
+ The basic DML commands : • Aggregate functions 
+ – SELECT , INSERT , UPDATE , DELETE , – Special functions that perform arithmetic 
+ COMMIT , and ROLLBACK computations over a set of rows 
+ • SELECT statement is main data retrieval • 
+ ORDER BY clause 
+ command in SQL – Used to sort output of SELECT statement

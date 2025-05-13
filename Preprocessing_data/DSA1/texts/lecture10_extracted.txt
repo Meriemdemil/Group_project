@@ -1,0 +1,145 @@
+ 
+ An additional position contains the length of the string . 
+ STRINGS 
+ FORMAT : 
+  
+ String my_string 
+ OR 
+ String my_string [ max_size 
+ This function returns the length of the string str . 
+ : 
+ Example 
+ N = Length(“National School ” ) //N = 15 
+ STRINGS 
+ Standard Functions & Procedures 
+ Procedure Delete(Var String str , Integer P , Integer N ) 
+ Description : 
+ Delete N characters from str starting from the position P. 
+ If the string contains less than N char from P , delete till the end of the 
+ string . 
+ : 
+ Example 
+ String str1 = “ Hi ! how are you ? ” 
+ Standard Functions & Procedures 
+ Procedure Str(Integer / Real N , Var String str ) 
+ Description : 
+ Convert a numerical value N into a string str 
+ Additionally , it provides an 
+ error code Err indicating whether the operation was carried out 
+ successfully . 
+ : 
+ Example 
+ Val ( " 2021 " , n , err ) // n = 2021 and err = -1 ; 
+ VAL ( " 45A6 " , n , err ) // n=0 and err= 2 
+ n is Integer : 
+ STRINGS 
+ Application : Palindrome 
+ Construction of PALIND 
+ Analysis 
+ The basic idea is : 
+ FUNCTION 
+ • To rewrite the original string 
+ forwards ( Str1 ) and backward 
+ Boolean 
+ String Ph 
+ PALIND 
+ ( Str2 ) while removing all 
+ characters other than alphabetic 
+ Return True if Ph is palindrome characters . 
+  Traverse the original string Ph ( i ranging from 0 to Length(Ph-1 ) ) . 
+  
+ begin : index in s1 to start replacing 
+  N : number of characters to replace 
+  s2 : replacement string 
+  s1.replace ( begin , N , s2 , index , num ) 
+  index : element in s2 where replacement begins 
+  num : number of elements to use when replacing 
+  Replacement can overwrite characters 
+ STRINGS in C++ 
+ Inserting Characters into a string 
+ s1.insert ( index , s2 ) 
+  
+ Inserts s2 before position index 
+  
+ s1.insert ( index , s2 , index2 , N ) ; 
+  
+ Inserts substring of s2 before position index 
+  
+ Substring is N characters , starting at index2 
+  
+ STRUCT 
+ STRUCT 
+ Definition 
+ In programming , a struct is a collection of elementary 
+ elements , which may vary in types and are referred to 
+ as “ member . " 
+ These member are organized under a common 
+  
+ object name . 
+ Each field can be either a simple element or a 
+  
+ structure itself . 
+ The purpose of a struct is to encapsulate a set of 
+ information related to a specific object within a 
+ unified structure . 
+ STRUCT 
+ Example 
+ Student 
+ ID First_Name Last_name Birthday Grading Address 
+ Day Month Year 
+ Num Road City 
+ STRUCT 
+ Declaration 
+ Modify values using the dot operator . 
+ Student_birthday.day = 5 
+ STRUCT 
+ Declaration in C++ 
+ Data struct can be declared in C++ using the following 
+ syntax : 
+ Struct type_name { 
+ member_type1 member_name1 ; 
+ member_type2 member_name2 ; 
+ member_type3 member_name3 ; 
+ . 
+ . 
+ } object_names ; 
+ STRUCT 
+ Declaration in C++ 
+ Struct type_name { 
+ • type_name is a name for the member_type1 member_name1 ; 
+ member_type2 member_name2 ; 
+ structure type 
+ member_type3 member_name3 ; 
+ . 
+ • object_name can be a set of 
+ . 
+ valid identifiers for objects that } object_names ; 
+ have the type of this structure . 
+ struct product { 
+ • Within braces { } , there is a list 
+ int weight ; 
+ double price ; 
+ with the data members , each 
+ } ; 
+ one is specified with a type 
+ and a valid identifier as its 
+ product Milk ; 
+ product banana , melon ; 
+ name . 
+ STRUCT 
+ Declaration in C++ 
+ • If objects are specified on the end 
+ of the structure , the name of the 
+ struct { 
+ type is optional 
+ int weight ; 
+ • The access to members can be 
+ double price ; 
+ accessed directly . 
+ } 
+ apple , banana , 
+ • The syntax for that is simply to insert 
+ a dot ( . ) between the object name ; 
+ and the member name . 
+ apple.weight 
+ apple.price

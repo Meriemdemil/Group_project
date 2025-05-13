@@ -1,0 +1,120 @@
+Introduction to graph theory 
+ 
+ Konigsberg Bridge Problem 
+ Bridge 3 not crossed 
+ 4 
+ Euler Solution 
+ To cross all bridges once , each land mass needs an even number of bridges 
+ 5 
+ Konigsberg Bridge Problem 
+ X 
+ W Y 
+ Z 
+ This necessary condition did not hold in Konigsberg , as some land 
+ masses were connected to an odd number of bridges . 
+ The Birth of Graph Theory 
+ • abstracted away the physical details of the Problem to focus 
+ on its fundamental network properties . 
+ • By doing so , he was able to prove that the desired path did not exist 
+ based on the network 's topological properties . 
+ • 's approach laid the foundations for graph theory 
+ • 
+ Graph theory is now used to study networks in various fields , such as 
+ social and computer networks . 
+ • Imagine other applications … 
+ The theory of graphs is a mathematical tool that provides a way to analyze 
+ and solve problems involving networks . 
+ 8 
+ What is a graph ? 
+ • 
+ • To draw a graph , we place each vertex at a point and connect them 
+ with curves to represent the edges . 
+ What is a graph ? 
+ X 
+ P R 
+ W Y 
+ Q S 
+ Z 
+ 10 
+ What is a graph ? 
+ Simple Graph vs General Graph 
+ • 
+ Simple Graph is an graph that does not have multiple edges or self- 
+ loops . 
+ Connected vs disconnected graphs 
+ • A graph is connected if it can not be expressed as a union of graphs . 
+ Degree of vertices 
+ • 
+ The degree 𝒅𝒆𝒈(𝝂 ) of a vertex 𝜈 is the number of edges incident with 𝜈. 
+ • 
+ For any undirected graph , the total sum of degrees of all vertices is an 
+ even number , which is equal to twice the number of edges in the graph . 
+ It is thus an even number . 
+ Handshaking lemma 
+ For any undirected graph , the total sum of degrees of all vertices is an 
+ even number , which is equal to twice the number of edges in the graph . 
+ • A graph 𝐻 is a subgraph of a graph 𝐺 if 
+ • Each of its vertices belongs to 𝑉(𝐺 ) . 
+ • Each of its edges belongs to 𝐸(𝐺 ) . 
+ • Subgraphs can be obtained by deleting edges and vertices . 
+ P R P 
+ Q S Q S 
+ Matrix representations of graphs provide 
+ • Useful tool for studying and analysing graphs . 
+ Graph types 
+ • Regular graphs 
+ • A graph in which each vertex has the same degree . 
+ • If each vertex has degree r , the graph is r - regular . 
+ Cubic graph called also the graph . 
+ Graph types 
+ • 
+ Bipartite graphs 
+ Directed graph ( digraph ) D consists of finite vertex - set 𝑽(𝑫 ) and a finite 
+ family arc - family 𝐴(𝐷 ) of ordered pairs of vertices called arcs . 
+ • An arc is abbreviated to 𝒗𝒘 , where 𝒗 and 𝒘 are vertices . 
+ • The ordering of the vertices in an arc is indicated by an arrow . 
+ The underlying graph of 𝐷 is the graph obtained from 𝐷 by ' removing the 
+ arrows ' 
+ 31 
+ Directed graph ( digraph ) 
+ • 𝑉(𝐷 ) = { 𝑢 , 𝑣 , 𝑤 , 𝑧 } 
+ • 𝐴(𝐷 ) = { 𝑢𝑣 , 𝑤 , 𝑣𝑤 ( 𝑡𝑤𝑖𝑐𝑒 ) , 𝑤𝑣 , 𝑤𝑢 , 𝑧𝑤 } 
+ 32 
+ Directed graph ( digraph ) 
+ The underlying graph 
+ • 𝑉(𝐷 ) = { 𝑢 , 𝑣 , 𝑤 , 𝑧 } 
+ • 𝐴(𝐷 ) = { 𝑢𝑣 , 𝑤 , 𝑣𝑤 ( 𝑡𝑤𝑖𝑐𝑒 ) , 𝑤𝑣 , 𝑤𝑢 , 𝑧𝑤 } 
+ 33 
+ Simple digraph 
+ • 𝐷 is a simple digraph if : 
+ • The arcs of 𝐷 are all distinct 
+ • There are no “ loops ” arcs of the form 𝑣𝑣 ) . 
+ • The underlying graph of a simple digraph need not be a simple graph 
+ 34 
+ Connectedness and Degrees in Directed Graphs 
+ • 
+ The underlying graph of 𝐷 is a connected graph . 
+ Handshaking lemma in Directed graphs 
+ For any directed graph , the sum of all the in - degrees is equal to the sum 
+ of all the out - degrees . 
+ 39 
+ Adjacency Matrix of a Digraph 
+ No letter is adjacent to a letter that is next to it in the alphabet . 
+ To solve the problem : 
+ • A graph is created with people represented as vertices 
+ • 
+ Solid / Dotted edges indicating whether they know each other or no . 
+ • The goal is to prove that there will always be 
+ • A solid or dotted triangle present in the graph . 
+ To solve this problem , we represent each cube by a graph using R , B , 
+ G , and Y as vertices . 
+ • The subgraphs have no edges in common , indicating that front / back faces are 
+ different from the side faces . 
+ Conclusion 
+ • Graph theory is an abstraction of some problems that : 
+ • Provides a systematic approach to problem - solving . 
+ • Essential for developing problem - solving skills in mathematics and other fields . 
+ • Has significant applications in diverse areas of study . 
+ 62 
+ Reference text book 
+ 63

@@ -1,0 +1,334 @@
+UnivGustaveEiffel / Cosys 
+ Reinforcement Learning and Optimal Control 
+ AdvancedtopicsinRL 
+ Nadir Farhi 
+ chargéderecherche , UGE - Cosys / Grettia 
+ ENSIA-21April2025 
+ 1 . Review&Summary 
+ 2 . 
+ Advancedpolicy - based : 
+ optimization 
+ NadirFarhi 
+ ReinforcementLearningandOptimalControl 
+ 21April2025 
+ • TwomainproblemswithREINFORCE : 
+ 1 . Pasttrajectoriesarenotrused . 
+ Pasttrajectoriesarenotrused . 
+ 2 . Instableconvergence : 
+ Difficuletofindappropriateαforallthetraining 
+ process : 
+ TRPO - Trust Region Policy Optimization 
+ ( extends Reinforce ) 
+ • TRPOextendsREINFORCE . 
+ • TwomainproblemswithREINFORCE : 
+ 1 . Pasttrajectoriesarenotrused . 
+ TRPO - Trust Region Policy Optimization 
+ ( extends Reinforce ) 
+ • TRPOextendsREINFORCE . 
+ • TwomainproblemswithREINFORCE : 
+ 1 . Pasttrajectoriesarenotrused . 
+ TRPOcanbeusedforenvironmentswithdiscreteorcontinuousactionspaces 
+ • TRPOusesthehessien(2ndderivatives)inadditiontothegradient . 
+ π : apolicywithparametersθ 
+ • ThetheoreticalTRPOupdateis : 
+ whereL(θ , θ)isthesurrogateadvantage , ameasureofhowπ performs 
+ k θ 
+ relativetooldπ usingdatafromπ . 
+ θk θk 
+ NadirFarhi ReinforcementLearningandOptimalControl 21April2025 14/34 
+ TRPO - Trust Region Policy Optimization 
+ Theorybehind 
+ • π : apolicywithparametersθ 
+ θ 
+ • ThetheoreticalTRPOupdateis : 
+ whereL(θ , θ)isthesurrogateadvantage , ameasureofhowπ performs 
+ k θ 
+ relativetooldπ usingdatafromπ . 
+ θk θk 
+ andD¯ ( θ||θ ) isanaverageKullback - Leibler(KL)-divergence , orrelative 
+ KL k 
+ entropy , betweenpoliciesacrossstatesvisitedbytheoldpolicy : 
+ NadirFarhi ReinforcementLearningandOptimalControl 21April2025 14/34 
+ ( cid:88 ) ( cid:88 ) 
+ = P(x)logP(x)− P(x)logQ(x ) 
+ x x 
+ • ( cid:80 ) P(x)logP(x):TheentropyH(x)ofP(x ) . 
+ x 
+ • ( cid:80 ) P(x)logQ(x):Thecross - entropybetweenP andQ. 
+ x 
+ TRPO - Trust Region Policy Optimization 
+ KLDivergence(relativeentropy ): 
+ ( cid:18 ) ( cid:19 ) 
+ ( cid:88 ) P(x ) 
+ KL(P ||Q):= P(x)log 
+ Q(x ) 
+ x 
+ NadirFarhi ReinforcementLearningandOptimalControl 
+ 21April2025 
+ • ( cid:80 ) P(x)logP(x):TheentropyH(x)ofP(x ) . 
+ x 
+ • ( cid:80 ) P(x)logQ(x):Thecross - entropybetweenP andQ. 
+ x 
+ TRPO - Trust Region Policy Optimization 
+ KLDivergence(relativeentropy ): 
+ ( cid:18 ) ( cid:19 ) 
+ ( cid:88 ) P(x ) 
+ KL(P ||Q):= P(x)log 
+ Q(x ) 
+ x 
+ ( cid:88 ) ( cid:88 ) 
+ = P(x)logP(x)− P(x)logQ(x ) 
+ x x 
+ NadirFarhi ReinforcementLearningandOptimalControl 21April2025 15/34 
+ isthebacktrackingcoefficient 
+ TRPO - Trust Region Policy Optimization 
+ Theapproximateproblemisanalyticallysolved(Eg . Lagrangianduality ): 
+ Thenweaddabacktrackinglinesearch : 
+ • αj isthebacktrackingcoefficient 
+ • j isthesmallestnonnegativeintegersuchthatπ satisfiestheKLconstraint 
+ θk+1 
+ andproducesapositivesurrogateadvantage . 
+ NadirFarhi ReinforcementLearningandOptimalControl 
+ 21April2025 
+ • Justsetupasymbolicoperationtocalculate : 
+ TRPO - Trust Region Policy Optimization 
+ • Finally , insteadofcomputingandstoringH−1,whichisexpensive . 
+ • TRPOusestheconjugategradientalgorithmtosolveHx = gforx = H−1 
+ • Finally , insteadofcomputingandstoringH−1,whichisexpensive . 
+ It is an off - policy algorithm . 
+ • only for environments with continuous action spaces . 
+ • A kind of deep Q - learning for continuous action spaces . 
+ • Implementation of DDPG does not support parallelization . 
+ Implementation of DDPG does not support parallelization . 
+ Abstract 
+ • DDPG learns a Q - function and a policy 
+ • It uses off - policy data and Bellman eq . to learn Q - function , 
+ • and uses the Q - function to learn the policy . 
+ DDPG - Deep Deterministic Policy Gradient 
+ DDPG 
+ • For Deterministic policies 
+ • It is an off - policy algorithm . 
+ NadirFarhi 
+ ReinforcementLearningandOptimalControl 
+ • A kind of deep Q - learning for continuous action spaces . 
+ • Implementation of DDPG does not support parallelization . 
+ Implementation of DDPG does not support parallelization . 
+ Abstract 
+ • DDPG learns a Q - function and a policy 
+ • It uses off - policy data and Bellman eq . to learn Q - function , 
+ • and uses the Q - function to learn the policy . 
+ DDPG - Deep Deterministic Policy Gradient 
+ DDPG 
+ • For Deterministic policies 
+ • It is an off - policy algorithm . 
+ • only for environments with continuous action spaces . 
+ • A kind of deep Q - learning for continuous action spaces . 
+ NadirFarhi 
+ ReinforcementLearningandOptimalControl 
+ 21April2025 
+ Abstract 
+ • DDPG learns a Q - function and a policy 
+ • It uses off - policy data and Bellman eq . to learn Q - function , 
+ • and uses the Q - function to learn the policy . 
+ DDPG - Deep Deterministic Policy Gradient 
+ DDPG 
+ • For Deterministic policies 
+ • 
+ It is an off - policy algorithm . 
+ • only for environments with continuous action spaces . 
+ • A kind of deep Q - learning for continuous action spaces . 
+ • Implementation of DDPG does not support parallelization . 
+ DDPG - Deep Deterministic Policy Gradient 
+ DDPG 
+ • For Deterministic policies 
+ • It is an off - policy algorithm . 
+ • only for environments with continuous action spaces . 
+ • A kind of deep Q - learning for continuous action spaces . 
+ • Implementation of DDPG does not support parallelization . 
+ DDPG - Deep Deterministic Policy Gradient 
+ DDPG 
+ • For Deterministic policies 
+ • It is an off - policy algorithm . 
+ • only for environments with continuous action spaces . 
+ • A kind of deep Q - learning for continuous action spaces . 
+ • Implementation of DDPG does not support parallelization . 
+ • A kind of deep Q - learning for continuous action spaces . 
+ • Implementation of DDPG does not support parallelization . 
+ Abstract 
+ • DDPG learns a Q - function and a policy 
+ • It uses off - policy data and Bellman eq . to learn Q - function , 
+ • and uses the Q - function to learn the policy . 
+ NadirFarhi ReinforcementLearningandOptimalControl 
+ 21April2025 
+ • Discrete action space : by enumeration through the Q table . 
+ • Continuous action space : ? ? ? ? 
+ • Using a normal optimization algorithm is expensive 
+ • since it is run every time the agent wants to take an action . 
+ DDPG - Deep Deterministic Policy Gradient 
+ How to calculate the arg max : 
+ a∗(s ) = argmaxQ∗(s , a ) 
+ a 
+ NadirFarhi ReinforcementLearningandOptimalControl 
+ • Continuous action space : ? ? ? ? 
+ • Using a normal optimization algorithm is expensive 
+ • since it is run every time the agent wants to take an action . 
+ DDPG - Deep Deterministic Policy Gradient 
+ How to calculate the arg max : 
+ a∗(s ) = argmaxQ∗(s , a ) 
+ a 
+ • Discrete action space : by enumeration through the Q table . 
+ NadirFarhi ReinforcementLearningandOptimalControl 
+ • Using a normal optimization algorithm is expensive 
+ • since it is run every time the agent wants to take an action . 
+ DDPG - Deep Deterministic Policy Gradient 
+ How to calculate the arg max : 
+ a∗(s ) = argmaxQ∗(s , a ) 
+ a 
+ • Discrete action space : by enumeration through the Q table . 
+ Continuous action space : ? ? ? ? 
+ DDPG - Deep Deterministic Policy Gradient 
+ How to calculate the arg max : 
+ a∗(s ) = argmaxQ∗(s , a ) 
+ a 
+ • Discrete action space : by enumeration through the Q table . 
+ • 
+ Continuous action space : ? ? ? ? 
+ Continuous action space : ? ? ? ? 
+ • Using a normal optimization algorithm is expensive 
+ • since it is run every time the agent wants to take an action . 
+ NadirFarhi ReinforcementLearningandOptimalControl 
+ 21April2025 
+ • We use gradient - based learning rule for a policy µ(s ) 
+ • We approximate max Q(s , a ) ≈ Q(s,µ(s ) ) . 
+ We approximate max Q(s , a ) ≈ Q(s,µ(s ) ) . 
+ a 
+ DDPG - Deep Deterministic Policy Gradient 
+ • Q∗(s , a ) is presumed to be differentiable with respect to the a 
+ • We use gradient - based learning rule for a policy µ(s ) 
+ NadirFarhi ReinforcementLearningandOptimalControl 21April2025 27/34 
+ DDPG - Deep Deterministic Policy Gradient 
+ • Q∗(s , a ) is presumed to be differentiable with respect to the a 
+ • We use gradient - based learning rule for a policy µ(s ) 
+ • We approximate max Q(s , a ) ≈ Q(s,µ(s ) ) . 
+ a 
+ NadirFarhi ReinforcementLearningandOptimalControl 21April2025 27/34 
+ DDPG - Deep Deterministic Policy Gradient 
+ Q - Learning side of DDPG : 
+ Minimizing MSBE loss with stochastic gradient descent : 
+   
+ ( cid:32 ) ( cid:33)2 
+ L(ϕ,D ) = E  Q ϕ ( s , a)− ( cid:0 ) r + γ(1−d)Q ϕ ( s′,µ θ ( s′ ) ) ( cid:1 )  , 
+ ( s , a , r , s′,d)∼D targ targ 
+ where µ is the target policy . 
+ • Perform gradient ascent ( w.r.t . policy parameters only ) to solve : 
+ max E [ Q ( s,µ ( s ) ) ] . 
+ ϕ θ 
+ θ s∼D 
+ The Q - function parameters are treated as constants here . 
+ • To enhance exploration , a noise is added to actions at training . 
+ • Reduce the scale of the noise over the course of training . 
+ DDPG - Deep Deterministic Policy Gradient 
+ Policy Learning Side of DDPG : 
+ • Learn a deterministic policy µ ( s ) maximizing Q ( s , a ) . 
+ NadirFarhi ReinforcementLearningandOptimalControl 
+ 21April2025 
+ • To enhance exploration , a noise is added to actions at training . 
+ • Reduce the scale of the noise over the course of training . 
+ DDPG - Deep Deterministic Policy Gradient 
+ Policy Learning Side of DDPG : 
+ • Learn a deterministic policy µ ( s ) maximizing Q ( s , a ) . 
+ θ ϕ 
+ • Perform gradient ascent ( w.r.t . policy parameters only ) to solve : 
+ max E [ Q ( s,µ ( s ) ) ] . 
+ ϕ θ 
+ θ s∼D 
+ The Q - function parameters are treated as constants here . 
+ • Reduce the scale of the noise over the course of training . 
+ DDPG - Deep Deterministic Policy Gradient 
+ Policy Learning Side of DDPG : 
+ • Learn a deterministic policy µ ( s ) maximizing Q ( s , a ) . 
+ θ ϕ 
+ • Perform gradient ascent ( w.r.t . policy parameters only ) to solve : 
+ max E [ Q ( s,µ ( s ) ) ] . 
+ ϕ θ 
+ θ s∼D 
+ The Q - function parameters are treated as constants here . 
+ • To enhance exploration , a noise is added to actions at training . 
+ • Perform gradient ascent ( w.r.t . policy parameters only ) to solve : 
+ max E [ Q ( s,µ ( s ) ) ] . 
+ ϕ θ 
+ θ s∼D 
+ The Q - function parameters are treated as constants here . 
+ • To enhance exploration , a noise is added to actions at training . 
+ • To enhance exploration , a noise is added to actions at training . 
+ • Reduce the scale of the noise over the course of training . 
+ ReinforcementLearningandOptimalControl 
+ 21April2025 
+ TD3 updates the policy ( and target 
+ networks ) less frequently than the Q - function . 
+ • Target Policy Smoothing . 
+ TD3 adds noise to the target action , to 
+ make it harder for the policy to exploit Q - function errors by 
+ smoothing out Q along changes in action . 
+ TD3 - Twin Delayed DDPG 
+ Main ideas 
+ • Clipped Double - Q Learning . 
+ TD3 adds noise to the target action , to 
+ make it harder for the policy to exploit Q - function errors by 
+ smoothing out Q along changes in action . 
+ TD3 - Twin Delayed DDPG 
+ Main ideas 
+ • Clipped Double - Q Learning . 
+ • Delayed Policy Updates . 
+ TD3 updates the policy ( and target 
+ networks ) less frequently than the Q - function . 
+ • Delayed Policy Updates . 
+ TD3 updates the policy ( and target 
+ networks ) less frequently than the Q - function . 
+ • Target Policy Smoothing . 
+ TD3 adds noise to the target action , to 
+ make it harder for the policy to exploit Q - function errors by 
+ smoothing out Q along changes in action . 
+ • Maximize a trade - off between expected return and entropy , a 
+ measure of randomness in the policy . 
+ • This has a close connection to the exploration - exploitation 
+ trade - off : 
+ • Increasing entropy results in more exploration , which can 
+ accelerate learning later on . 
+ • It can also prevent the policy from prematurely converging to a 
+ bad local optimum . 
+ • This has a close connection to the exploration - exploitation 
+ trade - off : 
+ • Increasing entropy results in more exploration , which can 
+ accelerate learning later on . 
+ • 
+ It can also prevent the policy from prematurely converging to a 
+ bad local optimum . 
+ SAC - Soft Actor Critic 
+ • SAC : entropy regularization . 
+ • Maximize a trade - off between expected return and entropy , a 
+ measure of randomness in the policy . 
+ • Increasing entropy results in more exploration , which can 
+ accelerate learning later on . 
+ • It can also prevent the policy from prematurely converging to a 
+ bad local optimum . 
+ SAC - Soft Actor Critic 
+ • SAC : entropy regularization . 
+ • Maximize a trade - off between expected return and entropy , a 
+ measure of randomness in the policy . 
+ • 
+ This has a close connection to the exploration - exploitation 
+ trade - off : 
+ • It can also prevent the policy from prematurely converging to a 
+ bad local optimum . 
+ SAC - Soft Actor Critic 
+ • SAC : entropy regularization . 
+ • Maximize a trade - off between expected return and entropy , a 
+ measure of randomness in the policy . 
+ • 
+ This has a close connection to the exploration - exploitation 
+ trade - off : 
+ • Increasing entropy results in more exploration , which can 
+ accelerate learning later on . 
+ • It can also prevent the policy from prematurely converging to a 
+ bad local optimum .

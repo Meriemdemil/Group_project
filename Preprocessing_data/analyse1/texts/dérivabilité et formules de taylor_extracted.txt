@@ -1,0 +1,923 @@
+Chapitre 4 
+ Dérivabilité et formules de Taylor 
+ La dérivabilité 
+ Dénition 4.1.1 Soit f une fonction dénie en x et sur un voisinage de x . 
+ On dit que 
+ 0 0 
+ f est dérivable en x si la limite : 
+ 0 
+ f(x ) f(x ) 
+ 0 
+ lim − = l , ( 4.1.1 ) 
+ x→x0 x x 
+ 0 
+ − 
+ existe et est nie . 
+ Le nombre l est appelé nombre dérivé de f au point x , et noté f′(x ) . 
+ 0 0 
+ Remarque 4.1.2 
+ En posant h = x x , la dénition précédente s’écrit : 
+ 0 
+ − 
+ f(x + h ) f(x ) 
+ lim 0 − 0 = f′(x ) . 
+ ( 4.1.2 ) 
+ 0 
+ h→0 h 
+ Exemple 4.1.3 
+ 1 ) Si f est constante sur un voisinage de x alors elle est dérivable en x et f′(x ) = 0 . 
+ 0 0 0 
+ 2 ) Si f(x ) = x sur un voisinage de x alors elle est dérivable en x et f′(x ) = 1 . 
+ 0 0 0 
+ 3 ) Si f(x ) = xn , n N sur un voisinage de x alors elle est dérivable en x et 
+ 0 0 
+ ∈ 
+ f′(x ) = nxn−1 . 
+ 0 0 
+ En eet , utilisant la formule du binôme , on a 
+ n 
+ 1 1 
+ [ f(x + h ) f(x ) ] = Ck hk xn−k xn 
+ h 0 − 0 h n 0 − 0 
+   
+ k=0 
+ ∑ 
+ n 
+ = nxn−1+h Ck hk−2 xn−k . 
+ 0 n 0 
+ k=2 
+ ∑ 
+ 57 
+ 4 . 
+ Dérivabilité 
+ formules de Taylor 
+ Comme 
+ n 
+ lim h Ck hk−1 xn−k = 0 , 
+ n 0 
+ h→0 
+ k=2 
+ ∑ 
+ On a le résultat voulu . 
+ 0 
+ nombre l et une fonction 
+ ϕ : ] 
+ R , avec limϕ(h ) = 0 , 
+ tels que 
+ f(x + h ) f(x ) = hl+hϕ(h ) . 
+ ( 4.1.3 ) 
+ 0 0 
+ − 
+ Dans ce cas , l = f′(x ) . 
+ 0 
+ Dérivabilité à gauche et à droite . 
+ Dénition 4.1.5 On dit que f est dérivable en x , à gauche , si 
+ 0 
+ f(x ) f(x ) 
+ 0 
+ lim − = l , ( 4.1.4 ) 
+ x→x − 0 x − x 0 
+ existe et est nie . 
+ Le nombre l est appelé nombre dérivé à gauche , de f au point x , et noté f′(x ) . 
+ 0 g 0 
+ Dénition 4.1.6 
+ On dit que f est dérivable en x , à droite , si 
+ 0 
+ f(x ) f(x ) 
+ 0 
+ lim − = l , ( 4.1.5 ) 
+ x→x+ 
+ 0 
+ x 
+ − 
+ x 
+ 0 
+ existe et est nie . 
+ 0 
+ f′(x ) = f′(x ) . 
+ g 0 d 0 
+ Application . 
+ 1 ) 
+ Dérivabilité 
+ formules de Taylor 
+ Relation entre la dérivabilité et la continuité 
+ La proposition précédente est une simple implication ( f est dérivable 
+ f est continue ) . 
+ La réciproque de cette proposition est fausse Pour cela il sut de 
+ ⇒ 
+ considérer l’exemple précédent ; f(x ) = |x| qui est évidemment continue en 0 mais on a 
+ vu qu’elle n’est pas dérivable en ce point . 
+ Interprétation géométrique du nombre dérivé . 
+ Soit f une fonction dérivable en x . 
+ On pose y = f(x ) , M le point de la courbe de 
+ 0 0 0 0 
+ coordonnées ( x , y ) et M le point de coordonnées ( x , f(x ) ) . 
+ Pour simplier , on suppose 
+ 0 0 
+ que x < x. 
+ On note par : 
+ 0 
+ • D la demi - droite d’origine M et parallele à l’axe ox , 
+ 0 0 
+ • D la droite qui coupe la courbe aux deux point M et M. ( on dit qe D est sécante 
+ 0 
+ à la cource C ) . 
+ f 
+ • L’angle aigu formé par la demi - droite D et la droite D est noté θ . 
+ 0 
+ On a 
+ f(x ) f(x ) 
+ tgθ = − 0 . 
+ 0 
+ − 
+ Lorsque x tend vers x , sachant que f est continue en x , alors le point M tend vers M . 
+ 0 0 0 
+ La droite D s’incline vers une droite " limite " ( ∆ ) , qui coupe la courbe C en deux points 
+ f 
+ confondusM . Cettedroiteestappeléepardénitiondroitetangenteàlacourbeaupoint 
+ 0 
+ M . 
+ L’angle θ tend vers l’angle α formé par D et la tangente ∆. D’une part , du fait 
+ 0 0 
+ π π 
+ que la fonction tg est continue sur ] , [ le premier terme de l’égalité ( 4.1.6 ) tend vers 
+ − 2 2 
+ tgα . 
+ D’autre part , comme f est dérivable en x , alors le deuxième terme de ( 4.1.6 ) tend 
+ 0 
+ vers f′(x ) . 
+ On déduit alors : 
+ 0 
+ tgα = f′(x ) . 
+ Si f est dérivable sur chaque 
+ point de I 
+ , on dit qu’elle est dérivable sur I. 
+ Si I = [ a , b ] , on dit que f est dérivable sur I si elle est : 
+ • dérivable sur ] a , b [ , 
+ • dérivable à droite en a , 
+ • dérivable à gauche en b. 
+ La fonction dérivée . 
+ Dénition 4.1.11 Soit I R et f une fonction dérivable sur I. 
+ Alors la fonction 
+ ⊂ 
+ suivante 
+ g : I R , 
+ → 
+ ( 4.1.8 ) 
+ f(x+h ) f(x ) 
+ x g(x ) = lim − , 
+ → h→0 h 
+ est bien dénie , car g(x ) existe pour tout x I. 
+ En eet 
+ 1 2 h h 
+ ( sin(x+h ) sinx ) = cos x+ sin , 
+ h − h 2 2 
+   
+ et 
+ h sinh 
+ limcos x+ = cosx et lim = 1 . 
+ h→0 2 h→0 h 
+   
+ 4.1.2 Opérations sur les fonctions dérivables 
+ Théorème 4.1.13 Soient f et g deux fonctions dérivables en x . 
+ La fonctions λf est dérivable en x et ( λf)′(x ) = λf′(x ) . 
+ 0 0 0 
+ La fonctions f + g est dérivable en x et ( f + g)′(x ) = f′(x ) + g′(x ) . 
+ 0 0 0 0 
+ 3 . 
+ La fonctions fg est dérivable en x et 
+ 0 
+ ( fg)′(x ) = f′(x ) g(x ) + f(x ) g′(x ) . 
+ 0 0 0 0 0 
+ 4 . 
+ Si g(x ) = 0 alors 
+ 0 
+  
+ • La fonctions 1 est dérivable en x et 
+ g 0 
+ 1 ′ g′(x ) 
+ 0 
+ ( x ) = . 
+ g 0 −g2(x ) 
+   0 
+ • La fonctions f est dérivable en x et 
+ g 0 
+ f ′ f′(x ) g(x ) f(x ) g′(x ) 
+ 0 0 0 0 
+ ( x ) = − . 
+ g 0 g2(x ) 
+   0 
+ Applications . 
+ On a vu que les monômes a xn sont dérivables sur R alors tout polynôme est dérivable 
+ n 
+ sur R et toute fraction rationnelle est dérivable sur son ensemble de dénition . 
+ 61 
+ 4 . Dérivabilité et formules de 
+ 4.1.3 Dérivée de la fonction composée . 
+ Théorème 4.1.14 Soient f et g deux fonctions telles que h = gof soit dénie . 
+ Si f est 
+ dérivable en x et g est dérivable en y = f(x ) , alors la fonction h est dérivable en x . 
+ 0 0 0 
+ De plus on a la formule de dérivation suivante : 
+ ( gof)′(x ) = g′(y ) f′(x ) . 
+ On comprend la formule précédente comme suit : 
+ On dérive la fonction f par rapport à sa variable x au point x , 
+ 0 
+ on dérive la fonction g par rapport à sa variable y au point y . 
+ 0 
+ Applications . 
+ 1 ) cos(3x2 2x+1 ) ′ = ( 6x 2)sin(3x2 2x+1 ) , x R. 
+ − − − − ∀ ∈ 
+   
+ 2 ) Du fait que la composition de fonction est une opération associative , on a 
+ ′ 
+ x+1 3 x+1 x+1 
+ sinexp = − exp cosexp x R\{2 } . 
+ x 2 ( x 2)2 x 2 x 2 ∀ ∈ 
+   −  −  −   −  
+ 3 ) Calculer la dérivée de la fonction suivante . 
+ x 3 5 
+ f(x ) = cosln − . 
+ x2 + 1 
+    
+ 4.1.4 Dérivée de la fonction réciproque . 
+ Théorème 4.1.15 
+ I J une fonction ayant une fonction réciproque f−1 . 
+ Si 
+ → 
+ f est dérivable x et si f′(x ) = 0 alors la fonction f−1 est dérivable en y = f(x ) . 
+ On sait que la fonction f(x ) = lnx est dérivable sur ] 0 , + [ et 
+ ∞ 
+ 1 
+ f′(x ) = = 0 , x > 0 . 
+ x  ∀ 
+ 62 
+ 4 . 
+ Dérivabilité 
+ formules de Taylor 
+ Alors sa fonction réciproque exp est dérivable sur R et , en posant 
+ y = ln x = expy , 
+ ⇔ 
+ on a : 
+ 1 
+ ( expy)′ = = x = expy . 
+ ( lnx)′ 
+ Ce théorème nous permettra d’étudier la dérivabilité et de calculer les dérivées des fonc- 
+ tions élémentaires que nous étudierons plus tard . 
+ Proposition 4.1.16 Si une fonction f admet un extremum en x et si elle est dérivable 
+ 0 
+ en x alors f′(x ) = 0 . 
+ 0 0 
+ Remarque 4.1.17 
+ la 
+ 0 
+ → 
+ dérivée n’est pas nulle car elle n’existe pas en 0 . 
+ 4.1.5 
+ Le théorème de Rolle . 
+ Théorème 4.1.18 
+ Soit fune fonction vériant les hypothèses suivantes 
+ • f est continue sur le fermé [ a , b ] , 
+ • f est dérivable sur l’ouvert ] a , b [ , 
+ • f(a ) = f(b ) . 
+ Alors il existe c dans ] a , b [ tel que f′(c ) = 0 . 
+ Remarque 4.1.19 
+ Les trois hypothèses du théorème de Rolle sont nécessaires comme 
+ on va le voir dans les exemples suivants . 
+ Les hypothèses 1 ) et 3 ) sont vériées mais 
+ ∈ − 
+ 1 si x [ 1,0 [ , 
+ f′(x ) = − ∈ − 
+  1 si x ] 0,1 ] . 
+ ∈ 
+ Le théorème de Rolle n’est pas applicable car f n’est pas dérivable en 0 ] 1,1 [ . 
+ ∈ − 
+ Exemple 3 
+ f(x ) = x , x [ a , b ] . 
+ ∈ 
+ Les deux premières hypothèses du théorème sont satisfaites mais f′(x ) = 1 , x ] a , b [ . 
+ ∀ ∈ 
+ car f(a ) = f(b ) . 
+  
+ 4.1.6 Le théorème des accroissements nis . 
+ L’interprétation géométrique du théorème de Rolle est que sous les hypothèses suscitées , 
+ il existe c ] a , b [ où la pente de la tangente au point M(c , f(c ) ) est parallèle au segment 
+ ∈ 
+ [ AB ] avec ; A = ( a , f(a ) ) et B = ( b , f(b ) ) . 
+ Maintenant , si f(a ) = f(b ) , la pente de la 
+  
+ droite , support de [ AB ] est 
+ f(b ) f(a ) 
+ − . 
+ b a 
+ − 
+ Alors la question est : Existe - t - il c ] a , b [ tel que 
+ ∈ 
+ f(b ) f(a ) 
+ f′(c ) = − ? 
+ b a 
+ − 
+ La réponse armative est donnée par le théorème suivant 
+ Théorème 4.1.20 [ Le théorème des accroissements nis . ] Soitf unefonctionvéri- 
+ ant les hypothèses suivantes 
+ • f est continue sur le fermé [ a , b ] , 
+ • f est dérivable sur l’ouvert ] a , b [ . 
+ Alors il existe c dans ] a , b [ tel que : 
+ f(b ) f(a ) = ( b a)f′(c ) . 
+ − − 
+ Applications 
+ 1 ) Le théorème des accroissements nis simplie l’étude de la continuité uniforme . 
+ En 
+ 64 
+ 4 . Dérivabilité et formules de Taylor 
+ eet , si f′ est bornée par M sur I , alors 
+ ∀ ∈ − − ≤ − 
+ Donc f est Lipschitzienne sur I alors elle est uniformément continue sur I. 
+ Exemple 1 
+ |sinx siny| = |x y||cosc| |x y| , 
+ − − ≤ − 
+ donc la fonction sin est Lipschitzienne sur R , alors elle est uniformément continue sur R. 
+ 2 ) On peut déduire des inégalités . 
+ Exemple 2 Soitlafonctionf(t ) = lnt . 
+ Onvoitbienqu’onpeutappliquerlethéorème 
+ des 
+ accroissements nis à cette fonction sur [ x , x+1 ] , x > 0 et : 
+ ∀ 
+ 1 
+ ln(x+1 ) lnx = , x < c < x+1 . 
+ − c 
+ Comme 
+ 1 1 1 
+ < < , 
+ x+1 c x 
+ on déduit alors la double inégalité suivante : 
+ 1 1 
+ < ln(x+1 ) lnx < x > 0 . 
+ x+1 − x ∀ 
+ De même on obtient sur l’intervalle [ 1,x ] , la double inégalité suivante . 
+ 1 
+ 1 < lnx < x 1 . 
+ − x − 
+ Théorème 4.1.21 [ Le théorème des accroissements nis généralisé . 
+ deux fonctions vériant : 
+ Dérivabilité 
+ formules de Taylor 
+ Remarque 4.1.22 
+ Le théorème des accroissements nis est applicable pour chacune des fonctions f et g 
+ séparément . 
+ Mais on n’obtient pas le même c vériant la formule précédente . 
+ On a le droit de diviser par g(b ) g(a ) car il est diérent de zéro . 
+ En eet si 
+ − 
+ g(b ) g(a ) = 0 alors g satisfait les hypothèses du théorème de Rolle et donc 
+ − 
+ c ] a , b [ ; g′(c ) = 0 , 
+ ∃ ∈ 
+ ce qui contredit la troisième hypothèse du théorème . 
+ Corollaire 4.1.23 [ Regle de l’Hôpital . ] 
+ Soiet f et g deux fonctions continues et dériv- 
+ ables sur un voisinage de x et que la dérivée de g ne s’annule pas sur ce voisinage . 
+ On 
+ 0 
+ suppose de plus que 
+ f′(x ) 
+ lim = l 
+ x→x0 g′(x ) 
+ existe ( ni ou non ) , alors 
+ f(x ) f(x ) 
+ 0 
+ lim − = l. 
+ x→x0 g(x ) g(x 
+ 0 
+ ) 
+ − 
+ 4.2 
+ supérieures 
+ Dénition 4.2.1 Soit f une fonction dérivable sur un intervalle I et soit x I. 
+ On a 
+ 0 
+ ∈ 
+ les dénitions suivantes . 
+ 1 . 
+ Si la fonction dérivée f′ est continue sur I , on dit que la fonction f est continument 
+ dérivable sur I , ou de classe C1 sur I et on note : 
+ Si la fonction dérivée f′ est dérivable en x , on dit que la fonction f est deux fois 
+ 0 
+ dérivable en x et on note : 
+ 0 
+ f”(x ) = ( f′ ) ′ ( x ) . 
+ 0 0 
+ 3 . 
+ Si la fonction dérivée f′ est dérivable sur I , on dit que la fonction f est deux fois 
+ dérivable sur I. 
+ Si la fonction f ” est continue sur I , on dit que la fonction f est de classe C2 sur I. 
+ 66 
+ 4 . Dérivabilité et formules de Taylor 
+ On note 
+ f C2(I ) . 
+ ∈ 
+ 5 . 
+ En général Supposons que f est n fois dérivable sur I. 
+ Si la dérivée d’ordre n , notée 
+ f(n ) , est continue sur I , on dit que f est de classe Cn sur I et on note 
+ f Cn(I ) . 
+ ∈ 
+ 6 . Si lafonction f(n ) estdérivableenx , ondit que lafonction f est n+1 foisdérivable 
+ 0 
+ en x et on note : 
+ 0 
+ ′ 
+ f(n+1)(x ) = f(n ) ( x ) . 
+ 0 0 
+   
+ 7 . 
+ Si f est n fois dérivable pour tout n N , on dit que f est indéniment dérivable 
+ ∈ 
+ sur I , ou elle est de classe C∞ sur I et on note : 
+ f C∞(I ) . 
+ ∈ 
+ Exemple 4.2.2 
+ 1 . 
+ Une fonction polynôme est de classe C∞ sur R. 
+ Les fonction sin , cos , exp sont de classe C∞ sur R et on a 
+ π π 
+ ( exp)(n)(x ) = exp(x ) , sin(n)x = sin x+n , et cos(n)x = cos x+n . 
+ 2 2 
+     
+ Montrer , par récurrence , ces deux dernières formules . 
+ 3 . 
+ Les fonctions tg , cotg , ln sont de classe C∞ sur leurs ensembles de dénition . 
+ Théorème 4.2.3 Soient f et g deux fonctions n fois dérivables sur I. 
+ La fonctions fg est n fois dérivable sur I et 
+ n 
+ ( fg)(n)(x ) = Ckf(k)(x)g(n−k)(x ) , x I. ( 4.2.1 ) 
+ n ∀ ∈ 
+ k=0 
+ ∑ 
+ 67 
+ 4 . 
+ Dérivabilité et formules de Taylor 
+ Avec la convention : f(0 ) = f. 
+ La formule ( 10.3.7 ) est appelée formule de Leïbnitz . 
+ Remarque 4.2.4 D’apèslacommutativitédelamultiplication , laformule(10.3.7)s’écrit 
+ aussi 
+ n 
+ ( fg)(n)(x ) = Ckf(n−k)(x)g(k)(x ) , x I. 
+ n ∀ ∈ 
+ k=0 
+ ∑ 
+ Exemple 4.2.5 
+ 1 . 
+ On a 
+ ( fg)(4)(x ) = f(4)(x)+4f(3)(x)g(x)+6f(2)(x)g(2)(x)+4f(x)g(3)(x)+g(4)(x ) . 
+ 2 . 
+ n 
+ ( sinxexpx)(n ) = Ckexp(n−k)x sin(k)x 
+ n 
+ k=0 
+ ∑ 
+ n 
+ π 
+ = expx Ck sin x+k . 
+ n 2 
+ ∑ k=0   
+ 4.3 La formule de Taylor 
+ Théorème 4.3.1 [ Formule de Taylor avec reste généralisé ] Soient f et g deux 
+ fonctions dénies sur un intervalle [ a , b ] et vériant : 
+ 1 . • f est de classe Cn sur le fermé [ a , b ] , 
+ • f est n+1 fois dérivable sur l’ouvert ] a , b [ 
+ 2 . • g est continue sur le fermé [ a , b ] , 
+ • g est dérivable sur l’ouvert ] a , b [ , 
+ • g′(x ) = 0 , x ] a , b [ . 
+  ∀ ∈ 
+ Soit x [ a , b ] . Alors pour tout x [ a , b ] , il existe c = x + t(x x ) , t ] 0,1 [ tel que l’on 
+ 0 0 0 
+ ∈ ∈ − ∈ 
+ ait : 
+ n f(k)(x ) 
+ f(x ) = ( x x ) k 0 + R ( x , x ) , ( 4.3.1 ) 
+ 0 n 0 
+ − k ! 
+ k=0 
+ ∑ 
+ 68 
+ 4 . Dérivabilité et formules de Taylor 
+ où , 
+ ( x c)n f(n+1)(c ) ( g(x ) g(x ) ) 
+ 0 
+ R ( x , x ) = − − ( 4.3.2 ) 
+ n 0 n ! 
+ La formule ( 4.3.1 ) est appelé formule de avec reste généralisé ( 4.3.2 ) . 
+ Le polynôme 
+ f”(x ) f(n)(x ) 
+ P ( x ) = f(x ) + ( x x ) f′(x ) + ( x x ) 2 0 + ..... + ( x x ) n 0 
+ n 0 0 0 0 0 
+ − − 2 ! − n ! 
+ est appelé partie régulière de f. 
+ Théorème 4.3.2 [ Formule de Taylor avec reste de Lagrange ] Soit f une fonction 
+ vériant le hypothèse du théorème ( 4.3.1 ) . 
+ pour tous x , x [ a , b ] on a la formule 
+ 0 
+ ∈ 
+ suivante 
+ n f(k)(x ) f(n+1)(c ) 
+ f(x ) = ( x x ) k 0 + ( x x ) n+1 . ( 4.3.3 ) 
+ 0 0 
+ − k ! − ( n+1 ) ! 
+ k=0 
+ ∑ 
+ Le terme 
+ f(n+1)(c ) 
+ ( x x ) n , 
+ 0 
+ − ( n+1 ) ! 
+ est appelé reste de Lagrange . 
+ Application 
+ 1 . Pourf(x ) = ex , f estdeclasseC∞(R ) , alorsonpeutappliquerlathéorème précédent . 
+ Alors , x R , c = tx , t ] 0,1 [ tel que 
+ ∀ ∈ ∃ ∈ 
+ n xk xn+1 
+ ex = + ec , 
+ k ! 
+ Soit f(x ) = cosx . 
+ De même on peut appliquer le théorème précédent pour tout 
+ x R et tout n N , car f C∞(R ) . 
+ Dérivabilité 
+ formules de Taylor 
+ On a par exemple : 
+ x2 x4 x6 x7 π 
+ cosx = 1 + + cos c+7 . 
+ − 2 ! 
+ Soit la fonction f(x ) = ( 1+x ) α , α R. 
+ ( 4.3.7 ) 
+ α(α 1)(α 2) .... (α n ) 
+ + − − − ( 1+c ) 
+ α−n−1 . 
+ ( n+1 ) ! 
+ De cette formule , on peut déduire d’autres formules importantes pour la suite , en choisis- 
+ sant des valeurs particulières de α . 
+ ( i ) Pour α = 1 , on a : 
+ − 
+ f(k)(0 ) = ( 1)k k ! , 
+ − 
+ alors 
+ 1 1 
+ = 1 x+x2 x3+ ..... + ( 1)nxn+ ( 1)n+1xn+1 . ( 4.3.8 ) 
+ 1+x − − − − ( 1+c)n 
+ 70 
+ 4 . 
+ Dérivabilité 
+ − 
+ k=0 
+ ∑ 
+ l’expression 
+ R ( x , x ) = ( x x ) n ϕ(x x ) , 
+ n 0 0 0 
+ − − 
+ est appelée reste de Young . 
+ Pour la démonstration de ce théorème , on a besoin du résultat suivant . 
+ 71 
+ 4 . 
+ Alors , pour tout x [ a , b ] , il existe une fonction 
+ α , α [ R , avec limϕ(h ) = 0 , 
+ telle que l’on ait : 
+ g(x ) = ( x x ) n ϕ(x x ) . 
+ ( 4.3.12 ) 
+ 0 0 
+ − − 
+ Notations de Landau . 
+ Dénition 4.3.5 Soient f et g deux fonctions dénies sur un voisinage de x . 
+ On dit 
+ 0 
+ que f est négligeable devant g au v(x ) s’il existe une fonction ϕ dénie sur un voisinage 
+ 0 
+ de zéro et vériant 
+ limϕ(h ) = 0 , 
+ h→0 
+ telle que 
+ f(x ) = g(x)ϕ(x x ) . 
+ − 
+ Dans ce cas , on note 
+ f = o(g ) sur v(x ) . 
+ 0 
+ Dénition 4.3.6 
+ Si g ne s’annule pas sur un voisinage de x sauf peut être en x , on a 
+ 0 0 
+ f(x ) 
+ f = o(g ) sur v(x ) lim = 0 . ( 4.3.14 ) 
+ 0 
+ ⇔ x→x0 g(x ) 
+ Exemple 4.3.7 1 ) 
+ x2 
+ x2 = o(x ) au v(0 ) , car lim = 0 . 
+ x→0 x 
+ 2 ) En général : 
+ ( x x ) n 
+ si k < n , ( x x ) n = o ( x x ) k au v(x ) , car lim − 0 = 0 . 
+ − 0 − 0 0 x→x0 ( x x 
+ 0 
+ ) k 
+ − 
+   
+ 3 ) 
+ si k < n , xk = o(xn ) au v(+ ) . 
+ ∞ 
+ 72 
+ 4 . Dérivabilité et formules de Taylor 
+ Utilisant les notations de Landau , la formule du théorème de Taylor - Young s’écrit : 
+ n f(k)(x ) 
+ f(x ) = ( x x ) k 0 + o((x x ) n ) . 
+ En eet , 
+ R ( x ) 
+ lim n = lim ϕ(x x ) = 0 . 
+ x→x0 ( x x 
+ 0 
+ ) n x→x0 − 0 
+ − 
+ En pratique , on utilise souvent cette notation . 
+ − ( 2n ) ! 
+ 4.4 Etude locale 
+ Remarque 4.4.1 Au v(x ) , le signe de l’expression 
+ 0 
+ g(x ) = a ( x x ) k + a ( x x ) k+1+ ..... +a ( x x ) n+o((x x ) n ) 
+ k 0 k+1 0 n 0 0 
+ − − − − 
+ est du signe du premier terme a ( x x ) k. 
+ k 0 
+ − 
+ En eet , on a : 
+ a a 
+ g(x ) = a ( x x ) k 1 + k+1 ( x x ) + .... + n ( x x ) n−k + o ( x x ) n−k . 
+ k 0 0 0 0 
+ − a − a − − 
+  k k  
+   
+ Comme 
+ a a 
+ lim 1 + k+1 ( x x ) + .... + n ( x x ) n−k + o ( x x ) n−k = 1 , 
+ 0 0 0 
+ x→x0 
+  
+ a 
+ k 
+ − a 
+ k 
+ − − 
+  
+   
+ alors , cette dernière expression est positive au v(x ) . 
+ 0 
+ Extremums . 
+ Rappel . Unefonctionf admetunextremumenx sif(x ) f(x ) gardeunsigneconstant 
+ 0 0 
+ − 
+ sur un voisinage de x du type I =] x α , x + α [ , α > 0 . 
+ 0 x0 0 
+ − 
+ 0 
+ 73 
+ 4 . 
+ Dérivabilité 
+ formules de Taylor 
+ Ecrivons la formule de Taylor avec reste de Young : 
+ − 
+ Comme(x x ) 2 nechangepasdesignesurI , alorsf(x ) f(x ) gardeunsigneconstant 
+ − 
+ 0 x0 
+ − 
+ 0 
+ sur I , donc f admet un extremum en x . 
+ Notons que dans ce cas , f′(x ) = 0 mais f n’a pas d’extremum en x . 
+ On déduit alors 
+ 0 0 
+ que , pour l’existence d’un extremum , la condition f′(x ) = 0 est nécessaire mais pas 
+ 0 
+ susante . 
+ En général , Soit k 1 le plus petit entier tel que f(k)(x ) = 0 . 
+ 0 
+ ≥  
+ f(k)(x ) f(n)(x ) 
+ f(x ) f(x ) = ( x x ) k 0 + .... + ( x x ) n 0 + o((x x ) n ) . 
+ 0 0 0 0 
+ − − k ! − n ! − 
+ Donc , 
+ ( i ) si , f n’a pas d’extremum en x , 
+ 0 
+ ( ii ) si , f admet un extremum en x . 
+ De plus , 
+ 0 
+ ( a ) si f(k)(x ) > 0 , f admet un minimum en x , 
+ 0 0 
+ ( b ) si f(k)(x ) < 0 , f admet un maximum en x . 
+ 0 0 
+ 74 
+ 4 . 
+ Dérivabilité 
+ formules de Taylor 
+ On a 
+ 0 2 
+ f(x ) = 1 , f′(x ) = 0 et f”(x ) = 1 , 
+ 0 0 0 
+ − 
+ alors 
+ 3π 1 3π 2 3π 
+ sinx sin = x + o ( x ) 2 . 
+ − 2 2 ! − 2 − 2 
+     
+ On voit bien que sinx sin 
+ 3π 
+ 0 sur I , alors la fonction sin admet un minimum en 
+ − 2 ≥ x0 
+ x = 
+ 3π 
+ . 
+ 0 2 
+ 2 ) f(x ) = sinx , x = π . 
+ On a 
+ 0 
+ f(x ) = 0 et f′(x ) = 1 . 
+ 0 0 
+ − 
+ donc , 
+ sinx sinπ = ( x π)+o((x π ) ) . 
+ − − − − 
+ Donc sinx sinπ change de signe sur I alors f n’a pas d’extremum en x = π . 
+ − 
+ x0 0 
+ Position de la courbe par rapport a sa tangente . 
+ Onsaitquel’équationdelatangente(∆ ) , àlacourbeC aupointM ( x , f(x ) estdonnée 
+ f 0 0 0 
+ par : 
+ ( ∆ ) : y = f(x ) + ( x x ) f′(x ) . 
+ 0 0 0 
+ − 
+ En fait c’est le polynôme de degré 1 de la formule de Taylor au point x . 
+ 0 
+ ≤ 
+ Etude du signe de f(x ) y. 
+ − 
+ On a , 
+ f”(x ) f(3)(x ) f(n)(x ) 
+ f(x ) y = ( x x ) 2 0 + ( x x ) 3 0 + ... + ( x x ) n 0 + o((x x ) n ) . 
+ 0 0 0 0 
+ − − 2 ! − 3 ! − n ! − 
+ 1 ) Si f”(x ) = 0 , alors f(x ) y ne change pas de signe sur I , et donc la courbe C est 
+ 0 
+  − 
+ x0 f 
+ du même coté par rapport à sa tangente au point M . 
+ 0 
+ ( i ) Si f”(x ) > 0 , alors f(x ) y 0 sur I , et donc la courbe C est au - dessus de sa 
+ 0 
+ − ≥ 
+ x0 f 
+ tangente au point M . 
+ 0 
+ ( ii ) Si f”(x ) < 0 , alors f(x ) y 0 sur I , et donc la courbe C est au - dessous de sa 
+ 0 
+ − ≤ 
+ x0 f 
+ tangente au point M . 
+ 0 
+ 2 ) Si f”(x ) = 0 
+ Dérivabilité 
+ formules de Taylor 
+ On voit bien que f(x ) y change de signe sur I , et donc la courbe C coupe sa tangente 
+ − 
+ x0 f 
+ au point M . 
+ 0 
+ Dans ce cas on dit la courbe C admet un point d’inexion au point M . 
+ f 0 
+ 3 ) Si f”(x ) = f(3)(x ) = 0 et f(4)(x ) = 0 , alors f(x ) y ne change pas de signe sur 
+ 0 0 0 
+  − 
+ I , et donc la courbe C est du même coté par rapport à sa tangente au point M . C’est 
+ x0 f 0 
+ identique au premier cas . 
+ Notons aussi que , dans ce cas , f”(x ) = 0 mais la courbe n’a pas de point d’inexion en 
+ 0 
+ M . 
+ Donc , pour l’existence du point d’inexion , la condition f”(x ) = 0 est seulement 
+ 0 0 
+ nécessaire mais pas susante . 
+ En général , Soit k 2 le plus petit entier tel que f(k)(x ) = 0 . Alors 
+ 0 
+ ≥  
+ f(k)(x ) f(n)(x ) 
+ f(x ) y = ( x x ) k 0 + .... + ( x x ) n 0 + o((x x ) n ) . 
+ 0 0 0 
+ − − k ! − n ! − 
+ Donc , 
+ ( i ) si k est impair , la courbe C admet un point d’inexion en M , 
+ f 0 
+ ( ii ) si k est pair , la courbe C n’admet pas de point d’inexion en M . 
+ De plus , 
+ f 0 
+ ( a ) si f(k)(x ) > 0 , la courbe C est au - dessus de sa tangente sur I , 
+ 0 f x0 
+ ( b ) si f(k)(x ) < 0 , la courbe C est au - dessous de sa tangente sur I . 
+ 0 f x0 
+ π 
+ Exemple 4.4.3 1 ) f(x ) = cosx , x = . On a : 
+ 0 4 
+ √2 π √2 π 2 √2 π 
+ cosx = x x + o ( x ) 2 . 
+ 2 − − 4 2 − − 4 4 − 4 
+       
+ L’équation de la tangente à la courbe C au point M est 
+ f 0 
+ √2 π √2 √2 π 
+ y = x = x+ ( 1 + ) , 
+ 2 − − 4 2 − 2 4 
+   
+ et 
+ π 2 √2 π 
+ cosx y = x + o ( x ) 2 . 
+ − − − 4 4 − 4 
+     
+ On voit bien que cosx y 0 sur I , alors la courbe C est au - dessous de sa tangente 
+ − ≤ 
+ x0 f 
+ sur I . 
+ x0 
+ π 
+ 2 ) f(x ) = cosx , x = . On a 
+ 0 2 
+ π 1 π 3 π 
+ cosx = x + x + o ( x ) 3 . 
+ − − 2 3 ! − 2 − 2 
+       
+ 76 
+ 4 . Dérivabilité et formules de Taylor 
+ L’équation de la tangente à la courbe C au point M est 
+ f 0 
+ π 
+ y = x , 
+ 2 − 
+ et 
+ 1 π 3 π 
+ cosx y = x + o ( x ) 3 , 
+ − 3 ! − 2 − 2 
+     
+ qui change de signe sur I , alors la courbe C admet un point d’inexion au point 
+ x0 f 
+ π 
+ M ( , 0 ) . 
+ 0 2 
+ Cherchons une condition nécessaire et susante d’existence de point d’inexion . 
+ Soit 
+ k 2 le plus petit entier tel que f(k)(x ) = 0 . 
+ On a vu que la courbe C admet un point 
+ 0 f 
+ ≥  
+ d’inexion si et seulement si k est impair . 
+ Ecrivons maintenant la formule de Taylor - Young à la dérivée seconde f ” . 
+ une application continue d’un intervalle ] a , b [ à valeurs dans R , dérivable en 
+ a , b [ . Montrer qu’il existe une ( unique ) application continue ε de ] a , b [ dans R 
+ ∈ 
+ telle que ε(c ) = 0 et , pour tout x ] a , b [ distinct de c , on ait : 
+ ∈ 
+ f(x ) = f(c)+(x c)f′(c)+(x c)ǫ(x ) 
+ − − 
+ 2 . 
+ Soit f :] 1,1 [ R une application continue , dérivable en 0 et telle que f(0 ) = 0 . 
+ − 
+ → 
+ Montrer que la suite ( σ ( f ) ) de terme général : 
+ n n≥1 
+ 1 1 1 
+ σ ( f ) = f + f + · · · + f 
+ n 
+ n n+1 2n 
+       
+ converge vers f′(0)S ( utiliser 1 . ) . 
+ Montrerqueσ ( f ) = log ( 2)lorsquef estl’applicationx log ( 1+x)etendéduire 
+ n 
+ → 
+ la valeur de S. 
+ 78 
+ 4 . Dérivabilité et formules de Taylor 
+ 6 . 
+ Calculer la limite de la suite ( σ ) de terme général : 
+ n n≥1 
+ 1 1 1 
+ σ = sin + sin + · · · + sin . 
+ n 
+ n n+1 2n 
+ Exercice 6 
+ Etudier l’existence de f′′(0 ) . 
+ 79 
+ 4 . Dérivabilité et formules de 
+ 3 . On veut montrer que pour t < 0 , la dérivée n - ième de f s’écrit 
+ P ( t ) 
+ f(n)(t ) = n e1 / t 
+ t2n 
+ où P est un polynôme . 
+ n 
+ ( a ) Trouver P et P . 
+ 1 2 
+ ( b ) Trouver une relation de récurrence entre P , P et P′ pour n N∗. 
+ n+1 n n ∈ 
+ 4 . Montrer que f est de classe C∞. 
+ 80

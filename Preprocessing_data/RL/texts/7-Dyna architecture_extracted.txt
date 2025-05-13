@@ -1,0 +1,135 @@
+Reinforcement learning 
+ Dr. 
+ The National School of Artificial Intelligence 
+ aissa.boulmerka@ensia.edu.dz 
+ 2024 - 2025 
+  In reinforcement learning , methods can be categorized based on whether they 
+ use a model of the environment or not . 
+  The methods that require a model , such as dynamic programming and heuristic 
+ search , these methods are called model - based RL methods . 
+  The methods that can be used without a model , such as Monte Carlo and 
+ temporal - difference methods are called model - free RL methods . 
+  Model - based methods rely on planning as their primary component , while 
+ model - free methods primarily rely on learning . 
+  It would be even better if we could obtain an intermediate method that can 
+ leverage the best of both extremes . 
+ In this chapter , we will develop a unified 
+ view of reinforcement learning methods that require planning and learning 
+ strategies using the Dyna architecture . 
+ By a model of the environment we mean anything that an agent can use to 
+ predict how the environment will respond to its actions . 
+  Given a state and an action , a model produces a prediction of the resultant 
+ next state and next reward . 
+  If the model is stochastic , then there are several possible next states and next 
+ rewards , each with some probability of occurring . 
+ Some models produce just one of the possibilities , Sample 
+ sampled according to the probabilities ; these we call 
+ sample models 
+ For example , a sample model for flipping a 
+ coin can generate a random sequence of heads and tails . 
+  Other models produce a description of all possibilities and 
+ their probabilities ; these we call distribution models . 
+  Models in reinforcement learning simulate experiences by 
+ Distribution 
+ predicting state transitions . 
+  Sample models can be computationally inexpensive 
+ because random outcomes can be produced according to a 
+ set of rules . 
+  But it can be useful that a distribution 
+ model produces the exact probability of 
+ an outcome . 
+ For example , we can 
+ compute the expected outcome directly 
+ or quantify the variability in outcomes . 
+ Sample models require less memory ( they are more 
+ compact than distribution models ) . 
+  Distribution models on the other hand can be used 
+ to compute the exact expected outcome by 
+ summing over all outcomes weighted by their 
+ probabilities . 
+  Sample models can only approximate this expected 
+ outcome by averaging many samples together . 
+  Knowing the exact probabilities also has the 
+ flexibility of assessing risk . 
+ For example , when a 
+ doctor is prescribing medicine , they would consider 
+ many possible side effects and how likely they are to 
+ occur . 
+ How one can leverage a model to better inform decision - making without 
+ having to interact with the world , we call this process planning with model 
+ experience . 
+  Learning methods require only experience as input , and in many cases they can 
+ be applied to simulated experience just as well as to real experience . 
+ Imagine that actions can only be taken at specific time points , but 
+ Learning Updates can be executed relatively fast . 
+  This results in some waiting time from after the Learning Update and 
+ when the next action is taken . 
+  We can fill in this waiting time with Planning Updates . 
+ Policy / value functions 
+  Q - planning on the other hand 
+ performs updates using model 
+ Q - Planning 
+ ( simulated ) experience from the update 
+ Q - Learning 
+ model . 
+ update 
+ experience 
+ environment 
+  
+ In Dyna - Q , the acting , model - learning , and direct RL processes require little 
+ computation , and we assume they consume just a fraction of the time . 
+  The remaining time in each step can be devoted to the planning process , which 
+ is inherently computation - intensive . 
+  Let us assume that there is time in each step , after acting , model - learning , and 
+ direct RL , to complete 𝑛 iterations ( Steps 1–3 ) of the Q - planning algorithm . 
+  In the pseudocode algorithm for Dyna - Q , 𝑀𝑜𝑑𝑒𝑙(𝑠 , 𝑎 ) denotes the contents of 
+ the ( predicted next state and reward ) for state – action pair ( 𝑠 , 𝑎 ) . 
+  Direct reinforcement learning , model - learning , and planning are implemented 
+ by steps ( d ) , ( e ) , and ( f ) , respectively . 
+ Consider the following simple maze . 
+ Reward is 𝟎 on all transitions , except those into the goal state , it is + 𝟏. 
+  
+ After reaching the goal state ( G ) , the agent returns to the start state ( S ) to 
+ begin a new episode . 
+ The general problem here is another version of the conflict between 
+ exploration and exploitation . 
+  In a planning context , exploration means trying actions that improve the model , 
+ whereas exploitation means behaving in the optimal way given the current 
+ model . 
+  We want the agent to explore to find changes in the environment , but not so 
+ much that performance is greatly degraded . 
+  As in the earlier exploration / exploitation conflict , there probably is no solution 
+ that is both perfect and practical , but simple heuristics are often effective . 
+ since each state- 
+ action pair was last tried 
+ Greater elapsed time 
+ suggests a higher chance the model of the pair is 
+ incorrect . 
+ A " bonus reward " is given for simulated 
+ experiences with long - untried actions . 
+ 𝑵𝒆𝒘 𝒓𝒆𝒘𝒂𝒓𝒅 = 𝒓 + 𝜿 𝝉 
+  where 𝒓 is the actual reward , 𝝉 is the time steps 
+ since transition was last tried , and 𝜿 is a small 
+ constant . 
+  This encourages the agent to test all accessible 
+ state transitions and discover new action 
+ sequences , despite the cost . 
+ In this case , Dyna - Q+ 's increased exploration helps it develop a better policy 
+ more quickly . 
+  After a shortcut is introduced on the right side of the wall , Dyna - Q+ quickly 
+ identifies and uses this shortcut following the environment changes . 
+  In contrast , Dyna - Q fails to find the shortcut within the given time and would 
+ take a very long time to discover it . 
+  The persistent and systematic exploration by Dyna - Q+ proves to be crucial in 
+ this environment . 
+ Average performance of Dyna 
+ agents on a blocking task . 
+  Dyna - Q+ is Dyna - Q with an 
+ exploration bonus that 
+ encourages exploration . 
+ Average performance of Dyna 
+ agents on a shortcut task . 
+  The definition of return : ( episodic or continuing , discounted or 
+ undiscounted ) 
+  Action values vs. state values vs. after state . 
+  Action selection / exploration .

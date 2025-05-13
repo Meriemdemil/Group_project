@@ -1,0 +1,232 @@
+Connectivity in graphs 
+ 
+ 1 
+ Motivation example 
+ A 
+ • Communication networks 
+ represented by graphs A , B , C. 
+ • Vertices are communication 
+ centres . 
+ B 
+ • Edges are communication 
+ channels . 
+ Which of these networks is C 
+ better and why ? 
+ 2 
+ Motivation example 
+ A 
+ • Transport networks 
+ represented by graphs A , B , C. 
+ • Vertices are cities . 
+ B 
+ • Edges are roads . 
+ Which of these networks is 
+ better and why ? 
+ C 
+ 3 
+ Why study connectivity in graphs ? 
+ • Connectivity serves as a basis for 
+ understanding the structure and 
+ behavior of various networks . 
+ • Connectivity relates to a graph 's 
+ ability to stay connected after 
+ removing vertices or edges . 
+ • Disconnected graphs can hinder 
+ information / resource transmission 
+ between subgraphs . 
+ Social network analysis 
+ • Relationship strength evaluation . 
+ • Cluster detection 
+ • Identifying communities . 
+ • Real - world applications 
+ • Crucial in diverse fields : biology , power 
+ grids , transport ... 
+ 6 
+ Connectivity 
+ • Walk 
+ • General graph traversal without restrictions . 
+ • Trail 
+ • Walk with distinct edges . 
+ Connectivity 
+ • Loop 
+ • Cycle of length 1 . 
+ • Multiple edges 
+ • Cycle of length 2 . 
+ • Triangle 
+ • Cycle of length 3 . 
+ • Connected Graph 
+ • It exists a path between each pair of vertices . 
+ • Disconnected Graph 
+ • 
+ Several disconnected subgraphs called components . 
+ Cycles and bipartite graphs 
+ THEOREM 1 
+ A graph G is bipartite if and only if every cycle of G has even 
+ length 
+ Proof : 
+ • The direction ➔ is easy , when we assume the graph is bipartite . 
+ • 
+ The direction  is tricky , proofing any bipartite graph should not contains 
+ cycles with odd length . 
+ , then every other vertex in the cycle alternates between set A 
+ and set B. 
+ • Since the cycle must end on a vertex in the opposite set , the length of 
+ the cycle must be even . 
+ Take a vertex 𝑣 
+ • 𝐴 : the set of vertices 𝑤 for which the shortest path from 𝒗 to 𝒘 has even length . 
+ • 𝐵 : the set of vertices 𝑤 for which the shortest path from 𝒗 to 𝒘 has odd length . 
+ • If vertices in set 𝐴 ( or set 𝐵 ) are adjacent ⇒ The shortest paths to vertex ν 
+ have odd length cycle . 
+ • Therefore , each edge of G connects a vertex in set A and a vertex in set B ⇒ 
+ 𝐺 is bipartite 
+ 14 
+ Number of edges bounds 
+ THEOREM 2 
+ Let G be a simple graph on n vertices . 
+ If G has k components , then the 
+ number m of edges of G satisfies : 
+ ( 𝑛 − 𝑘)(𝑛 − 𝑘 + 1 ) 
+ 𝑛 − 𝑘 ≤ 𝑚 ≤ 
+ 2 
+ 15 
+ Proof 
+ • The intuition of the proof : 
+ • What is the minimum number of edges to keep k components ? 
+ • Determine the minimum bound 𝑛 − 𝑘 
+ • What is the maximum number of edges with k components ? 
+ ( 𝑛−𝑘)(𝑛−𝑘+1 ) 
+ • Determine the maximum bound 
+ 2 
+ • Proof by induction in the number of edges . 
+ 16 
+ Number of edges bounds 
+ COROLLARY 3 
+ ( 𝒏−𝟏)(𝒏−𝟐 ) 
+ Any simple graph with 𝑛 vertices and more than edges is connected . 
+ 𝟐 
+ • By using this corollary , one can establish the connectivity of a graph by simply 
+ counting its edges . 
+ • 
+ The number of edges can be readily determined from the graph 's matrix 
+ representations 
+ 17 
+ Edge/ Vertex Deleted Subgraphs 
+ Let 𝐺(𝑉 , 𝐸 ) be a graph 
+ • 𝐹 ⊆ 𝐸 be a set of edges of 𝐺. 
+ • 
+ The graph 𝐺 − 𝐹 is subgraph of 𝐺 obtained by removing all edges in 𝑭 from 𝐺. 
+ • 𝐺 − 𝐹 = ( 𝑉 , 𝐸 − 𝐹 ) . 
+ • 𝑊 ⊆ 𝑉(𝐺 ) be a set of vertices of 𝐺. 
+ • 
+ The graph 𝐺 − 𝐹 is subgraph of 𝐺 obtained by removing all vertices in 𝑾 from 𝐺. 
+ • 
+ If a vertex is removed from a graph , its connected edges are also removed . 
+ 18 
+ Removing edges and vertices 
+ • An approach to study connected graphs is to assess the level of 
+ connectivity . 
+ • Study the vulnerability of certain networks , like transport networks . 
+ • Determine the minimum number of edges /vertices that need to be 
+ out of service for the network to become disconnected . 
+ • Disconnecting / separating sets help in study these questions . 
+ Removing edges : Disconnecting set 
+ • Disconnecting set 𝑭 in a connected graph 𝐺 is a set of edges whose 
+ deletion disconnects 𝐺. 𝐺 − 𝐹 is disconnected . 
+ 𝑒 , 𝑒 , 𝑒 is disconnecting set 
+ 1 2 5 
+ 20 
+ Removing edges : Disconnecting set 
+ • Disconnecting set in a connected graph 𝐺 is a set of edges whose 
+ deletion disconnects 𝐺. 
+ 𝑒 , 𝑒 , 𝑒 , 𝑒 is disconnecting set 
+ 3 6 7 8 
+ 21 
+ Disconnecting set in disconnected graph 
+ • 
+ Disconnecting sets and edge connectivity 
+ • 
+ If 𝐺 is connected , its edge connectivity 𝝀(𝑮 ) is the size of the smallest 
+ cutset in 𝐺. 
+ • 𝝀(𝑮 ) is the minimum number of edges that we need to delete in 
+ order to disconnect 𝐺. 
+ 𝑒 , 𝑒 is the smallest cutest 
+ 1 2 
+ 𝝀(𝑮 ) = 2 25 
+ Disconnecting sets and edge connectivity 
+ • If 𝐺 is connected , its edge connectivity 𝝀(𝑮 ) is the size of the smallest 
+ cutset in 𝐺. 
+ • 𝝀(𝑮 ) is the minimum number of edges that we need to delete in 
+ order to disconnect 𝐺. 
+ Example 
+ 31 
+ Removing vertices : 
+ Separating set 
+ • Separating set 𝑾 in a connected graph 𝐺 is a set of vertices whose 
+ deletion disconnects 𝐺. 𝐺 − 𝑊 is disconnected . 
+ • If a vertex is deleted , then its incident edges are also removed . 
+ 𝑤 , 𝑥 is n't a separating set 
+ 34 
+ Separating set 
+ • Separating set 𝑾 in a connected graph 𝐺 is a set of vertices whose 
+ deletion disconnects 𝐺. 𝐺 − 𝑊 is disconnected . 
+ • Cut - vertex is Separating set with only one vertex 
+ This definition can be extended to disconnected graphs like 
+ Disconnecting edges 
+ 36 
+ 40 
+ Edge connectivity VS vertex connectivity 
+ 𝜿 𝑮 ≤ 𝝀 𝑮 ≤ 𝜹 𝑮 
+ • The vertex connectivity is smaller than edge connectivity . 
+ • 𝜹 𝑮 : is the smallest vertex - degree in G. 
+ 41 
+ Connectivity in digraphs 
+ • Walk 
+ • Finite sequence of arcs without any restriction . 
+ • Trail 
+ • Walk with distinct arcs . 
+ Example 
+ • z → w → v → w → u → v → w is Walk . 
+ • z → w → v → w → u is Trail . 
+ • z → w → u → v is Path . 
+ • w → u → v → w is Closed path ( Cycle ) . 
+ 44 
+ Connectivity in digraphs 
+ • 
+ • Weak connectivity : 
+ • A digraph D is connected if it underlying graph of D is connected . 
+ • Strong connectivity : 
+ • A digraph D is strongly connected if there is a directed path from any vertex to 
+ any other vertex . 
+ Connectivity in digraphs 
+ • 
+ Every strongly connected digraph is connected , but not all connected 
+ digraphs are strongly connected . 
+ Example 
+ • This graph is weakly connected but 
+ not strongly connected . 
+ • We can not find a path from u to z. 
+ • 
+ If we add an arc from w to z , the 
+ graph becomes strongly connected . 
+ The necessity of a condition is 
+ clear . 
+ • If there is a directed path from 𝒖 
+ to 𝒗 and another path from 𝒗 to 
+ 𝒖 ⇒ There is a cycle in the 
+ underlying graph . 
+ Proof 
+ • The necessity of a condition is 
+ clear . 
+ • To prove sufficiency , choose any 
+ cycle 𝑪 and direct its edges 
+ cyclically . 
+ • If each edge of 𝑮 is in 𝑪 , the 
+ proof is complete . 
+ Proof 
+ • If not , choose any edge e adjacent 
+ to an edge of 𝑪 but not in 𝑪. 
+ • 
+ By hypothesis , 𝒆 is in some cycle 𝑪 
+ whose edges we may direct 
+ cyclically , except those already 
+ directed .

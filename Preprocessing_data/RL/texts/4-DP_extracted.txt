@@ -1,0 +1,538 @@
+UnivGustaveEiffel - Cosys / Grettia 
+ Reinforcement Learning and Optimal Control 
+ DynamicProgramming 
+ Nadir Farhi 
+ chargéderecherche , UGE - Cosys / Grettia 
+ • Mainidea : Usethevaluefunction : 
+ ortheaction - valuefunction : 
+ Dynamic programming 
+ • EnvironmentforDP : finiteMDP : 
+ • finitesetsS , A , Rforstates , actionsandrewards . 
+ • thedynamicsaregivenbyp(s′,r |s , a ) . 
+ NadirFarhi 
+ ReinforcementLearningandOptimalControl 
+ UniEiffel-30september2024 
+ ortheaction - valuefunction : 
+ Dynamic programming 
+ • EnvironmentforDP : finiteMDP : 
+ • finitesetsS , A , Rforstates , actionsandrewards . 
+ • thedynamicsaregivenbyp(s′,r |s , a ) . 
+ • Mainidea : Usethevaluefunction : 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-30september2024 5/25 
+ Dynamic programming 
+ • EnvironmentforDP : finiteMDP : 
+ • finitesetsS , A , Rforstates , actionsandrewards . 
+ • thedynamicsaregivenbyp(s′,r |s , a ) . 
+ • Mainidea : Usethevaluefunction : 
+ ortheaction - valuefunction : 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-30september2024 5/25 
+ • Bellmanequation(state - actionvaluefunction ): 
+ Dynamic programming 
+ • Bellmanequation(statevaluefunction ): 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-30september2024 6/25 
+ Dynamic programming 
+ • Bellmanequation(statevaluefunction ): 
+ • Bellmanequation(state - actionvaluefunction ): 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-30september2024 6/25 
+ Dynamic programming 
+ Fouralgorithms 
+ 1 . Policyevaluation(Prediction ) 
+ 2 . Policyimprovement 
+ 3 . Policyiteration&GPI 
+ 4 . Valueiteration 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-30september2024 7/25 
+ • Existenceanduniquenessofv : 
+ π 
+ • Eitherγ < 1 , 
+ • Orterminationisguaranteedfromallstatesunderthepolicyv . 
+ π 
+ • Knownenvironment(dynamics)⇒theBellmanequationisalinearsystem 
+ ( |S|equationsand|S|variablesv ( s),s∈S ) 
+ π 
+ 1 - Policy Evaluation ( Prediction ) 
+ • RecalltheBellmanequation : 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-30september2024 8/25 
+ • Knownenvironment(dynamics)⇒theBellmanequationisalinearsystem 
+ ( |S|equationsand|S|variablesv ( s),s∈S ) 
+ π 
+ 1 - Policy Evaluation ( Prediction ) 
+ • RecalltheBellmanequation : 
+ • Existenceanduniquenessofv : 
+ π 
+ • Eitherγ < 1 , 
+ • Orterminationisguaranteedfromallstatesunderthepolicyv . 
+ π 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-30september2024 8/25 
+ 1 - Policy Evaluation ( Prediction ) 
+ • RecalltheBellmanequation : 
+ • Existenceanduniquenessofv : 
+ π 
+ • Eitherγ < 1 , 
+ • Orterminationisguaranteedfromallstatesunderthepolicyv . 
+ π 
+ • Knownenvironment(dynamics)⇒theBellmanequationisalinearsystem 
+ ( |S|equationsand|S|variablesv ( s),s∈S ) 
+ π 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-30september2024 8/25 
+ 1 - Policy Evaluation ( Prediction ) 
+ • Iterativepolicyevaluation : 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-30september2024 9/25 
+ 1 - Policy Evaluation ( Prediction ) 
+ • Iterativepolicyevaluation : 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-30september2024 9/25 
+ • Foragivens , whatifweselectains , andthereafterfollowingpolicyπ ? 
+ • Thevalueofthiswayofbehavingistocompute 
+ andcompareittov ( s ) . 
+ π 
+ • Ifq ( s , a)≥v ( s),then , itwillbettertoselectaeverytimesisencountered . 
+ • Then , thenewpolicyisbetterthanπ . 
+ 2 - Policy Improvement 
+ • 
+ Foragivenπ 
+ supposewehavev 
+ π 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-30september2024 10/25 
+ • Thevalueofthiswayofbehavingistocompute 
+ andcompareittov ( s ) . 
+ π 
+ • Ifq ( s , a)≥v ( s),then , itwillbettertoselectaeverytimesisencountered . 
+ π π 
+ • Then , thenewpolicyisbetterthanπ . 
+ 2 - Policy Improvement 
+ • Foragivenπ , supposewehavev 
+ π 
+ • Foragivens , whatifweselectains , andthereafterfollowingpolicyπ ? 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-30september2024 10/25 
+ • Ifq ( s , a)≥v ( s),then , itwillbettertoselectaeverytimesisencountered . 
+ π π 
+ • Then , thenewpolicyisbetterthanπ . 
+ 2 - Policy Improvement 
+ • Foragivenπ , supposewehavev 
+ π 
+ • Foragivens , whatifweselectains , andthereafterfollowingpolicyπ ? 
+ • Thevalueofthiswayofbehavingistocompute 
+ andcompareittov ( s ) . 
+ π 
+ NadirFarhi 
+ ReinforcementLearningandOptimalControl 
+ UniEiffel-30september2024 
+ • Then , thenewpolicyisbetterthanπ . 
+ 2 - Policy Improvement 
+ • Foragivenπ , supposewehavev 
+ π 
+ • Foragivens , whatifweselectains , andthereafterfollowingpolicyπ ? 
+ • Thevalueofthiswayofbehavingistocompute 
+ andcompareittov ( s ) . 
+ π 
+ • Ifq ( s , a)≥v ( s),then , itwillbettertoselectaeverytimesisencountered . 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-30september2024 10/25 
+ 2 - Policy Improvement 
+ • Foragivenπ , supposewehavev 
+ π 
+ • Foragivens , whatifweselectains , andthereafterfollowingpolicyπ ? 
+ • Thevalueofthiswayofbehavingistocompute 
+ andcompareittov ( s ) . 
+ π 
+ • Ifq ( s , a)≥v ( s),then , itwillbettertoselectaeverytimesisencountered . 
+ • Then , thenewpolicyisbetterthanπ . 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-30september2024 10/25 
+ • Thenπ′mustbeasgoodas , orbetterthanπ : 
+ v π′(s)≥v 
+ π 
+ ( s),∀s∈S. 
+ • Ifq 
+ π 
+ ( s , π′(s))>v 
+ π 
+ ( s),thenv π′(s)>v 
+ π 
+ ( s),∀s∈S. 
+ • Thereforeπ′improvesπ . 
+ 2 - Policy Improvement 
+ • Letπandπ′apairofdeterministicpolicies , ands∈S , suchthat : 
+ q ( s , π′(s))≥v ( s ) . 
+ π π 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-30september2024 11/25 
+ • Ifq 
+ π 
+ ( s , π′(s))>v 
+ π 
+ ( s),thenv π′(s)>v 
+ π 
+ ( s),∀s∈S. 
+ • Thereforeπ′improvesπ . 
+ 2 - Policy Improvement 
+ • Letπandπ′apairofdeterministicpolicies , ands∈S , suchthat : 
+ q ( s , π′(s))≥v ( s ) . 
+ π π 
+ • Thenπ′mustbeasgoodas , orbetterthanπ : 
+ v π′(s)≥v 
+ π 
+ ( s),∀s∈S. 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-30september2024 11/25 
+ • Thereforeπ′improvesπ . 
+ 2 - Policy Improvement 
+ • Letπandπ′apairofdeterministicpolicies , ands∈S , suchthat : 
+ q ( s , π′(s))≥v ( s ) . 
+ π π 
+ • Thenπ′mustbeasgoodas , orbetterthanπ : 
+ v π′(s)≥v 
+ π 
+ ( s),∀s∈S. 
+ • Ifq 
+ π 
+ ( s , π′(s))>v 
+ π 
+ ( s),thenv π′(s)>v 
+ π 
+ ( s),∀s∈S. 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-30september2024 11/25 
+ 2 - Policy Improvement 
+ • Letπandπ′apairofdeterministicpolicies , ands∈S , suchthat : 
+ q ( s , π′(s))≥v ( s ) . 
+ π π 
+ • Thenπ′mustbeasgoodas , orbetterthanπ : 
+ v π′(s)≥v 
+ π 
+ ( s),∀s∈S. 
+ • Ifq 
+ π 
+ ( s , π′(s))>v 
+ π 
+ ( s),thenv π′(s)>v 
+ π 
+ ( s),∀s∈S. 
+ • Thereforeπ′improvesπ . 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-30september2024 11/25 
+ • Proof : 
+ 2 - Policy improvement 
+ • wehave : 
+ q 
+ π 
+ ( s , π′(s))≥v 
+ π 
+ ( s)⇒v π′(s)≥v 
+ π 
+ ( s),∀s∈S. 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-30september2024 12/25 
+ 2 - Policy improvement 
+ • wehave : 
+ q 
+ π 
+ ( s , π′(s))≥v 
+ π 
+ ( s)⇒v π′(s)≥v 
+ π 
+ ( s),∀s∈S. 
+ • Proof : 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-30september2024 12/25 
+ • Thatistoselectthenewgreedypolicyπ′satisfying : 
+ • Thenπ′isasgoodas , orbetterthanπ . 
+ • Supposenowthatπ′isasgoodas , butnotbetterthanπ , i.e.v π′ = v π . 
+ • wethenhave : 
+ whichistheBellmaneuation . Thereforeπandπ′areoptimal 
+ 2 - Policy improvement 
+ • Letusnowconsiderchangesatallstates , i.e.selectingateachstatetheaction 
+ thatappearsbestaccordingtoq ( s , a ) . 
+ π 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-30september2024 13/25 
+ • Thenπ′isasgoodas , orbetterthanπ . 
+ • Supposenowthatπ′isasgoodas , butnotbetterthanπ , i.e.v π′ = v π . 
+ • wethenhave : 
+ whichistheBellmaneuation . Thereforeπandπ′areoptimal . 
+ 2 - Policy improvement 
+ • Letusnowconsiderchangesatallstates , i.e.selectingateachstatetheaction 
+ thatappearsbestaccordingtoq ( s , a ) . 
+ π 
+ • Thatistoselectthenewgreedypolicyπ′satisfying : 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-30september2024 13/25 
+ • Supposenowthatπ′isasgoodas , butnotbetterthanπ , i.e.v π′ = v π . 
+ • wethenhave : 
+ whichistheBellmaneuation . Thereforeπandπ′areoptimal . 
+ 2 - Policy improvement 
+ • Letusnowconsiderchangesatallstates , i.e.selectingateachstatetheaction 
+ thatappearsbestaccordingtoq ( s , a ) . 
+ π 
+ • Thatistoselectthenewgreedypolicyπ′satisfying : 
+ • Thenπ′isasgoodas , orbetterthanπ . 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-30september2024 13/25 
+ • wethenhave : 
+ whichistheBellmaneuation . Thereforeπandπ′areoptimal 
+ 2 - Policy improvement 
+ • Letusnowconsiderchangesatallstates , i.e.selectingateachstatetheaction 
+ thatappearsbestaccordingtoq ( s , a ) . 
+ π 
+ • Thatistoselectthenewgreedypolicyπ′satisfying : 
+ • Thenπ′isasgoodas , orbetterthanπ . 
+ • Supposenowthatπ′isasgoodas , butnotbetterthanπ , i.e.v π′ = v π . 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-30september2024 13/25 
+ 2 - Policy improvement 
+ • Letusnowconsiderchangesatallstates , i.e.selectingateachstatetheaction 
+ thatappearsbestaccordingtoq ( s , a ) . 
+ π 
+ • Thatistoselectthenewgreedypolicyπ′satisfying : 
+ • Thenπ′isasgoodas , orbetterthanπ . 
+ • Supposenowthatπ′isasgoodas , butnotbetterthanπ , i.e.v π′ = v π . 
+ • wethenhave : 
+ whichistheBellmaneuation . Thereforeπandπ′areoptimal . 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-30september2024 13/25 
+ • Wehavealsoconvergencewithstochasticpolicies . 
+ 2 - Policy improvement 
+ • Applyingthepolicyimprovementtoagivenpolicyconvergestotheoptimal 
+ policy . 
+ Forarbitraryv 
+ • Thevalueiterationupdateisidenticaltothepolicyevaluationupdate , exceptthat 
+ itrequiresthemaximumtobetakenoverallactions . 
+ • Likepolicyevaluation , valueiterationformallyrequiresaninfinitenumberof 
+ iterationstoconvergeexactlytov . 
+ ∗ 
+ • Inpractice , westoponcethevaluefunctionchangesbyonlyasmallamountina 
+ sweep . 
+ 4 - Value iteration 
+ • ThevalueiterationisobtainedsimplybyturningtheBellmanoptimalityequation 
+ intoanupdaterule(fixedponit ) . 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-30september2024 20/25 
+ Likepolicyevaluation 
+ valueiterationformallyrequiresaninfinitenumberof 
+ iterationstoconvergeexactlytov . 
+ ∗ 
+ • Inpractice , westoponcethevaluefunctionchangesbyonlyasmallamountina 
+ sweep . 
+ 4 - Value iteration 
+ • ThevalueiterationisobtainedsimplybyturningtheBellmanoptimalityequation 
+ intoanupdaterule(fixedponit ) . 
+ • Thevalueiterationupdateisidenticaltothepolicyevaluationupdate , exceptthat 
+ itrequiresthemaximumtobetakenoverallactions . 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-30september2024 20/25 
+ • Inpractice , westoponcethevaluefunctionchangesbyonlyasmallamountina 
+ sweep . 
+ 4 - Value iteration 
+ • ThevalueiterationisobtainedsimplybyturningtheBellmanoptimalityequation 
+ intoanupdaterule(fixedponit ) . 
+ • Thevalueiterationupdateisidenticaltothepolicyevaluationupdate , exceptthat 
+ itrequiresthemaximumtobetakenoverallactions . 
+ • Likepolicyevaluation , valueiterationformallyrequiresaninfinitenumberof 
+ iterationstoconvergeexactlytov . 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-30september2024 20/25 
+ 4 - Value iteration 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-30september2024 21/25 
+ • Ifthestatesetisverylarge , thenevenasinglesweepcanbeexpensive . 
+ AsynchronousDP : 
+ • Thevaluesofsomestatesmaybeupdatedseveraltimesbeforethevaluesof 
+ othersareupdatedonce . 
+ • Toconvergecorrectly , anasynchronousalgorithmcan’tignoreanystate . 
+ • AsynchronousDPalgorithmsallowgreatflexibilityinselectingstatestoupdate . 
+ • Inthediscountedcase(γ < 1),thesequencecouldevenberandom , 
+ convergenceisguaranteed . 
+ Asynchronous Dynamic Programming 
+ SynchronousDP : 
+ • DrawbacktoDP : Itinvolveoperationsovertheentirestateset . 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-30september2024 22/25 
+ AsynchronousDP : 
+ • Thevaluesofsomestatesmaybeupdatedseveraltimesbeforethevaluesof 
+ othersareupdatedonce . 
+ • Toconvergecorrectly , anasynchronousalgorithmcan’tignoreanystate . 
+ • AsynchronousDPalgorithmsallowgreatflexibilityinselectingstatestoupdate . 
+ • Inthediscountedcase(γ < 1),thesequencecouldevenberandom , 
+ convergenceisguaranteed . 
+ Asynchronous Dynamic Programming 
+ SynchronousDP : 
+ • DrawbacktoDP : Itinvolveoperationsovertheentirestateset . 
+ • Ifthestatesetisverylarge , thenevenasinglesweepcanbeexpensive . 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-30september2024 22/25 
+ • Toconvergecorrectly , anasynchronousalgorithmcan’tignoreanystate . 
+ • AsynchronousDPalgorithmsallowgreatflexibilityinselectingstatestoupdate . 
+ • Inthediscountedcase(γ < 1),thesequencecouldevenberandom , 
+ convergenceisguaranteed . 
+ Asynchronous Dynamic Programming 
+ SynchronousDP : 
+ • DrawbacktoDP : Itinvolveoperationsovertheentirestateset . 
+ • Ifthestatesetisverylarge , thenevenasinglesweepcanbeexpensive . 
+ AsynchronousDP : 
+ • Thevaluesofsomestatesmaybeupdatedseveraltimesbeforethevaluesof 
+ othersareupdatedonce . 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-30september2024 22/25 
+ • AsynchronousDPalgorithmsallowgreatflexibilityinselectingstatestoupdate . 
+ • Inthediscountedcase(γ < 1),thesequencecouldevenberandom , 
+ convergenceisguaranteed . 
+ Asynchronous Dynamic Programming 
+ SynchronousDP : 
+ • DrawbacktoDP : Itinvolveoperationsovertheentirestateset . 
+ • Ifthestatesetisverylarge , thenevenasinglesweepcanbeexpensive . 
+ AsynchronousDP : 
+ • Thevaluesofsomestatesmaybeupdatedseveraltimesbeforethevaluesof 
+ othersareupdatedonce . 
+ • Toconvergecorrectly , anasynchronousalgorithmcan’tignoreanystate . 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-30september2024 22/25 
+ • Inthediscountedcase(γ < 1),thesequencecouldevenberandom , 
+ convergenceisguaranteed . 
+ Asynchronous Dynamic Programming 
+ SynchronousDP : 
+ • DrawbacktoDP : Itinvolveoperationsovertheentirestateset . 
+ • Ifthestatesetisverylarge , thenevenasinglesweepcanbeexpensive . 
+ AsynchronousDP : 
+ • Thevaluesofsomestatesmaybeupdatedseveraltimesbeforethevaluesof 
+ othersareupdatedonce . 
+ • 
+ Toconvergecorrectly , anasynchronousalgorithmcan’tignoreanystate . 
+ • AsynchronousDPalgorithmsallowgreatflexibilityinselectingstatestoupdate . 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-30september2024 22/25 
+ Asynchronous Dynamic Programming 
+ SynchronousDP : 
+ • DrawbacktoDP : Itinvolveoperationsovertheentirestateset . 
+ • Ifthestatesetisverylarge , thenevenasinglesweepcanbeexpensive . 
+ AsynchronousDP : 
+ • Thevaluesofsomestatesmaybeupdatedseveraltimesbeforethevaluesof 
+ othersareupdatedonce . 
+ • Toconvergecorrectly , anasynchronousalgorithmcan’tignoreanystate . 
+ • AsynchronousDPalgorithmsallowgreatflexibilityinselectingstatestoupdate . 
+ • Inthediscountedcase(γ < 1),thesequencecouldevenberandom , 
+ convergenceisguaranteed . 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-30september2024 22/25 
+ • MostofreinforcementlearningmethodsarewelldescribedasGPI . 
+ • Thevaluefunctionstabilizesonlywhenitisconsistentwiththecurrentpolicy . 
+ • Thepolicystabilizesonlywhenitisgreedyw.r.t.thecurrentvaluefunction . 
+ • Ifboththevaluefunctionandthepolicystabilze , thentheBellmanoptimality 
+ equationholds . 
+ • Thusthepolicyandvaluefunctionareoptimal . 
+ Generalized Policy Iteration ( GPI ) 
+ • GPIreferstothegeneralideaoflettingpolicy - evaluationandpolicy - improvement 
+ processesinteract . 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-30september2024 23/25 
+ • Thevaluefunctionstabilizesonlywhenitisconsistentwiththecurrentpolicy . 
+ • Thepolicystabilizesonlywhenitisgreedyw.r.t.thecurrentvaluefunction . 
+ • Ifboththevaluefunctionandthepolicystabilze , thentheBellmanoptimality 
+ equationholds . 
+ • Thusthepolicyandvaluefunctionareoptimal . 
+ Generalized Policy Iteration ( GPI ) 
+ • GPIreferstothegeneralideaoflettingpolicy - evaluationandpolicy - improvement 
+ processesinteract . 
+ • MostofreinforcementlearningmethodsarewelldescribedasGPI . 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-30september2024 23/25 
+ • Thepolicystabilizesonlywhenitisgreedyw.r.t.thecurrentvaluefunction . 
+ • Ifboththevaluefunctionandthepolicystabilze , thentheBellmanoptimality 
+ equationholds . 
+ • Thusthepolicyandvaluefunctionareoptimal . 
+ Generalized Policy Iteration ( GPI ) 
+ • GPIreferstothegeneralideaoflettingpolicy - evaluationandpolicy - improvement 
+ processesinteract . 
+ • MostofreinforcementlearningmethodsarewelldescribedasGPI . 
+ • Thevaluefunctionstabilizesonlywhenitisconsistentwiththecurrentpolicy . 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-30september2024 23/25 
+ • Ifboththevaluefunctionandthepolicystabilze , thentheBellmanoptimality 
+ equationholds . 
+ • Thusthepolicyandvaluefunctionareoptimal . 
+ Generalized Policy Iteration ( GPI ) 
+ • GPIreferstothegeneralideaoflettingpolicy - evaluationandpolicy - improvement 
+ processesinteract . 
+ • MostofreinforcementlearningmethodsarewelldescribedasGPI . 
+ • Thevaluefunctionstabilizesonlywhenitisconsistentwiththecurrentpolicy . 
+ • Thepolicystabilizesonlywhenitisgreedyw.r.t.thecurrentvaluefunction . 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-30september2024 23/25 
+ • Thusthepolicyandvaluefunctionareoptimal . 
+ Generalized Policy Iteration ( GPI ) 
+ • GPIreferstothegeneralideaoflettingpolicy - evaluationandpolicy - improvement 
+ processesinteract . 
+ • MostofreinforcementlearningmethodsarewelldescribedasGPI . 
+ • Thevaluefunctionstabilizesonlywhenitisconsistentwiththecurrentpolicy . 
+ • Thepolicystabilizesonlywhenitisgreedyw.r.t.thecurrentvaluefunction . 
+ • Ifboththevaluefunctionandthepolicystabilze , thentheBellmanoptimality 
+ equationholds . 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-30september2024 23/25 
+ Generalized Policy Iteration ( GPI ) 
+ • GPIreferstothegeneralideaoflettingpolicy - evaluationandpolicy - improvement 
+ processesinteract . 
+ • MostofreinforcementlearningmethodsarewelldescribedasGPI . 
+ • Thevaluefunctionstabilizesonlywhenitisconsistentwiththecurrentpolicy . 
+ • Thepolicystabilizesonlywhenitisgreedyw.r.t.thecurrentvaluefunction . 
+ • Ifboththevaluefunctionandthepolicystabilze , thentheBellmanoptimality 
+ equationholds . 
+ • Thusthepolicyandvaluefunctionareoptimal . 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-30september2024 23/25 
+ • Bothpolicyiterationandvalueiterationarewidelyused , anditisnotclearwhich , 
+ ifeither , isbetteringeneral . 
+ • Inpractice , thesemethodsusuallyconvergemuchfasterthantheirtheoretical 
+ worst - caseruntimes 
+ ( particularlyiftheyarestartedwithgoodinitialvaluefunctionsorpolicies ) . 
+ • Withlargestatespaces , asynchronousDPmethodsareoftenpreferred . 
+ • AsynchronousmethodsandothervariationsofGPIcanbeappliedinsuch 
+ cases . 
+ • Theymayfindgoodoroptimalpoliciesmuchfasterthansynchronousmethods 
+ can . 
+ Efficiency of Dynamic Programming 
+ • Inpractice , DPcanbeusedwithtoday’scomputerstosolveMDPswithmillions 
+ ofstates . 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-30september2024 24/25 
+ • Inpractice , thesemethodsusuallyconvergemuchfasterthantheirtheoretical 
+ worst - caseruntimes 
+ ( particularlyiftheyarestartedwithgoodinitialvaluefunctionsorpolicies ) . 
+ • Withlargestatespaces , asynchronousDPmethodsareoftenpreferred . 
+ • AsynchronousmethodsandothervariationsofGPIcanbeappliedinsuch 
+ cases . 
+ • Theymayfindgoodoroptimalpoliciesmuchfasterthansynchronousmethods 
+ can . 
+ Efficiency of Dynamic Programming 
+ • Inpractice , DPcanbeusedwithtoday’scomputerstosolveMDPswithmillions 
+ ofstates . 
+ • Bothpolicyiterationandvalueiterationarewidelyused , anditisnotclearwhich , 
+ ifeither , isbetteringeneral . 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-30september2024 24/25 
+ • Withlargestatespaces , asynchronousDPmethodsareoftenpreferred . 
+ • AsynchronousmethodsandothervariationsofGPIcanbeappliedinsuch 
+ cases . 
+ • Theymayfindgoodoroptimalpoliciesmuchfasterthansynchronousmethods 
+ can . 
+ Efficiency of Dynamic Programming 
+ • Inpractice , DPcanbeusedwithtoday’scomputerstosolveMDPswithmillions 
+ ofstates . 
+ • Bothpolicyiterationandvalueiterationarewidelyused , anditisnotclearwhich , 
+ ifeither , isbetteringeneral . 
+ • Inpractice , thesemethodsusuallyconvergemuchfasterthantheirtheoretical 
+ worst - caseruntimes 
+ ( particularlyiftheyarestartedwithgoodinitialvaluefunctionsorpolicies ) . 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-30september2024 24/25 
+ • AsynchronousmethodsandothervariationsofGPIcanbeappliedinsuch 
+ cases . 
+ • Theymayfindgoodoroptimalpoliciesmuchfasterthansynchronousmethods 
+ can . 
+ Efficiency of Dynamic Programming 
+ • Inpractice , DPcanbeusedwithtoday’scomputerstosolveMDPswithmillions 
+ ofstates . 
+ • Bothpolicyiterationandvalueiterationarewidelyused , anditisnotclearwhich , 
+ ifeither , isbetteringeneral . 
+ • Inpractice , thesemethodsusuallyconvergemuchfasterthantheirtheoretical 
+ worst - caseruntimes 
+ ( particularlyiftheyarestartedwithgoodinitialvaluefunctionsorpolicies ) . 
+ • Withlargestatespaces , asynchronousDPmethodsareoftenpreferred . 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-30september2024 24/25 
+ • Theymayfindgoodoroptimalpoliciesmuchfasterthansynchronousmethods 
+ can . 
+ Efficiency of Dynamic Programming 
+ • Inpractice , DPcanbeusedwithtoday’scomputerstosolveMDPswithmillions 
+ ofstates . 
+ • Bothpolicyiterationandvalueiterationarewidelyused , anditisnotclearwhich , 
+ ifeither , isbetteringeneral . 
+ • Inpractice , thesemethodsusuallyconvergemuchfasterthantheirtheoretical 
+ worst - caseruntimes 
+ ( particularlyiftheyarestartedwithgoodinitialvaluefunctionsorpolicies ) . 
+ • Withlargestatespaces , asynchronousDPmethodsareoftenpreferred . 
+ • AsynchronousmethodsandothervariationsofGPIcanbeappliedinsuch 
+ cases . 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-30september2024 24/25 
+ Efficiency of Dynamic Programming 
+ • Inpractice , DPcanbeusedwithtoday’scomputerstosolveMDPswithmillions 
+ ofstates . 
+ • Bothpolicyiterationandvalueiterationarewidelyused , anditisnotclearwhich , 
+ ifeither , isbetteringeneral . 
+ • Inpractice , thesemethodsusuallyconvergemuchfasterthantheirtheoretical 
+ worst - caseruntimes 
+ ( particularlyiftheyarestartedwithgoodinitialvaluefunctionsorpolicies ) . 
+ • Withlargestatespaces , asynchronousDPmethodsareoftenpreferred . 
+ • AsynchronousmethodsandothervariationsofGPIcanbeappliedinsuch 
+ cases . 
+ • Theymayfindgoodoroptimalpoliciesmuchfasterthansynchronousmethods 
+ can . 
+ NadirFarhi ReinforcementLearningandOptimalControl UniEiffel-30september2024 24/25 
+ Thank you ! 
+ nadir.farhi@univ-eiffel.fr 
+ ReinforcementLearningandOptimalControl UniEiffel-30september2024 25/25

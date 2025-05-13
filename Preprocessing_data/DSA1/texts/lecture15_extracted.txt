@@ -1,0 +1,294 @@
+Can store a character ( char ) 
+ Data Hierarchy 
+ – Field : group of characters with some meaning 
+ • Your name 
+ – Record : group of related fields 
+ • struct or class in C++ 
+ • 
+ In library catalog system , a record could be : 
+ • title , author , publication date , and availability 
+ • Each field associated with same book 
+ • Record key : field used to uniquely identify record 
+ – File : group of related records 
+ • Books ’ records for entire library 
+ • 
+ Sequential file : records stored by key 
+ – Database : group of related files 
+ • Payroll , accounts - receivable , inventory … 
+ Files and Streams 
+ • 
+ C++ views file as sequence of bytes 
+ – Ends with end - of - file marker ( EOF ) 
+ ... 
+ 0 1 2 3 4 5 6 7 8 9 n-1 
+ ... end - of - file marker 
+ • 
+ file opened 
+ – Object created , stream associated with it 
+ – cin , cout , etc . created when < iostream > included 
+ • Communication between program and file / device 
+ Files and Streams 
+ To perform file processing in C++ , you 'll need to include the 
+ necessary header files : 
+ include < iostream > # 
+ include < fstream > 
+ C++ provides class templates for file input , output , and input / output 
+ operations : 
+  basic_ifstream : For input operations ( file stream specialized for reading ) . 
+  basic_ofstream : For output operations ( file stream specialized for writing ) . 
+  basic_fstream : For input / output operations ( file stream supporting both 
+ reading and writing ) . 
+ Files and Streams 
+ Opening Files 
+  Create Objects from Templates : 
+ Use class templates : ifstream for input , ofstream for output , and fstream for both . 
+  Derive from Stream Classes : 
+ Utilize classes derived from stream templates to interact with files . 
+  Stream Methods : 
+ Leverage stream methods , such as put ( ) , get ( ) , peek ( ) , etc . 
+ By following these steps , you can efficiently open files , create corresponding 
+ objects , and employ various stream methods for effective file processing . 
+ Creating a Sequential - Access File 
+ C++ imposes no structure on file 
+ – Concept of " record " must be implemented by programmer 
+ To open file , create objects 
+ – Creates " line of communication " from object to file 
+ – Constructors take file name and file - open mode 
+ ofstream outClientFile ( " filename " , fileOpenMode ) ; 
+ – To attach a file later 
+ Ofstream outClientFile ; 
+ outClientFile.open("filename " , fileOpenMode ) ; 
+ Creating a Sequential - Access File 
+  File - open modes 
+ – ofstream opened for output by default 
+ • ofstream outClientFile ( " clients.dat " , ios::out ) ; 
+ • ofstream outClientFile ( " clients.dat " ) ; 
+ Creating a Sequential - Access File 
+  Operations 
+ – Overloaded operator ! 
+ • ! outClientFile 
+ • Returns nonzero ( true ) if badbit or failbit set 
+ – Opened non - existent file for reading , wrong permissions 
+ – Overloaded operator void * 
+ • Converts stream object to pointer 
+ • 0 when when failbit or badbit set , otherwise nonzero 
+ – failbit set when EOF found 
+ • while ( cin > > myVariable ) 
+ – Loops until EOF 
+ Creating a Sequential - Access File 
+  Operations 
+ – Writing to file ( just like cout ) 
+ • outClientFile < < myVariable 
+ – Closing file 
+ • outClientFile.close ( ) 
+ • Automatically closed when destructor called ( will see the 
+ concept of destruction in OOP module ) 
+ Creating a Sequential - Access File 
+ 1 
+ 2 // Create a sequential file . 
+ 3 
+ include < iostream > 
+ 4 
+ 5 using std::cout ; 
+ 6 using std::cin ; 
+ 7 using std::ios ; 
+ 8 using std::cerr ; 
+ 9 using std::endl ; 
+ 10 Notice the the header files required 
+ 11 # include < fstream > 
+ for file I / O. 
+ 12 
+ 13 using std::ofstream ; ofstream object created and 
+ 14 
+ used to open file 
+ 15 # include < cstdlib > // exit prototype 
+ " clients.dat " . 
+ If the file 
+ 16 
+ 17 int main ( ) does not exist , it is created . 
+ 18 { 
+ 19 // ofstream constructor opens file 
+ 20 ofstream outClientFile ( " clients.dat " , ios::out ) ; 
+ 21 ! 
+ operator used to test if the file 
+ 22 // exit program if unable to create file opened properly . 
+ 23 if ( ! outClientFile ) { // overloaded ! 
+ operator 
+ 24 cerr < < " File could not be opened " < < endl ; 
+ 25 exit ( 1 ) ; 
+ 26 
+ 27 } // end if 
+ Creating a Sequential - Access File 
+ 28 
+ 29 cout < < " Enter the account , name , and balance . " 
+ 30 < < " Enter end - of - file to end input.\n ? " ; 
+ 31 
+ cin is implicitly converted to a 
+ 32 int account ; 
+ pointer . 
+ When EOF is encountered , it 
+ 33 char name [ 30 ] ; 
+ 34 double balance ; returns 0 and the loop stops . 
+ // read account , name and balance from cin , then place in file 
+ 37 while ( cin > > account > > name > > balance ) { 
+ 38 outClientFile < < account < < ' ' < < name < < ' ' < < balance 
+ 39 < < endl ; 
+ 40 cout < < " ? " ; 
+ 41 
+ Write data to file like a regular 
+ 42 } // end while 
+ 43 stream . 
+ 44 return 0 ; // ofstream destructor closes file 
+ 45 
+ 46 } // end main 
+ File closed when destructor called 
+ for object . 
+ Can be explicitly closed 
+ with close ( ) . 
+ Creating a Sequential - Access File 
+ Enter the account , name , and balance . 
+ Enter end - of - file to end input . 
+ ? 
+ Reading Data from Sequential- 
+ Access File 
+ Reading files 
+ • 
+ – ifstream inClientFile ( " filename " , ios::in ) ; 
+ – Overloaded ! 
+ • ! inClientFile tests if file was opened 
+ properly 
+ – operator void * converts to pointer 
+ • while ( inClientFile > > myVariable ) 
+ Stops when EOF found ( gets value 0 ) 
+ • 
+ Reading Data from Sequential- 
+ Access File 
+ 2 // Reading and printing a sequential file . 
+ 3 
+ include < iostream > 
+ 4 
+ 5 using std::cout ; 
+ 6 using std::cin ; 
+ 7 using std::ios ; 
+ 8 using std::cerr ; 
+ 9 using std::endl ; 
+ 10 using std::left ; 
+ 11 using std::right ; 
+ 12 using std::fixed ; 
+ 13 using std::showpoint ; 
+ 14 
+ 15 # include < fstream > 
+ 16 
+ 17 using std::ifstream ; 
+ 18 
+ 19 
+ 20 
+ 21 using std::setw ; 
+ 22 using std::setprecision ; 
+ 23 
+ 24 # include < cstdlib > // exit prototype 
+ 25 
+ 26 void outputLine ( int , const char * const , double ) ; 
+ Reading Data from Sequential- 
+ Access File 
+ 28 int main ( ) 
+ 29 { 
+ 30 // ifstream constructor opens the file Open and test file for input . 
+ 31 ifstream inClientFile ( " clients.dat " , ios::in ) ; 
+ 32 
+ 33 // exit program if ifstream could not open file 
+ 34 if ( ! inClientFile ) { 
+ 35 cerr < < " File could not be opened " < < endl ; 
+ 36 exit ( 1 ) ; 
+ 37 
+ 38 } // end if 
+ 39 
+ 40 int account ; 
+ 41 char name [ 30 ] ; 
+ 42 double balance ; 
+ 43 
+ 44 cout < < left < < setw ( 10 ) < < " Account " < < setw ( 13 ) 
+ 45 < < " Name " < < " Balance " < < endl < < fixed < < showpoint ; 
+ 46 
+ 47 // display each record in file Read from file until EOF found . 
+ 48 while ( inClientFile > > account > > name > > balance ) 
+ 49 outputLine ( account , name , balance ) ; 
+ 50 
+ 51 return 0 ; // ifstream destructor closes the file 
+ 52 
+ 53 } // end main 
+ Reading Data from Sequential- 
+ Access File 
+ 54 
+ 55 
+ include < iostream > 
+ 4 
+ 5 using std::cout ; 
+ 6 using std::cin ; 
+ 7 using std::ios ; 
+ 8 using std::cerr ; 
+ 9 using std::endl ; 
+ 10 using std::fixed ; 
+ 11 using std::showpoint ; 
+ 12 using std::left ; 
+ 13 using std::right ; 
+ 14 
+ include < fstream > 
+ 16 
+ 17 using std::ifstream ; 
+ 18 
+ 19 # include < iomanip > 
+ 20 
+ 21 using std::setw ; 
+ 22 using std::setprecision ; 
+ 40 exit ( 1 ) ; 
+ 41 
+ 42 } // end if 
+ 43 
+ 44 int request ; 
+ 45 int account ; 
+ 46 char name [ 30 ] ; 
+ 47 double balance ; 
+ inClientFile 
+ > account > > name > > balance ; Use clear to reset eof . 
+ Use 
+ 83 seekg to set file position 
+ 84 } // end inner while 
+ pointer to beginning of file . 
+ 85 
+ 86 inClientFile.clear ( ) ; // reset eof for next input 
+ 87 inClientFile.seekg ( 0 ) ; // move to beginning of file 
+ 88 request = getRequest ( ) ; // get additional request from user 
+ // end outer while 
+ 91 
+ 92 cout < < " End of run . " 
+ 93 
+ 94 return 0 ; // ifstream destructor closes the file 
+ 95 
+ 96 } // end main 
+ Reading Data from Sequential- 
+ Access File 
+ 71 // read account , name and balance from file 
+ 72 inClientFile > > account > > name > > balance ; 
+ 73 
+ 74 // display file contents ( until eof ) 
+ 75 while ( ! inClientFile.eof ( ) ) { 
+ 76 
+ 77 // display record 
+ 78 if ( shouldDisplay ( request , balance ) ) 
+ 79 outputLine ( account , name , balance ) ; 
+ 80 
+ 81 // read account , name and balance from file 
+ 82 inClientFile > > account > > name > > balance ; Use clear to reset eof . 
+ Use 
+ 83 seekg to set file position 
+ 84 } // end inner while 
+ pointer to beginning of file . 
+ 85 
+ 86 inClientFile.clear ( ) ; // reset eof for next input 
+ 87 inClientFile.seekg ( 0 ) ; // move to beginning of file 
+ 88 request = getRequest ( ) ; // get additional request from user 
+ 90 } // end outer while 
+ 91 
+ 92 cout < < " End of run . " 
+ End of run .

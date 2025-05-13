@@ -1,0 +1,117 @@
+Course 
+ « Computer Vision » 
+ Sid - Ahmed Berrani 
+ 2024 - 2025 
+ 1 
+ VIII . 
+ Random sample consensus : a paradigm for model fitting with applications to image analysis and automated 
+ cartography . 
+ • Given a dataset whose data elements contain both inliers and outliers , RANSAC 
+ uses a consensus scheme to find the optimal fitting result . 
+ RANSAC : The Random Sample Consensus Algorithm 
+ RANSAC 
+ • 
+ It is a trial - and - error approach . 
+ • Able to deal with high fractions of outliers in the data ( up to 50 % ) . 
+ RANSAC : The Random Sample Consensus Algorithm 
+ RANSAC 
+ • Key idea : Find the best partition of inliers / outliers in the data and estimate the 
+ model from the inlier subset . 
+ • 
+ It the standard / recommended approach for fitting in the presence of outliers . 
+ RANSAC : The Random Sample Consensus Algorithm 
+ Assumptions 
+ Select a random subset of the original data . 
+ Call this subset the hypothetical inliers . 
+ Test all other data against the model and mark points either as inliers or outliers according 
+ to some loss function . 
+ Select a random subset of the original data . 
+ Call this subset the hypothetical inliers . 
+ Test all other data against the model and mark points either as inliers or outliers 
+ according to some loss function . 
+ Select a random subset of the original data . 
+ Call this subset the hypothetical inliers . 
+ Test all other data against the model and mark points either as inliers or outliers 
+ according to some loss function . 
+ Select a random subset of the original data . 
+ Call this subset the hypothetical inliers . 
+ Test all other data against the model and mark points either as inliers or outliers 
+ according to some loss function . 
+ Select a random subset of the original data . 
+ Call this subset the hypothetical inliers . 
+ Test all other data against the model and mark points either as inliers or outliers 
+ according to some loss function . 
+ Select a random subset of the original data . 
+ Call this subset the hypothetical inliers . 
+ Test all other data against the model and mark points either as inliers or outliers 
+ according to some loss function . 
+ In other words , 
+ how often do we need to try ? 
+ Select a random subset of the original data . 
+ Call this subset the hypothetical inliers . 
+ The model that produced the largest consensus set is selected 
+ The Random Sample Consensus Algorithm 
+ Select a random subset of the original data . 
+ Call this subset the hypothetical inliers . 
+ Test all other data against the model and mark points either as inliers or outliers 
+ according to some loss function . 
+ Fit the model to the set of inliers associated with the selected model . 
+ RANSAC : The Random Sample Consensus Algorithm 
+ How many iterations ? 
+ s : minimum number of points needed to fit a model 
+ e : Outlier ratio , i.e. probability that a point is an outlier ( # outliers / total # of data points ) . 
+ N : number of RANSAC interations ( i.e. number of trials ) 
+ The Random Sample Consensus Algorithm 
+ How many iterations ? 
+ s : minimum number of points needed to fit a model 
+ e : Outlier ratio , i.e. probability that a point is an outlier ( # outliers / total # of data points ) . 
+ = > 
+ N : number of RANSAC interations ( i.e. number of trials ) 
+ 1 − 1 − 𝑒 𝑠 𝑁 = 1 − 𝑝 
+ 𝑁 log 1 − 1 − 𝑒 𝑠 = 𝑙𝑜𝑔 1 − 𝑝 
+ 𝒍𝒐𝒈 𝟏−𝒑 
+ 𝑵 = 
+ 𝒍𝒐𝒈 𝟏− 𝟏−𝒆 𝒔 
+ 16 
+ VIII . RANSAC : The Random Sample Consensus Algorithm 
+ How many iterations ? 
+ 𝒍𝒐𝒈 𝟏 − 𝒑 
+ 𝑵 = 
+ 𝒍𝒐𝒈 𝟏 − 𝟏 − 𝒆 𝒔 
+ s : minimum number of points needed to fit a model 
+ e : Outlier ratio . 
+ p : probability of success 
+ = > N : number of RANSAC interations ( i.e. number of trials ) 
+ e 0,1 
+ s 
+ p 2 3 4 5 10 15 20 
+ 0,1 1 1 1 1 1 1 1 
+ 0,5 1 1 1 1 2 4 6 
+ 0,75 1 2 2 2 4 7 11 
+ 0,9 2 2 3 3 6 10 18 
+ 0,95 2 3 3 4 7 13 24 
+ 0,99 3 4 5 6 11 20 36 
+ 0,999 5 6 7 8 17 30 54 
+ 0,9999 6 8 9 11 22 40 72 
+ 17 
+ VIII . 
+ RANSAC : The Random Sample Consensus Algorithm 
+ How many iterations ? 
+ 𝒍𝒐𝒈 𝟏 − 𝒑 
+ 𝑵 = 
+ 𝒍𝒐𝒈 𝟏 − 𝟏 − 𝒆 𝒔 
+ s : minimum number of points needed to fit a model 
+ The Random Sample Consensus Algorithm 
+ How many iterations ? 
+ 𝒍𝒐𝒈 𝟏 − 𝒑 
+ 𝑵 = 
+ RANSAC : The Random Sample Consensus Algorithm 
+ Applications 
+ • Robust Line and Plane Fitting 
+ Fit lines in 2D , planes in 3D , even when many points are outliers . 
+ • Model Fitting in Object Recognition 
+ Fit shapes ( lines , circles , ellipses , 3D models ) to detected features . 
+ Recognize partially occluded or noisy objects . 
+ • Pose Estimation ( PnP problem ) 
+ Estimate a camera 's position and orientation from known 3D-2D point correspondences . 
+ Used in robotics , AR , self - driving cars .

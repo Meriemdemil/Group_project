@@ -1,0 +1,190 @@
+Planar graphs 
+ 
+ Utilities problem 
+ Applications of Planar Graphs 
+ • Urban Planning 
+ • Planar graphs model utility line layouts , ensuring non - crossing connections between houses . 
+ • Computer - Aided Design 
+ • They are used in electronic system design , such as integrated circuits , for optimal layout and 
+ minimized total area . 
+ • Network Design 
+ • Network topologies are represented as planar graphs to aim for non - interfering connections . 
+ • Subway Route Planning 
+ • Planar graphs aid in efficient route determination for subway lines , reducing intersections to 
+ prevent congestion and bottlenecks . 
+ Applications of Planar Graphs 
+ • 
+ Graph Drawing 
+ • Planar graphs are crucial in graph drawing for software engineering , databases , data visualization , and more . 
+ • Wireless Communication 
+ • In wireless ad hoc networks , planar graphs represent possible communication paths , minimizing interference 
+ and ensuring efficient communication . 
+ • Scheduling 
+ • Certain scheduling problems can be modelled as planar graphs , helping to organize overlapping tasks . 
+ • Maze Solving Algorithms 
+ • Planar graphs are useful for maze generation and solving algorithms , representing corridors and junctions in 
+ the maze . 
+ Any situation involving connected " points " without overlap can 
+ potentially use planar graphs . 
+ What is planar graph ? 
+ • Definition : 
+ A planar graph can be drawn in a plane without edge crossings , with edges 
+ only intersecting at vertices they 're incident to . 
+ • Plane Drawing ( embedding ) 
+ • Any drawing of a planar graph without crossings . 
+ • Plane Graph 
+ • An abbreviation used for a plane drawing of a planar graph . 
+ Not all drawings of a planar graph are plane graphs . 
+ Only those without 
+ edge crossings qualify as plane graphs . 
+ Example 
+ Is 𝐾 graph planar ? 
+ 4 
+ What 's the largest complete planar graph ! ? 
+ Is 𝐾 a planar graph ? 
+ 5 
+ What 's the largest bipartite complete planar graph ! ? 
+ 𝑲 𝑲 𝑲 
+ 𝟏,𝒏 𝟐,𝑵 𝟑,𝟑 
+ Is 𝑲 planar graph ? 
+ 𝟑,𝟑 
+ Is 𝑲 planar graph ? 
+ 𝟑,𝟑 
+ THEORME 1 
+ The graphs 𝑲 and the graph 𝑲 are non - planar 
+ 𝟓 𝟑,𝟑 
+ Proof 
+ • Later in the lecture . 
+ Questions ? ? ? 
+ • Can a graph be planar even if it contains a non - planar subgraph ? 
+ • Is a subgraph of a planar graph also planar ? 
+ • Can we identify basic non - planar subgraphs within every non - planar graph ? 
+ • How can we tell if a graph is planar ? 
+ Subdivision of a graph 
+ • 
+ • A graph H is contractible to a 
+ graph G , if we can obtain H by 
+ successively contracting the 
+ edges of G. 
+ THEOREM 3 
+ A graph is planar if and only if it contains no subgraph contractible to 
+ 𝐾 or 𝐾 . 
+ 5 3,3 
+ • Proof ( not covered ) 
+ • Intuition 
+ The theorem often confirms a graph 's non - planarity by identifying a subgraph 
+ contractible to 𝑲 or 𝑲 . 
+ 𝟓 𝟑,𝟑 
+ Example 
+ Cycle Method for Planarity Testing 
+ • 
+ The Cycle Method is a heuristic algorithm used to test whether a given graph is planar . 
+ • It is applicable to small graphs with a Hamiltonian cycle , providing a quick and intuitive 
+ planarity test . 
+ • 
+ B : Edges that can be drawn outside C without crossing . 
+ If it is possible to allocate all remaining edges to A and B without crossings , G is planar . 
+ If it is not possible to allocate the remaining edges without crossings , G is non - planar . 
+ • Incompatibility of edges 
+ • Incompatible edges can not both be drawn inside C or both be drawn outside C without crossings . 
+ • Compatible edges can be drawn inside or outside C without crossings . 
+ Example 
+ Example 
+ • ac bd df 
+ • ad bg eh 
+ • ae bi fh 
+ • ah gi 
+ • A = { ac } 
+ • We put incompatible with A in B 
+ • B = { bd , bg , bi } 
+ Example 
+ • ac bd df 
+ • ad bg eh 
+ • ae bi fh 
+ • ah gi 
+ • B = { bd , bg , bi } 
+ • We add incompatible edges with B in A 
+ • A = { ac , ad , ae , eh , fh , ah } 
+ Example 
+ • ac bd df 
+ • ad bg eh 
+ • ae bi fh 
+ • ah gi 
+ • A = { ac , ad , ae , eh , fh , ah } 
+ • We add incompatible edges with A in B 
+ • B = { bd , bg , bi , df , gi } 
+ Example 
+ • ac bd df 
+ • ad bg eh 
+ • ae bi fh 
+ • ah gi 
+ • A = { ac , ad , ae , eh , fh , ah } 
+ • We add incompatible edges with A in B 
+ • B = { bd , bg , bi , df , gi } 
+ Example 
+ Faces in planar graph 
+ • 
+ Any plane drawing of planar graph 𝐺 
+ divides the set of points of the plane into 
+ regions , called faces . 
+ • Example : 
+ • Faces of the 𝐾 : 𝑓 , 𝑓 , 𝑓 , 𝑓 . 
+ 4 1 2 3 4 
+ • 𝑓 is infinite face . 
+ • In any plane drawing of a planar graph , the sum of all the face 
+ degrees is equal to twice the number of edges . 
+ Hence , the theorem holds true . 
+ • Inductive Step 
+ • Assume the theorem holds for all plane graphs with at most 𝑚 − 1 edges . 
+ • Consider 𝐺 , a plane graph with 𝑚 edges . 
+ The graph 𝑮 − 𝒆 is connected , with 𝒏 vertices , 𝒎 − 𝟏 edges , and 𝑭 − 𝟏 faces . 
+ By the induction hypothesis , we can write : 𝒏 − ( 𝒎 − 𝟏 ) + ( 𝑭 − 𝟏 ) = 𝟐. 
+ • 
+ Hence , simplifying , we obtain : 𝒏 − 𝒎 + 𝑭 = 𝟐 , which completes the proof . 
+ COROLLARY 2 
+ Let G be a simple connected planar graph . 
+ • Proof 
+ 𝑑 ≥ 6 ➔ σ 𝑑 ≥ 6𝑛 
+ 𝑖 𝑖 
+ ➔ 2𝑚 ≥ 6𝑛 
+ ➔ 𝑚 ≥ 3𝑛 
+ ➔ 𝑚 > 3𝑛 − 6 
+ ➔ Contradiction with 𝒎 ≤ 𝟑𝒏 − 𝟔 
+ Dual graph 
+ • Dual graphs capture the 
+ relationships between the faces of 
+ planar graph . 
+ • Associate each vertex with a face of 
+ the original graph . 
+ • Connect the vertices if the 
+ corresponding faces share an edge . 
+ • 
+ The geometrical dual graph of planar 
+ graph 
+ • According to the definition , vertices in G * are adjacent if the related faces in G share an edge . 
+ • 
+ Edge of G Edge of G * 
+ Vertex of degree k in G Face of degree k in G * 
+ Face of degree k in G a vertex of degree k in G * 
+ Cycle of length k in G Cutset of G * with k edges 
+ Cutset of G with k edges Cycle of length k in G * 
+ Theorems and corollaries of dual graph 
+ • 
+ The theorems and corollaries of planar graphs remain valid in the dual 
+ graph : 
+ Why dual graph is important ? 
+ THEORME 
+ A graph is planar if and only if it has an abstract dual . 
+ • Finding an abstract dual graph indicates planarity . 
+ • A test on the previous slide checks abstract duality without 
+ constructing the geometric dual . 
+ Conclusion 
+ • Planarity in graphs is a fundamental concept in computer science , 
+ mathematics , and network design . 
+ • Planar graphs can be visually represented without any edges crossing each 
+ other . 
+ • 's theorem provides a useful criterion for identifying non - planar 
+ graphs by detecting the presence of specific subgraphs . 
+ • Abstract dual graphs can be used to test for planarity without constructing 
+ the geometrical dual . 
+ References

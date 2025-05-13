@@ -1,0 +1,805 @@
+Chapitre 7 
+ Intégrale de Riemann 
+ Introduction 
+ Soit[a , b]unintervalleferméetbornédeRetf unefonctionbornéesur[a , b ] . 
+ Onsuppose 
+ pour l’instant que f est positive . 
+ Le but de ce chapitre est de voir pour quels types de 
+ fonctions f 
+ , peut - on calculer l’aire de la surface délimitée par les droites x = a , x = b , 
+ f 
+ S 
+ y = 0 et la courbe représentative de la fonction f sur l’intervalle [ a , b ] . 
+ Dans l’affirmative , 
+ comment calculer cette aire ou comment l’approcher . 
+ 7.1 les subdivisions de [ a , b ] . 
+ Définition 7.1.1 On appelle subdivision de l’intervalle [ a , b ] tout sous ensemble fini de 
+ points de [ a , b ] de la forme 
+ σ = a = x < x < x < ...... x = b . 
+ 0 1 2 n 
+ { } 
+ • L’intervalle [ x , x ] est appelé intervalle partiel de [ a , b ] relativement à la sub- 
+ k 1 k+1 
+ − 
+ division σ . 
+ • Le nombre 
+ δ(σ ) = Max x x 
+ 1 k n k k 1 
+ ≤ ≤ − − 
+ est appelé le pas de la subdivision σ . 
+ Intégrale de Riemann 
+ on dit que la subdivision σ est régulière . 
+ On dit que σ est plus fine que 
+ ′ 
+ σ si 
+ ′ 
+ σ σ . 
+ ′ 
+ ⊂ 
+ En particulier , soit : 
+ b a b a 
+ δ 2n = 
+ 2 
+ − 
+ n 
+ et δ 2n+1 = 
+ 2n 
+ − 
+ +1 
+ les pas des subdivisions σ et σ respectivement . On a bien σ est plus fine que σ 
+ n n+1 n+1 n 
+ Notation 
+ 1 ) L’ensemble des subdivisions de [ a , b ] est noté S([a , b ] ) . 
+ 2 ) On note par σ la subdivision contenant n+1 points de [ a , b ] et telle que 
+ n 
+ lim δ(σ ) = 0 . 
+ n 
+ n + 
+ → ∞ 
+ 3 ) Soit f une fonction bornée sur [ a , b ] . 
+ On pose 
+ m = inf f(x ) et M = sup f(x ) , 
+ k k 
+ x 
+ ∈ 
+ [ xk 
+ − 
+ 1,xk ] x 
+ ∈ 
+ [ xk 
+ − 
+ 1,xk ] 
+ et 
+ f = sup f(x ) . 
+ k k | | 
+ x [ a , b ] 
+ ∈ 
+ Les nombres m et M existent bien car la fonction f est bornée . 
+ k k 
+ k k 
+ est appelé norme de f sur [ a , b ] . 
+ 7.2 
+ Les sommes de Darboux 
+ Définition 7.2.1 Soit σ une subdivision de [ a , b ] . 
+ Les expressions suivantes : 
+ n n 
+ d(f , σ ) = m ( x x ) et D(f , σ ) = M ( x x ) ( 7.2.1 ) 
+ k k k 1 k k k 1 
+ − − − − 
+ k=1 k=1 
+ X 
+ sontappelées , respectivement , sommedeDarbouxinférieureetsommedeDarbouxsupérieure 
+ de f relativement à la subdivision σ . 
+ Intégrale de Riemann 
+ Exemple 7.2.2 Soit la fonction f(x ) = sinx et [ a , b ] = [ 0 , π ] . 
+ En effet , en notant σ la subdivision contenant seulement les points a et b on a , d’après 
+ 0 
+ 115 
+ 7 . 
+ la proposition ( 7.2.4 ) , 
+ σ S([a , b ] ) , d(f , σ ) D(f , σ ) et D(f , σ ) d(f , σ ) . 
+ 0 0 
+ ∀ ∈ ≤ ≥ 
+ Posons alors 
+ b b 
+ f = inf D(f , σ ) et f = sup d(f , σ ) . 
+ ∗ 
+ Za σ ∈ S([a , b ] ) ∗ Za σ ∈ S([a , b ] ) 
+ Les valeurs 
+ b b 
+ f et f 
+ ∗ 
+ ∗ 
+ Za Za 
+ sont appelées respectivement intégrale inférieure et intégrales supérieure de f sur [ a , b ] . 
+ Remarque 7.2.7 Pourtoutefonctionbornéef , l’intégraleinférieureetl’intégralesupérieure 
+ de f existent . 
+ Les fonctions Riemann - intégrables 
+ Définition 7.3.1 Soit f une fonction bornée sur [ a , b ] . 
+ Si 
+ b b 
+ f = f , 
+ ∗ 
+ ∗ 
+ Za Za 
+ on dit que f est intégrable au sens de Riemann ( ou Riemann intégrable . ) 
+ La valeur 
+ commune de ces deux nombres est appelée intégrale , au sens de Riemann , de f sur [ a , b ] 
+ et est notée 
+ b b 
+ f ou f(x)dx . 
+ Za Za 
+ Lorsque f est Riemann - intégrable sur [ a , b ] , on note 
+ f ( [ a , b ] ) . 
+ ∈ R 
+ 116 
+ 7 . Intégrale de Riemann 
+ Proposition 7.3.2 [ Caractrisationdesfonctionsintgrables]Unefonctionf estRiemann- 
+ intégrable sur [ a , b ] si , et seulement si , 
+ ε > 0 , σ S([a , b ] ) ; 0 D(f , σ ) d(f , σ ) < ε . 
+ ( 7.3.1 ) 
+ ∀ ∃ ∈ ≤ − 
+ 7.3.1 Deux types de fonctions Riemann - intégrables 
+ Remarque 7.3.3 
+ Si f est constante sur [ a , b ] alors elle est intégrable . 
+ En effet si f(x ) = c , x [ a , b ] , alors , pour toute subdivision σ , on a 
+ ∀ ∈ 
+ D(f , σ ) = c(b a ) et d(f , σ ) = c(b a ) , 
+ − − 
+ alors 
+ b b 
+ f = f = c(b a ) . 
+ ∗ 
+ ∗ − 
+ Za Za 
+ Lesdeuxthéorèmessuivantsnouspermettentdereconnaitrequelquesfonctionsintégrables 
+ au sens de Riemann . 
+ Théorème 7.3.4 
+ Toute fonction monotone sur [ a , b ] est intégrable sur [ a , b ] . 
+ Théorème 7.3.5 
+ Toute fonction continue sur [ a , b ] est intégrable sur [ a , b ] . 
+ 7.3.2 Propriétés de l’intégrale de Riemann . 
+ L’intégrale de Riemann vérifie les propriétés suivantes . 
+ Si f est intégrable sur [ a , b ] alors elle est intégrable sur tout intervalle 
+ [ α , β ] [ a , b ] . 
+ ⊂ 
+ 2 . Si f est intégrable sur [ a , b ] alors , pour tout c [ a , b ] , la fonction f est intégrable 
+ ∈ 
+ sur [ a , c ] et sur [ c , b ] . 
+ De plus , on a 
+ b c b 
+ f(x)dx = f(x)dx+ f(x)dx . 
+ Za Za Zc 
+ 117 
+ 7 . 
+ Si f est intégrable sur [ a , c ] et sur [ c , b ] alors elle est intégrable sur 
+ ∈ 
+ [ a , b ] et on a 
+ b c b 
+ f(x)dx = f(x)dx+ f(x)dx . 
+ Za Za Zc 
+ 4 . 
+ Soient a , b et c trois nombres réels quelconques . 
+ Si f est intégrable chacun des 
+ intervalees [ a , b ] , [ a , c ] et [ c , b ] alors on a la relation 
+ b c b 
+ f(x)dx = f(x)dx+ f(x)dx . 
+ Za Za Zc 
+ 5 . 
+ Soit f une fonction bornée sur [ a , b ] . 
+ Si f est intégrable sur tout intervalle 
+ [ α , β ] [ a , b ] alors elle est intégrable sur [ a , b ] . 
+ ⊂ 
+ Remarque 7.3.7 
+ 1 ) La différence entre le troisième et le quatrième point de cette proposition est que dans 
+ le quatrième , le point c peut être en dehors de l’intervalle [ a , b ] . 
+ De plus , cette relation 
+ est appelée relation de Chales 
+ 2 ) Le cinquième point de cette proposition veut dire que la notion d’intégrabilité est une 
+ notion globale et non locale comme , par exemple la continuité qui est une notion locale . 
+ En effet , on sait qu’il y’a des fonction continue sur ] a , b [ mais non continue en a. 
+ De plus , les deux derniers points de cette proposition nous donne un ensemble assez large 
+ de fonctions intégrables au sens de Riemann , que nous verrons par la suite . 
+ Corollaire 7.3.8 
+ 1 . 
+ Soit E un nombre fini de points de l’intervalle 
+ Si une fonction bornée f est 
+ intégrable sur tout sous ensemble [ a , b ] E de [ a , b ] , alors elle est intégrable sur 
+ \ 
+ [ a , b ] . 
+ 2 . En particulier , si f est bornée et continue sur [ a , b ] sauf en un nombre fini de points 
+ de [ a , b ] alors elle est intégrable sur [ a , b ] . 
+ 7.3.3 Quelques fonctions intégrables 
+ De la proposition et du corollaire précédents , on déduit que 
+ 1 . Toute fonction bornée et monotone par morceaux sur [ a , b ] est intégrable sur [ a , b ] . 
+ 2 . Toute fonction bornée et continue par morceaux sur [ a , b ] est intégrable sur [ a , b ] . 
+ 118 
+ 7 . Intégrale de Riemann 
+ En particulier 
+ 1 . 
+ Les polynômes sont intégrables sur tout intervalle fermé et borné [ a , b ] . 
+ 2 . Les fonctions x sinx et x cosx sont intégrables sur tout intervalle fermé et 
+ 7→ 7→ 
+ borné [ a , b ] . 
+ 3 . La fonction x tgx est intégrable sur tout intervalle fermé inclus dans intervalle : 
+ 7→ 
+ π π 
+ [ α , β ] + kπ , + kπ . 
+ ⊂ −2 2 
+ i h 
+ 7.3.4 Opérations sur les fonctions intégrables 
+ Théorème 7.3.9 Soit f et g deux fonctions Riemann - intégrables sur [ a , b ] . 
+ Pour tout λ R , la fonction λf est intégrable sur [ a , b ] et 
+ ∈ 
+ b b 
+ λf(x)dx = λ f(x)dx . 
+ Za Za 
+ la fonction f + g est intégrable sur [ a , b ] et 
+ b b b 
+ ( f(x)+g(x))dx = f(x)dx+ g(x)dx . 
+ Za Za Za 
+ Proposition 7.3.10 Soit f et g deux fonctions intégrablessur [ a , b ] . Alors 
+ 1 . 
+ b 
+ f 0 sur [ a , b ] f(x)dx 0 . 
+ ≥ ⇒ ≥ 
+ Za 
+ 2 . 
+ b b 
+ f g sur [ a , b ] f(x)dx g(x)dx . 
+ ≤ ⇒ ≤ 
+ Za Za 
+ Théorème 7.3.11 Soit f et g deux fonctions Riemann - intégrables sur [ a , b ] . 
+ la fonction f est intégrable sur [ a , b ] et 
+ b b 
+ f(x)dx f(x ) dx . 
+ Intégrale de Riemann 
+ la fonction fg est intégrable sur [ a , b ] et 
+ ( 7.3.3 ) 
+ ≤ 
+ ( cid:12)Za ( cid:12 ) ( cid:18)Za ( cid:19 ) ( cid:18)Za ( cid:19 ) 
+ ( cid:12 ) ( cid:12 ) 
+ ( cid:12 ) ( cid:12 ) 
+ ( cid:12 ) ( cid:12 ) 
+ Remarque 7.3.12 Danslepoint2,onn’apaségalitémaisuneinégalité , appeléeinégalité 
+ de Cauchy - Schwarz . 
+ Pour la démonstration de ce théorème on a besoin du lemme suivant 
+ Lemme 7.3.13 
+ Si f est continue en x [ a , b ] , alors la fonction F est dérivable en x . 
+ Si f est continue sur [ a , b ] et G est une primitive quelconque de f alors , 
+ b 
+ f(x)dx = G(b ) G(a ) . 
+ − 
+ Za 
+ Remarque 7.4.2 
+ Voyons si f 
+ n’est pas positive . 
+ ( i ) Si f est négative sur [ a , b ] , alors la fonction f est positive . 
+ Donc 
+ − 
+ b b 
+ A(S ) = f(x)dx = f(x)dx . 
+ f 
+ − − − 
+ Za Za 
+ Mais , les deux surfaces et , alors 
+ f f 
+ S− S 
+ A ( ) = A ( ) . 
+ f f 
+ S− S 
+ On déduit alors que , si f est négative sur [ a , b ] , on a 
+ b 
+ A ( ) = f(x)dx . 
+ f 
+ S − 
+ Za 
+ ( ii ) D’après ce qui précède , on déduit alors que , si f change de signe sur [ a , b ] , on a 
+ b 
+ A ( ) = f(x ) dx . 
+ f 
+ S | | 
+ Za 
+ 7.4.1 Une formule de dérivation 
+ Proposition 7.4.3 Soit f une fonction continue sur [ a , b ] et u et v deux fonctions dériv- 
+ ables sur [ α , β ] à valeurs dans [ a , b ] . La fonction Ψ définie par 
+ v(x ) 
+ Ψ(x ) = f(t)dt 
+ Zu(x ) 
+ est dérivable sur [ a , b ] . 
+ De plus , on a la formule de dérivation suivante 
+ ψ ( x ) = fov(x)v ( x ) fou(x)u(x ) . 
+ Les formules de la moyenne . 
+ Théorème 7.5.1 [ Première formule de la moyenne ] Soient f et g deux fonctions 
+ intégrables sur [ a , b ] . 
+ On suppose que la fonction g garde un signe constant sur [ a , b ] . 
+ Alors , il existe un nombre 
+ µ inf f(x ) , sup f(x ) 
+ ∈ " x [ a , b ] x [ a , b ] # 
+ ∈ ∈ 
+ 121 
+ 7 . 
+ tel que 
+ b b 
+ f(x)g(x)dx = µ g(x)dx . 
+ Za Za 
+ De plus , si f est continue sur [ a , b ] , il existe ξ [ a , b ] tel que µ = f(ξ ) et la formule 
+ ∈ 
+ ( 7.5.1 ) devient 
+ b b 
+ f(x)g(x)dx = f(ξ ) g(x)dx . 
+ Za Za 
+ Théorème 7.5.2 
+ [ Deuxième formule de la moyenne ] 
+ Soient f et g deux fonctions 
+ intégrables sur [ a , b ] . 
+ On suppose que la fonction g est décroissante et positive sur [ a , b ] . 
+ Alors , il existe ξ [ a , b ] tel que : 
+ ∈ 
+ b ξ 
+ f(x)g(x)dx = g(a ) f(x)dx . 
+ ( 7.5.3 ) 
+ Za Za 
+ Ce théorème admet les corollaires suivants 
+ Corollaire 7.5.3 Soient f et g deux fonctions intégrables sur [ a , b ] . 
+ On suppose que la 
+ fonction g est croissante et positive sur [ a , b ] . 
+ Alors , il existe ξ [ a , b ] tel que : 
+ ∈ 
+ b b 
+ f(x)g(x)dx = g(b ) f(x)dx . 
+ ( 7.5.4 ) 
+ Za Zξ 
+ Corollaire 7.5.4 Soient f et g deux fonctions intégrables sur [ a , b ] . 
+ On suppose que la 
+ fonction g est monotone sur [ a , b ] . 
+ Alors , il existe ξ [ a , b ] 
+ ∈ 
+ b ξ b 
+ f(x)g(x)dx = g(a ) f(x)dx+g(b ) f(x)dx . 
+ Za Za Zξ 
+ 122 
+ Chapitre 8 
+ Calcul de primitives 
+ Définition 8.0.5 Soit f une fonction continue sur un intervalle I de R. 
+ On dit que F 
+ est une primitive de f si 
+ F = f sur I. 
+ ′ 
+ Remarque 8.0.6 Si G est une autre primitive de f alors , il existe une constante C telle 
+ que 
+ G(x ) = F(x)+C , x I. 
+ ∀ ∈ 
+ Donc , la même fonction f admet un ensemble de primitives . 
+ On a les deux formules 
+ suivantes : 
+ 1 . [ f(x)+g(x ) ] dx = f(x)dx+ g(x)dx , 
+ R R R 
+ 2 . 
+ λ f(x)dx λ R. 
+ ∀ ∈ 
+ R R 
+ Preuve : En posant 
+ F(x ) = f(x)dx et G(x ) = g(x)dx , 
+ Z Z 
+ le résultat s’obtient de la formule de dérivation 
+ ( F + G)(x ) = F ( x)+G(x ) . 
+ ′ ′ ′ 
+ En effet en intégrant les deux membres de cette égalité et du fait que 
+ ϕ(x)dx = ϕ(x ) , 
+ ′ 
+ Z 
+ on aura 
+ [ f(x)+g(x ) ] dx = f(x)dx+ f(x)dx . 
+ Z Z Z 
+ On fait de même pour la deuxième . 
+ 8.3 Changement de variables . 
+ Théorème 8.3.1 Soit f une fonction continue sur I et 
+ h : J I 
+ −→ 
+ t x = h(t ) 
+ 7−→ 
+ une application de classe C1 sur J , où , I et J sont deux intervalles de R. 
+ Si F est une 
+ primitive de f alors F oh est une primitive de ( f oh)h et on écrit : 
+ ′ 
+ [ f oh(t)]h(t)dt = F(h(t))+C. ( 8.3.1 ) 
+ ′ 
+ Z 
+ 124 
+ 8.Calcul de primitives 
+ Preuve : Il suffit d’utiliser la formule de dérivation d’une fonction composée . 
+ En effet , 
+ [ F(h(t))]′ = F 
+ ′ 
+ ( h(t)h 
+ ′ 
+ ( t ) 
+ = f(h(t)h(t ) 
+ ′ 
+ Dans la pratique , on pose u = h(t ) du = h(t)dt et la formule devient 
+ ′ 
+ ⇒ 
+ f(h(t))h(t)dt = f(u)du = F(u)+C. 
+ ′ 
+ Z Z 
+ Exemple 8.3.2 On veut calculer l’intégrale indéfinie suivante . 
+ I = ( 4 t 3)sin(2t2 3t+1)dt . 
+ − − 
+ Z 
+ On pose 
+ u = 2t2 3t+1 = h(t ) du = h(t)dt = ( 4 t 3 ) dt , 
+ ′ 
+ − ⇒ − 
+ on aura alors 
+ I = sinudu = cosu+C = cos(2t2 3t+1)+C. 
+ − − − 
+ Z 
+ 8.4 Intégration par parties . 
+ Proposition 8.4.1 Soit f et g deux fonctions de classe C1 sur I. 
+ On a la formule , 
+ appelée formule d’intégration par parties suivante : 
+ x I ; f ( x)g(x)dx = f(x)g(x ) f(x)g ( x)dx . ( 8.4.1 ) 
+ ′ ′ 
+ ∀ ∈ − 
+ Z Z 
+ Preuve : On sait que 
+ ( f g)(x ) = f ( x)g(x)+f(x)g ( x ) , ( 8.4.2 ) 
+ ′ ′ ′ 
+ et 
+ ( f g)(x)dx = f(x)g(x ) , 
+ ′ 
+ Z 
+ on obtient alors le résultat en intégrant les deux membres de l’égalité ( 8.4.2 ) . 
+ Exemple 8.4.2 
+ 1 . 
+ 8.Calcul de primitives 
+ On pose 
+ u(x ) = x et v ( x ) = cosx , 
+ ′ 
+ on obtient alors 
+ xcosxdx = xsinx sinxdx 
+ − 
+ Z Z 
+ = xsinx+cosx+C 
+ 2 . 
+ Calcul de Arctgxdx . 
+ On pose 
+ R 
+ u(x ) = 1 et v(x ) = Arctgx , 
+ ′ 
+ on aura 
+ x 
+ Arctgxdx = xArctgx dx 
+ − 1+x2 
+ Z Z 
+ 1 
+ = xArctgx+ ln(1+x2)+C 
+ 2 
+ 8.5 Primitive d’une fraction rationnelle . 
+ Sachant que , dans R[X ] , toute fraction rationnelle se décompose , de 
+ façon unique , en somme d’éléments simples de premier et de deuxième espèces . 
+ Alors , 
+ d’après la proposition ( 8.2.1 ) , pour trouver une primitive d’une fraction rationnelle , il 
+ suffit de savoir intégrer les éléments simples . 
+ 8.6 Primitive d’un élément simple du premier espèce . 
+ Définition 8.6.1 
+ Un élément simple du premier espèce est une fraction de la forme 
+ 1 
+ E ( x ) = , avec ( a , b ) R R et k N . 
+ En effet , on a les formules 
+ suivantes 
+ 2dt 1 t2 2 t 
+ dx = , cosx = − , et sinx = . ( 8.8.3 ) 
+ 1+t2 1+t2 1+t2 
+ En remplaçant dx , cosx et sinx par leurs valeurs dans ( 8.8.1 ) on obtient une intégrale 
+ d’une fraction rationnelle en t. 
+ 129 
+ 8.Calcul de primitives 
+ Montrons les formules ( 8.8.3 ) . 
+ On a 
+ 2dt 
+ x = 2Arctgt dx = . 
+ ⇒ 1+t2 
+ En posant maintenant α = Arctgt et en utilisant les formules trigonométriques on a 
+ cosx = cos2α = cos2α sin2α 
+ − 
+ = ( 1 tg2α)cos2α ( 8.8.4 ) 
+ − 
+ = ( 1 t2)cos2α . 
+ − 
+ sinx = sin2α = 2sin2αcosα 
+ = 2tgαcos2α ( 8.8.5 ) 
+ = 2tcos2α . 
+ D’aute part on a 
+ 1 = cos2α+sin2α 
+ = ( 1+tg2α)cos2α 
+ = ( 1+t2)cos2α . 
+ on obtient 
+ 1 
+ cos2α = . 
+ 1+t2 
+ En remplaçant cos2α par sa valeur dans ( 8.8.4 ) et ( 8.8.5 ) on obtient les formules ( 8.8.3 ) . 
+ Calcul de l’intégrale 
+ dx 
+ ( 8.8.6 ) 
+ cosx+sinx 
+ Z 
+ Par le changement de variabe ( 8.8.2 ) on aura 
+ 1 + 2 t t2 
+ cosx+sinx = − , 
+ 1+t2 
+ et l’intégrale devient 
+ 2dt 
+ , 
+ 1 + 2 t t2 
+ Z − 
+ qui est une intégrale d’une fraction rationnelle en t. 
+ cas particulier 
+ 130 
+ 8.Calcul de primitives 
+ 1 ) Cacul de 
+ cos2k(x),sinmx cosxdx . 
+ R 
+ Z 
+ ( cid:0 ) ( cid:1 ) 
+ Dans ce cas il est plus simple d’utiliser le changement de variable suivant 
+ t = sinx dt = cosxdx , ( 8.8.8 ) 
+ ⇒ 
+ et l’intégrale ( 8.8.7 ) devient une intégrale d’une fraction rationnelle en t. 
+ Exemple 8.8.2 
+ On veut calculer : 
+ sin3x 
+ cosxdx . ( 8.8.9 ) 
+ 1+cos4x 
+ Z 
+ Dans ce cas , par le changement de variabe ( 8.8.8 ) , l’intégrale ( 8.8.9 ) devient 
+ t3 
+ dt , 
+ 1+t4 
+ Z 
+ qui est plus simple que si l’on a utilisé le changement de variable ( 8.8.2 ) . 
+ ( Comparer ) 
+ 2 ) De même si on veut calculer 
+ cosm(x),sin2kx sinxdx , ( 8.8.10 ) 
+ R 
+ Z 
+ ( cid:0 ) ( cid:1 ) 
+ on utiliser le changement de variable : 
+ t = cosx dt = sinxdx , ( 8.8.11 ) 
+ ⇒ − 
+ on se ramène à une intégrale d’une fraction rationnelle en t. 
+ Remarque 8.8.3 
+ Sionveutposert = cosx , ilfautmettresinxdxenfacteuretl’exposant 
+ de sinx doit être paire . 
+ Si non , on aura à intégrer des expressions contenant ( √1+t2)k , 
+ qui ne sont pas des fractions rationnelles 
+ 8.9 Fractions rationnelles en sh et ch 
+ Calcul de 
+ F(x ) = ( chx , shx)dx , ( 8.9.1 ) 
+ R 
+ Z 
+ 131 
+ 8.Calcul de primitives 
+ où est une fraction rationnelle . 
+ En général on utilise le changement de variable suivant 
+ x 
+ t = th x = 2Argtht , ( 8.9.2 ) 
+ 2 ⇔ 
+ on obtient les formules 
+ 2dt 1+t2 2 t 
+ dx = chx = et shx = . 
+ ( 8.9.3 ) 
+ 1 t2 1 t2 1 t2 
+ − − − 
+ On se ramène à une intégrale d’une fraction rationnelle en t. 
+ Exemple 8.9.1 Calculons 
+ 1 shx 
+ − dx . 
+ ( 8.9.4 ) 
+ 2+chx 
+ Z 
+ Par le changement de variable ( 8.9.2 ) on a 
+ t2 +2 t 1 t2 3 2dt 
+ 1 shx = − , 2+chx = − et dx = . 
+ − t2 1 t2 1 1 t2 
+ − − − 
+ L’intégrale ( 8.9.4 ) devient 
+ t2 +2 t 1 2dt 
+ − 
+ t2 3 1 t2 
+ Z − − 
+ qui est une intégrale d’une fraction rationnelle . 
+ 8.10 Primitives de x , n ax+b 
+ R cx+d 
+ ( cid:16 ) q ( cid:17 ) 
+ Calcul de primitives du type 
+ ax+b 
+ x , n dx . ( 8.10.1 ) 
+ R cx+d 
+ Z r ! 
+ Dans ce cas on pose 
+ ax+b dtn b 
+ t = n x = − = h(t ) . 
+ cx+d ⇒ a ctn 
+ r − 
+ On obtient alors 
+ n(a b)tn 1 
+ − 
+ dx = h(t)dt = − dt . 
+ ′ 
+ ( a ctn)2 
+ − 
+ En remplaçant dans ( 8.10.1 ) on obtient une intégrale d’une fraction rationnelle en t. 
+ Exemple 8.10.1 
+ 1 2x+1 
+ I = dx . 
+ x 3 5x 
+ Z r − 
+ 132 
+ 8.Calcul de primitives 
+ On pose 
+ 2x+1 3t2 1 22 t 
+ t = = x = − et dx = dt . 
+ 3 5x ⇒ 5t2 +2 ( 5t2 +2)2 
+ r − 
+ Alors , 
+ 5t2 +2 22 t 
+ I = t dt . 
+ 3t2 1 ( 5t2 +2)2 
+ Z − 
+ 22t2 
+ = dt 
+ ( 3t2 1)(5t2 +2 ) 
+ Z − 
+ qui est une intégrale d’une fraction rationnelle . 
+ 8.11 Primitives de x,√ax2 + bx + c . 
+ R 
+ ( cid:16 ) ( cid:17 ) 
+ La méthode utilisée pour le calcul de ces intégrales dépend du discriminant ∆ = b2 4ac 
+ − 
+ du trinôme ax2 + bx+c . 
+ Premier cas . 
+ alors , pour que la racine soit bien définie il faut que a > 0 
+ Première méthode On pose alors 
+ t2 c 
+ √ax2 + bx+c = t+x√a x = − = h(t ) . 
+ ⇒ b 2t√a 
+ − 
+ On déduit alors 
+ 2t2√a+2 tb 2c√a 
+ dx = − − dt . 
+ ( b 2t√a)2 
+ − 
+ On se ramène alors à une intégrale d’une fraction rationnelle en t. 
+ Exemple 8.11.1 Calcul de l’intégrale : 
+ dx 
+ I = √9x2 2x+1 . 
+ x2 − 
+ Z 
+ On pose 
+ 1 t2 6t2 4 t 6 
+ √9x2 2x+1 = 3x+t x = − et dx = − − − dt . 
+ − ⇒ 6t+2 ( 6t+2)2 
+ On a aussi 
+ 3t2 +2t+3 
+ √9x2 2x+1 = 3x+t = . 
+ − 6t+2 
+ 133 
+ 8.Calcul de primitives 
+ On obtient alors , 
+ ( 6t+2)2 3t2 +2t+3 6t2 4 t 6 
+ I = − − − dt 
+ ( 1 t2)2 6t+2 ( 6t+2)2 
+ Z − 
+ ( 3t2 +2t+3)(6t2 +4t+6 ) 
+ = dt 
+ ( 1 t2)2(6t+2 ) 
+ Z − 
+ Deuxième méthode On écrit le trinôme ax2 + bx+c sous sa forme canonique 
+ b √ ∆ 
+ ax2 + bx+c = a ( x+α)2 + β2 , avec α = et β = − . 
+ 2a 2a 
+ ( cid:2 ) ( cid:3 ) 
+ En posant 
+ x+α = βt dx = βdt et √ax2 + bx+c = β√a√t2 +1 . 
+ ⇒ 
+ On pose alors 
+ t = shy dt = chydy , 
+ ⇒ 
+ en remplaçant on obtient une intégrale d’une fraction rationnelle en shx et chx . 
+ Exemple 8.11.2 Calcul de l’intégrale 
+ 1 
+ I = √4x2 x+1dx . 
+ x+1 − 
+ Z 
+ On a 
+ 2 
+ 1 15 
+ 4x2 x+1 = 4 x + , 
+ − − 8 64 
+ " # 
+ ( cid:18 ) ( cid:19 ) 
+ on pose alors 
+ 1 √15 √15 √15 
+ x = t dx = dt et √4x2 x+1 = 2 √t2 +1 . 
+ − 8 8 ⇒ 8 − 8 
+ L’intégrale devient 
+ √15 1 
+ √t2 +1dt . 
+ 4 √15t+9 
+ Z 
+ On pose maintenant 
+ t = shy dt = chydy 
+ ⇒ 
+ On obtient 
+ √15 ch2y dy 
+ I = , 
+ 4 √15shy +9 
+ Z 
+ qui est une intégrale d’une fraction rationnelle en sh(y ) et ch(y ) . 
+ 134 
+ 8.Calcul de primitives 
+ Deuxième cas . 
+ une fonction de classe C1 sur l’intervalle 
+ Montrer que 
+ b 
+ lim f(x)sin(nx)dx = 0 . 
+ n + 
+ → ∞Za 
+ 136 
+ 8.Calcul de primitives 
+ 2 . 
+ une fonction en escalier sur l’intervalle [ a , b ] . 
+ Montrer que 
+ b 
+ lim f(x)sin(nx)dx = 0 . 
+ n + 
+ → ∞Za 
+ On pourra commencer par montrer que pour tout α < β , 
+ β 
+ lim sin(nx)dx = 0 . 
+ n + 
+ → ∞Zα 
+ 3 . 
+ Soit f une fonction continue sur l’intervalle [ a , b ] . 
+ Montrer que 
+ b 
+ lim f(x)sin(nx)dx = 0 . 
+ n + 
+ → ∞Za 
+ On rappelle que pour toute fonction f continue sur [ a , b ] , pour tout ε > 0 il existe une 
+ fonction en escalier g telle que 
+ sup f(x ) g(x ) < ε . 
+ | − | 
+ x [ a , b ] 
+ ∈ 
+ Exercice 6 On pose pour tout n 0 
+ ≥ 
+ e 
+ I = ( lnx)ndx . 
+ n 
+ Z1 
+ 1 . 
+ Calculer I et I . 
+ 0 1 
+ 2 . 
+ Déterminer I pour tout n 0 . 
+ n 
+ ≥ 
+ Exercice 7 
+ Soit F la fonction définie pour tout x > 1 par 
+ x2 1 dt 
+ − 
+ F(x ) = . 
+ ln(1+t ) 
+ Zx 1 
+ − 
+ 1 . 
+ A l’aide de la formule de Taylor - Lagrange montrer que pour tout t > 0 : 
+ t2 
+ t < ln(1+t ) < t. 
+ − 2 
+ 137 
+ 8.Calcul de primitives 
+ 2 .

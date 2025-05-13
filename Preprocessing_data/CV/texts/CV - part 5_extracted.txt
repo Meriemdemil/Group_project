@@ -1,0 +1,96 @@
+Course 
+ « Computer Vision » 
+ Sid - Ahmed Berrani 
+ 2024 - 2025 
+ 1 
+ Correlation and convolution 
+ Linear spatial filtering can be described in terms of correlation and convolution . 
+ • Correlation : 
+ The process of moving a filter mask over a signal ( the image in our case ) and computing 
+ the sum of products at each location . 
+ Correlation 
+ An example : 
+ Correlation vs. Convolution 
+ • Correlation is a function of displacement of the filter . 
+ Convolution works exactly the same way , but the filter is rotated by 180 ° before the 
+ shift operations . 
+ A fundamental property of convolution is that convolving a function with a unit 
+ impulse yields a copy of the mask at the location of the impulse . 
+ 4 
+ 2D Correlation / Convolution 
+ 𝑎 𝑏 
+ 2 
+ 𝐸[𝑖 , 𝑗 ] = ෍ ෍ 𝑤 𝑠 , 𝑡 − 𝑓(𝑖 + 𝑠 , 𝑗 + 𝑡 ) 
+ 7 
+ 𝑠=−𝑎 𝑡=−𝑏 
+ Template Matching 
+ 𝑎 𝑏 
+ 2 
+ 𝐸 𝑖 , 𝑗 = ෍ ෍ 𝑤 𝑠 , 𝑡 − 𝑓 𝑖 + 𝑠 , 𝑗 + 𝑡 
+ 𝑠=−𝑎 𝑡=−𝑏 
+ 𝑎 𝑏 
+ 2 2 
+ 𝐸 𝑖 , 𝑗 = ෍ ෍ 𝑤 𝑠 , 𝑡 + 𝑓 𝑖 + 𝑠 , 𝑗 + 𝑡 − 2 𝑤 𝑠 , 𝑡 𝑓 𝑖 + 𝑠 , 𝑗 + 𝑡 
+ 𝑠=−𝑎 𝑡=−𝑏 
+ Minimizing 𝐸 𝑖 , 𝑗 = > Maximizing 
+ 𝑎 𝑏 
+ ෍ ෍ 𝑤 𝑠 , 𝑡 𝑓 𝑖 + 𝑠 , 𝑗 + 𝑡 = 𝑤⨂𝑓(𝑖 , 𝑗 ) 
+ 𝑠=−𝑎 𝑡=−𝑏 
+ 8 
+ Filters as Templates 
+ • Filters offer a natural mechanism for finding simple patterns . 
+ • Filters respond most strongly to pattern elements that look like the filter . 
+ ⨂ 
+ • ⨂ 
+ 9 
+ Correlation as a Dot Product 
+ When performing a correlation ( or a convolution ): 
+ • The response is obtained by associating image elements with filter kernel elements , multiplying the 
+ associated elements and summing 
+ • It is the same process as a dot product . 
+ • The dot product achieves its largest value when the vector representing the image is parallel to the 
+ vector representing the kernel . 
+  A filter responds most strongly when it encounters an image pattern that looks like the filter . 
+  But this dot product is a poor way to find patterns because the response might be large just because 
+ the image region is bright . 
+ 10 
+ Correlation for Pattern Matching 
+ w : 
+ 𝒂 𝒃 
+ 𝑹 𝒊 , 𝒋 = 𝒘⨂𝒇 𝒊 , 𝒋 = ෍ ෍ 𝒘 𝒔 , 𝒕 𝒇 𝒊 + 𝒔 , 𝒋 + 𝒕 
+ 𝒘𝒇 
+ 𝒔=−𝒂 𝒕=−𝒃 
+ 𝑅 𝐶 > 𝑅 𝐵 > 𝑅 𝐴 
+ 𝑤𝑓 𝑤𝑓 𝑤𝑓 
+ However , we need 𝑹 𝑨 to be the maximum . 
+ 𝒘𝒇 
+ 11 
+ Normalized Correlation for Pattern Matching 
+ Solution : Normalizing the correlation 
+ 𝑎 𝑏 
+ σ σ 𝑤 𝑠 , 𝑡 𝑓 𝑖 + 𝑠 , 𝑗 + 𝑡 
+ 𝑠=−𝑎 𝑡=−𝑏 
+ 𝑁 𝑖 , 𝑗 = 
+ 𝑤𝑓 
+ σ σ 𝑤(𝑠 , 𝑡)2 . σ σ 𝑓(𝑖 + 𝑠 , 𝑖 + 𝑡)2 
+ 𝑠 𝑡 𝑠 𝑡 
+ Energy of the template Energy of the image area covered 
+ by the template 
+  This make the correlation insensitive to brightness . 
+ 12 
+ Normalized Correlation for Pattern Matching 
+ w : 
+ σ𝑎 σ 𝑏 𝑤 𝑠 , 𝑡 𝑓 𝑖 + 𝑠 , 𝑗 + 𝑡 
+ 𝑠=−𝑎 𝑡=−𝑏 
+ 𝑁 𝑖 , 𝑗 = 
+ 𝑤𝑓 
+ σ σ 𝑤(𝑠 , 𝑡)2 . σ σ 𝑓(𝑖 + 𝑠 , 𝑖 + 𝑡)2 
+ 𝑠 𝑡 𝑠 𝑡 
+ 𝑁 𝐴 > 𝑁 𝐵 > 𝑁 𝐶 
+ 𝑤𝑓 𝑤𝑓 𝑤𝑓 
+ 13 
+ Normalized Correlation for Pattern Matching 
+ 14 
+ Normalized Correlation for Pattern Matching 
+ ⨂ = 
+ 15

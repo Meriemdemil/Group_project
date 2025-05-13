@@ -1,0 +1,112 @@
+Reinforcement learning 
+ Dr. 
+ The National School of Artificial Intelligence 
+ aissa.boulmerka@ensia.edu.dz 
+ 2024 - 2025 
+ In reinforcement learning , the agent generates its own training data by 
+ interacting with the world . 
+  The agent must learn the consequences of his own actions through trial and 
+ error , rather than being told the correct action . 
+  In this chapter , we will study this evaluative aspect of reinforcement learning . 
+ We will focus on the problem of decision - making in a simplified setting called 
+ bandits . 
+ In the k - armed bandit problem , we have a decision - maker or agent , who 
+ chooses between " 𝑘 " different options or actions , and receives a numerical 
+ reward chosen from a stationary probability distribution based on the action it 
+ selects . 
+  Imagine the next problem where the doctor has to give medicine to a patient 
+ and based on which one he choose , he will receive a reward ( cure the patient ) . 
+  For the doctor to decide which action is best , we must define the value of 
+ taking each action . 
+ We call these values the action values or the action value 
+ function . 
+ We call these values the Action - Values or the action value function . 
+ The value 
+ is the expected reward . 
+ The sample - average method is a method for estimating the action values . 
+ We 
+ will use this method to compute the value of each treatment in our medical trial 
+ example . 
+  The value of selecting an action 𝑞∗ is the expected reward received after that 
+ action has been taken . 
+ 𝑞 𝑎 ≐ 𝔼 𝑅 | 𝐴 = 𝑎 
+ ∗ 𝑡 𝑡 
+  𝑞∗ is not known to the agent , just like the doctor does n't know the effectiveness 
+ of each treatment . 
+  
+ Instead , we will need to find a way to estimate it . 
+  We call this method of choosing actions greedy . 
+ The greedy action is the action 
+ that currently has the largest estimated value . 
+  Selecting the greedy action means the agent is exploiting its current 
+ knowledge . 
+ It is trying to get the most reward it can right now . 
+  If there is more than one greedy action , then a selection is made among them 
+ in some arbitrary way , perhaps randomly . 
+  Instead of that , we can behave greedily most of the time , but every once with 
+ small probability epsilon ( 𝜀 ) , select randomly from among all the actions with 
+ equal probability , independently of the action - value estimates . 
+ We call methods using this near - greedy action selection rule 𝜺 -greedy 
+ methods . 
+ The action - value methods we have discussed so far all estimate action values as 
+ sample averages of observed rewards . 
+  How these averages can be computed in a computationally efficient manner 
+ with constant memory and constant per - time - step computation ? 
+  
+ The general form is 
+ 𝑁𝑒𝑤𝐸𝑠𝑡𝑖𝑚𝑎𝑡𝑒 ← 𝑂𝑙𝑑𝐸𝑠𝑡𝑖𝑚𝑎𝑡𝑒 + 𝑆𝑡𝑒𝑝𝑆𝑖𝑧𝑒 𝑇𝑎𝑟𝑔𝑒𝑡 − 𝑂𝑙𝑑𝐸𝑠𝑡𝑖𝑚𝑎𝑡𝑒 
+ 1 
+ 𝑄 = 𝑄 + 𝑅 − 𝑄 
+ 𝑛:1 𝑛 𝑛 𝑛 
+ n 
+  The expression 𝑇𝑎𝑟𝑔𝑒𝑡 − 𝑂𝑙𝑑𝐸𝑠𝑡𝑖𝑚𝑎𝑡𝑒 is an error in the estimate . 
+ It is 
+ reduced by taking a step toward the 𝑇𝑎𝑟𝑔𝑒𝑡. 
+  
+ The target is presumed to indicate a desirable direction in which to move . 
+ In the 
+ case above , for example , the target is the 𝑛th reward . 
+ 1 
+  
+ The function bandit(a ) is assumed to take an action and return a corresponding 
+ reward . 
+  The averaging methods discussed so far are appropriate for stationary bandit 
+ problems , that is , for bandit problems in which the reward probabilities do not 
+ change over time . 
+  We often encounter reinforcement learning problems that are effectively non- 
+ stationary . 
+ In such cases it makes sense to give more weight to recent rewards 
+ than to long - past rewards . 
+  One of the most popular ways of doing this is to use a constant step - size 
+ parameter . 
+ The updating equation can be written as the initial value of 𝑄 plus a weighted 
+ sum of the rewards over time . 
+  The most recent rewards contribute most to our current estimate . 
+ Exploration allows the agent to improve his knowledge about each action . 
+ Hopefully , leading to long - term benefit . 
+  By improving the accuracy of the estimated action values , the agent can make 
+ more informed decisions in the future . 
+  Exploitation on the other hand , exploits the agent 's current estimated values . 
+ It 
+ chooses the greedy action to try to get the most reward . 
+  But by being greedy with respect to estimated values , may not get the most 
+ reward . 
+  How do we choose when to explore , and when to exploit ? 
+ All methods used sample 
+ averages as their action - value estimates . 
+ The methods above are dependent to some extent on the initial action - value 
+ estimates , 𝑄 ( 𝑎 ) . 
+ 1 
+ For the sample - average methods ( 𝜶 𝒂 = 𝟏 𝒏 ) , the bias disappears once all 
+ 𝒏 
+ actions have been selected at least once . 
+  For methods with constant 𝜶 , the bias is permanent . 
+ The upside is that they provide an easy way to supply some prior knowledge 
+ about what level of rewards can be expected . 
+  Initial action values can also be used as a simple way to encourage exploration . 
+ It would be better to select among the non - greedy actions according to their 
+ potential for actually being optimal . 
+ We define a preference 𝐻 𝑎 for each action 𝑎. 
+ 𝑡 
+  The larger the preference , the more often that action is taken . 
+ 

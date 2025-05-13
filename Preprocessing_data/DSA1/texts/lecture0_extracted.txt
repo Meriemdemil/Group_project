@@ -1,0 +1,35 @@
+The objective of this course is to introduce students to the construction of 
+ computer programs . 
+ We will refer to this as 
+ the language of specification ( pseudo - code ) of algorithms . 
+ At this 
+ point , we will talk about a programming language . 
+ Algorithm , Processor , Action 
+ • Program and Programming language 
+ • Resolution process 
+ • Algorithm Formalism 
+ Variable Scopes and Parameter Passing 
+ Week Chapters 
+ Dynamic Memory Allocation and Pointers ( C++ ) 
+ • Pointer definition 
+ • Pointer in C++ 
+ • Pointer expression and arithmetic 
+ • Applications : 
+ • Array of pointers and Linked list 
+ 14 File Handling and Streams 
+ Assessment and Grading 
+ Final Examination [ 60 % ] 
+  
+ Midterm Examination [ 20 % ] 
+  
+ Tests : 
+  
+ Lab Test [ 7 % ] 
+ 1 . 
+ Tutorial Test [ 7 % ] 
+ 2 . 
+ Online Quizzes [ 3 % ] 
+  
+ Lab & Tutorial attendant & Participation [ 3 % ] 
+  
+ References

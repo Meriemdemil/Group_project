@@ -99,7 +99,7 @@
   display: flex;
   max-width: 800px;
   margin: 0 auto;
-  background-color: #213547;
+  background-color: #5882a7;
   border-radius: 10px;
   border: 1px solid #e5e5e5;
   padding: 10px 15px;
@@ -188,4 +188,5 @@
   padding: 1rem;
   border-radius: 4px;
   overflow: auto;
+
 }

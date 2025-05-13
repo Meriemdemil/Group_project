@@ -1,0 +1,283 @@
+Fundamental Concepts of 
+ Modularity 
+ In a program , you may often find that a particular sequence of actions is 
+  
+ repeated multiple times . 
+ In such cases , it 's wise to write this sequence only 
+ once and reuse it as needed . 
+ Furthermore , you may notice that certain groups of actions relate to 
+  
+ different tasks . 
+ It 's advisable to represent each of these tasks separately in 
+ a subroutine , improving the clarity and readability of the program ( or 
+ algorithm ) . 
+ As a result , a program can be seen as a main program along 
+ with a collection of subroutines , enhancing organization and 
+ efficiency . 
+ Fundamental Concepts of 
+ Modularity 
+ Modularity , the cornerstone of structured programming , is simply 
+ the act of breaking down a problem into a set of reusable 
+ modules . 
+ Decomposing Complexity : It transforms a complex problem into " n " 
+  
+ simpler problems that can be resolved independently . 
+ Solution Reusability : 
+ The idea is to find a solution for a problem just 
+  
+ once . 
+ Once a module , designed for a specific task , is constructed , 
+ tested , and documented , it becomes a reusable asset . 
+ Fundamental Concepts of 
+ Modularity 
+ We assign a NAME to this module , and 
+ subsequently , we can " call " it whenever needed , simply by 
+ referencing its name . 
+ There 's no need to reconstruct it . 
+ The advantages of modularity make it not just interesting but 
+ highly recommended to systematically employ modular design 
+ in constructing our solutions . 
+ We treat them 
+ as if they were independent problems . 
+ As mentioned earlier , 
+ these modules may even be assigned to different developers . 
+ Fundamental Concepts of 
+ Modularity 
+ When using a module , we no longer need to 
+  
+ know how it is constructed but only what it does . 
+ The role you assign to each module is crucial , 
+  
+ because if it is inadequately defined , ambiguous , 
+ or incomplete , your module becomes entirely 
+ unusable and , as a result , USELESS . 
+ Fundamental Concepts of 
+ Modularity 
+ Advantages 
+ Improved readability 
+  
+ Reduced risk of errors 
+  
+ Selective testing possibilities 
+  
+ Reuse of existing modules 
+  
+ Ease of modification 
+  
+ Promote collaborative work 
+  
+ … .. 
+  
+ Fundamental Concepts of 
+ Modularity 
+ Algorithm Algo_1 
+ Algorithm Algo_1 
+ Modules A , B , C 
+ BEGIN MODULE A BEGIN 
+ Bloc A 
+ Call Module A 
+ Bloc B MODULE B 
+ Call Module B 
+ Bloc C Call Module C 
+ MODULE C 
+ Call Module A 
+ Bloc A 
+ Call Module B 
+ Bloc B 
+ Call Module C 
+ Bloc C 
+ END 
+ END 
+ Fundamental Concepts of 
+ Modularity ( calling a module ) 
+ When a module call is 
+ Algorithm Algo_1 
+ Module A 
+ Variables … 
+ encountered , the 
+ Variables … 
+ Module A 
+ BEGIN 
+ execution of the calling 
+ BEGIN 
+ - 
+ module is suspended 
+ - 
+ - - until the called module 
+ is entirely executed , 
+ - 
+ END 
+ and then the execution 
+ Call Module A 
+ of the calling module 
+ - resumes immediately 
+ after the call . 
+ - 
+ END 
+ Fundamental Concepts of 
+ Modularity ( calling a module ) 
+ A module is considered as a 
+ black box that performs a specific 
+ Module Type 
+ task . 
+ From a syntax perspective , a 
+ module follows the same structure Inputs ( 0 , N ) Outputs ( 0 , N ) 
+ Module 
+ as an algorithm . 
+ It is defined by its Name 
+ name , its role , its type , and its 
+ Module Role 
+ interfaces , which means the data 
+ it receives as input and the data it 
+ returns to the caller . 
+ Fundamental Concepts of 
+ Modularity ( calling a module ) 
+ Do n't waste your time and energy trying to list all the necessary 
+  
+ modules . 
+ Start with the obvious modules and expand your division as you 
+  
+ see fit . 
+ Sometimes the division is implicit , meaning that a careful reading 
+  
+ of the problem will help you identify the modules to build , while in 
+ other cases , it may require analysis and creativity . 
+ Modular Approach and Formalism 
+ Module Quality 
+ Reusability : 
+ Always aim to make your modules as general as 
+  
+ possible for later reuse . 
+ Independence : Avoid using read or write operations in a module , 
+  
+ and the use of global variables . 
+ ( best way to prevent side 
+ effects ) 
+ Simplicity : A module should have a SINGLE clear task to perform . 
+ FUNCTION 
+ 0 or N Inputs 
+ Module 1 output 
+ Name 
+ Module Role 
+ Modular Approach and Formalism 
+ PROCEDURE 
+ 0 or N Inputs 
+ Module 0 or N outputs 
+ Name 
+ Module Role 
+ Modular Approach and Formalism 
+ EXAMPLE 1 : 
+ PROCEDURE 
+ REAL X1 , X2 
+ REAL A , B , C 
+ EQU2D 
+ INTEGER N 
+ Role : 
+ • The result must always be transmitted in the name of the function , 
+ and this assignment is typically the final action of the function . 
+ • 
+ The list of formal parameters describes the objects provided to the 
+ function , including their types and their passing mode ( this concept 
+ is discussed later ) . 
+ " 
+ Modular Approach and Formalism 
+ FUNCTION Call 
+ The call to a function is made by referencing its name to the right of the 
+ assignment symbol in a condition or in a procedure or function call . 
+ • Known only in the function in which they are defined 
+ • 
+ All variables declared in function definitions are local variables 
+ • Parameters 
+ • Local variables passed to function when called 
+ • Provide outside information 
+ Modular Approach and Formalism 
+ Functions in C++ 
+ • 
+ Function prototype 
+ • Tells compiler argument type and return type of function 
+ • 
+ • Function takes an int and returns an int 
+ • Explained in more detail later 
+ • 
+ Calling / invoking a function 
+ • square(x ) ; 
+ • Parentheses an operator used to call function 
+ • 
+ Pass argument x 
+ Function gets its own copy of arguments 
+ • 
+ After finished , passes back result 
+ Modular Approach and Formalism 
+ Functions in C++ 
+ • 
+ Format for function definition 
+ return - value - type function - name ( parameter - list ) 
+ { 
+ declarations and statements 
+ } 
+ • Parameter list 
+ • Comma separated list of arguments 
+ • 
+ Data type needed for each argument 
+ • 
+ If no arguments , use void or leave blank 
+ • 
+ Return - value - type 
+ Data type of result returned ( use void if nothing returned ) 
+ Modular Approach and Formalism 
+ Functions in C++ 
+ • 
+ Example function 
+ int square ( int y ) 
+ { 
+ return y * y ; 
+ } 
+ • return keyword 
+ Returns data , and control goes to function ’s caller 
+ • If no data to return , use return ; 
+ • 
+ Function ends when reaches right brace 
+ • 
+ Control goes to caller 
+ // 
+ 3 # include < iostream > 
+ 4 
+ 5 using std::cout ; 
+ 6 using std::cin ; 
+ 7 using std::endl ; 
+ 8 
+ 9 double maximum ( double , double , double ) ; // function prototype 
+ 10 
+ 11 int main ( ) 
+ 12 { 
+ 13 double number1 ; 
+ 14 double number2 ; 
+ 15 double number3 ; 
+ 16 
+ ; 
+ 18 cin > > number1 > > number2 > > number3 ; 
+ 19 
+ 20 // number1 , number2 and number3 are arguments to 
+ 21 // the maximum function call 
+ 22 cout < < " Maximum is : " 
+ 23 < < maximum ( number1 , number2 , number3 ) < < endl ; 
+ 24 
+ 25 return 0 ; // indicates successful termination 
+ Modular Approach and Formalism 
+ Functions in C++ 
+ 26 
+ 27 } // end main 
+ 28 
+ 29 // function maximum definition ; 
+ 30 // x , y and z are parameters 
+ 31 double maximum ( double x , double y , double z ) 
+ 32 { 
+ 33 double max = x ; // assume x is largest 
+ 34 
+ 35 if ( y > max ) // if y is larger , 
+ 36 max = y ; // assign y to max 
+ 37 
+ 38 if ( z > max ) // if z is larger , 
+ 39 max = z ; // assign z to max 
+ 40 
+ 41 return max ; // max is largest value

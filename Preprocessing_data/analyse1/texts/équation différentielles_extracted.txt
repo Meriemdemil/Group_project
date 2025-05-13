@@ -1,0 +1,1213 @@
+diérentielles 
+ ϕ Cn(I;R ) , 
+ ∈ 
+ ( une fonction ϕ : I R , n fois continûment dérivable ) telle que , pour tout x I , on ait 
+ −→ ∈ 
+ ϕ(n)(x ) = f(x,ϕ(x), ... ,ϕ(n 1)(x ) ) . 
+ On vérie aisément que la fonction ϕ(x ) = e2x est solution de 
+ l’équation diérentielle 
+ y = 2y , x R. 
+ ′ 
+ ∈ 
+ De plus on remarque que toute fonction de la forme 
+ ϕ ( x ) = ce2x , 
+ c 
+ où c est une constante réelle quelconque , est solution de cette équation . 
+ 2 ) 
+ Les fonctions de la forme 
+ y(x ) = acosx+bsinx , avec a , b R 
+ ∈ 
+ sont solutions de l’équation diérentielle du second ordre 
+ y + y = 0 . 
+ ′′ 
+ Remarque 9.1.5 
+ Nous nous intéressons ici qu’aux équations du premier ordre et aux 
+ équations du deuxième ordre particulières dites linéaires . 
+ 9.2 Equations du premier ordre 
+ Dénition 9.2.1 Une équation diérentielle du premier ordre est une équation de la 
+ forme 
+ F(x , y(x),y ( x ) ) = 0 . ( 9.2.1 ) 
+ ′ 
+ Dénition 9.2.2 
+ On appelle solution générale d’une équation diérentielle du premier 
+ ordre , une fonction notée 
+ y(x ) = ϕ(x , c ) 
+ dépendante d’une constante arbitraires c , de classe C1 et qui satisfait à l’équation ( 9.2.1 ) . 
+ Dans ce qui suit , on étudie quelques types d’équations du premier ordre . 
+ Equations diérentielles 
+ 9.2.1 Equations diérentielles à variables séparées : 
+ Dénition 9.2.3 Une équation diérentielle est dite à variables séparées si elle s’écrit 
+ sous la forme : 
+ u(y)dy = v(x)dx , ( 9.2.2 ) 
+ où u et v sont deux fonctions continues , et où dy désigne y 
+ dx ′ 
+ Exemple 9.2.4 L’équation dénie sur I =] 1,+ [ par 
+ ∞ 
+ xy lnx = ( 3lnx+1)y 
+ ′ 
+ est une équation à variables séparées car on peut " séparer les variables " x et y en 
+ divisant par yxlnx , ce qui est possible si , et seulement si , y = 0 , on trouve : Pour 
+  
+ ( x , y ) ] 1,+ [ ×R 
+ ∗ 
+ ∈ ∞ 
+ 1dy 3lnx+1 
+ xy lnx = ( 3lnx+1)y = 
+ ′ 
+ ⇐ ⇒ ydx xlnx 
+ 1 3lnx+1 
+ dy = dx 
+ ⇐ ⇒ y xlnx 
+ Méthode de résolution : 
+ Pour résoudre une équation diérentielle à variables séparées , 
+ il sut d’intégrer les deux membres de l’équation ( 9.2.2 ) séparément . 
+ u(y)dy = v(x)dx u(y)dy = v(x)dx 
+ ⇐ ⇒ 
+ U(y ) = V(x)+c où c est une constante réelle 
+   
+ ⇐ ⇒ 
+ et si possible écrire y en fonction de x. 
+ Exemple 9.2.5 
+ 1 ) Résoudre sur I =] 1,+ [ l’équation diérentielle de l’exemple précédent : 
+ ∞ 
+ xy lnx = ( 3lnx+1)y . 
+ ′ 
+ Après séparation des variables , on intègre les deux membres , on aura 
+ 1 3lnx+1 
+ diérentielles 
+ En passant à l’exponentielle dans la dernière égalité , on aura comme solution nale 
+ y = Cx3lnx avec c R , 
+ ∗ 
+ ∈ 
+ où C = ±ec3 qui tient compte des deux possibilités pour |y| . 
+ De plus vue que la fonction identiquement nulle y = 0 est solution de l’équation ( 9.2.3 ) , 
+ solution qui peut être retrouvée en considérant simplement C dans R. 
+ Il vient que la solution générale de l’équation ( 9.2.3 ) sur I est donnée par 
+ y = Cx3lnx avec C R. 
+ ∈ 
+ 2 ) Résoudre l’équation 
+ y 
+ y ′ = 1 sur R . 
+ Equations diérentielles 
+ 1 . La fonction f(x , y ) = 3 x3+y3 est homogène de degré 1 , car 
+  
+ f(λx , λy ) = 3 ( λx)3+(λy)3 = λ 3 x3+y3 = λf(x , y ) . 
+  
+  
+ 2 . 
+ La fonction 
+ x2 y2 
+ f(x , y ) = − 
+ xy 
+ est homogène de degré 0 , car 
+ ( λx)2 ( λy)2 x2 y2 
+ − = − 
+ ( λx)(λy ) xy 
+ Dénition 9.2.8 Une équation diérentielle du premier ordre 
+ y = f(x , y ) ( 9.2.5 ) 
+ ′ 
+ est dite homogène si la fonction f(x , y ) est homogène de degré zéro . 
+ Méthode de résolution : 
+ Pour résoudre une équation diérentielle homogène , on utilise le changement de fonction 
+ inconnue suivant : 
+ y(x ) 
+ z(x ) = , 
+ x 
+ ce qui donne 
+ y = xz + z. 
+ ′ 
+ ′ 
+ En remplaçant dans l’équation ( 9.2.5 ) on obtient l’équation suivante : 
+ xz + z = f(1,z ) , 
+ ′ 
+ qui est une équation à variables séparées . 
+ En eet , cette équation s’écrit sous la forme 
+ dz dx 
+ = . 
+ f(1,z ) z x 
+ − 
+ On résout cette équation par la méthode de résolution des équations à variables séparées , 
+ 143 
+ 9 . 
+ Equations diérentielles 
+ puis on revient à la fonction y(x ) . 
+ Exemple 9.2.9 Soit l’équation diérentielle suivante . 
+ x2 y2 
+ y = − . 
+ ′ 
+ xy 
+ On a vu précédemment que la fonction 
+ x2 y2 
+ f(x , y ) = − 
+ xy 
+ est homogène de degré zéro , alors cette équation est homogène . 
+ En posant λ = 1 , 
+ x 
+ l’équation s’écrit : 
+ 1 
+ y2 
+ y = − x2 . 
+ ′ y 
+ x 
+ On pose alors 
+ y 
+ z = y = xz + z , 
+ ′ ′ 
+ x ⇒ 
+ l’équation devient , après calcul 
+ 1 z2 
+ xz + z = − . 
+ ′ 
+ z 
+ Cette équation est à variables séparées . 
+ En eet , elle s’écrit sous la forme : 
+ zdz dx 
+ = . 
+ 1 2z2 x 
+ − 
+ 9.2.3 Equation se ramenant aux équations homogènes 
+ Equations de la forme : 
+ ax+by+c 
+ y = ( 9.2.6 ) 
+ ′ 
+ a x+b y+c 
+ 1 1 1 
+ où ( c , c ) sont deux constantes réelles non toutes les deux nulles . 
+ Remarque 9.2.10 
+ Cherchons un changement de variable et de fonction du type 
+ x = t+h et z = y+k , ( h , k ) R2 , ( 9.2.7 ) 
+ ∈ 
+ 144 
+ 9 . 
+ diérentielles 
+ de sorte que la fonction 
+ g(t , z ) = f(x , y ) 
+ devienne homogène de degré zéro . 
+ Le premier membre de l’équation ( 9.2.6 ) s’écrit : 
+ dy dydz dt dz 
+ = = , 
+ dx dz dt dx dt 
+ et l’équation s’écrit alors : 
+ dz at+bz + ah+bk+c 
+ = . 
+ dt a t+b z + a h+b k+c 
+ 1 1 1 1 1 
+ Cette équation est homogène si , et seulement si , h et k vérient le système 
+ ah+bk+c = 0 
+ ( 9.2.8 ) 
+ a h+b k+c = 0 . 
+ 1 1 1 
+ Ce système admet une solution unique si , et seulement si , son déterminant 
+ a b 
+ ∆ = = ab ba ( 9.2.9 ) 
+ 1 1 
+ ∣ a 1 b 1 ∣ − 
+ ∣ ∣ 
+ ∣ ∣ 
+ ∣ ∣ 
+ est non nul . 
+ Premier cas Si ∆ = 0 . 
+ Dans ce cas , le système ( 9.2.8 ) admet une unique solution 
+ ( 9.2.10 ) 
+ ∆ ∆ ∆ ∆ 
+ ∣ c 1 b 1 ∣ ∣ a 1 c 1 ∣ 
+ ∣ − ∣ ∣ − ∣ 
+ ∣ ∣ ∣ ∣ 
+ ∣ ∣ ∣ ∣ 
+ Utilisant alo∣rs ce chan∣gement de variable l’équatio∣n ( 9.2.6 ) d∣evient 
+ at+bz 
+ z = ( 9.2.11 ) 
+ ′ 
+ a t+b z 
+ 1 1 
+ qui est une équation homogène , car la fonction 
+ at+bz 
+ g(t , z ) = 
+ a t+b z 
+ 1 1 
+ est homogène de degré zéro . 
+ Utilisant la méthode de résolution des équations homogènes , 
+ ondéterminelasolutionz(t)del’équation(9.2.11)puisonrevientauxanciennesvariables . 
+ 145 
+ 9 . 
+ diérentielles 
+ On résout cette équation et on détermine la solution y(x ) 
+ de l’équation ( 9.2.12 ) . 
+ Deuxième cas Si ∆ = 0 . 
+ Dans ce cas , le système ( 9.2.8 ) n’admet pas de solution et 
+ donc la méthode utilisée précédemment ne marche pas . 
+ On va s’y prendre d’une autre 
+ diérentielles 
+ cette équation s’écrit alors 
+ z + c 
+ z = b + a 
+ ′ 
+ λz + c 
+ 1 
+ qui est une équation à variables séparées , car elle s’écrit : 
+ λz + c 
+ 1 dz = dx . 
+ ( b+λa)z + bc+ac 
+ 1 
+ 2 . 
+ ⇒ 
+ ( i ) si a = 0 l’équation ( 9.2.6 ) s’écrit alors sous la forme 
+ 1 
+ by+c 
+ y = 
+ ′ 
+ b y+c 
+ 1 1 
+ qui est une équation à variables séparées , car elle s’écrit sous la forme 
+ b y+c 
+ 1 1 dy = dx . 
+ by+c 
+ ( ii ) si b = 0 l’équation ( 9.2.6 ) est sous la forme 
+ c 
+ y = . 
+ ′ 
+ a x+b y+c 
+ 1 1 1 
+ On pose alors 
+ z a 
+ z = a x+b y y = ′ − 1 , 
+ 1 1 ⇒ ′ b 
+ 1 
+ on obtient l’équation à variables séparées suivante . 
+ c 
+ z = b + a . 
+ ′ z + c 1 
+ 1 
+ Remarquonsquedanslecasoù∆ = 0,onseramènedirectementauxéquationsàvariables 
+ séparées . 
+ Exemple 9.2.12 
+ 1 . 
+ l’équation 
+ diérentielle 
+ diérentielles 
+ Dans ce cas , il est simple de remarquer que λ = 2 . L’équation ( 9.2.13 ) s’écrit alors 
+ − 
+ x 2y+1 
+ y = − . 
+ ′ 
+ 2(x 2y ) 3 
+ − − − 
+ On pose 
+ 1 z 
+ ′ 
+ z = x 2y y = − , 
+ ′ 
+ − ⇒ 2 
+ On obtient alors l’équation 
+ 4z 5 
+ z = − − 
+ ′ 
+ 2z 3 
+ − − 
+ qui est une équation à variables séparées , car elle s’écrit : 
+ 2z +3 
+ dz = dx ; 
+ 4z +5 
+ 2 . 
+ l’équation 
+ Remarquons que cette équation est à variables 
+ 1 
+ séparées . 
+ 3 . 
+ Résoudre l’équation diérentielle 
+ 3x 2 
+ y = − . ( 9.2.15 ) 
+ ′ 
+ 5 
+ Cette équation est à variables séparées . 
+ En eet , on obtient 
+ 3x 2 
+ dy = − dx . 
+ 5 
+ Dans cet exemple , on a a = b = 0 . 
+ 1 1 
+ 9.2.4 Equations linéaires du premier ordre . 
+ Dénition 9.2.13 Une équation diérentielle linéaire du premier ordre est une équation 
+ qui se met sous la forme 
+ a(x)y + b(x)y = f(x ) ( 9.2.16 ) 
+ ′ 
+ où les fonctions 
+ x a(x ) , b(x ) , et f(x ) 
+ −→ 
+ sont continues sur le même intervalle I , sur lequel la fonction x a(x ) ne s’anulle pas . 
+ Dénition 9.2.14 
+ Remarque 9.2.15 
+ En vérité , elle n’a rien à voir avec 
+ les équations homogènes traitées précédemment . 
+ Résolution de l’équation homogène . 
+ En fait l’équation homogène ( 9.2.17 ) est une équation à variables séparées . 
+ En eet elle 
+ s’écrit sous la forme 
+ dy b(x ) 
+ = dx . 
+ y −a(x ) 
+ En intégrant on aura 
+ b(x ) 
+ ln|y| = dx + c , c R. 
+ − a(x ) 1 1 ∈ 
+ ∫ 
+ Prenant l’exponnentiel des deux membres on a 
+ b(x ) 
+ y(x ) = Cexp dx , avec C = ±exp(c ) R . 
+ − a(x ) 1 ∈ ∗ 
+  ∫  
+ Comme y = 0 est solution de cette équation , alors la solution générales de l’équation 
+ homogène est 
+ b(x ) 
+ y ( x ) = C exp dx , avec C R. ( 9.2.18 ) 
+ h 
+ − a(x ) ∈ 
+  ∫  
+ Exemple 9.2.16 Soit l’équation : 
+ ( x+1)y +3xy = 0 ; x I. 
+ ′ 
+ ∈ 
+ avec I =] , 1 [ ou I =] 1,+ [ . 
+ −∞ − − ∞ 
+ Pour y = 0 l’équation s’écrit : 
+  dy x 
+ = 3 dx . 
+ y − x+1 
+ 149 
+ 9 . 
+ diérentielles 
+ La solution générale de cette équation est 
+ 3 
+ y ( x ) = Cexp 3 + dx 
+ h 
+ − x+1 
+ ∫    
+ = Cexp ( 3x+3ln |x+1| ) 
+ − 
+ = Ce 3x|x+1|3 C R. 
+ − 
+ ∈ 
+ Résolution de l’équation complète . 
+ Supposons connue une solution particulière y de l’équation complète ( 9.2.16 ) . 
+ On a 
+ p 
+ a(x)y + b(x)y = f(x ) ( 9.2.19 ) 
+ p′ p 
+ Des équations ( 9.2.16 ) et ( 9.2.19 ) on déduit que la fonction z = y y est solution de 
+ p 
+ − 
+ l’équation homogène ( 9.2.17 ) . 
+ Comme y = z + y 
+ , on a donc le résultat suivant 
+ p 
+ Théorème 9.2.17 Lasolutiongénéraledel’équationcomplète ( 9.2.16)estlasommedela 
+ solution générale de l’équation sans second membre associée et d’une solution particulière 
+ de l’équation complète . 
+ Recherche d’une solution particulière de l’équation complète . 
+ Méthode de Lagrange , ou variation de la constante . 
+ Cette méthode consiste à chercher une solution particulière de l’équation complète , à par- 
+ tir de la solution générale de l’équation homogène associée , en faisant varier la constante 
+ " C " . 
+ C’est pourquoi elle porte ce nom . 
+ Soit donc 
+ b(x ) 
+ y ( x ) = Cexp dx 
+ h 
+ − a(x ) 
+  ∫  
+ la solution générale de l’équation homogène associée à ( 9.2.16 ) . 
+ On cherche une solution 
+ particulière de l’équation complète sous la forme 
+ b(x ) 
+ y ( x ) = C(x)exp dx , 
+ p 
+ − a(x ) 
+  ∫  
+ où l’inconnue est la fonction C(x ) . 
+ diérentielles 
+ on obtient , 
+ b(x ) 
+ C ( x)a(x)exp dx = f(x ) , 
+ ′ 
+ − a(x ) 
+  ∫  
+ ce qui donne 
+ f(x ) b(x ) 
+ C(x ) = exp dx dx . 
+ a(x ) a(x ) 
+ ∫  ∫  
+ Exemple 9.2.18 Résoudre l’équation diérentielle suivante 
+ x 1 
+ y + y = . ( 9.2.20 ) 
+ ′ 
+ 1+x2 1+x2 
+ L’équation homogène associée à ( 9.2.20 ) est 
+ x 
+ y + y = 0 . ( 9.2.21 ) 
+ ′ 
+ 1+x2 
+ La solution générale de cette équation est 
+ xdx 
+ y ( x ) = Cexp 
+ h 
+ − 1+x2 
+  ∫  
+ C 
+ = . 
+ √1+x2 
+ Cherchons une solution particulière de l’équation complète sous la forme 
+ C(x ) 
+ y ( x ) = . 
+ p 
+ √1+x2 
+ On a 
+ C ( x ) 
+ y p′ ( x ) = 
+ √1 
+ ′ 
+ + x2 − 
+ C(x)x(1+x2 ) − 3 2 . 
+ En remplaçant dans l’équation ( 9.2.20 ) on obtient 
+ 1 
+ C ( x ) = = C(x ) = Argshx . 
+ ′ 
+ √1+x2 ⇒ 
+ Une solution particulière de l’équation complète est 
+ Argshx 
+ y ( x ) = . 
+ p 
+ √1+x2 
+ La solution générale de l’équation ( 9.2.20 ) est donnée par 
+ C Argshx 
+ y(x ) = y ( x)+y ( x ) = + . 
+ h p 
+ √1+x2 √1+x2 
+ 151 
+ 9 . 
+ diérentielles 
+ 9.2.5 Equation de Bernoulli 
+ Dénition 9.2.19 Une équation de Bernoulli est une équation de la forme 
+ a(x)y + b(x)y = ynf(x ) , ( 9.2.22 ) 
+ ′ 
+ où , lesfonctionsx a(x ) , b(x ) et f(x)vérientleshypothèsescitéespourleséquations 
+ −→ 
+ linéaires . 
+ Remarque 9.2.20 
+ 1 . 
+ En général , n N. Mais on peut prendre n = α R , en considérant seulement les 
+ ∈ ∈ 
+ solutions positives . 
+ Résolution de l’équation de Bernoulli . 
+ En divisant les deux membres de cette équation par yn , on obtient : 
+ a(x)y y n+b(x)y1 n = f(x ) . ( 9.2.23 ) 
+ ′ − − 
+ On pose alors 
+ z = y1 n z = ( 1 n)y y n , 
+ − ′ ′ − 
+ ⇒ − 
+ l’équation ( 9.2.23 ) devient 
+ a(x)z + ( 1 n)b(x)z = ( 1 n)f(x ) , ( 9.2.24 ) 
+ ′ 
+ On résout cette 
+ équation puis on revient à l’inconnue y(x ) . 
+ Exemple 9.2.21 
+ Résoudre l’équation 
+ y + xy = x3y3 . 
+ ′ 
+ Divisant les deux membres par y3 on obtient : 
+ y 3y + xy 2 = x3 . ( 9.2.26 ) 
+ − ′ − 
+ Posons maintenant 
+ z = y 2 z = 2y 3 , 
+ − ′ − 
+ ⇒ − 
+ 152 
+ 9 . 
+ Equations diérentielles 
+ l’équation ( 9.2.26 ) devient 
+ La solution générale 
+ de cette équation est : 
+ z(x ) = cex2 + x2 + 1 ; c R. 
+ ∈ 
+ En remplaçant z par sa valeur on obtient 
+ 1 
+ y2(x ) = ; C R. 
+ x2 + 1+Cex2 ∈ 
+ L’ensemble des solutions de l’équation ( 9.2.25 ) est donnée par 
+ 1 
+ S = y2(x ) = , où C R , y = 0 
+ x2 + 1+Cex2 ∈ 
+   
+ 9.2.6 Equation de Riccati 
+ Dénition 9.2.22 Une équation de Riccati est une équation du type : 
+ a(x)y + b(x)y = g(x)+y2f(x ) , ( 9.2.27 ) 
+ ′ 
+ où , les fonctions x a(x ) , b(x),f(x ) et g(x ) vérient les hypothèses citées pour les 
+ −→ 
+ équations linéaires . 
+ Remarque 9.2.23 
+ 1 . 
+ Si on ne connait pas une solution particulière y , on ne sait pas résoudre cette 
+ 1 
+ équation . 
+ De plus , contrairement aux équations linéaires , on ne sait pas chercher une solution 
+ particulière sauf dans des cas très particuliers 
+ Parcontre , sionconnaitunesolutionparticulière , onsaittrouvertouteslessolutions 
+ de cette équation ( la solution générale . 
+ ) 
+ Résolution de l’équation de Riccati . 
+ 153 
+ 9 . 
+ Equations diérentielles 
+ Supposons connue une solution particulière y de cette équation . 
+ On cherche la solution 
+ 1 
+ générale sous la forme 
+ y(x ) = u(x)+y ( x ) . 
+ 1 
+ Du fait que y est solution particulière de l’équation ( 9.2.27 ) , elle vérie donc 
+ 1 
+ a(x)y + b(x)y = g(x)+y2f(x ) . 
+ p′ p 
+ En remplaçant y(x ) par sa valeur dans l’équation ( 9.2.27 ) , on déduit que la fonction u 
+ vérie l’équation de Bernoulli suivante : 
+ a(x)u + [ b(x ) 2y f(x ) ] u = u2f(x ) . ( 9.2.28 ) 
+ ′ 1 
+ − 
+ Enrésolvantl’équationdeBernoulliprécédenteonobtientlasolutiongénéraledel’équation 
+ de Riccati . 
+ diérentielles 
+ Deux solutions y et y sont dites indépendantes si elle sont non nulles 
+ 1 2 
+ et vérient : 
+ y ( x ) 
+ 1 = Cte . 
+ y ( x )  
+ 2 
+ Nous avons la proposition : 
+ Proposition 9.3.5 Si y et y sont deux solutions indépendantes de l’équation homogène , 
+ 1 2 
+ alors la solution générale de cette équation est sous la forme 
+ y ( x ) = c y ( x)+c y ( x ) , 
+ h 1 1 2 2 
+ 155 
+ 9 . 
+ Equations diérentielles 
+ avec c et c sont deux constantes arbitraires . 
+ 1 2 
+ Pour la résolution de l’équation homogène , on constate deux cas distincts : 
+ • Cas où les coecients de l’équation sont des constantes . 
+ • Cas où les coecients de l’équation sont des fonctions de x non tous constants . 
+ 9.3.1 Equation diérentielle linéaire de second ordre à coecients 
+ constants : 
+ Elles sont sous la forme 
+ ay + by + cy = 0 . ( 9.3.3 ) 
+ ′′ ′ 
+ où a , b et c sont des constantes réelles . 
+ L’équation caractéristique de l’équation ( 9.3.3 ) est : 
+ ar2+br+c = 0 ( 9.3.4 ) 
+ qui a pour discriminant : 
+ ∆ = b2 4ac . 
+ − 
+ Le théorème suivant donne la solution générale de l’équation ( 9.3.3 ) . 
+ Théorème 9.3.6 
+ 1 . 
+ Si r est une racine double de l’équation ( 9.3.4 ) , la solution générale de l’équation 
+ ( 9.3.3 ) est sous la forme 
+ y ( x ) = c erx+c xerx , c , c R. ( 9.3.6 ) 
+ h 1 2 1 2 
+ ∈ 
+ 3 . 
+ Si r et r sont deux racines complexes cojuguées entre elles de l’équation ( 9.3.4 ) 
+ Equations diérentielles 
+ Donc la solution générale de l’équation est 
+ y(x ) = c cosx+c sinx ; c , c R. 
+ 1 2 1 2 
+ ∈ 
+ Recherche d’une solution particulière de l’équation complète : 
+ La recherche d’une solution particulière de l’équation à coecients constants , avec second 
+ membre suivante 
+ ay + by + cy = f(x ) . 
+ ′′ ′ 
+ sefaitengénéralecommepourlecasd’uneéquationd’ordre1,parlaméthodedevariation 
+ desconstantes(MéthodedeLagrange),méthodequireposeessentiellementsurl’hypothèse 
+ suivante : 
+ Soit y et y deux solutions indépendantes de l’équation homogène associée à l’équation 
+ 1 2 
+ ( 9.3.8 ) et 
+ y ( x ) = c y ( x)+c y ( x ) 
+ h 1 1 2 2 
+ la solution générale de l’équation homogène . 
+ On cherche une solution particulière sous la 
+ forme 
+ y ( x ) = c ( x)y ( x)+c ( x)y ( x ) ( 9.3.9 ) 
+ p 1 1 2 2 
+ où , les fonctions inconnues x c ( x ) , c ( x ) sont des fonctions dérivables sur l’intervalle 
+ 1 2 
+ −→ 
+ de résolution . 
+ En remplaçant dans l’équation ( 9.3.8 ) on aboutit à une équation à deux inconnues , ce qui 
+ n’est pas commode . 
+ On fait alors l’hypothèse suivante appelée hypothèse de Lagrange 
+ c ( x)y ( x)+c ( x)y ( x ) = 0 . 
+ Equations diérentielles 
+ Du fait que y et y sont solutions de l’équation homogène on obtient l’équation suivante 
+ 1 2 
+ f(x ) 
+ c ( x)y ( x)+c ( x)y ( x ) = . ( 9.3.11 ) 
+ ′1 1′ ′2 2′ 
+ a 
+ On déduit donc que les fonctions c ( x ) et c ( x ) sont solution du système d’équations : 
+ ′1 ′2 
+ c ( x)y ( x)+c ( x)y ( x ) = 0 
+ ( I ) ′1 1 ′2 2 
+  c ′1 ( x)y 1′ ( x)+c ′2 ( x)y 2′ ( x ) = f ( a x ) 
+ Le déterminant de ce Système est : 
+ y ( x ) y ( x ) 
+ 1 2 
+ W(x ) = = y ( x)y ( x ) y ( x)y ( x ) , 
+ ∣y ( x ) y ( x)∣ 
+ 1 2′ 
+ − 
+ 2 1′ 
+ ∣ 
+ 1′ 2′ 
+ ∣ 
+ ∣ ∣ 
+ ∣ ∣ 
+ appelé Wronksien des foncti∣ons y et y .∣ 
+ 1 2 
+ Le système ( I ) admet une solution unique si , et seulement si , le déterminant W(x ) est 
+ non nul . 
+ La réponse à cette question est donnée par la proposition suivante 
+ Proposition 9.3.8 Le Wronskien W(x ) est nul si , et seulement si , les fonctions y ( x ) et 
+ 1 
+ y ( x ) sont liées . 
+ 2 
+ Dufaitquelesfonctionsy ety sontindépendantesalorslesystème(I)admetuneunique 
+ 1 2 
+ solution qu’on peut calculer de la manière suivante . 
+ 0 y ( x ) 
+ 2 
+ f(x ) 
+ ∣ ∣ 
+ c ( x ) = ∣ ∣ a 
+ y 
+ 2′ 
+ ( x)∣ 
+ ∣ = 1 − y 2 ( x)f(x ) , 
+ ′1 ∣ 
+ ∣ 
+ ∣ 
+ W(x ) 
+ ∣ 
+ ∣ 
+ ∣ 
+ a y 
+ 1 
+ ( x)y 
+ 2′ 
+ ( x ) 
+ − 
+ y 
+ 2 
+ ( x)y 
+ 1′ 
+ ( x ) 
+ y ( x ) 0 
+ 1 
+ f(x ) 
+ ∣ ∣ 
+ c ( x ) = ∣ ∣ 
+ y 
+ 1′ 
+ ( x ) 
+ a ∣ ∣ = 1 y 1 ( x)f(x ) , 
+ ′2 ∣ 
+ ∣ 
+ ∣ 
+ W(x ) 
+ ∣ 
+ ∣ 
+ ∣ 
+ a y 
+ 1 
+ ( x)y 
+ 2′ 
+ ( x ) 
+ − 
+ y 
+ 2 
+ ( x)y 
+ 1′ 
+ ( x ) 
+ On calcule les primitives de ces deux fonctions , on remplace dans ( 9.3.9 ) , on obtient alors 
+ une solution particulière de l’équation ( 9.3.8 ) . 
+ Exemple 9.3.9 
+ Résoudre l’équation diérentielle suivante 
+ y + y = sinx ( 9.3.12 ) 
+ ′′ 
+ 159 
+ 9 . 
+ Equations diérentielles 
+ La solution de l’équation homogène est donnée par : 
+ y ( x ) = c cosx+c sinx . 
+ h 1 2 
+ Recherche d’une solution particulière y par la méthode de variation des constantes . 
+ p 
+ On pose 
+ y ( x ) = c ( x)cosx+c ( x)sinx . 
+ p 1 2 
+ Les fonctions c ( x ) et c ( x ) sont solutions du système 
+ ′1 ′2 
+ c ( x)cosx+c ( x)sinx = 0 
+ ( I ) 
+ ′1 ′2 
+  c ′1 ( x ) ( 
+ − 
+ sinx)+c ′2 ( x)cosx = sinx 
+ Le déterminant de ce système est 
+ cosx sinx 
+ W(x ) = = 1 . 
+ ∣ sinx cosx∣ 
+ ∣− ∣ 
+ ∣ ∣ 
+ ∣ ∣ 
+ La solution du système ( I ) est donnée p∣ar ∣ 
+ 0 sinx 
+ ∣sinx cosx∣ 1 
+ c ( x ) = ∣ ∣ = sin2x = ( cos2x 1 ) , 
+ ′1 ∣ W(x ) ∣ − 2 − 
+ ∣ ∣ 
+ ∣ ∣ 
+ cosx 0 
+ ∣ sinx sinx∣ sin2x 
+ c ( x ) = ∣ − ∣ = cosx sinx = . 
+ ′2 ∣ W(x ) ∣ 2 
+ ∣ ∣ 
+ ∣ ∣ 
+ En intègrant , on obtient 
+ 1 sin2x x 
+ c ( x ) = ( cos2x 1)dx = , 
+ 1 
+ 2 − 4 − 2 
+ ∫ 
+ 1 cos2x 
+ c ( x ) = sin2xdx = . 
+ 2 
+ 2 − 4 
+ ∫ 
+ Une solution particulière de l’équation ( 9.3.12 ) est donc : 
+ 160 
+ 9 . 
+ diérentielles 
+ sin2x x 1 
+ y ( x ) = cosx cos2xsinx 
+ p 
+ 4 − 2 − 4 
+   
+ 1 x 
+ = [ sin2xcosx cos2xsinx ] 
+ 4 − − 2 
+ sinx x 
+ = . 
+ 4 − 2 
+ La solution générale de cette équation est : 
+ sinx x 
+ y(x ) = c cosx+c sinx+ , c , c R. 
+ 1 2 1 2 
+ 4 − 2 ∈ 
+ Quelques cas particuliers 
+ En fait , il y’a des cas particuliers où l’on n’a pas besoin d’utiliser la méthode de variation 
+ des constantes , qui est applicable dans tous les cas , mais qui est relativement longue . 
+ 1 ) Produit d’un polynôme et d’une exponentielle . 
+ Si α n’est pas racine de l’équation caractéristique ( 9.3.4 ) , une solution particulière de 
+ ( 9.3.8 ) est donnée sous la forme 
+ y ( x ) = Q ( x)e 
+ αx 
+ p n 
+ où Q est un polynôme de degré n. 
+ Si α est une racine réelle simple de l’équation caractéristique ( 9.3.4 ) , une solution 
+ particulière de ( 9.3.8 ) peut être choisie sous la forme 
+ y ( x ) = xQ ( x)e 
+ αx 
+ p n 
+ où Q est un polynôme de degré n. 
+ n 
+ 161 
+ 9 . 
+ Equations diérentielles 
+ Si α est une racine double de l’équation caractéristique , une solution particulière de 
+ l’équation complète est sous la forme 
+ y ( x ) = x2Q ( x)e αx 
+ Remarque 9.3.10 
+ Si f(x ) = P ( x)eαx , dans beaucoup d’exemples , on trouve une solu- 
+ n 
+ tion particulière sous la forme 
+ y ( x ) = Q(x)e 
+ αx 
+ p 
+ où eαx est toujours le même , Q(x ) est un polynôme mais le degré de ce polynôme dière 
+ d’un exemple à un autre . 
+ Pour cette raison , on cherche une solution particulière sous la 
+ forme y ( x ) = Q(x)eαx et on regarde à quelle condition est liée le degré du polynôme Q. 
+ p 
+ 2 ) Produit d’un polynôme , d’une exponentielle et d’un sinus ou cosinus 
+ Proposition 9.3.2 
+ 1 . 
+ Si r n’est pas racine de l’équation caractéristique , Z ( x ) est donnée sous la 
+ p 
+ forme 
+ Z ( x ) = Q ( x)erx 
+ p n 
+ b. Si r est une racine de l’équation caractéristique , Z ( x ) est donnée sous la forme 
+ p 
+ Z ( x ) = xQ ( x)erx 
+ p n 
+ 162 
+ 9 . 
+ Equations diérentielles 
+ Dans le cas où 
+ f(x ) = P ( x)e αxsinβx = Im(P ( x)erx ) 
+ n n 
+ alors une solution particulière peut être cherchée sous la forme suivante 
+ y ( x ) = Im(Z ( x ) ) , 
+ p p 
+ et ( Z ( x ) ) est donnée comme précédemment . 
+ diérentielles 
+ ii ) On cherche une solution particulière , relativement au second membre 
+ f ( x ) = ( 3x 2)ex . 
+ 2 
+ − 
+ Du fait que f ( x ) est de la forme 
+ 2 
+ P ( x)e 
+ αx 
+ 1 
+ et α = 1 est racine double de l’équation caractéristique , on cherche alors une 
+ solution y sous la forme 
+ 2 
+ y ( x ) = Q(x)e 2x , avec Q(x ) = x2(a + a x ) . 
+ 2 − 0 1 
+ On a 
+ y = [ Q(x)+Q(x ) ] ex et y = [ Q ( x)+2Q(x)+Q(x ) ] ex , 
+ 2′ ′ 2′′ ′′ ′ 
+ en remplaçant dans l’équation on obtient 
+ Q ( x ) = ( 3x 2 ) . 
+ ′′ 
+ − 
+ On a donc pour tout x R , 
+ ∈ 
+ 6a x+2a = 9x2 6x+5 , 
+ 1 1 
+ − 
+ on obtient alors : 
+ 1 
+ a = et a = 1 . 
+ 1 0 
+ 2 − 
+ Donc 
+ x2 
+ y ( x ) = ( x 2)ex 
+ 2 
+ 2 − 
+ Une solution particulière de l’équation ( 9.3.14 ) est 
+ x2 
+ y ( x ) = ( x2 2x 1)e 2x+ ( x 2)ex . 
+ p − 
+ − − 2 − 
+ La solution générale est : 
+ x2 
+ y(x ) = ( c + c x)e2x+(x2 2x 1)e 2x+ ( x 2)ex , c , c R. 
+ 1 2 − 1 2 
+ − − 2 − ∈ 
+ 165 
+ 9 . 
+ diérentielles 
+ 2 . Résoudre 
+ y + y = 4cos3x+(6x 3)sin2x . 
+ ′′ 
+ − 
+ L’équation caractéristique admet deux racines complexes r = i et r = r = i , 
+ 1 2 1 
+ − 
+ alors la solution générale de l’équation homogène est : 
+ y ( x ) = Acosx+Bsinx , A , B R. 
+ h 
+ ∈ 
+ 3 . 
+ Recherche d’une solution particulière de l’équation ( 9.3.15 ) . 
+ On 
+ 2 3 3 
+ a , d’après la proposition ( 9.3.2 ) , 
+ y ( x ) = Re(Z ( x ) ) , y ( x ) = Re(Z ( x ) ) et y ( x ) = Im(Z ( x ) ) 
+ 1 1 2 2 3 3 
+ où , Z ( x ) , Z ( x ) et Z ( x ) sont , respectivement solutions particulières des équations 
+ 1 2 3 
+ y + y = 3eix , y + y = ei3x et y + y = ( 6x 3)ei2x . 
+ ′′ ′′ ′′ 
+ − 
+ Calculons Z ( x ) . 
+ 1 
+ Le fait que r = i est racine de l’équation caractéristique , on cherche Z ( x ) sous la 
+ 1 
+ forme 
+ Z ( x ) = Axeix 
+ 1 
+ On a , 
+ Z ( x ) = ( A+iAx)eix et Z ( x ) = ( 2iA Ax)eix . 
+ 1′ 1′′ 
+ − 
+ En remplaçant on aura , après simplication par eix : 
+ 3 
+ 2iA = 3 A = i. 
+ ⇔ −2 
+ Alors , 
+ 3 3 3 
+ Z ( x ) = ieix = sinx icosx . 
+ 1 
+ −2 2 − 2 
+ 166 
+ 9 . 
+ diérentielles 
+ Comme y ( x ) = Re(Z ( x ) ) alors , 
+ diérentielles 
+ Donc 
+ 8 
+ y ( x ) = Im(Z ( x ) ) = ( 1 2x)sin2x ) cos2x . 
+ 3 3 
+ − − 3 
+ Une solution particulière de l’équation ( 9.3.15 ) est 
+ y ( x ) = y ( x)+y ( x)+y ( x ) 
+ p 1 2 3 
+ 3 1 8 
+ = sinx cos3x+(1 2x)sin2x ) cos2x . 
+ 2 − 8 − − 3 
+ 9.3.2 Equations diérentielles linéaires du second ordre à coe- 
+ cients variables : 
+ En 
+ fait , à part quelques cas , on ne sait pas , en général , résoudre ces équations . 
+ Dans ce qui suit on donne quelques cas où l’on sait résoudre . 
+ Rappelons que si on connait deux solutions indépendante y et y de l’équation homogène 
+ 1 2 
+ ( 9.3.17 ) , alors la solution générale de cette équation est de la forme 
+ y(x ) = c y ( x)+c y ( x ) c , c R. ( 9.3.18 ) 
+ 1 1 2 2 1 2 
+ ∈ 
+ 1 ) Si on connait une solution particulière . 
+ Supposons connue une solution y de l’équation homogène . 
+ On cherche une deuxième 
+ 1 
+ solution sous la forme 
+ y = u(x)y ( x ) avec u(x ) = Cte . 
+ 2 1 
+  
+ 168 
+ 9 . 
+ Equations diérentielles 
+ On a alors 
+ y = u(x)y ( x)+u(x)y ( x ) et y = u ( x)y ( x)+2u(x)y ( x)+u(x)y ( x ) . 
+ 2′ ′ 1 1′ 2′′ ′′ 1 ′ 1′ 1′′ 
+ En remplaçant dans l’équation ( 9.3.17 ) , du fait que y est solution de cette équation , 
+ 1 
+ on déduit que la fonction u(x ) vérie l’équation diérentielle linéaire du premier ordre 
+ ′ 
+ suivante 
+ a(x)y ( x)u + [ 2a(x)y ( x)+b(x)y ( x)]u = 0 . 
+ 1 ′′ 1′ ′ ′ 
+ La résolution des équations diérentielles linéaires du premier donne 
+ 2a(x)y ( x)+b(x)y ( x ) 
+ u(x ) = exp 
+ 1′ ′ 
+ dx = 0 . 
+ ′ 
+ − a(x)y ( x )  
+  ∫ 1  
+ En intégrant cette expression on obtient 
+ 2a(x)y ( x)+b(x)y ( x ) 
+ u(x ) = exp 
+ 1′ ′ 
+ dx dx = Cte . 
+ − a(x)y ( x )  
+ ∫   ∫ 1  
+ Donc la fonction y = u(x)y ( x ) est bien une solution de l’équation ( 9.3.17 ) et elle est 
+ 2 1 
+ indépendante de y ( x ) . 
+ La solution générale de l’équation homogène est donée par 
+ 1 
+ y(x ) = c y ( x)+c u(x)y ( x ) c , c R. 
+ 1 1 2 1 1 2 
+ ∈ 
+ On a donc le résultat suivant 
+ Proposition 9.3.16 Si l’on connait une solution particulière y de l’équation homogène 
+ 1 
+ ( 9.3.17 ) , alors 
+ y ( x ) = u(x)y ( x ) 
+ 2 1 
+ est une deuxième solution de cette équation , indépendante de y , où u(x ) est donnée par 
+ 1 
+ la formule ( 9.3.19 ) . 
+ Exemple 9.3.17 Résoudre l’équation 
+ x2y 7xy +15y = 0 , ( 9.3.20 ) 
+ ′′ ′ 
+ − 
+ connaissant une solution particulière y = x3 . 
+ On cherche une deuxième solution de cette 
+ 1 
+ équation sous la forme 
+ y ( x ) = x3u(x ) . 
+ 2 
+ 169 
+ 9 . 
+ diérentielles 
+ On dérive : 
+ y ( x ) = x3u(x)+3x2u(x ) et y ( x ) = x3u ( x)+6x2u(x)+6xu(x ) . 
+ 2′ ′ 2′′ ′′ ′ 
+ On remplace dans l’équation ( 9.3.20 ) on obtient 
+ x2 x3u +6x2u +6xu 7x 3x2u x3u +15x3u = 0 x5u x4u = 0 , 
+ ′′ ′ ′ ′′ ′ 
+ − − ⇔ − 
+     
+ qui est une équation du premier ordre pour la fonction z = u. 
+ Une solution de cette 
+ ′ 
+ équation est 
+ u(x ) = 2x . 
+ ′ 
+ En intégrant et en prenant la costante d’intégration égale à zéro on aura u(x ) = x2 et 
+ donc , une solution particulière de l’équation est 
+ y ( x ) = x2x3 = x5 . 
+ 2 
+ La solution générale de l’équation ( 9.3.20 ) est 
+ y(x ) = c x3+c x5 , c , c R. 
+ 1 2 1 2 
+ ∈ 
+ 2 ) Méthode de changement de la variable . 
+ Le but de cette méthode est de chercher un changement de variables , s’il existe , qui puisse 
+ ramener cette équation à une équation à coecients constants . 
+ En supposant que la fonction c(x ) ne s’annule pas sur l’intervalle I , on écrit l’équation 
+ ( 9.3.17 ) sous la forme : 
+ A(x)y ( x)+B(x)y ( x)+y(x ) = 0 ( 9.3.21 ) 
+ ′′ ′ 
+ avec 
+ a(x ) b(x ) 
+ A(x ) = et B(x ) = . 
+ c(x ) c(x ) 
+ Soit un changement de variable donné sous la forme 
+ g : I R R 
+ ⊂ −→ 
+  x t = g(x ) 
+  −→ 
+  
+  t = g(x ) x = g 1(t ) . 
+ − 
+ ⇐ ⇒ 
+  
+  
+  
+ 170 
+ 9 . 
+ diérentielles 
+ où , g est supposée bijective , de classe C2 ainsi que g 1 . 
+ − 
+ On a : 
+ y(x ) = y(g 1(t ) ) , 
+ − 
+ la fonction y sera donc considéré comme une fonction u de la nouvelle variable t et on 
+ pose 
+ y(x ) = u(g(x ) ) = u(t ) 
+ Les formules de dérivation des fonctions composées donnent , en notant u = du : 
+ ′ dt 
+ y ( x ) = u(t)g ( x ) 
+ ′ ′ ′ 
+ ( 9.3.22 ) 
+ y ( x ) = u ( t ) ( g ( x ) ) 2 + u(t)g ( x ) 
+ ′′ ′′ ′ ′ ′′ 
+ En eet , on a 
+ y ( x ) = u(g(x)g ( x ) 
+ ′ ′ ′ 
+ = u(t)g ( x ) . 
+ ′ 
+ De même on obtient : 
+ y ( x ) = u ( t)(g ( x))2+u(t)g ( x ) . 
+ ′′ ′′ ′ ′ ′′ 
+ En remplaçant dans l’équation ( 9.3.21 ) , on déduit que la fonction u(t ) satisfait l’équation 
+ diérentielle du second ordre : 
+ A(x)(g ( x))2u ( t)+[A(x)g ( x)+B(x)g ( x ) ] u(t)+u(t ) = 0 . ( 9.3.23 ) 
+ ′ ′′ ′′ ′ ′ 
+ Cette équation est à coecients constants si , et seulement si , la fonction g satisfait les 
+ deux conditions suivantes 
+ A(x)(g ( x))2 = A et A(x)g ( x)+B(x)g ( x ) = B , ( 9.3.24 ) 
+ ′ ′′ ′ 
+ où A et B sont des constantes . 
+ On voit bien que si les conditions ( 9.3.24 ) sont satisfaites , l’équation ( 9.3.23 ) devient 
+ Au ( t)+Bu(t)+u(t ) = 0 . ( 9.3.25 ) 
+ ′′ ′ 
+ qui est une équation à coecients constants et donc l’équation ( 9.3.21 ) se ramène en une 
+ équationàcoecientsconstants . Onrésoutl’équation(9.3.25)puisonrevientàl’ancienne 
+ variable x = g 1(t ) . 
+ − 
+ 171 
+ 9 . 
+ Equations diérentielles 
+ En revenant à la variable x on obtient 
+ y(x ) = c e(4+√11)lnx+c e(4 √11)lnx 
+ 1 2 − 
+ = c 
+ eln(x)(4+√11 ) 
+ + c 
+ eln(x)(4 
+ − 
+ √11 ) 
+ 1 2 
+ = c x(4+√11)+c x(4 √11 ) , c , c R. 
+ 1 2 − 1 2 
+ ∈ 
+ Remarque 9.3.19 
+ Il y’a une autre méthode , qui consiste à chercher , si possible , une 
+ solution particulière sous forme d’une série entière , a xn donc , il faut supposer au 
+ n 
+ mois que cette solution est de classe C puis déterminer une deuxième , en utilisant la 
+ ∞  
+ proposition ( 9.3.16 ) . 
+ Mais cette méthode est hors programme de la première année . 
+ y + y = xe x ; 3 ) y 2y = cosx+2sinx ; 
+ Donner une équation diérentielle do nt les solutions sont de la forme 
+ ( Circuit RL ) Donner l’équation diérentielle satisfaite par le courant qui circule dans 
+ un circuit R.L. soumis à une tension sinusoïdale U = U sin(ωt ) . 
+ ( Dissolution d’un composé chimique ) La vitesse de dissolution d’un composé 
+ chimique dans l’eau est proportionnelle à la quantité restante . 
+ On place 20 g de ce com- 
+ posé et on observe que 5min plus tard , il reste 10 g. 
+ Dans combien de temps restera - t - il 
+ 173 
+ 9 . 
+ diérentielles 
+ On se propose d’étudier les solutions de l’équation dierentielle suivante : 
+ ( x3 x)y + ( 1 2x2)y+1 = 0 . ( 9.4.1 ) 
+ ′ 
+ − − 
+ 1 . 
+ Chercher une solution particulière sous la 
+ ′ 
+ − − − − − 
+ forme y = eαx . 
+ 1 
+ 2 . x2y ” 
+ Chercher une solution particulière pour l’équation 
+ ′ 
+ − 
+ homogène sous la forme y = xα . 
+ 1 
+ 3 . x2y”+4xy + ( 2 x2)y = 1 . 
+ ( Poser z = x2y . ) 
+ ′ 
+ − 
+ Exercice 8 On considère l’équation diérentielle 
+ x2y”+xy y = 0 . ( 9.4.2 ) 
+ ′ 
+ − 
+ 174 
+ 9 . 
+ Equations diérentielles 
+ 1 . On se place sur l’intervalle ] 0,+ [ . Eectuer le changement de variable x = et ,

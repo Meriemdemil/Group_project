@@ -1,0 +1,101 @@
+Definition and Declaration 
+  
+ Examples 
+  
+ WHAT IS ARRAY 
+ ? 
+ Objects 
+ WHAT IS ARRAY 
+ ? 
+ All elements in the array are of the same data - type ( int / char/ … ) 
+ Introduction to 1D Array 
+ Definition 
+ 1D ARRAY : is an object composed of multiple 
+  
+ elements of the same type , and each element is 
+ identified by an index . 
+ Let 's consider an array named COEF containing 
+ We can write the following actions : 
+ Through these examples , we observe that : 
+  
+ an element of the array is treated as a variable , and 
+  
+ the index value can be a constant , a variable , or an 
+  
+ expression . 
+ The number of elements in the array determines its size . 
+  
+ The number of indices used to identify a specific 
+  
+ element is called the dimension of the array . 
+ The type of the index is a scalar type ( and often an 
+  
+ interval ) 
+ Declaration of 1D Array 
+ To define an array , you need to : 
+ Know the number of its elements , i.e. , its size . 
+  
+ Determine the type of each element . 
+  
+ Provide the name of the array . 
+  
+ The declaration of an array is done by using the : 
+ element type followed by the array name 
+  
+ [ array_size ] within brackets . 
+ We call the procedure READ1D to read the size of the array and 
+  
+ its elements . 
+ We read the searched value ( V ) . 
+  
+  We call the function SearchV ( Result = SearchV(A , Size , V ) ) . 
+ We call the procedure READ1D to read the size of the array 
+  
+ and its elements . 
+ We read the searched value ( V ) . 
+  
+  We call the function NbeV ( Result = NbeV(A , Size , V ) ) . 
+ To refer to an element 
+ include < iostream > 
+ 4 
+ 5 using std::cout ; 
+ 6 using std::endl ; 
+ 7 
+ 8 # include < iomanip > 
+ 9 
+ 10 using std::setw ; 
+ 11 
+ Note use of const keyword . 
+ 12 int main ( ) 
+ Only const variables can 
+ 13 { 
+ 14 // constant variable can be used to ssppeecciiffyy ararrarya ysi zseisz.e 
+ 15 const int arraySize = 10 ; 
+ 16 
+ for ( int i = 0 ; i < arraySize ; i++ ) // set the values 
+ and all the loops will still 
+ 21 
+ work ( otherwise , we ’d have to 
+ 22 cout < < " Element " < < setw ( 13 ) < < " Value " < < endl ; 
+ 23 update every loop in the 
+ program ) . 
+ 1D Array in C++ 
+ Example using array 
+ 24 // output contents of array s in tabular format 
+ 25 for ( int j = 0 ; j < arraySize ; j++ ) 
+ 26 cout < < setw ( 7 ) < < j < < setw ( 13 ) < < s [ j ] < < endl ; 
+ 27 
+ 28 return 0 ; // indicates successful termination 
+ 29 
+ 30 } // end main 
+ Element Value 
+ 0 2 
+ 1 4 
+ 2 6 
+ 3 8 
+ 4 10 
+ 5 12 
+ 6 14 
+ 7 16 
+ 8 18 
+ 9 20

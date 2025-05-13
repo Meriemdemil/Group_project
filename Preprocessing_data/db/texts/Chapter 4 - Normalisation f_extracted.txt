@@ -1,0 +1,74 @@
+Objectives 
+ The National Higher School of 
+ Artificial Intelligence ● 
+ For most business database design purposes , 3NF is as high as needed in 
+ ○ normalization 
+ Series of stages called normal forms : 
+ ○ 
+ Highest level of normalization is not always most desirable 
+ ■ 
+ Each project has its own project number , name , assigned 
+ employees , etc . 
+ ○ 
+ Each employee has an employee number , name , job class 
+ ○ 
+ Charges its clients by billing hours spent on each contract 
+ ○ 
+ Table structure appears to work ; report is generated with ease 
+ ● 
+ Report may yield different results depending on what data anomaly 
+ has occurred 
+ ○ 
+ Employee can be assigned to more than one project but each project includes only a 
+ single occurrence of any one employee 
+ ● 
+ PROJECT_NUM , either a PK or part of a PK , contains NULLS 
+ ● JOB_CLASS values could be abbreviated differently ● 
+ No data item will be unnecessarily stored in more than one table 
+ ● 
+ Each time an employee is assigned to a project , all employee information is 
+ ● 
+ All nonprime attributes in a table are dependent on the primary key 
+ duplicated 
+ ● 
+ Insertion anomalies – to insert a new employee who has not been 
+ assigned to a project requires a phantom project 
+ Deletion anomalies – 
+ ● 
+ Higher forms are not likely to be encountered in business environment 
+ ● 
+ Conversion to 2NF occurs only when the 1NF has a composite key 
+ If the 1NF key is a single attribute , then the table is automatically in 2NF 
+ ○ 
+ The dependencies for the original key components are found by 
+ ○ For each component of the PK that acts as a determinant in a partial dependency , 
+ ○ The attributes in a partial dependency are removed from the 
+ create a new table with a copy of that component as the PK 
+ original table and placed in the new table with the dependency ’s 
+ ○ 
+ These components also remain in the original table in order to serve as FKs to the 
+ determinant 
+ original table 
+ ○ 
+ Any attributes that are not dependent in a partial dependency 
+ ○ 
+ Write each key component on a separate line ; then write the original composite 
+ remain in the original table 
+ key on the last line . 
+ Evaluate Using Derived Attributes 
+ The company manages many projects • PROJECT is in 3NF and needs no modification 
+ • EMPLOYEE contains a transitive dependency so we now have 
+ PROJECT(PROJ_NUM , PROJ_NAME ) 
+ ○ 
+ Each project requires the services of many employees EMPLOYEE(EMP_NUM , EMP_LNAME , EMP_FNAME , EMP_INITIAL , JOB_CODE ) 
+ JOB(JOB_CODE , JOB_DESCRIPTION , JOB_CHG_HOUR ) 
+ ○ An employee may be assigned to several projects 
+ ○ Some employees are not assigned to a project and 
+ perform non - project related duties . 
+ As this M : N can not be implemented , we include the ASSIGNMENT • 
+ ASSIGN_HOURS is assigned to ASSIGNMENT 
+ entity to track the assignment of employees in projects 
+ • 
+ A “ manages ” relationship is added to in order to keep detailed 
+ information about each project ’s manager 
+ •

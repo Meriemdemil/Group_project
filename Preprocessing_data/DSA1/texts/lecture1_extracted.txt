@@ -1,0 +1,250 @@
+What is an Algorithm ? 
+ An algorithm is a plan of 
+  
+ actions described using a 
+ certain language . 
+ OR 
+ A description of a method to 
+  
+ be implemented in order to 
+ solve a problem . 
+ OR 
+ A sequence of precise 
+  
+ instructions that leads to a 
+ solution 
+ Algorithm Properties 
+ Completeness 
+  
+  Algorithms must consider all possible cases . 
+  They address both general and specific scenarios . 
+ Finiteness 
+  
+  Algorithms always consist of a finite number of actions . 
+ Repetitiveness 
+  
+  Algorithms are often repetitive . 
+  They include processes that repeat as needed . 
+ Language and Hardware Independence 
+  
+  Algorithms are not tied to programming languages or specific 
+ hardware . 
+  
+ After development , they are translated into a chosen programming 
+ language . 
+ Algorithm Characteristics 
+ To precisely characterize an algorithm , we propose the following rules : 
+  
+ Clear Object Definitions 
+  Every object manipulated within the algorithm should be clearly defined 
+ before its use . 
+ Avoid any ambiguity in the definitions of objects . 
+  Unambiguous Objects 
+  Ensure that each object has a single , unambiguous interpretation . 
+  Ambiguity can lead to errors and unintended behavior . 
+  Use of Known Operations 
+  
+ Any combination of elementary operations should be constructed using operations that 
+ are assumed to be known and well - defined . 
+  Finite Number of Operations 
+  
+ For every set of input data , the algorithm must provide a result through a finite number 
+ of operations . 
+ After defining the problem , the next step is to explore and research various methods 
+ for solving it . 
+ Investigate different approaches and consider their pros and cons . 
+ Once a suitable method is identified , proceed to implement the algorithm with 
+ explicit details . 
+  Define a set of data based on the problem statement , assumptions , or external 
+ information sources . 
+ Determine what information is required to address the problem . 
+ Identify the desired outcomes and the sequence of operations required to 
+  
+ reach those outcomes . 
+  Constraints are often derived from the problem statement and the broader context . 
+ Clarifying the Statement : 
+  
+  Begin by carefully analyzing and clarifying the problem statement . 
+ Simplifying the Problem : 
+  
+  Identify the core components of the problem that need to be addressed . 
+ Incremental Approach : 
+  
+  Avoid attempting to solve the problem directly in its entirety . 
+  
+ Instead , consider breaking it down into smaller , solvable sub - problems . 
+ Assessing Decidability : 
+  
+  Make sure the problem is solvable , some problems may be undecidable , meaning 
+ there is no algorithm that can provide a definite solution for all cases . 
+ Each sub - problem should contribute to the solution of the overall problem . 
+ Iterative Refinement : 
+  
+  Begin with a basic outline of the algorithm and gradually refine it . 
+ No Universal Strategy : 
+  
+  Understand that there is no one - size - fits - all strategy for constructing algorithms . 
+  The strategy should be adapted to the specific problem , its complexity , and your 
+ problem - solving skills . 
+  Clear Specification : 
+  The algorithm must be specified clearly , leaving no room for ambiguity . 
+  
+ Data Type Specification : 
+  Specify the data types used within the algorithm ( e.g. , real numbers , integers ) . 
+  Human Simulatability : 
+  
+ Every operation within the algorithm should be such that a human can simulate them within 
+ a finite time . 
+  This ensures that the algorithm is understandable and practical . 
+ Algorithm Construction Steps : 
+ Creating an algorithm involves a structured series of steps : 
+ Variable Declaration : 
+ 1 . 
+ In this step , we detail the elements that the algorithm will use . 
+ Preparing for Processing : 
+ 2 . 
+  This phase involves initializing or inputting the data required for solving the problem . 
+ Processing : 
+ 3 . 
+  The heart of the algorithm lies in this step , where we perform the necessary 
+ operations to address the problem . 
+  We break down complex problems into manageable steps and solve them one by 
+ one if needed . 
+ Algorithm Components : 
+ Processors , Action & Environment 
+ Processor : 
+ An Algorithm is always executed by a PROCESSOR . 
+  
+ A PROCESSOR is any entity capable of understanding and 
+  
+ executing the actions that make up an algorithm . 
+ A Processor can be a person , an electronic device , a 
+  
+ mechanical device ( such as a vending machine ) , or a 
+ computer . 
+ Algorithm Components : 
+ Processors , Action & Environment 
+ Action : 
+ An ACTION is a step in the algorithm . 
+ It is a finite - duration 
+  
+ event that alters the environment . 
+ A primitive action is an action that a processor can 
+  
+ execute without any additional information . 
+ Environnement 
+ The set of necessary objects and elements required to carry 
+  
+ out a task described by an algorithm is called the 
+ Environment . 
+ Algorithm Examples 
+ Nowadays , we rely on algorithms not only for investing 
+ in stocks but also for personalizing content 
+ recommendations on streaming platforms , optimizing 
+ supply chains , and automating various processes . 
+ Algorithms play a vital role in our economy and society , 
+ shaping decision - making , innovation , and the way we 
+ interact with technology and information . 
+ Algorithm Examples 
+ Cooking recipe … 
+ In each recipe , a specific procedure must be followed in 
+ sequence . 
+ The various steps of the recipe represent the 
+ operations that make up the algorithm . 
+ Let 's take a Crepe recipe , for instance . 
+ In this recipe , a 
+ specific procedure must be followed in a particular order . 
+ Each step of the recipe corresponds to an operation that 
+ constitutes the algorithm . 
+ Algorithm Examples 
+ Cooking Crepe recipe 
+ PROCESS 
+ INPUT OUTPUT 
+ Recipe Steps : 
+ List of Ingredients : 
+ • 250 grams of sifted Start 
+ or all - purpose flour • Melt the butter in the 
+ microwave and gently warm the 
+ • 4 eggs 
+ milk , which should be barely 
+ lukewarm ( this prevents 
+ • 450 milliliters of 
+ lumps ) . 
+ slightly warm milk 
+ • Mix the sifted flour , sugar , 
+ • … 
+ and salt in a large bowl . 
+ • … 
+ End 
+ Algorithm Examples 
+  The divisor B becomes the new dividend . 
+  
+ Express them with simple , concise , and clear sentences or 
+  
+ through diagrams . 
+ Then , structure these ideas . 
+ Do n't hesitate to apply your own 
+  
+ conventions , such as diagrams , narratives , or colors . 
+ → The analysis should be modular and well - structured 
+ Resolution Process 
+ Analysis ( 2/2 ) 
+ Take an example , well - chosen , and explain your idea through 
+ this example . 
+ Resolution Process 
+ Manual Processing 
+ The process involves executing the algorithm , step by step , 
+  
+ manually , to verify that it produces the desired outcome . 
+ We begin by creating a set of test cases , which are concrete and 
+  
+ complete examples . 
+ To do this , we construct a table in which each column represents an 
+  
+ object from our environment , and each row represents a step in our 
+ algorithm . 
+ The designer 's behavior during this process can be both passive 
+  
+ ( observational ) and active ( engaging in the logic of operation ) . 
+ Resolution Process 
+ Example 
+ Problem : 
+  
+ Find the list of divisors of a number N ( including N ) . 
+  
+ Precise Statement : 
+  
+ Given an integer N , construct the computer solution that 
+  
+ allows us to obtain the list of its divisors ( including N ) . 
+ Resolution Process 
+ The questions one should always ask : 
+ What are we doing ? → Answer : Finding the divisors of a number N. 
+  
+ What is a divisor ? 
+ How many times ? 
+ Resolution Process 
+ Example 
+ Analysis 
+ … 
+ Let N be an integer . 
+  
+ Resolution Process 
+ Example 
+ // 
+ to calculate the divisors of N 
+ Variables N , i : INTEGER 
+ BEGIN 
+ WRITE ( ' Enter a number N : ‘ ) 
+ READ ( N ) 
+ WRITE ( ' The divisors of : ' , N ) 
+ FOR i < - 1 TO ( N DIV 2 ) DO 
+ BEGIN 
+ IF ( N MOD i = 0 ) THEN 
+ BEGIN 
+ WRITE(i ) 
+ END 
+ END 
+ WRITE(N , ' is also a divisor of itself ' ) 
+ END 
+ Resolution Process

@@ -1,0 +1,398 @@
+Prof. 
+ Points in this Chapter 
+ • Show several real - life problems , which can be converted to 
+ problems on graphs . 
+ • Give algorithms to solve several common graph problems . 
+ • Show how the proper choice of data structures can 
+ drastically reduce the running time of these algorithms . 
+ Basic Definitions 
+ • A graph G = ( V , E ) consists of a set of vertices , V , and a set of 
+ edges , E. 
+ • Each edge is a pair ( v , w ) , where v , w ∈ V. 
+ Edges are sometimes 
+ referred to as arcs . 
+ • If the pair is ordered , then the graph is directed . 
+ Directed graphs 
+ are sometimes referred to as digraphs . 
+ • Vertex w is adjacent to v if and only if ( v , w ) ∈ E. 
+ • 
+ In an undirected graph with edge ( v , w ) , and hence ( w , v ) , w is 
+ adjacent to v and v is adjacent to w. 
+ • 
+ 3 
+ Basic Definitions 
+ If the graph contains an edge ( v , v ) from a vertex to itself , then the 
+ path v , v is sometimes referred to as a loop . 
+ ( The graphs we will 
+ consider will generally be loopless . ) 
+ • for undirected graphs , the edges must be distinct . 
+ ( Note that the 
+ path u , v , u in an undirected graph should not be considered a 
+ cycle , because ( u , v ) and ( v , u ) are the same edge . ) 
+ • In a directed graph , these are different edges , so it makes sense to 
+ call this a cycle . 
+ • A directed graph is acyclic if it has no cycles . 
+ An undirected graph is connected if there is a path from every 
+ vertex to every other vertex . 
+ A directed graph with this 
+ property is called strongly connected . 
+ • Weakly connected graph : a directed graph not strongly 
+ connected , but the underlying graph ( without direction to the 
+ arcs ) is connected . 
+ i.e. it is possible to reach any node starting 
+ from any other node by traversing edges in some direction 
+ ( i.e. , not necessarily in the direction they point ) . 
+ • Complete graph : a graph in which there is an edge between 
+ every pair of vertices . 
+ Practical Examples of Graphs 
+ Airport system : 
+ • The edge could have a weight , representing the time , distance , or cost of the flight . 
+ • Such a graph is ( logically ) directed , since it might take longer or cost more to fly in 
+ different directions . 
+ • Ideally , the airport system is strongly connected , so that it is always possible to fly 
+ from any airport to any other airport . 
+ Traffic flow : 
+ Each street intersection represents a vertex , and each street is an edge . 
+ • The edge costs could represent a speed limit , a capacity ( number of lanes ) , etc . 
+ • We could ask for the shortest route or find the most likely location for bottlenecks . 
+ Representation of Graphs 
+ • A simple way to represent a graph is to use a two - dimensional array known as an 
+ adjacency matrix representation . 
+ • For each edge ( u , v ) , set A[u][v ] to true ; otherwise to false . 
+ • If the edge has a weight associated with it , then one can set A[u][v ] to the weight and use 
+ either a very large or a very small weight as a sentinel to indicate nonexistent edges . 
+ • Example , if we were looking for the cheapest airplane route , we could represent 
+ nonexistent flights with a cost of ∞. For the most expensive airplane route , we could use 
+ −∞ to represent nonexistent edges . 
+ • 
+ Adjacency matrix representation : 
+ • Advantage : extreme simplicity 
+ • Disadvantage : the space requirement is Θ(|V|2 ) which can be prohibitive if the graph 
+ does not have very many edges . 
+ • 
+ An adjacency matrix is an appropriate representation if the graph is dense : |E| = Θ(|V|2 ) . 
+ • In most applications , not true . 
+ E.g. : a graph representing a street map . 
+ Alternative Graph Representation 
+ • If the graph is sparse ( i.e. not dense ) , a better solution is an adjacency list 
+ representation . 
+ It is the standard way to represent graphs . 
+ • For each vertex , we keep a list of all adjacent vertices . 
+ • The space requirement is then O(|E| + |V| ) , which is linear in the size of the 
+ graph . 
+ • If the edges have weights , then this additional information is also stored in 
+ the adjacency lists . 
+ • A common requirement in graph algorithms is to find all vertices adjacent to 
+ some given vertex v. 
+ This can be done , in time proportional to the number of 
+ such vertices found , by a simple scan down the appropriate adjacency list . 
+ 9 
+ Adjacency List Representation of a Graph 
+ 10 
+ Maintaining the Adjacency Lists 
+ • Several alternatives : the lists can be maintained in either vectors or lists . 
+ • 
+ For sparse graphs , when using vectors , initialize each vector with a smaller 
+ capacity than the default to avoid wasted space . 
+ 11 
+ Topological Sort 
+ • 
+ A topological sort is an ordering of 
+ vertices in a directed acyclic graph , 
+ such that if there is a path from vi to 
+ vj , then vj appears after vi in the 
+ ordering . 
+ • A directed edge ( v , w ) indicates that 
+ course v must be completed before 
+ course w may be attempted . 
+ • A topological ordering of these 
+ courses 
+ is any course sequence that 
+ does not violate the prerequisite 
+ requirement . 
+ The ordering is not necessarily unique ; any legal ordering 
+ will do . 
+ Find any vertex with no incoming edges . 
+ Apply this same strategy to the rest of the graph . 
+ • Let us define the indegree of a vertex v as the number of 
+ edges ( u , v ) . 
+ • We compute the indegrees of all vertices in the graph . 
+ The indegree is computed for every 
+ vertex . 
+ The topological ordering then is the 
+ order in which the vertices dequeue . 
+ Topological sort algorithm 
+ 14 
+ Complexity of the Topological Sort Algorithm 
+ • Time complexity of this algorithm is O(|E| + |V| ) if adjacency lists are used . 
+ • 
+ Indeed , the body of the for loop is executed at most once per edge . 
+ • Computing the indegrees can be done with the code below ; the same logic shows 
+ that the cost of this computation is O(|E| + |V| ) 
+ for each Vertex v 
+ v.indegree = 0 ; 
+ for each Vertex v 
+ for each Vertex w adjacent to v 
+ w.indegree++ ; 
+ • The queue operations are done at most once per vertex . 
+ • 
+ The other initialization steps , including the computation of indegrees , also take 
+ time proportional to the size of the graph . 
+ • We now assume that the input is a weighted 
+ graph : Associated with each edge ( v , v ) is a 
+ i j 
+ cost c to traverse the edge . 
+ i , j 
+ • The weighted path length is the cost 
+ 𝑁−1 
+ σ 𝐶 of a path v v . . . 
+ 𝑖=1 𝑖,𝑖+1 1 2 N 
+ • The unweighted path length is the number of 
+ edges on the path , i.e. N − 1 . 
+ • Single - Source Shortest - Path Problem : 
+ Shortest - Paths & negative - cost cycles 
+ • 
+ This can cause problems … 
+ • Note that we could stay in the loop arbitrarily long . 
+ • Same applies to the shortest path from v1 to v6 : 
+ undefined , as we can get into the same loop . 
+ • This loop is known as a negative - cost cycle ; when 
+ one is present , the shortest paths are not defined . 
+ Example of Applications 
+ Networks : 
+ • Modeling airplane ( or other mass 
+ • Vertices represent computers ; transit ) routes by graphs . 
+ an edge represents a link 
+ ( phone bill per a megabyte of 
+ • 
+ Currently there are no algorithms in 
+ other computers . 
+ 18 
+ Unweighted Shortest Paths 
+ • Given some vertex , s , find the shortest path 
+ from s to all other vertices of an unweighted 
+ graph . 
+ • For now , suppose we are interested only in the 
+ length of the shortest paths , not in the actual 
+ paths themselves . 
+ ( Easy to keep track of the 
+ actual paths . ) 
+ • If s is chosen as v3 . 
+ • We mark this information on the graph . 
+ These can be found by looking 
+ at the vertices that are adjacent to s. 
+ • 
+ • Finally , examine the vertices adjacent to the 
+ recently evaluated v2 and v4 . 
+ • All vertices have now been calculated , 
+ 20 
+ Unweighted Shortest Paths 
+ Dijkstra ’s Algorithm 
+ • 
+ If the graph is weighted , the problem ( apparently ) becomes harder , but we 
+ can still use the ideas from the unweighted case . 
+ • 
+ Each vertex is still marked as either known or unknown , distance dv is kept 
+ for each vertex , as well as pv , the last vertex to cause a change to dv . 
+ Dijkstra ’s algorithm : the general method to solve the single - source 
+ shortest - path problem . 
+ It is an example of a greedy algorithm . 
+ • Greedy algorithms generally solve a problem in stages by doing what 
+ appears to be the best thing at each stage . 
+ But do not guarantee to always 
+ get the best solution . 
+ • In Dijkstra ’s algorithm , with the 
+ same logic , set dw = dv + 𝐶 if 
+ 𝑣,𝑤 
+ this new value for dw would be an 
+ improvement . 
+ • i.e. the algorithm decides if it is a 
+ good idea or not to use v on the 
+ path to w. 
+ • 
+ The cost calculated above is the 
+ cheapest path using v ( and only 
+ known vertices ) . 
+ Dijkstra ’s Algorithm 
+ • Assume that the start node , s , is v1 . 
+ It is marked known . 
+ • Now that v1 is known , some entries need 
+ to be adjusted . 
+ The vertices adjacent to 
+ v1 are v2 and v4 . 
+ We continue like this … . 
+ Dijkstra ’s Algorithm 
+ After v5 
+ and then 
+ v3 are 
+ declared 
+ known 
+ After v7 
+ is 
+ declared 
+ After v6 is declared known and 
+ known 
+ algorithm terminates 
+ After v1 is declared known 
+ After v4 is declared known 
+ 26 
+ After v2 is declared known 
+ Stages of Dijkstra ’s algorithm 
+ 27 
+ Pseudocode for Dijkstra ’s algorithm 
+ • Vertex class for Dijkstra ’s algorithm ( pseudocode ) and printPath 
+ • Pseudocode for Dijkstra ’s algorithm 
+ 28 
+ Analysis of ’s algorithm 
+ • A proof by contradiction will show that the algorithm always works as long 
+ as no edge has a negative cost . 
+ ( If any edge has a negative cost , the 
+ algorithm could produce the wrong answer ) . 
+ • The running time depends on how the vertices are manipulated . 
+ • If the vertices are scanned sequentially to find the minimum dv , each phase 
+ will take O(|V| ) time to find the minimum dv vertex , and thus the algorithm 
+ will take O(|V|2 ) time for finding the minimum . 
+ • The time for updating dw is constant per update , and there is at most one 
+ update per edge for a total of O(|E| ) . 
+ • Thus , the total running time is O(|E|+|V|2 ) = O(|V|2 ) . 
+ • If the graph is dense , with |E| = ( |V|2 ) , this algorithm is not only simple but 
+ also essentially optimal , since it runs in time linear in the number of edges . 
+ Analysis of ’s algorithm 
+ • If the graph is sparse , with |E| = ( |V| ) , the algorithm is too slow . 
+ • The distances would thus need to be kept in a priority queue . 
+ Selection of the vertex v is a deleteMin operation , since once the unknown 
+ minimum vertex is found , it is no longer unknown and must be removed from 
+ future consideration . 
+ a. Treat the update as a decreaseKey operation . 
+ b. Insert w and the new value d into the priority queue every time w ’s 
+ w 
+ distance changes . 
+ ( See the textbook for the details ) 
+ Both yield a O(|E| log |V| ) time complexity to the algorithm . 
+  it is important in many applications to use a priority queue to solve 
+ this problem . 
+ • 
+ There are better time bounds possible using Dijkstra ’s algorithm if 
+ different data structures are used . 
+ Graphs with Negative Edge Costs 
+ • If the graph has negative edge costs , then Dijkstra ’s algorithm does not work . 
+ • The problem : once a vertex , u , is declared known , it is possible that from 
+ some other unknown vertex , v , there is a path back to u that is very negative 
+ such that taking a path from s to v back to u is better than going from s to u 
+ without using v. 
+ A working solution , but with a drastic increase in running time , is a 
+ combination of the weighted and unweighted algorithms : 
+ • No use of the concept of known vertices 
+ • Begin by placing s on a queue . 
+ • At each stage , dequeue a vertex v. 
+ • Find all vertices w adjacent to v such that d > d + 𝐶 . Update d and p , and place 
+ w v w w 
+ 𝑣,𝑤 
+ w on a queue if it is not already there . 
+ ( A bit can be set for each vertex to indicate 
+ presence in the queue . ) 
+ • Repeat the process until the queue is empty . 
+ 32 
+ Graphs with Negative Edge Costs 
+ Pseudocode for weighted shortest - path algorithm with negative edge costs 
+ • 
+ This algorithm works if there are no negative - cost cycles . 
+ It is no longer true that the code in the inner for loop is executed once per 
+ edge . 
+ • Each vertex can dequeue at most |V| times , so the running time is O(|E| · |V| ) 
+ if adjacency lists are used ( Exercise 9.7(b ) ) . 
+ • This is quite an increase from ’s algorithm 
+ • BUT it is fortunate that , in practice , edge costs are non - negative . 
+ • If negative - cost cycles are present , then 
+ • the algorithm as written will loop indefinitely . 
+ 33 
+ Acyclic Graphs 
+ • 
+ If the graph is known to be acyclic , Dijkstra ’s algorithm can be improved by 
+ changing the order in which vertices are declared known , called the vertex 
+ selection rule . 
+ • The new rule is to select vertices in topological order . 
+ • This selection rule works because when a vertex v is selected , its distance , dv , 
+ can no longer be lowered , since by the topological ordering rule it has no 
+ incoming edges emanating from unknown nodes . 
+ • There is no need for a priority queue with this selection rule ; 
+ • The running time is O(|E| + |V| ) , since the selection takes constant time . 
+ 34 
+ Examples of Applications of Acyclic Graphs 
+ • Modelling some downhill skiing problem : getting from point a to b , but can 
+ only go downhill , so clearly there are no cycles . 
+ • Modelling of ( nonreversible ) chemical reactions : 
+ • each vertex could represent a particular state of an experiment , 
+ • edges would represent a transition from one state to another , and 
+ • the edge weights might represent the energy released . 
+ • 
+ If only transitions from a higher energy state to a lower one are allowed , the graph is 
+ acyclic . 
+ • 
+ Critical path analysis : 
+ • Each node represents an activity that must be performed , along with the time it takes to 
+ complete the activity . 
+ This graph is thus known as an activity - node graph . 
+ • The edges represent precedence relationships : An edge ( v , w ) means that activity v must 
+ be completed before activity w may begin . 
+  the graph must be acyclic . 
+ • It is assumed that any activities that do not depend ( directly or indirectly ) on each other 
+ can be performed in parallel by different servers . 
+ 35 
+ Applications of Acyclic Graphs – Critical Path Analysis 
+ Critical path analysis : 
+ • Such a graph could be ( and frequently 
+ is ) used to model construction projects . 
+ Important questions : 
+ • What is the earliest completion time for 
+ the project ? 
+ 36 
+ Applications of Acyclic Graphs – Critical Path Analysis 
+ • To perform these calculations , the activity - node graph is converted to an event - node graph . 
+ • Each event corresponds to the completion of an activity and all its dependent activities . 
+ • Events reachable from a node v in the event - node graph may not commence until after the 
+ event v is completed . 
+ • 
+ This graph can be constructed automatically or by hand . 
+ • Dummy edges and nodes may need to be inserted in the case where an activity depends on 
+ several others . 
+ • This is necessary in order to avoid introducing false dependencies ( or false lack of them ) . 
+ • Since the event - node graph is acyclic , we need not worry about cycles . 
+ • In this case , it is easy to adapt the shortest - path algorithm to compute the earliest 
+ completion time for all nodes in the graph . 
+ • If EC is the earliest completion time for node i , then the applicable rules are 
+ i 
+ EC = 0 and 𝐸𝐶 = 𝑚𝑎𝑥 ( 𝐸𝐶 + 𝐶 ) 
+ 1 𝑤 ( 𝑣,𝑤 ) ∈ 𝐸 𝑣 𝑣,𝑤 
+ 38 
+ Critical Path Analysis - Event - node graph 
+ • One can also compute the latest completion time , LC , that each event can 
+ i 
+ finish without affecting the final completion time . 
+ The formulas to do this are : 
+ LC = EC and 𝐿𝐶 = 𝑚𝑖𝑛 ( 𝐿𝐶 − 𝐶 ) 
+ n n 𝑣 ( 𝑣,𝑤 ) ∈ 𝐸 𝑤 𝑣,𝑤 
+ • 
+ These values can be computed in linear time by maintaining , for each vertex , a 
+ list of all adjacent and preceding vertices . 
+ • 
+ The earliest completion times are computed for vertices by their topological 
+ order , and the latest completion times are computed by reverse topological order . 
+ 39 
+ Critical Path Analysis - Event - node graph 
+ • 
+ The slack time for each edge in the event - node graph represents the amount of time that the 
+ completion of the corresponding activity can be delayed without delaying the overall 
+ completion . 
+ • It is easy to see that 𝑆𝑙𝑎𝑐𝑘 = 𝐿𝐶 − 𝐸𝐶 − 𝐶 
+ 𝑤 𝑣 𝑣,𝑤 
+ 𝑣 𝑤 
+ , 
+ • In the figure , for each vertex : Earliest completion time : the top number ; 
+ Latest completion time : the bottom entry . 
+ These are critical activities , which must finish on schedule . 
+ Acknowledgement : This course PowerPoints make substantial ( non - exclusive ) use of 
+ the PPT chapters prepared by Prof. from the University of Pennsylvania , 
+ USA , themselves developed on the basis of the course textbook . 
+ Other references , if any , 
+ will be mentioned wherever applicable .

@@ -1,0 +1,268 @@
+Solving Linear 
+ Programming Problems 
+ TheSimplexMethod(PART2 ) 
+ Mohammed Brahimi 
+ ENSIA / IntelligentSystemsEnginnering 
+ March11,2023 
+ Outline 
+ KeyTakeawaysfromLastLecture 
+ QuestionsRegardingSimplex 
+ Two - Phasemethod 
+ Simplex : Specialcases 
+ Infeasibility 
+ Unboundedness 
+ AlternativeOptima 
+ Degeneracyandcycling 
+ SensitivityAnalysis 
+ 2/39 
+ Key Takeaways from Last Lecture 
+ • SimplexisanefficientalgorithmforfindingoptimalsolutionstoLPproblemsby 
+ navigatingthroughthecornerpointsofthefeasibleregion . 
+ • ItiterativelymovesfromoneBasicFeasibleSolution(BFS)toabetterneighborhood 
+ BFSuntiltheoptimalBFSisreached . 
+ • BydetectingtheoptimalBFS , thesimplexmethodprovidestheoptimalvaluesof 
+ thedecisionvariablesandtheobjectivefunction . 
+ 3/39 
+ • WhatarethespecialcasesthatmayarisewhenusingSimplex ? 
+ • DoesSimplexterminateineveryLP ? 
+ Questions Regarding Simplex 
+ • HowcanwechooseanappropriateinitialBFSiftheoriginisnotabasicfeasible 
+ solution(BFS ) ? 
+ 4/39 
+ • DoesSimplexterminateineveryLP ? 
+ Questions Regarding Simplex 
+ • HowcanwechooseanappropriateinitialBFSiftheoriginisnotabasicfeasible 
+ solution(BFS ) ? 
+ • WhatarethespecialcasesthatmayarisewhenusingSimplex ? 
+ 4/39 
+ Somebasicvariableareequaltozero 
+ Basic x1 x2 S1 S2 RHS Ratio 
+ z -3 -9 0 0 0 
+ S1 1 4 1 0 8 2 
+ S2 1 2 0 1 4 2 
+ 24/39 
+ Special cases : Degeneracy 
+ • Tiesinminimumratio . 
+ • Somebasicvariableareequaltozero . 
+ Basic x1 x2 S1 S2 RHS Ratio 
+ z -0.75 0 2.25 0 18 
+ x2 0.25 1 0.25 0 2 8 
+ S2 0.5 0 -0.5 1 0 0 
+ 24/39 
+ Special cases : Degeneracy 
+ • Tiesinminimumratio . 
+ • Somebasicvariableareequaltozero . 
+ Basic x1 x2 S1 S2 RHS Ratio 
+ z 0 0 1.5 1.5 18 
+ x2 0 1 0.5 -0.5 2 
+ x1 1 0 -1 2 0 
+ 24/39 
+ Degeneracy interpretation 
+ • ThepresenceofdegeneracyinanLPsuggeststhepotentialexistenceofa 
+ superfluousconstraint . 
+ • Shufflingaroundthebasicvariableswithoutdepartingfromacorner . 
+ • DealingwithdegeneracyinanLPcancreatetheimpressionthatwearemoving 
+ fromonecornertoanother , whilekeepingtheobjectivevalueconstant . 
+ 25/39 
+ Degeneracy can cause cycling 
+ • Cyclinghappenswhenthesimplexalgorithmloopsbetweenmultiplesolutions 
+ withoutreachingtheoptimalsolutionduetodegeneracy . 
+ • Thiscancausethesimplexalgorithmtoloopindefinitely . 
+ • Topreventcycling , anti - cyclingrules , suchasBland’srule , canbeappliedtostop 
+ revisitingthesamesolutionandimprovetheefficiencyofthesimplexalgorithm . 
+ • Iftherearemultipleratiosthatareminimal , choosethevariablex withthe 
+ j 
+ smallestindexastheenteringvariable . 
+ 26/39 
+ Example of cycling 
+ Max z = 2.3 x1 + 2.15x2 −13.55 x3 − 0.4x4 
+ S.t 0.4 x1 + 0.2x2 −1.4 x3 − 0.2x4 ≤0 
+ −7.8 x1 − 1.4x2 +7.8 x3 + 0.4x4 ≤0 
+ x1 , x2 x3 , x4 ≥0 
+ 27/39 
+ Example of cycling 
+ Basic x1 x2 x3 x4 x5 x6 RHS 
+ z -2.3 -2.15 13.55 0.4 0 0 0 
+ x 0.4 0.2 -1.4 -0.2 1 0 0 
+ 5 
+ x -7.8 -1.4 7.8 0.4 0 1 0 
+ 6 
+ We are at the origin ( 0,0, ... 0 ) . 
+ 28/39 
+ Example of cycling 
+ Basic x1 x2 x3 x4 x5 x6 RHS 
+ z -2.3 -2.15 13.55 0.4 0 0 0 
+ x5 0.4 0.2 -1.4 -0.2 1 0 0 
+ x6 -7.8 -1.4 7.8 0.4 0 1 0 
+ Basic x1 x2 x3 x4 x5 x6 RHS 
+ z -2.3 -2.15 13.55 0.4 0 0 0 
+ x5 0.4 0.2 -1.4 -0.2 1 0 0 
+ x4 -7.8 -1.4 7.8 0.4 0 1 0 
+ TheSimplexwillcontinuouslycyclethroughthesestates . 
+ 29/39 
+ • Managersmustoperateindynamicenvironmentswithimpreciseestimatesof 
+ coefficients . 
+ • Sensitivityanalysisisimportantformanagerstoask”what - if”questionsaboutthe 
+ problem . 
+ Sensitivity Analysis 
+ • Sensitivityanalysis(orpost - optimalityanalysis)determineshowoptimalsolutions 
+ areaffectedbychangeswithinspecifiedranges . 
+ – Changesinright - handside(RHS)values . 
+ – Changesinobjectivefunctioncoefficients . 
+ 30/39 
+ • Sensitivityanalysisisimportantformanagerstoask”what - if”questionsaboutthe 
+ problem . 
+ Sensitivity Analysis 
+ • Sensitivityanalysis(orpost - optimalityanalysis)determineshowoptimalsolutions 
+ areaffectedbychangeswithinspecifiedranges . 
+ – Changesinright - handside(RHS)values . 
+ – Changesinobjectivefunctioncoefficients . 
+ • Managersmustoperateindynamicenvironmentswithimpreciseestimatesof 
+ coefficients . 
+ 30/39 
+ Sensitivity Analysis 
+ • Sensitivityanalysis(orpost - optimalityanalysis)determineshowoptimalsolutions 
+ areaffectedbychangeswithinspecifiedranges . 
+ – Changesinright - handside(RHS)values . 
+ – Changesinobjectivefunctioncoefficients . 
+ • Managersmustoperateindynamicenvironmentswithimpreciseestimatesof 
+ coefficients . 
+ • Sensitivityanalysisisimportantformanagerstoask”what - if”questionsaboutthe 
+ problem . 
+ x1andx2representthedailynumberofunitsofproducts1and2 
+ JOBCOmanufacturestwoproductsontwomachines 
+ • Processingtimesandrevenuesperunitaregivenasfollows : 
+ – Product1:2hrsonmachine1,1hronmachine2,$30revenueperunit . 
+ – Product2:1hronmachine1,3hrsonmachine2,$20revenueperunit 
+ • Totaldailyprocessingtimeavailableforeachmachineis8hrs 
+ • x1andx2representthedailynumberofunitsofproducts1and2 . 
+ 32/39 
+ Changes in the Right - Hand side 
+ • 
+ JOBCOmanufacturestwoproductsontwomachines . 
+ $ 142 9− −$ 8 128 = $ 14\hour 
+ • ThepointGshouldstays 
+ betweenBandF. 
+ • Thedualpriceformachine2 
+ capacityis$2 / hr . 
+ 33/39 
+ Dual Prices 
+ • Thedualpriceistherateofchangeoftheobjectivefunctionperunitchangeofa 
+ resource . 
+ • Theabstractname”dual”or”shadow”priceisstandardinLPliteratureand 
+ softwarepackages . 
+ • Thedualpriceof$14 / hrremainsvalidforchangesinmachine1capacitythatmove 
+ itsconstraintparalleltoitselftoanypointonthelinesegmentBF . 
+ • Thedualpriceisonlyvalidinthefeasibilityrange(2.67hr ≤ Machine1capacity ≤ 
+ 16hr),ascalculatedatpointsBandF. 
+ • Changesoutsidethisrangeproduceadifferentdualprice(worthperunit ) . 
+ 34/39 
+ • Response : Priorityshouldbegiventomachine1,aseachadditionalhourof 
+ machine1increasesrevenueby$14,asopposedtoonly$2formachine2 . 
+ • Question2 : Asuggestionismadetoincreasethecapacitiesofmachines1and2at 
+ theadditionalcostof$10 / hrforeachmachine . Isthisadvisable ? 
+ • Response : Onlymachine1shouldbeconsideredforcapacityincrease , asthe 
+ additionalnetrevenueperhouris14 - 10=$4,comparedtoanetof2 - 10=$-8for 
+ machine2 . 
+ Changes in the RHS questions 
+ • Question1 : IfJOBCOcanincreasethecapacityofbothmachines , whichmachine 
+ shouldreceivepriority ? 
+ 35/39 
+ • Question2 : Asuggestionismadetoincreasethecapacitiesofmachines1and2at 
+ theadditionalcostof$10 / hrforeachmachine . Isthisadvisable ? 
+ • Response : Onlymachine1shouldbeconsideredforcapacityincrease , asthe 
+ additionalnetrevenueperhouris14 - 10=$4,comparedtoanetof2 - 10=$-8for 
+ machine2 . 
+ Changes in the RHS questions 
+ • Question1 : IfJOBCOcanincreasethecapacityofbothmachines , whichmachine 
+ shouldreceivepriority ? 
+ • Response : Priorityshouldbegiventomachine1,aseachadditionalhourof 
+ machine1increasesrevenueby$14,asopposedtoonly$2formachine2 . 
+ 35/39 
+ • Response : Onlymachine1shouldbeconsideredforcapacityincrease , asthe 
+ additionalnetrevenueperhouris14 - 10=$4,comparedtoanetof2 - 10=$-8for 
+ machine2 . 
+ Changes in the RHS questions 
+ • Question1 : IfJOBCOcanincreasethecapacityofbothmachines , whichmachine 
+ shouldreceivepriority ? 
+ • Response : Priorityshouldbegiventomachine1,aseachadditionalhourof 
+ machine1increasesrevenueby$14,asopposedtoonly$2formachine2 . 
+ • Question2 : Asuggestionismadetoincreasethecapacitiesofmachines1and2at 
+ theadditionalcostof$10/ 
+ hrforeachmachine 
+ Isthisadvisable 
+ 35/39 
+ Changes in the RHS questions 
+ • Question1 : IfJOBCOcanincreasethecapacityofbothmachines , whichmachine 
+ shouldreceivepriority ? 
+ • Response : Priorityshouldbegiventomachine1,aseachadditionalhourof 
+ machine1increasesrevenueby$14,asopposedtoonly$2formachine2 . 
+ • Question2 : Asuggestionismadetoincreasethecapacitiesofmachines1and2at 
+ theadditionalcostof$10/ 
+ hrforeachmachine 
+ Isthisadvisable 
+ • Response : Onlymachine1shouldbeconsideredforcapacityincrease , asthe 
+ additionalnetrevenueperhouris14 - 10=$4,comparedtoanetof2 - 10=$-8for 
+ machine2 . 
+ 35/39 
+ • Response : Theproposedincreasefallswithinthefeasibilityrangeformachine1 
+ andwillresultina$14(13 - 8)=$70increaseinrevenue , from$128to$198(=$128 
+ + $ 70 ) . 
+ • Question4 : Supposethatthecapacityofmachine1isincreasedto20hrs , howwill 
+ thisincreaseaffecttheoptimumrevenue ? 
+ • Response : Theproposedincreasefallsoutsidethefeasibilityrange , andfurther 
+ calculationsareneededtodeterminetheimpactonoptimumrevenue . 
+ Changes in the RHS questions 
+ • Question3 : Ifthecapacityofmachine1isincreasedfrom8to13hrs , howwillthis 
+ increaseimpacttheoptimumrevenue ? 
+ 36/39 
+ • Question4 : Supposethatthecapacityofmachine1isincreasedto20hrs , howwill 
+ thisincreaseaffecttheoptimumrevenue ? 
+ • Response : Theproposedincreasefallsoutsidethefeasibilityrange , andfurther 
+ calculationsareneededtodeterminetheimpactonoptimumrevenue . 
+ Changes in the RHS questions 
+ • Question3 : Ifthecapacityofmachine1isincreasedfrom8to13hrs , howwillthis 
+ increaseimpacttheoptimumrevenue ? 
+ • Response : Theproposedincreasefallswithinthefeasibilityrangeformachine1 
+ andwillresultina$14(13 - 8)=$70increaseinrevenue , from$128to$198(=$128 
+ + $ 70 ) . 
+ 36/39 
+ • Response : Theproposedincreasefallsoutsidethefeasibilityrange , andfurther 
+ calculationsareneededtodeterminetheimpactonoptimumrevenue . 
+ Changes in the RHS questions 
+ • Question3 : Ifthecapacityofmachine1isincreasedfrom8to13hrs , howwillthis 
+ increaseimpacttheoptimumrevenue ? 
+ • Response : Theproposedincreasefallswithinthefeasibilityrangeformachine1 
+ andwillresultina$14(13 - 8)=$70increaseinrevenue , from$128to$198(=$128 
+ + $ 70 ) . 
+ • Question3 : Ifthecapacityofmachine1isincreasedfrom8to13hrs , howwillthis 
+ increaseimpacttheoptimumrevenue ? 
+ • Response : Theproposedincreasefallswithinthefeasibilityrangeformachine1 
+ andwillresultina$14(13 - 8)=$70increaseinrevenue , from$128to$198(=$128 
+ + $ 70 ) . 
+ • Question4 : Supposethatthecapacityofmachine1isincreasedto20hrs , howwill 
+ thisincreaseaffecttheoptimumrevenue ? 
+ • Response : Theproposedincreasefallsoutsidethefeasibilityrange , andfurther 
+ calculationsareneededtodeterminetheimpactonoptimumrevenue . 
+ 36/39 
+ Objective Coefficient Change 
+ • Maximizez = c1x1 + c2x2 . 
+ • Howtheoptimumchangeswhenwe 
+ changec1andc2 . 
+ 37/39 
+ Objective Coefficient Change 
+ • Maximizez = c1x1 + c2x2 . 
+ • Howtheoptimumchangeswhenwe 
+ changec1andc2 . 
+ • Changesinobjectivecoefficientschange 
+ theslopeoftheisoprofit . 
+ 37/39 
+ Objective Coefficient Change 
+ • Maximizez = c1x1 + c2x2 . 
+ • Howtheoptimumchangeswhenwe 
+ changec1andc2 . 
+ • Changesinobjectivecoefficientschange 
+ theslopeoftheisoprofit . 
+ • OptimumatCremainsifobjective 
+ functionisbetweenBFandDE . 
+ 37/39

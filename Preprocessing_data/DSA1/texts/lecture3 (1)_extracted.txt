@@ -1,0 +1,147 @@
+Create an algorithm that , based on an amount excluding taxes ( MontHT ) , 
+  
+ displays the amount to be paid including all taxes ( MontTTC ) , considering 
+ that a tax ( VAT ) is applied to the amount excluding taxes . 
+ Evaluate the logical expression : 
+ IF Logical_expression THEN 
+ • IF the logical expression is 
+ TRUE , then the Block is 
+ Block 
+ executed . 
+ • Otherwise , IF the logical 
+ END IF expression is FALSE , we 
+ Next instruction proceed sequentially ( Next 
+ Instruction ) 
+ Algorithm : Control Structure 
+ Intended under the IF 
+ statement . 
+ Algorithm : Control Structure 
+ Example1 : Conditional and Alternative 
+ … … 
+ Go straight until the next intersection . 
+ Algorithm : Control Structure 
+ Example2 : Conditional and Alternative 
+ Write an algorithm that , given an amount , displays 
+ the amount to be paid , considering a 10 % discount 
+ for any amount greater than or equal to 3500 DZD 
+ Algorithm : 
+ Control Structure 
+ Algorithm : Control Structure 
+ Example3 : 
+ Algorithm TempV1 
+ ANALYSIS : 
+ Let Temp be the water 
+  
+ temperature . 
+ WRITE ( ‘ Provide the temperature : ’ ) 
+ READ ( Temp ) 
+ Start by reading the temperature , 
+  
+ IF temp < = 0 THEN 
+ Temp . 
+ WRITE ( ‘ Ice ’ ) 
+ Check if Temp is less than or equal 
+  
+ ENDIF 
+ to 0 ; if true , display that it is ice . 
+ But 
+ more importantly , we have saved on the computer 's execution time . 
+ If the temperature is below zero , it writes " It 's ice " and goes directly to 
+ the end without being slowed down by the examination of other 
+ possibilities ( which are necessarily false ) . 
+ Nested testing structures are therefore an indispensable tool for 
+ simplifying and optimizing algorithms . 
+ READ ( A , B , C ) 
+  
+ IF A > B THEN 
+ We compare A and B , and if they are 
+  
+ S = A 
+ out of order , we swap A and B. 
+ A = B 
+ Next , we compare B and C , and if B = S 
+  
+ they are out of order , we swap B and ENDIF 
+ C. 
+ Algorithm : Control Structure 
+ The repetitive structure : 
+ It often happens that we need to 
+ repeat an action or a set of actions ( block ) multiple 
+ times . 
+ To achieve this , we use a repetitive structure . 
+ The FOR form 
+ 1 . 
+ The WHILE form 
+ 2 . 
+ The REPEAT form 
+ 3 . 
+ Algorithm : Control Structure 
+ The FOR form : 
+ FORMAT 
+ : 
+ FOR Control_variable FROM Start_value TO End_value DO 
+ Block 
+ END FOR 
+ Remark : 
+ Each execution of the block is called an iteration 
+ ( or loop ) . 
+ Algorithm : Control Structure 
+ The WHILE form : 
+ FORMAT 
+ : 
+ WHILE Condition ( logical expression ) DO 
+ Block 
+ END WHILE 
+ Remark : 
+ The number of times to repeat is not known in advance . 
+ The number of iterations depends on the value of the logical 
+ expression . 
+ Algorithm : Control Structure 
+ The WHILE form : 
+ OPERATION : 
+ The block is repeated as long as the logical expression is TRUE . 
+ At the beginning of each iteration , the logical expression is 
+ evaluated . 
+ IF the value is TRUE , then the block is executed ; ELSE , 
+ it proceeds sequentially . 
+ The repetition stops when the condition is no longer satisfied . 
+ The block may not be executed at all ( logical 
+ expression is FALSE from the start ) . 
+ As soon as such a divisor is found , the number N is not 
+ prime . 
+ Therefore , we will use the WHILE structure , which allows us to 
+ stop the search as soon as a divisor is found . 
+  This process stops either when d divides N or when d exceeds Ndiv2 . 
+ At the end of the process , to determine if N is prime or not , we examine 
+  
+ how the previous process concluded . 
+ IF ( N MOD d > ( N Div 2 ) ) , 
+ then N is prime ; OTHERWISE , it is not . 
+ At the 
+ end of each iteration , the logical expression is evaluated . 
+ If the 
+ value is FALSE , the actions are executed ; otherwise , the 
+ program continues in sequence . 
+ The actions are executed at least once because the 
+ logical expression is evaluated only when we reach the UNTIL 
+ keyword . 
+ Additional Notes : 
+ The WHILE and REPEAT forms are used when the number of 
+  
+ loops ( iterations ) is unknown . 
+ Be cautious of design errors that can lead to an " infinite loop , " 
+ ❑ 
+ where the condition always remains true . 
+ Algorithm : Control Structure 
+ Infinite Loop Example 
+ A = 5 
+ A = A - 2 
+ This would result in an 
+ UNTIL ( A = = 0 ) 
+ infinite loop . 
+ WRITE ( X , Y ) 
+ Algorithm : Control Structure 
+ Choice of the loop ( FOR , WHILE , REPEAT ) 
+ The rule is simple : 
+ • If the number of iterations is known in advance , then we use 
+ a FOR loop .

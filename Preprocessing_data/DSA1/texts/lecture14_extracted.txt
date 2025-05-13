@@ -1,0 +1,180 @@
+t r - > m on t h < < endl ; 
+ dPtr 
+ Sometimes , we have had to pass in object 
+ references to functions that modify those objects . 
+ This is n't necessarily bad , but could we do it a different way ? 
+ In other 
+ words , could we create the Vector inside the function and just pass it back ? 
+ Dynamic memory allocation 
+ Could we create the Vector inside the function and just pass it back ? 
+ Does this work ? 
+  
+ Could we create the Vector inside the function and just pass it back ? 
+ It 
+  
+ actually does , but there is an issue : 
+ Remember , we would rather not pass around large objects 
+ Dynamic memory allocation 
+ Okay … maybe we can do this ? 
+ Vector & squares(int numSquares ) { 
+ Vector vec ; 
+ for ( int i = 0 ; i < numSquares ; i++ ) { 
+ vec.data[i ] = i * i ; 
+ } 
+ return vec ; 
+ } 
+ Does this work ? 
+ This is actually really bad . 
+  
+  The scope of vec is only the function , and you are not allowed to pass back a 
+ reference to a variable that goes out of scope . 
+ Dynamic memory allocation 
+ Well , how about with pointers ? 
+ Can we do this ? 
+ Vector * squares(int numSquares ) { 
+ Vector vec ; 
+ for ( int i = 0 ; i < numSquares ; i++ ) { 
+ vec.data[i ] = i * i ; 
+ } 
+ return & vec ; 
+ } 
+ Does this work ? 
+ This is also really bad . 
+ Same as before : the scope of vec is only the 
+  
+ function , and you are not allowed to pass back a pointer to a variable that 
+ goes out of scope . 
+ When the function ends , the variable is destroyed , and 
+ your program will almost certainly crash . 
+ Dynamic memory allocation 
+ What do we want here ? 
+ What 's the big deal ? 
+ Also , global variables have a fixed size at 
+ compile time , and that is n't what we want , either 
+ Dynamic memory allocation : 
+ new 
+ C++ allows you to request memory from the operating system using the 
+ keyword new . 
+ This memory comes from the " heap " whereas variables 
+ you simply declare come from the " stack . " 
+ • Variables on the stack have a scope based on the function they are 
+ declared in . 
+ • Memory from the heap is allocated to your program from the time 
+ you request the memory until the time you tell the operating system 
+ you no longer need it , or until your program ends . 
+ the memory you are given is an array guaranteed by the operating 
+  
+ system to be contiguous . 
+ So , that 's how we allocate an array of items 
+ dynamically ! 
+ • Notice that new returns a pointer to the type you request 
+ this is important ! 
+ This is why we need to learn about pointers — in order to 
+  
+ dynamically allocate memory , you have to use a pointer . 
+ Dynamic memory allocation : 
+ The memory you request is yours until the end of the 
+  
+ program , if you need it that long . 
+ You can pass around the pointer you get back as much as 
+  
+ you 'd like , and you have access to that memory through 
+ that pointer in any function you pass the pointer to . 
+ But , what if you are done using that memory ? 
+ int * multiple = new int[length ] ; 
+ • Is that allowed ? 
+ for ( int i=0 ; i < length ; i++ ) { 
+ multiple[i ] = origArray[i ] * 2 ; // double each value 
+ It is ! 
+ delete does not delete any 
+ } 
+ variables ! 
+ You can pass around the pointer you get back as much as 
+  
+ you 'd like , and you have access to that memory through 
+ that pointer in any function you pass the pointer to . 
+ The standard library classes , string , uses dynamic memory . 
+  
+ Dynamic memory allocation : 
+ Recap 
+  
+ new : used to request heap memory that lasts for the rest of 
+ your program , or until you do n't need it anymore . 
+  
+ delete : used to return memory to the operating system . 
+  If you use new to request memory , you should delete it 
+ somewhere in your program . 
+ Linked lists can grow / shrink as needed 
+ • 
+ Linked lists only become full when system runs out of memory 
+ • 
+ Linked lists can be maintained in sorted order 
+ – 
+ Insert element at proper position 
+ • 
+ Existing elements do not need to be moved ( unlike arrays ) 
+ • 
+ Arrays provide direct access to elements ( unlike linked lists ) 
+ – 
+ Linked Lists 
+ Selected linked list operations 
+  
+ Insert node at front 
+ – 
+ Insert node at back 
+ – 
+ Remove node from front 
+ – 
+ Remove node from back 
+ – 
+ In following illustrations 
+  
+ List has firstPtr and lastPtr 
+ – 
+ ( a ) is before , ( b ) is after 
+ – 
+ Insert at front 
+ a ) firstPtr 
+ 7 11 
+ newPtr 
+ 12 
+ b ) firstPtr 
+ 7 11 
+ newPtr 
+ 12 
+ newPtr->next = firstPtr 
+ firstPtr = newPtr 
+ If list empty , then 
+ firstPtr = lastPtr = newPtr 
+ Insert at back 
+ a ) firstPtr lastPtr newPtr 
+ 12 7 11 5 
+ b ) firstPtr lastPtr newPtr 
+ 12 7 11 5 
+ lastPtr->next = newPtr 
+ lastPtr = newPtr 
+ If list empty , then 
+ firstPtr = lastPtr = 
+ newPtr 
+ Remove from front 
+ a ) 
+ firstPtr lastPtr 
+ tempPtr = firstPtr 
+ 1122 7 11 5 
+ firstPtr = firstPtr->next 
+ tempPtr 
+ If there are no more nodes , 
+ firstPtr = lastPtr = 0 
+ delete tempPtr 
+ Remove from back 
+ a ) firstPtr lastPtr 
+ 12 7 11 5 
+ b ) firstPtr currentPtr lastPtr 
+ 12 7 11 5 
+ tempPtr = lastPtr 
+ lastPtr = 
+ currentPtr 
+ tempPtr 
+ " Walk " list until get next - to - last node , 
+ until 
+ currentPtr->next = = lastPtr delete tempPtr

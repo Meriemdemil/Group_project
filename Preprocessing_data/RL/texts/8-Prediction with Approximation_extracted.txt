@@ -1,0 +1,433 @@
+Reinforcement learning 
+ Dr. 
+ The National School of Artificial Intelligence 
+ aissa.boulmerka@ensia.edu.dz 
+ 2024 - 2025 
+ Introduction 
+  In this chapter , the approximate value function is represented not as a table 
+ but as a parameterized functional form with weight vector 𝐰 ∈ ℝ𝑑 . 
+  We will write 𝑣 𝑠 , 𝐰 ≈ 𝑣 ( 𝑠 ) for the approximate value of state 𝑠 given the 
+ 𝜋 
+ weight vector 𝐰. 
+ Note that 𝐰 is the vector of weights . 
+  For example , 𝑣 might be a linear function in features of the state . 
+ More 
+ generally , 𝑣 might be a non - linear function computed by a multi - layer artificial 
+ neural network . 
+  Consequently , when a single state is updated , the change generalizes from that 
+ state to affect the values of many other states . 
+ Such generalization makes the 
+ learning potentially more powerful but also potentially more difficult to 
+ manage and understand . 
+ Dr. ( ENSIA ) Reinforcement Learning ( Chapter 8) 10 
+ How change the weight impact the value - function 
+ 𝑿 
+ 1 2 3 4 
+ 1 0 -1 -2 -3 
+ 𝒘 = −𝟏 2 1 0 -1 -2 
+ 𝟏 
+ 𝒀 
+ 𝒘 = 𝟏 
+ 𝟐 3 2 1 0 -1 
+ 4 3 2 1 0 
+ Dr. ( ENSIA ) Reinforcement Learning ( Chapter 8) 11 
+ How change the weight impact the value - function 
+ 𝑿 
+ 1 2 3 4 
+ 1 5 9 13 17 
+ 𝒘 = 𝟒 2 6 10 14 18 
+ 𝟏 
+ 𝒀 
+ 𝒘 = 𝟏 
+ 𝟐 3 7 11 15 19 
+ 4 8 12 16 20 
+ Dr. ( ENSIA ) Reinforcement Learning ( Chapter 8) 12 
+ Linear value - function approximation 
+ 𝑣 𝑠 , 𝐰 ≐ 𝒘 𝒙 𝒔 = < 𝐰 , 𝐱 𝒔 > 
+ 𝒊 𝒊 
+  The value of each state is represented by a linear function of the weights . 
+  This simply means that the value of each state , is computed as the sum of the 
+ weights multiplied by some fixed attributes of the state called features . 
+  < 𝐰 , 𝐱 𝒔 > is the dot product ( inner product ) of weight vector 𝐰 and the 
+ feature vector 𝐱 𝒔 . 
+ Dr. ( ENSIA ) Reinforcement Learning ( Chapter 8) 13 
+ Limitations of Linear Value Function Approximation 
+ 𝑿 
+ 1 2 3 4 
+ 𝑣 𝑠 , 𝐰 ≐ 𝒘 𝒙 𝒔 ? 
+ 𝒊 𝒊 1 0 0 0 0 
+  
+ We can not represent this as a linear 2 0 5 5 0 
+ function of 𝑿 and 𝒀. 𝒀 
+  Here 𝑿 and 𝒀 are not good features for this 3 0 5 5 0 
+ problem . 
+ 4 0 0 0 0 
+  
+ There are many powerful methods to 
+ construct features . 
+ Dr. ( ENSIA ) Reinforcement Learning ( Chapter 8) 14 
+ Tabular value - functions are linear functions 
+ State Value  
+ Linear function approximation is actually 
+ very general . 
+ In fact , even a tabular representation is a 
+ 𝑺 
+ 𝟐 
+ special case of linear function 
+ 𝑺 
+ 𝟑 approximation . 
+ ⋯ 
+  How to implement that ? 
+ 𝑺 
+ 𝒊 
+ ⋯ 
+ 𝑺 
+ 𝟏𝟔 
+ Dr. Aissa Boulmerka ( ENSIA ) Reinforcement Learning ( Chapter 8) 15 
+ Tabular value - functions are linear functions 
+ State Value  
+ Let 's choose our features to be indicator 
+ functions for particular states . 
+ ⋯ ⋯ 
+ 0 
+ 𝐱 𝑠 = 
+ 𝑺 𝒘 𝑖 1 
+ 𝒊 𝑖 
+ ⋯ ⋯ 𝑣 𝑠 , 𝐰 ≐ < 𝐰 , 𝐱 𝒔 > 0 
+ ⋯ 
+ 𝑺 𝒘 = 𝑤 
+ 𝟏𝟔 𝟏6 𝑖 
+ 𝒊-th element 0 
+ Dr. ( ENSIA ) Reinforcement Learning ( Chapter 8) 16 
+ Nonlinear function approximation 
+ Weights 
+ 𝑺 𝑣 𝑠 , 𝐰 Neural Network 
+ Layer 
+  Neural networks are an example of a nonlinear function of state . 
+ The output of 
+ the network 
+ is an approximate value for a given state . 
+  The state is passed to the network as the input . 
+ All the connections in the 
+ network correspond to real valued weights . 
+  This process transforms the input state through a sequence of layers to finally 
+ produce the value estimate . 
+  Imagine a robot , observing the world through a set of distance sensors . 
+ In many 
+ locations , it would take the same amount of time to drive to the nearest object . 
+ Even though they correspond to different sensor readings , these locations have 
+ similar values . 
+ Thus , we might want the value function to generalize across 
+ those states . 
+  Generalization can speed learning by making better use of the experience we 
+ have . 
+  You may not have to visit every state as much to get this values correct if we 
+ can learn its value from similar states . 
+  Going back to the example of a robot , imagine it is in a state where an object is 
+ three feet away , but behind a wall . 
+  Compare this to a state where an object is three feet away , but with a clear 
+ paths to reach it . 
+  The robot would want to assign different values to these states . 
+  So while it is useful to generalize between states with similar distance to the 
+ nearest object , it is also important that we discriminate between states based 
+ on other information when it is likely to impact their value . 
+ This is 
+ very different from reinforcement learning . 
+ But supervised learning methods 
+ can be useful for handling parts of the reinforcement learning problem . 
+  In reinforcement learning , an agent interacts with an environment and 
+ continually generates new data . 
+ This is often called the online setting . 
+ The 
+ proposed function approximation technique should work in the online setting . 
+  TD methods introduce an additional complication when applying techniques 
+ from supervised learning . 
+ TD methods use bootstrapping , meaning that our 
+ targets now depend on our own estimates . 
+  These estimates change as learning progresses . 
+ So our targets continually 
+ change . 
+ This is different than supervised learning where we have access to a 
+ ground truth label as the target . 
+ Suppose the following idealized scenario . 
+ We get a sequence of pairs of states 
+ and true values . 
+ We want to use this data to find a parameterized function that closely 
+ approximates 𝑣 . 
+ 𝜋 
+ 𝑾 
+ 𝑆 𝑣 𝑠 , 𝐰 ≈ 𝑣 𝑠 
+ 𝜋 
+  We will do this by adjusting the weights so that the output of the function 
+ approximate the associated value for a given state . 
+  To make our goal precise , we need to specify some measure of how close our 
+ approximation is to the value function . 
+ The error in a state 𝑠 is computed using the square of the difference between 
+ the approximate value 𝑣 𝑠 , 𝐰 and the true value 𝑣 𝑠 . 
+ 𝜋 
+  Weighting this over the state space by 𝜇 , we obtain a natural objective function , 
+ the Mean Squared Value Error , denoted 𝑉𝐸 : 
+ 2 
+ 𝑉𝐸 ≐ 𝜇(𝑠 ) 𝑣 𝑠 − 𝑣 𝑠 , 𝐰 . 
+ 𝜋 
+ 𝑠∈𝒮 
+  Often 𝜇 𝑠 is chosen to be the fraction of time spent in 𝑠. 
+ Under on - policy 
+ training this is called the on - policy distribution . 
+ The goal of defining this objective is to adapt the weights to minimize the mean 
+ squared value error . 
+ Also , consider 𝑤 for the weight vector at each step 𝑡. 
+ 𝑡 
+  Stochastic gradient - descent ( SGD ) methods are particularly well suited to online 
+ reinforcement learning . Stochastic gradient - descent ( SGD ) methods minimize 
+ error on the observed examples by adjusting the weight vector after each 
+ example by a small amount in the direction that most reduce the error on that 
+ example : 
+ 1 
+ 𝐰 ≐ 𝐰 − 𝛼𝛻 𝑣 𝑆 − 𝑣 𝑆 , 𝐰 2 
+ 𝑡+1 𝑡 𝜋 𝑡 𝑡 𝑡 
+ 2 
+ = 𝐰 + 𝛼 𝑣 𝑆 − 𝑣 𝑆 , 𝐰 𝛻𝑣 𝑆 , 𝐰 
+ 𝑡 𝜋 𝑡 𝑡 𝑡 𝑡 𝑡 
+ Dr. ( ENSIA ) Reinforcement Learning ( Chapter 8) 27 
+ From gradient descent to stochastic gradient descent 
+ 𝜇 𝑠 𝑣 𝑠 − 𝑣 𝑠 , 𝐰 𝛻𝑣 𝑠 , 𝐰 
+ 𝜋 
+ 𝑠∈𝒮 
+ 𝑆 , 𝑣 𝑆 , 𝑆 , 𝑣 𝑆 , 𝑆 , 𝑣 𝑆 , ⋯ 
+ 1 𝜋 1 2 𝜋 2 3 𝜋 3 
+ Dr. Aissa Boulmerka ( ENSIA ) Reinforcement Learning ( Chapter 8) 28 
+ Gradient of the MSVE objective 
+ 𝛻 𝜇 𝑠 𝑣 𝑠 − 𝑣 𝑠 , 𝑤 2 Linear value function 
+ 𝜋 
+ 𝑠∈𝒮 𝑣 𝑠 , 𝐰 ≐ < 𝐰 , 𝐱 𝒔 > 
+ 𝜇 𝑠 𝛻 𝑣 𝑠 − 𝑣 𝑠 , 𝐰 
+ 2 𝛻𝑣 𝑠 , 𝐰 = 𝐱 𝒔 
+ = 
+ 𝜋 
+ 𝑠∈𝒮 
+ − 𝜇 𝑠 2 𝑣 𝑠 − 𝑣 𝑠 , 𝐰 𝛻𝑣 𝑠 , 𝐰 
+ = 
+ 𝜋 
+ 𝑠∈𝒮 
+ 𝛻𝐰 ∝ 𝜇 𝑠 𝑣 𝑠 − 𝑣 𝑠 , 𝐰 𝛻𝑣 𝑠 , 𝐰 
+ 𝜋 
+ 𝑠∈𝒮 
+ Dr. ( ENSIA ) Reinforcement Learning ( Chapter 8) 29 
+ Gradient Monte Carlo 
+ 𝐰 ≐ 𝐰 + 𝛼 𝒗 𝑺 − 𝑣 𝑆 , 𝐰 𝛻𝑣 𝑆 , 𝐰 
+ 𝑡+1 𝑡 𝝅 𝒕 𝑡 𝑡 𝑡 𝑡 
+ 𝐰 ≐ 𝐰 + 𝛼 𝐺 − 𝑣 𝑆 , 𝐰 𝛻𝑣 𝑆 , 𝐰 
+ 𝑡+1 𝑡 𝑡 𝑡 𝑡 𝑡 𝑡 
+  Recall that : 
+ 𝑣 𝑠 ≐ 𝔼 𝐺 |𝑆 = 𝑠 
+ 𝜋 𝜋 𝑡 𝑡 
+  The expectation of the gradient when we use a sampled return in place of 
+ the true value , is still equal to the gradient of the MSVE . 
+ 𝔼 𝑣 𝑆 − 𝑣 𝑆 , 𝐰 𝛻𝑣 𝑆 , 𝐰 
+ 𝜋 𝜋 𝑡 𝑡 𝑡 𝑡 𝑡 
+ 𝐺 
+ = 𝔼 − 𝑣 𝑆 , 𝐰 𝛻𝑣 𝑆 , 𝐰 
+ 𝜋 𝑡 𝑡 𝑡 𝑡 𝑡 
+ Dr. ( ENSIA ) Reinforcement Learning ( Chapter 8) 30 
+ Gradient Monte Carlo state - value prediction 
+  Suppose the states in the examples are the states generated by interaction 
+ with the environment using policy 𝜋. 
+  
+ The SGD method converges to a locally optimal approximation to 𝑣 𝑆 . 
+ 𝜋 𝑡 
+  
+ So , the gradient - descent version of Monte Carlo state - value prediction is 
+ guaranteed to find a locally optimal solution . 
+ In this case , all the probability that would have 
+ gone into those missing neighbors 
+  Termination on the left produces a reward of −1 , and termination on the right 
+ produces a reward of +1 . 
+ Because of this we can not guarantee this algorithm will converge to a 
+ local minimum of the value error . 
+ Dr. ( ENSIA ) Reinforcement Learning ( Chapter 8) 38 
+ Semi - gradient TD(0 ) 
+ 1 
+ 𝛻 𝑈 − 𝑣 𝑆 , 𝐰 
+ 2 
+ 𝑡 𝑡 
+ 2 
+ We have 𝑈 ≐ 𝑅 + 𝛾𝑣 𝑆 , 𝐰 
+ 𝑡 𝑡+1 𝑡+1 
+ = 𝑈 − 𝑣 𝑆 , 𝐰 𝛻𝑈 − 𝛻𝑣 𝑆 , 𝐰 
+ 𝑡 𝑡 𝑡 𝑡 
+ ≠ 𝑈 − 𝑣 𝑆 , 𝐰 𝛻𝑣 𝑆 , 𝐰 ( The TD update ) 
+ 𝑡 𝑡 𝑡 𝑡 𝑡 
+ This is true only if 𝛻𝑈 = 0 
+ 𝑡 
+ For TD : 
+ 𝛻𝑈 = 𝛻 𝑅 + 𝛾𝑣 𝑆 , 𝐰 
+ 𝑡 𝑡+1 𝑡+1 
+ = 𝛾𝛻𝑣 𝑆 , 𝐰 
+ 𝑡+1 
+ ≠ 𝟎 
+ Dr. ( ENSIA ) Reinforcement Learning ( Chapter 8) 39 
+ Semi - gradient TD(0 ) 
+  Bootstrapping methods are not in fact instances of true gradient descent . 
+ They 
+ take into account the effect of changing the weight vector 𝐰 on the estimate , 
+ 𝑡 
+ but ignore its effect on the target . 
+ They include only a part of the gradient and , 
+ accordingly , we call them semi - gradient methods . 
+  Although semi - gradient ( bootstrapping ) methods do not converge as robustly 
+ as gradient methods , they do converge reliably in important cases such as the 
+ linear case . 
+  Another advantage , is that they enable learning to be continual and online , 
+ without waiting for the end of an episode . 
+ This enables them to deal with 
+ continuing problems and provides computational advantages . 
+ The update could be biased because 
+ estimate of the gradient of the value the estimate in the target may not be 
+ error . accurate . 
+  
+ It will approach a local minimum of  
+ Since the value approximation will 
+ the Mean Squared Value Error with never be perfect even in the limit , the 
+ more and more samples . 
+ target may remain biased . 
+  Gradient Monte Carlo will converge  
+ Semi - gradient TD can not guarantee 
+ to a local minimum of the mean to converge to a local minimum at 
+ squared value error . 
+ the Mean Squared value error . 
+ Semi- 
+ Conclusions : 
+ Gradient TD 
+  We can conclude that TD often learns 
+ faster than Monte Carlo . 
+ This is because TD 
+ Episodes 
+ can learn during the episode and has lower variance 
+ updates . 
+  Monte Carlo is better on long - run performance , it 's not always the main concern . 
+  We can never run our experiments to achieve asymptotic performance . 
+  Early learning is perhaps more important in practice . 
+ Linear function approximation 
+  
+ Corresponding to every state 𝑠 , there is a real - valued vector 
+ 𝑇 
+ 𝐱 𝑠 ≐ 𝑥 𝑠 , 𝑥 𝑠 , ⋯ , 𝑥 𝑠 
+ 1 2 𝑑 
+  Linear methods approximate state - value function by the inner product between 
+ 𝐰 and 𝐱(𝑠 ): 
+ 𝑑 
+ 𝑇 
+ 𝑣 𝑠 , 𝐰 ≐ 𝑤 𝐱 𝑠 ≐ 𝑤 𝑥 𝑠 . 
+ 𝑖 𝑖 
+ 𝑖=1 
+  
+ In this case the approximate value function is said to be linear in the weights , 
+ or simply linear . 
+ Dr. ( ENSIA ) Reinforcement Learning ( Chapter 8) 45 
+ Linear function approximation 
+  
+ The vector 𝐱(𝑠 ) is called a feature vector representing state 𝑠. 
+  
+ Each component 𝑥 ( 𝑠 ) of 𝐱(𝑠 ) is the value of a function 𝑥 : 𝒮 → ℝ. 
+ 𝑖 𝑖 
+  We think of a feature as the entirety of one of these functions , and we call its 
+ value for a state 𝑠 a feature of 𝒔. 
+  For linear methods , features are basis functions because they form a linear 
+ basis for the set of approximate functions . 
+  Constructing 𝒅-dimensional feature vectors to represent states is the same as 
+ selecting a set of 𝑑 basis functions . 
+  Features may be defined in many different ways ; we cover a few possibilities 
+ later in this course . 
+ Dr. ( ENSIA ) Reinforcement Learning ( Chapter 8) 46 
+ SGD update of linear function approximation 
+  
+ It is natural to use SGD updates with linear function approximation . 
+ The 
+ gradient of the approximate value function with respect to 𝐰 in this case is : 
+ 𝛻𝑣 s , 𝐰 = 𝐱(𝑠 ) . 
+  
+ In this case the general SGD update reduces to a particularly simple form : 
+ 𝐰 𝐰 + 𝛼 𝑈 − 𝑣 𝑆 , 𝐰 𝐱(𝑆 ) 
+ ≐ 
+ 𝑡+1 𝑡 𝑡 𝑡 𝑡 𝑡 
+  Because it is so simple , the linear SGD case is one of the most favorable for 
+ mathematical analysis . 
+  Almost all useful convergence results for learning systems of all kinds are for 
+ linear ( or simpler ) function approximation methods . 
+ Dr. ( ENSIA ) Reinforcement Learning ( Chapter 8) 47 
+ TD update of linear function approximation 
+ The semi - gradient TD(0 ) algorithm also converges under linear function 
+ approximation . 
+ The weight vector converged to is also not the global optimum , 
+ but rather a point near the local optimum . 
+  The update at each time t is 
+ 𝐰 ≐ 𝐰 + 𝛼𝛿 𝐱(𝑆 ) 
+ 𝑡+1 𝑡 𝑡 𝑡 
+ 𝛿 = 𝑅 + 𝛾𝑣 𝑆 , 𝐰 − 𝑣 𝑆 , 𝐰 
+ 𝑡 𝑡+1 𝑡+1 𝑡 𝑡 𝑡 
+ Where 𝛿 is the TD error . 
+ 𝑡 
+  This fixed basis given by the expert design features has a large impact on the 
+ update . 
+ If well - designed , we can get effective value function approximation 
+ with a simple update . 
+ Dr. ( ENSIA ) Reinforcement Learning ( Chapter 8) 48 
+ Tabular TD is a special case of linear TD 
+  
+ We can show that linear TD is a strict generalization of both 
+ tabular TD and TD with state aggregation . 
+ 0 
+ 𝐰 ← 𝐰 + 𝛼 𝑅 + 𝛾𝑣 𝑆 , 𝐰 − 𝑣 𝑆 , 𝐰 𝐱(𝑆 ) 
+ 0 
+ 𝑡+1 𝑡+1 𝑡 𝑡 
+ ⋯ 
+  
+ In the update , the feature vector 𝐱(𝑆 ) selects a single weight 0 
+ 𝑡 
+ 𝐱 𝑠 = 
+ associated with the current state . 
+ It is clear that , if the system converges , it must converge to the weight vector 
+ 𝐰 at which 
+ 𝑇𝐷 
+ 𝔼 ∆𝐰 = 𝛼 𝐛 − 𝐀𝐰 = 0 
+ 𝑇𝐷 𝑇𝐷 
+ −𝟏 
+ ⇒ 𝐰 = 𝐀 𝐛 
+ 𝑇𝐷 
+  If 𝐀 is invertible , 𝐰 is a solution to this linear system . 
+ We call this solution 
+ 𝑇𝐷 
+ the TD fixed point . 
+ In fact linear semi - gradient TD(0 ) converges to this point . 
+  𝐰 minimizes 𝐛 − 𝐀𝐰 𝑇 𝐛 − 𝐀𝐰 . This objective extends the connection 
+ 𝑇𝐷 
+ between TD and Bellman equations , to the function approximation setting . 
+  Representing a state with features that 
+ overlap in this way is known as coarse 
+ coding . 
+ Dr. Aissa Boulmerka ( ENSIA ) Reinforcement Learning ( Chapter 8) 53 
+ Coarse coding generalization 
+  
+ Generalization in linear function approximation methods is determined by the 
+ sizes and shapes of the features ’ receptive fields . 
+ Dr. ( ENSIA ) Reinforcement Learning ( Chapter 8) 54 
+ Tile coding 
+  
+ In tile coding the receptive fields of the features are grouped into partitions of 
+ the state space . 
+  Each such partition is called a tiling , and each element of the partition is called a 
+ tile . 
+ Dr. ( ENSIA ) Reinforcement Learning ( Chapter 8) 55 
+ Why we use coarse coding ? 
+ In theory , a neural network need not be deep . 
+ A neural network with a single 
+ hidden layer can approximate any continuous function given that is sufficiently 
+ wide . 
+ We call this the universal approximation property . 
+  Practical experience and theory suggests that deep neural networks may make 
+ it easier to approximate complex functions . 
+  Composition can produce more specialized features by combining modular 
+ components . 
+  Overall , depth in a network can significantly improve our agent 's ability to learn 
+ features .

@@ -1,0 +1,293 @@
+Data Structures and Algorithms 2 
+ Prof. 
+ The National Higher School of AI 
+ Chapter 6 
+ Priority Queues 
+ Motivating Example 
+ Enqueued in this order . 
+ Same things for jobs to execute in a multiuser 
+ environment , the Operating System scheduler must 
+ decide which of several processes to run ? 
+  short jobs finish as fast as possible ( should have precedence ) 
+  Important jobs should also have precedence 
+ Binary Heap 
+ • Binary heap : a very popular implementation of Priority 
+ Queues . 
+ ( By default , heap will refer to Binary Heap . ) 
+ A Binary heap has a structure property and an order 
+ property . 
+ • Heap structure : 
+ A heap is a binary tree that is 
+ completely filled , except possibly for the bottom level , 
+ which is filled from left to right ( empty nodes are to the 
+ right of bottom level ) 
+ • 
+  h is O(log n ) 
+ • Heap - order property : any node should be smaller than 
+ all of its descendants 6 
+ Heap Not Heap 
+ • Because a complete binary tree is so regular , it can be 
+ represented in an array and no links are necessary 
+ 7 
+ Array implementaion 
+ • 
+ Operations to traverse the tree are extremely simple & very fast 
+ • 
+ Only problem with this implementation : an estimate of the 
+ maximum heap size is required in advance , but this is not a 
+ 8 
+ problem ( since we can resize if needed ) 
+ In fact , array implementation of the heap looks 
+ more like the following ! 
+ ( will get clearer later ) 
+ Class interface of Priority Queue 
+ 9 
+ Inserting an element into a heap 
+ • To insert X 
+ – Create a hole in the next available location , 
+ – If X can be placed in the hole without violating heap order , 
+ then do so and done . 
+ – Otherwise , slide the element that is in the hole ’s parent 
+ node into the hole , thus bubbling the hole up toward the 
+ root . 
+ – Continue this process until X can be placed in the hole . 
+ • This general strategy is known as a percolate up . 
+ • Worst time to do the insertion is O(logN ) . 
+ DeleteMin 
+ Similar idea to Insert , but now percolate down : 
+ • When the minimum is removed , a hole is created at 
+ the root . 
+ • If X can be placed in the hole , then done . 
+ • Thus , the goal is to place X in its correct spot along a 
+ path from the root containing minimum children . 
+ • Same technique used as in insertion to avoid swaps 
+ 13 
+ Delete the minimum ( 13 ) from the left tree below 
+ 14 
+ • The worst - case running time for this operation is O(log N ) . 
+ • On average , the element that is placed at the root is 
+ percolated almost to the bottom of the heap ( which is the 
+ level it came from ) , so the average running time is O(logN ) . 
+ • Code for DeleteMin - PercolateDown 
+ Other Heap Operations 
+ • A heap has very little ordering information  
+ no way to find any particular element without a linear 
+ scan through the entire heap 
+ • If it is important to know where elements are , some 
+ other data structure , such as a hash table , must be 
+ used in addition to the heap . 
+ • If we assume that the position of every element is 
+ known by some other method , then several other 
+ operations become cheap . 
+ 16 
+ DecreaseKey 
+ • The decreaseKey(p , ∆ ) operation lowers the value of 
+ the item at position p by a positive amount ∆. 
+ • 
+ Since this might violate the heap order , it must be fixed 
+ by a percolate up . 
+ Decrease the value of the element , 
+ o Interchange it with its parent if it is less than its 
+ parent , 
+ o 
+ Continue doing this till a root is reached 
+ • 
+ Example of application : could be useful to system 
+ administrators who can make their programs run with 
+ highest priority . 
+ Example of decreaseKey 
+ 4 
+ 4 
+ 2 
+ 2 5 
+ 5 
+ The increaseKey(p , ∆ ) operation increases the value 
+ of the item at position p by a positive amount . 
+ • This is done with a percolate down . 
+ o Increase the value of the element , 
+ o Interchange it with the lesser of its children if it is 
+ greater than any of its children , 
+ o Continue doing this till a leaf is reached 
+ • Example application : 
+ Many schedulers automatically 
+ drop the priority of a process that is consuming 
+ excessive CPU time 
+ A binary heap is sometimes constructed from an initial 
+ collection of items . 
+ • The constructor takes as input N items and places them 
+ into a heap . 
+ This can be done with N successive inserts . 
+ • Each insert will take O(1 ) average and O(logN ) worst- 
+ case time  the total running time of buildHeap would 
+ be O(N ) average but O(N logN ) worst - case . 
+ • With care a linear time bound can be guaranteed 
+ 21 
+ buildHeap algorithm 
+ • General algorithm : 
+ – place the N items into the tree in any order , maintaining the 
+ . 
+ structure property 
+ – if percolateDown(i ) percolates down from node i 
+ , the 
+ buildHeap routine can be used by the constructor to create a 
+ heap - ordered tree . 
+ 22 
+ 23 
+ buildHeap routine 
+ 24 
+ Assuming a simple sorting 
+ algorithm , the running time is O ( N2 ) . 
+ – Algorithm 1B : read k elements into an array and sort them . 
+ The 
+ smallest of these is in the kth position . 
+ Process the remaining 
+ elements one by one . 
+ As an element arrives , it is compared with 
+ the kth element in the array . 
+ If it is larger , then the kth element is 
+ removed , and the new element is placed in the correct place 
+ among the remaining k−1 elements . 
+ • The algorithm is simple : 
+ – Read the N elements into an array . 
+ buildHeap algorithm to this array . 
+ – Apply the 
+ – Perform k deleteMin operations . 
+ – 
+ The last element extracted from the heap is the answer . 
+ • Clearly , by changing the 
+ heap - order property , the 
+ original problem of finding the kth largest element can be 
+ Complexity of Algorithm 6A 
+ • The worst - case timing is O(N ) to construct the heap , 
+ if buildHeap is used 
+ • Worst - case timing for each deleteMin is O(logN ) . 
+ • Since there are k deleteMin operations , the total 
+ running time is O(N + k logN ) . 
+ • If k = O(N / log N ) , then the running time is 
+ dominated by the buildHeap operation and is O(N ) . 
+ • For larger values of k , the running time is O(k logN ) . 
+ Algorithm 6B for the Selection Pb 
+ Use the same idea from algorithm 1B but with a heap . 
+ • At any point in time , maintain a set S of the k largest 
+ elements . 
+ ( Notice that S is the smallest element in S. ) 
+ k k 
+ • If the new element is larger , then it replaces S in S. 
+ k 
+ S will then have a new smallest element , which may or 
+ may not be the newly added element . 
+ • The time to process each of the remaining elements is 
+ – O(1 ) , to test if the element goes into S , plus 
+ – O(log k ) , to delete S and insert the new element if this is 
+ k 
+ necessary . 
+ • 
+ Thus , the total time is 
+ O(k + ( N − k ) log k ) = O(N log k ) . 
+ • 
+ This algorithm also 
+ gives a bound of θ(N logN ) for 
+ finding the median . 
+ 31 
+ d - Heaps 
+ • 
+ Binary heaps are so simple that they are almost 
+ always used when priority queues are needed . 
+ d 
+ • If d is a constant , both running times are , of course , 
+ O(log N ) 
+ d 
+ • Arrays can still be used for implementation . 
+ 33 
+ D - heaps pros and cons 
+ • d - heaps are interesting in theory , because there are 
+ many algorithms where the number of insertions is 
+ much greater than the number of deleteMins ( and thus 
+ a theoretical speedup is possible ) . 
+ • When a priority queue is too large to fit entirely in 
+ main memory , a d - heap can be advantageous in much 
+ the same way as B - trees . 
+ • Heaps can not perform finds . 
+ Next topic ! 
+ Leftist Heaps 
+ • A leftist heap is a binary tree with the same heap - order 
+ property . 
+ • Only difference between leftist heaps and binary heaps : 
+ leftist heaps are not perfectly balanced ; actually they 
+ attempt to be very unbalanced 
+ • 
+ Definition : 
+ Leftist heap property : for every node X in the heap , the 
+ null path length of the left child of X is at least as large as 
+ that of its right child . 
+ Not a leftist heap 
+ Leftist heap 
+ • Leftist heap property goes out of its way to ensure the 
+ tree is unbalanced ; it biases the tree to get deep toward 
+ the left . 
+ The npl of a node can be seen as the distance from 
+ that node to the nearest empty position in the subtree 
+ rooted at that node . 
+ • Leftist heaps tend to have deep left paths  the 
+ right path ought to be short . 
+ • The right path ( path from root to the rightmost leaf ) 
+ in a leftist heap is as short as any path in the heap . 
+ Why the leftist property ? 
+ Because it guarantees that : 
+ • The right path is really short compared to the number 
+ of nodes in the tree . 
+ • A Leftist tree of N nodes has a right path of at most 
+ log ( N+1 ) nodes . 
+ 2 
+ • So perform all the work ( of merging ) on the right 
+ path . 
+ • Note : Performing inserts and merges on the right path 
+ could destroy the leftist heap property . 
+ But it turns 
+ out to be extremely easy to restore the property 
+ 38 
+ Leftist Heap Operations 
+ • 
+ The fundamental operation on LH is merge . 
+ 40 
+ Attach the leftist heap of previous figure as H ’s right child 
+ 1 
+ • Resulting right subheap is leftist by 
+ recursive construction ; left subheap is 
+ not changed so it is leftist . 
+ • Leftist property is violated at the root . 
+ • Restore it by swapping the Left and Right subheaps . 
+ Update the npl of the root ( having the new npl of right c4h1ild ) 
+ Result of swapping children of H ’s root 
+ 1 
+ Leftist heap type declarations 
+ routines for merging leftist heaps 
+ 42 
+ Insert / DeleteMin 
+ • Insert item in a heap h : 
+ No information is maintained about the null path length 
+ of any node 
+ • 
+ The right path of a skew heap can be arbitrarily long at 
+ any time  the worst - case running time of all operations 
+ is O(N ) 
+ • 
+ For any M consecutive operations , the total worst - case 
+ running time is O(M logN ) 
+  skew heaps have O(log N ) amortized cost per oeration 
+ 44 
+ • The fundamental operation on skew heaps is merging 
+ Final notes 
+ • Because a right path could be long , a recursive 
+ implementation could fail because of lack of stack 
+ space , even though performance would otherwise be 
+ acceptable 
+ • Advantage of Skew heaps : no extra space is required 
+ to maintain path lengths and no tests are required to 
+ determine when to swap children . 
+ Acknowledgement : 
+ This course PowerPoints make substantial ( non - exclusive ) use of 
+ the PPT chapters prepared by Prof. from the University of Pennsylvania , 
+ USA , themselves developed on the basis of the course textbook . Other references , if any , 
+ 48 
+ will be mentioned wherever applicable .
