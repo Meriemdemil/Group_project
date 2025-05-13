@@ -1,5 +1,7 @@
 # For the frontend
 cd front_end 
+npm install
+npm install @emotion/react @emotion/styled
 npm run dev
 
 # For the database
