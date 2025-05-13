@@ -6,14 +6,19 @@ from dotenv import load_dotenv
 from typing import Optional
 from sentence_transformers import SentenceTransformer
 from langchain_community.vectorstores import FAISS
-from together import Together
+from openai import OpenAI
 
 load_dotenv()
 
 # ----------------------------
 # Setup Everything
 # ----------------------------
-client = Together(api_key=os.getenv("TOGETHER_API_KEY"))
+
+client = OpenAI(
+    base_url="https://openrouter.ai/api/v1",
+    api_key=os.getenv("OPENROUTER_API_KEY"),
+)
+
 embedder = SentenceTransformer("all-MiniLM-L6-v2", device="cpu")
 VECTOR_DB_DIRS = [
     "vector_db/DM_vector_store",
@@ -63,7 +68,6 @@ You're deeply aware of tone. If the student says "hi", "yo", "hey", or anything 
 
 You are a helpful AI tutor. Only use the provided documents to answer questions. Do not make up examples, definitions, or explanations unless they are present in the retrieved content. If the user asks for an explanation or example that is not in the retrieved documents, respond clearly that more information is needed.
 
-
 Respond to emotional or mood-based messages with empathy and brevity.
 If the student sounds bored, tired, stuck, or emotional, respond casually — don't be overly formal. You're not here to lecture.
 
@@ -73,7 +77,9 @@ If the student asks something that isn’t covered in the documents, say:
 Do **not** use internet sources unless allowed.
 
 Always respond using clear Markdown formatting. Use `##` for main sections, `###` for sub-sections, and `*` for bullet points.
-Do not leave space between bullet points and paragraph leave just space when you are moving to a new section
+
+Do not leave space between bullet and paragraph. Leave just a space when moving to a new section.
+
 
 Example:
 ## Section Title
@@ -82,29 +88,20 @@ Some text describing this section.
 
 * Bullet 1
 * Bullet 2
-
 """
 
 def ensure_newlines(md: str) -> str:
-    # Add line breaks before bullets
     md = re.sub(r'(?<!\n)\* ', r'\n* ', md)
-    # Add line breaks before headers
     md = re.sub(r'(?<!\n)(#{2,} )', r'\n\1', md)
     return md.strip()
 
 def ensure_markdown_structure(md: str) -> str:
-    # Normalize line endings
+
     md = md.replace('\r\n', '\n')
-
-    # Add a newline before headers (if not already there)
     md = re.sub(r'(?<!\n)(#{2,} )', r'\n\1', md)
-
-    # Add a newline before list items (if not already there)
     md = re.sub(r'(?<!\n)\* ', r'\n* ', md)
 
-    # Collapse multiple newlines into a maximum of two
     md = re.sub(r'\n{3,}', r'\n\n', md)
-
     return md.strip()
 
 
@@ -156,11 +153,15 @@ def rag_pipeline(question: str, chat_history: list, conversation_id: Optional[st
 
     # Step 3: Generate response
     response = client.chat.completions.create(
-        model="meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8",
+        model="openai/gpt-4o",
         messages=messages,
         max_tokens=2048,
-        temperature=0.3
+        temperature=0.3,
+        extra_headers={
+            "X-Title": "Student Tutor Assistant"
+        }
     )
+    print("🔍 Raw API response:", response)
 
     raw_answer = response.choices[0].message.content.strip()
     final_answer = ensure_markdown_structure(raw_answer)
@@ -173,5 +174,3 @@ def rag_pipeline(question: str, chat_history: list, conversation_id: Optional[st
         "answer": raw_answer,
         "conversation_id": conversation_id or ""
     }
-
-

@@ -3,9 +3,11 @@ import "./App.css";
 import ChatMessage from "./assets/ChatMessage.tsx";
 import TypingIndicator from "./assets/TypingIndicator.tsx";
 import Sidebar from "./assets/Sidebar.tsx";
+import Login from "./assets/Login.tsx";
+import SignUp from "./assets/SignUp.tsx";
+import ForgotPassword from "./assets/forgotPassword.tsx";
 
 // Types
-
 type Message = {
   role: "user" | "assistant";
   content: string;
@@ -31,11 +33,42 @@ function App() {
   const [conversationId, setConversationId] = useState<string>(() =>
     crypto.randomUUID()
   );
+  const [userEmail, setUserEmail] = useState(
+    () => localStorage.getItem("userEmail") || ""
+  );
   const [chatSessions, setChatSessions] = useState<Record<string, Message[]>>(
     {}
   );
+  const [showAuthModal, setShowAuthModal] = useState(false);
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const [authMode, setAuthMode] = useState<
+    "login" | "signup" | "forgotPassword"
+  >("login");
+  const [showLogin, setShowLogin] = useState(false);
+
+  const openLogin = () => setShowLogin(true);
+  const closeLogin = () => setShowLogin(false);
+
+  useEffect(() => {
+    const email = localStorage.getItem("userEmail");
+    if (email) setUserEmail(email);
+  }, []);
+
+  useEffect(() => {
+    const userId = localStorage.getItem("userId");
+    if (!userId) return;
+
+    fetch(`http://localhost:5001/api/conversations/${userId}`)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("✅ Loaded history for user:", userId, data);
+        setMessagesHistory(
+          data.map((conv: any) => ({ id: conv.id, title: conv.title }))
+        );
+      })
+      .catch(console.error);
+  }, [userEmail]);
 
   useEffect(() => {
     scrollToBottom();
@@ -61,12 +94,46 @@ function App() {
     e?.preventDefault();
     if (!input.trim()) return;
 
-    addMessage("user", input);
+    if (!userEmail) {
+      alert("Please log in to ask a question.");
+      return;
+    }
+
+    console.log("📤 Sending to RAG server at 5000:", input);
+    const userMessage = input;
+    addMessage("user", userMessage);
     setInput("");
     setLoading(true);
     setError(null);
 
     try {
+      // ✅ Step 1: Ensure conversation exists in DB before inserting messages
+      const userId = localStorage.getItem("userId");
+      const alreadySaved = messagesHistory.find((h) => h.id === conversationId);
+      if (userId && !alreadySaved) {
+        console.log("📝 Creating conversation in DB first:", {
+          id: conversationId,
+          userId,
+          title: input,
+        });
+
+        await fetch("http://localhost:5001/api/conversations", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            id: conversationId, // force ID to match in both DB and frontend
+            userId,
+            title: input,
+          }),
+        });
+
+        setMessagesHistory((prev) => [
+          { title: input, id: conversationId },
+          ...prev,
+        ]);
+      }
+
+      // ✅ Step 2: Call RAG server
       const response = await fetch("http://localhost:5000/query", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -80,30 +147,41 @@ function App() {
       if (!response.ok) throw new Error(`API error: ${response.status}`);
 
       const data: APIResponse = await response.json();
-
-      if (data.conversation_id && data.conversation_id !== conversationId) {
-        setConversationId(data.conversation_id);
-      }
-
       const answerText = data.answer || "I couldn't find an answer.";
+
+      // ✅ Step 3: Save to local state
       addMessage("assistant", answerText);
       console.log("Answer content (debug):", JSON.stringify(answerText));
 
 
-      // ✅ Save conversation title to history (only once per new conversation)
-      const alreadySaved = messagesHistory.find((h) => h.id === conversationId);
-      const firstUserMessage = messages.find((m) => m.role === "user") || {
-        content: input,
-      };
+      // ✅ Step 4: Save messages to DB
+      console.log("📥 Storing user message:", { conversationId, userMessage });
+      await fetch("http://localhost:5001/api/conversations/messages", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          conversation_id: conversationId,
+          role: "user",
+          content: userMessage,
+        }),
+      });
 
-      if (!alreadySaved && firstUserMessage) {
-        setMessagesHistory((prev) => [
-          { title: firstUserMessage.content, id: conversationId },
-          ...prev,
-        ]);
-      }
+      console.log("📥 Storing assistant message:", {
+        conversationId,
+        answerText,
+      });
+      await fetch("http://localhost:5001/api/conversations/messages", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          conversation_id: conversationId,
+          role: "assistant",
+          content: answerText,
+        }),
+      });
     } catch (err) {
       const errMsg = err instanceof Error ? err.message : "Unknown error";
+      console.error("❌ Error in sendMessage:", errMsg);
       addMessage("assistant", `Sorry, I encountered an error: ${errMsg}`);
       setError(errMsg);
     } finally {
@@ -126,44 +204,57 @@ function App() {
     }
   };
 
-  const handleDeleteConversation = (id: string) => {
-    setMessagesHistory((prev) => prev.filter((conv) => conv.id !== id));
-    setChatSessions((prev) => {
-      const updated = { ...prev };
-      delete updated[id];
-      return updated;
-    });
+  const handleDeleteConversation = async (id: string) => {
+    try {
+      await fetch(`http://localhost:5001/api/conversations/${id}`, {
+        method: "DELETE",
+      });
 
-    // 🟢 If the deleted conversation is currently active, reset the UI
-    if (id === conversationId) {
-      clearChat();
-      setConversationId(crypto.randomUUID());
+      setMessagesHistory((prev) => prev.filter((conv) => conv.id !== id));
+      setChatSessions((prev) => {
+        const updated = { ...prev };
+        delete updated[id];
+        return updated;
+      });
+
+      if (id === conversationId) {
+        clearChat();
+        setConversationId(crypto.randomUUID());
+      }
+    } catch (error) {
+      console.error("❌ Failed to delete conversation:", error);
+      alert("Failed to delete conversation. Try again.");
     }
   };
 
-
-
-
-  const handleNewChat = () => {
+  const handleNewChat = async () => {
     clearChat();
-    setConversationId(crypto.randomUUID());
-  };
+    const newId = crypto.randomUUID();
+    setConversationId(newId);
 
+    const userId = localStorage.getItem("userId");
+    const firstMessage = messages.find((m) => m.role === "user");
 
-
-  const handleLoadConversation = (id: string) => {
-    const session = chatSessions[id];
-    if (session) {
-      setConversationId(id);
-      setMessages(session);
+    if (userId && firstMessage) {
+      await fetch("http://localhost:5001/api/conversations", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          userId,
+          title: firstMessage?.content || "New Chat",
+        }),
+      });
     }
   };
 
-
-
-
-
-
+  const handleLoadConversation = async (id: string) => {
+    const res = await fetch(
+      `http://localhost:5001/api/conversations/messages/${id}`
+    );
+    const data = await res.json();
+    setMessages(data);
+    setConversationId(id);
+  };
 
   return (
     <div className="app">
@@ -174,6 +265,10 @@ function App() {
         history={messagesHistory}
         onDelete={handleDeleteConversation}
         onLoadConversation={handleLoadConversation}
+        userEmail={userEmail}
+        onClickGuest={() => {
+          if (!userEmail) setShowLogin(true);
+        }}
       />
 
       <main className={`main-content ${sidebarOpen ? "sidebar-open" : ""}`}>
@@ -218,6 +313,7 @@ function App() {
               onKeyDown={handleKeyPress}
               disabled={loading}
               placeholder="Type your message here..."
+              className="w-full p-3 bg-white text-white rounded-md focus:outline-none"
             />
           <button
   type="submit"
@@ -236,6 +332,48 @@ function App() {
           <div className="disclaimer">Student helper powered by RAG</div>
         </form>
       </main>
+
+      {showLogin && authMode === "login" && (
+        <div className="fixed inset-0 bg-gray-900 bg-opacity-50 z-[100] flex items-center justify-center">
+          <Login
+            onLogin={(email, id) => {
+              localStorage.setItem("userEmail", email);
+              localStorage.setItem("userId", id);
+              setUserEmail(email);
+              setShowLogin(false);
+              setAuthMode("login");
+              closeLogin();
+            }}
+            onSwitchToSignup={() => setAuthMode("signup")}
+            onSwitchToForgotPassword={() => setAuthMode("forgotPassword")}
+            onClose={closeLogin}
+          />
+        </div>
+      )}
+
+      {showLogin && authMode === "signup" && (
+        <div className="fixed inset-0 bg-gray-900 bg-opacity-50 z-50 flex items-center justify-center">
+          <SignUp
+            onSwitchToLogin={() => setAuthMode("login")}
+            onClose={closeLogin}
+            onLogin={(email, id) => {
+              localStorage.setItem("userEmail", email);
+              localStorage.setItem("userId", id);
+              setUserEmail(email);
+              setShowLogin(false);
+            }}
+          />
+        </div>
+      )}
+
+      {showLogin && authMode === "forgotPassword" && (
+        <div className="fixed inset-0 bg-gray-900 bg-opacity-50 z-50 flex items-center justify-center">
+          <ForgotPassword
+            onSwitchToLogin={() => setAuthMode("login")}
+            onClose={closeLogin}
+          />
+        </div>
+      )}
     </div>
   );
 }

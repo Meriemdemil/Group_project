@@ -1,0 +1,12 @@
+# For the frontend
+cd front_end 
+npm run dev
+
+# For the database
+cd back_end
+npm run dev
+
+# For the back_end
+python main.py
+
+Although u need to install some libraries for the encryption of the password .. 
