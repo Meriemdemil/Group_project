@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 from rag_core import rag_pipeline
 import re
-
+import traceback
 app = Flask(__name__)
 CORS(app, resources={
     r"/query": {
@@ -34,6 +34,8 @@ def handle_query():
         })
 
     except Exception as e:
+        print("Error in /query:", str(e))
+        traceback.print_exc()
         return jsonify({
             "error": str(e),
             "answers": ["Something went wrong. Please try again."],
