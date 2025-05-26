@@ -21,14 +21,13 @@ const ChatMessage = ({ message }) => {
         {role === "user" ? "You" : "AI Assistant"}
       </div>
 
-      <div className="message-content markdown-body">
-        <div className="markdown-body">
-          <ReactMarkdown
-            children={message.content}
-            remarkPlugins={[remarkGfm, remarkBreaks]}
-          />
-        </div>
-      </div>
+    <div className="message-content markdown-body">
+      <ReactMarkdown
+        children={text}
+        remarkPlugins={[remarkGfm, remarkBreaks]}
+      />
+    </div>
+
 
       <div className="message-time">{time}</div>
     </div>

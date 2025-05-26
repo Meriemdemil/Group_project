@@ -26,10 +26,9 @@ def handle_query():
 
         result = rag_pipeline(question=query, chat_history=history)
 
-        cleaned_answer = re.sub(r"\s+", " ", result["answer"]).strip()
 
         return jsonify({
-            "answer": cleaned_answer,  # ✅ single field, not array
+            "answer": result["answer"],  # ✅ single field, not array
             "status": "success",
             "conversation_id": result.get("conversation_id", "")
         })
